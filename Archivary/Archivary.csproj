@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB88E7B0-15C1-4989-B86F-C909AD494669}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Archivary</RootNamespace>
+    <AssemblyName>Archivary</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.Designer.cs">
+      <DependentUpon>FORM_EDITEMPLYEE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.Designer.cs">
+      <DependentUpon>FORM_EDITSTUDENT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_EDITTEACHER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_EDITTEACHER.Designer.cs">
+      <DependentUpon>FORM_EDITTEACHER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_SIGNUP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1200X800\FORM_USERS\FORM_SIGNUP.Designer.cs">
+      <DependentUpon>FORM_SIGNUP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.Designer.cs">
+      <DependentUpon>FORM_POS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.Designer.cs">
+      <DependentUpon>FORM_BOOKADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.Designer.cs">
+      <DependentUpon>FORM_BOOKEDIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.Designer.cs">
+      <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_USERS\FORM_INFOEMPLOYEE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_USERS\FORM_INFOEMPLOYEE.Designer.cs">
+      <DependentUpon>FORM_INFOEMPLOYEE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.Designer.cs">
+      <DependentUpon>FORM_INFOSTUDENT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1500X1000\FORM_USERS\FORM_INFOTEACHER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1500X1000\FORM_USERS\FORM_INFOTEACHER.Designer.cs">
+      <DependentUpon>FORM_INFOTEACHER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="900X500\FORM_ALERT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="900X500\FORM_ALERT.Designer.cs">
+      <DependentUpon>FORM_ALERT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM_ROOT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM_ROOT.Designer.cs">
+      <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_CIRCULATION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_CIRCULATION.Designer.cs">
+      <DependentUpon>FORM_CIRCULATION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_LIBRARY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_LIBRARY.Designer.cs">
+      <DependentUpon>FORM_LIBRARY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_LOGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_LOGIN.Designer.cs">
+      <DependentUpon>FORM_LOGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_REPORTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_REPORTS.Designer.cs">
+      <DependentUpon>FORM_REPORTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SETTINGS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SETTINGS.Designer.cs">
+      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SIDEBAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SIDEBAR.Designer.cs">
+      <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_TITLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_TITLE.Designer.cs">
+      <DependentUpon>FORM_TITLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_USERS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_USERS.Designer.cs">
+      <DependentUpon>FORM_USERS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Archivary Components\roundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\sidebarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
+      <DependentUpon>FORM_BORROW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
+      <DependentUpon>FORM_RETURN.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FORM_ROOT.resx">
+      <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_LOGIN.resx">
+      <DependentUpon>FORM_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_SIDEBAR.resx">
+      <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_TITLE.resx">
+      <DependentUpon>FORM_TITLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogo8.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogoBannerPNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogoWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogoBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogoGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogovvv.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
