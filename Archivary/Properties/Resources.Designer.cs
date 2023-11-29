@@ -83,16 +83,6 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ArchivaryLogoBlack {
-            get {
-                object obj = ResourceManager.GetObject("ArchivaryLogoBlack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ArchivaryLogoGreen {
             get {
                 object obj = ResourceManager.GetObject("ArchivaryLogoGreen", resourceCulture);
@@ -103,9 +93,9 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ArchivaryLogovvv {
+        internal static System.Drawing.Bitmap Artugue__Arthur {
             get {
-                object obj = ResourceManager.GetObject("ArchivaryLogovvv", resourceCulture);
+                object obj = ResourceManager.GetObject("Artugue__Arthur", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +103,159 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ArchivaryLogoWhite {
+        internal static System.Drawing.Bitmap ICON_CIRCULATION {
             get {
-                object obj = ResourceManager.GetObject("ArchivaryLogoWhite", resourceCulture);
+                object obj = ResourceManager.GetObject("ICON_CIRCULATION", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_CIRCULATION_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_CIRCULATION_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_LIBRARY {
+            get {
+                object obj = ResourceManager.GetObject("ICON_LIBRARY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_LIBRARY_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_LIBRARY_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_LOGOUT {
+            get {
+                object obj = ResourceManager.GetObject("ICON_LOGOUT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_LOGOUT_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_LOGOUT_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_REPORT {
+            get {
+                object obj = ResourceManager.GetObject("ICON_REPORT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_REPORT_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_REPORT_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_SETTING {
+            get {
+                object obj = ResourceManager.GetObject("ICON_SETTING", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_SETTING_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_SETTING_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_SIDEBAR_CLOSE {
+            get {
+                object obj = ResourceManager.GetObject("ICON_SIDEBAR_CLOSE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_SIDEBAR_CLOSE_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_SIDEBAR_CLOSE_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_SIDEBAR_OPEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_SIDEBAR_OPEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_SIDEBAR_OPEN_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_SIDEBAR_OPEN_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_USER {
+            get {
+                object obj = ResourceManager.GetObject("ICON_USER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_USER_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_USER_GREEN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
