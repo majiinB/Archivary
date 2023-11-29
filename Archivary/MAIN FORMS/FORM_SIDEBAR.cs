@@ -16,6 +16,7 @@ namespace Archivary
     {
         private FORM_ROOT FormsRoot;
         private FORM_LOGIN FormsLogin;
+        private FORM_LIBRARY FormsLibrary = new FORM_LIBRARY();
 
         private bool isToggled = false;
 
@@ -82,7 +83,12 @@ namespace Archivary
         //
         private void libraryButton_Click(object sender, EventArgs e)
         {
-
+            
+            FormsLibrary.TopLevel = false;
+            PANEL_CONTENTS.Controls.Add( FormsLibrary );
+            FormsLibrary.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Right;
+            FormsLibrary.BringToFront();
+            FormsLibrary.Show();
         }
 
         private void libraryButton_MouseEnter(object sender, EventArgs e)

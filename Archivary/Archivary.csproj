@@ -118,6 +118,9 @@
     <Compile Include="900X500\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivary Components\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Archivary Components\RoundedPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -197,6 +200,9 @@
     </Compile>
     <EmbeddedResource Include="FORM_ROOT.resx">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_LIBRARY.resx">
+      <DependentUpon>FORM_LIBRARY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_LOGIN.resx">
       <DependentUpon>FORM_LOGIN.cs</DependentUpon>
