@@ -86,7 +86,7 @@ namespace Archivary
             
             FormsLibrary.TopLevel = false;
             PANEL_CONTENTS.Controls.Add( FormsLibrary );
-            FormsLibrary.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Right;
+            FormsLibrary.Dock = DockStyle.Fill;
             FormsLibrary.BringToFront();
             FormsLibrary.Show();
         }

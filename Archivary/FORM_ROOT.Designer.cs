@@ -50,11 +50,13 @@ namespace Archivary
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_HOLDER);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1500, 1000);
             this.Name = "FORM_ROOT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivary";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FORM_ROOT_Load);
             this.ResumeLayout(false);
 

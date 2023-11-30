@@ -60,8 +60,10 @@
             this.sidebarButton = new sidebarComponents.sidebarButton();
             this.LAYOUT_SIDEBAR = new System.Windows.Forms.Panel();
             this.PANEL_CONTAINER = new System.Windows.Forms.Panel();
+            this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
             this.PANEL_HEADER = new System.Windows.Forms.Panel();
-            this.PANEL_CONTENTS = new RoundedCorners.RoundedPanel();
+            this.functionLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.PANEL_SIDEBAR.SuspendLayout();
             this.LAYOUT_account.SuspendLayout();
             this.LAYOUT_viewButton.SuspendLayout();
@@ -70,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.PANEL_sidebarButton.SuspendLayout();
             this.PANEL_CONTAINER.SuspendLayout();
+            this.PANEL_HEADER.SuspendLayout();
             this.SuspendLayout();
             // 
             // PANEL_SIDEBAR
@@ -502,31 +505,58 @@
             this.PANEL_CONTAINER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.PANEL_CONTAINER.Controls.Add(this.PANEL_CONTENTS);
             this.PANEL_CONTAINER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_CONTAINER.Location = new System.Drawing.Point(83, 100);
+            this.PANEL_CONTAINER.Location = new System.Drawing.Point(83, 50);
             this.PANEL_CONTAINER.Name = "PANEL_CONTAINER";
             this.PANEL_CONTAINER.Padding = new System.Windows.Forms.Padding(20);
-            this.PANEL_CONTAINER.Size = new System.Drawing.Size(1837, 980);
+            this.PANEL_CONTAINER.Size = new System.Drawing.Size(1837, 1030);
             this.PANEL_CONTAINER.TabIndex = 2;
-            // 
-            // PANEL_HEADER
-            // 
-            this.PANEL_HEADER.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PANEL_HEADER.Location = new System.Drawing.Point(83, 0);
-            this.PANEL_HEADER.Name = "PANEL_HEADER";
-            this.PANEL_HEADER.Size = new System.Drawing.Size(1837, 100);
-            this.PANEL_HEADER.TabIndex = 5;
             // 
             // PANEL_CONTENTS
             // 
-            this.PANEL_CONTENTS.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.PANEL_CONTENTS.BorderColor = System.Drawing.SystemColors.Control;
-            this.PANEL_CONTENTS.BorderWidth = 1F;
-            this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_CONTENTS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PANEL_CONTENTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.PANEL_CONTENTS.Location = new System.Drawing.Point(20, 20);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
-            this.PANEL_CONTENTS.Radius = 10;
-            this.PANEL_CONTENTS.Size = new System.Drawing.Size(1797, 940);
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(1797, 990);
             this.PANEL_CONTENTS.TabIndex = 0;
+            // 
+            // PANEL_HEADER
+            // 
+            this.PANEL_HEADER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.PANEL_HEADER.Controls.Add(this.functionLabel);
+            this.PANEL_HEADER.Controls.Add(this.titleLabel);
+            this.PANEL_HEADER.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PANEL_HEADER.Location = new System.Drawing.Point(83, 0);
+            this.PANEL_HEADER.Name = "PANEL_HEADER";
+            this.PANEL_HEADER.Padding = new System.Windows.Forms.Padding(10);
+            this.PANEL_HEADER.Size = new System.Drawing.Size(1837, 50);
+            this.PANEL_HEADER.TabIndex = 5;
+            // 
+            // functionLabel
+            // 
+            this.functionLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.functionLabel.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.functionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.functionLabel.Location = new System.Drawing.Point(140, 10);
+            this.functionLabel.Name = "functionLabel";
+            this.functionLabel.Size = new System.Drawing.Size(183, 30);
+            this.functionLabel.TabIndex = 1;
+            this.functionLabel.Text = "Library";
+            this.functionLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.titleLabel.Font = new System.Drawing.Font("Montserrat Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.titleLabel.Location = new System.Drawing.Point(10, 10);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(130, 30);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "Archivary | ";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // FORM_SIDEBAR
             // 
@@ -550,6 +580,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.PANEL_sidebarButton.ResumeLayout(false);
             this.PANEL_CONTAINER.ResumeLayout(false);
+            this.PANEL_HEADER.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -587,6 +618,8 @@
         private System.Windows.Forms.Panel LAYOUT8;
         private System.Windows.Forms.Panel PANEL_CONTAINER;
         private System.Windows.Forms.Panel PANEL_HEADER;
-        private RoundedCorners.RoundedPanel PANEL_CONTENTS;
+        private System.Windows.Forms.Panel PANEL_CONTENTS;
+        private System.Windows.Forms.Label functionLabel;
+        private System.Windows.Forms.Label titleLabel;
     }
 }

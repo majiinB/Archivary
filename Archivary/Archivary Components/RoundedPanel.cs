@@ -8,6 +8,7 @@ namespace RoundedCorners
     public partial class RoundedPanel : Panel
     {
         private int radius = 10;
+
         public int Radius
         {
             get { return radius; }
@@ -53,8 +54,14 @@ namespace RoundedCorners
 
         public RoundedPanel()
         {
-            //InitializeComponent();
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            Resize += RoundedPanel_Resize;
+        }
+
+        private void RoundedPanel_Resize(object sender, EventArgs e)
+        {
+            // Redraw the panel on resize
+            Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -65,12 +72,7 @@ namespace RoundedCorners
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
             // Create a rounded rectangle path
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, radius * 2, radius * 2, 180, 90);
-            path.AddArc(Width - radius * 2 - 1, 0, radius * 2, radius * 2, 270, 90); // Adjusted starting angle
-            path.AddArc(Width - radius * 2 - 1, Height - radius * 2 - 1, radius * 2, radius * 2, 0, 90); // Adjusted starting angle
-            path.AddArc(0, Height - radius * 2 - 1, radius * 2, radius * 2, 90, 90);
-            path.CloseFigure();
+            GraphicsPath path = CreateRoundedRectanglePath();
 
             // Draw background
             g.FillPath(new SolidBrush(backgroundColor), path);
@@ -83,5 +85,25 @@ namespace RoundedCorners
             }
         }
 
+        private GraphicsPath CreateRoundedRectanglePath()
+        {
+            int diameter = radius * 2;
+
+            // Calculate adjusted starting points to avoid zigzag lines
+            int startX = 0;
+            int startY = 0;
+
+            int widthMinusDiameter = Width - diameter - 1;
+            int heightMinusDiameter = Height - diameter - 1;
+
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(startX, startY, diameter, diameter, 180, 90);
+            path.AddArc(widthMinusDiameter, startY, diameter, diameter, 270, 90);
+            path.AddArc(widthMinusDiameter, heightMinusDiameter, diameter, diameter, 0, 90);
+            path.AddArc(startX, heightMinusDiameter, diameter, diameter, 90, 90);
+            path.CloseFigure();
+
+            return path;
+        }
     }
 }
