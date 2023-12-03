@@ -39,19 +39,27 @@ namespace Archivary
         {
             if (isToggled)
             {
-                PANEL_SIDEBAR.Size = new System.Drawing.Size(320, 1080);
-                dashboardLabel.Visible = true;
+                PANEL_SIDEBAR.Size = new System.Drawing.Size(220, 1080);
+                dashboardLabel.Visible = false;
                 sidebarButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SIDEBAR_CLOSE;
-                logoPictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoBannerPNG;
+                //logoPictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoBannerPNG;
             }
             else
             {
                 PANEL_SIDEBAR.Size = new System.Drawing.Size(80, 1080);
                 dashboardLabel.Visible = false;
                 sidebarButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SIDEBAR_OPEN;
-                logoPictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoGreen;
+                //logoPictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoGreen;
+                /*this.logoutButton.Text = "";
+                this.libraryButton.Text = "";
+                this.circulationButton.Text = "";
+                this.usersButton.Text = "";
+                this.reportsButton.Text = "";
+                this.settingsButton.Text = "";*/
             }
         }
+
+
         private void sidebarButton_Click(object sender, EventArgs e)
         {
             isToggled = !isToggled;
@@ -83,9 +91,9 @@ namespace Archivary
         //
         private void libraryButton_Click(object sender, EventArgs e)
         {
-            
+
             FormsLibrary.TopLevel = false;
-            PANEL_CONTENTS.Controls.Add( FormsLibrary );
+            PANEL_CONTENTS.Controls.Add(FormsLibrary);
             FormsLibrary.Dock = DockStyle.Fill;
             FormsLibrary.BringToFront();
             FormsLibrary.Show();

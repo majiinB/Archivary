@@ -39,5 +39,24 @@ namespace Archivary
         {
             loadParentForm(new FORM_TITLE(this));
         }
+
+        private void FORM_ROOT_DpiChanged(object sender, DpiChangedEventArgs e)
+        {
+            //HandleDpiChange();
+        }
+
+        private void HandleDpiChange()
+        {
+            // Retrieve the new DPI settings
+            float newDpiX = this.DeviceDpi;
+            float newDpiY = this.DeviceDpi;
+
+            // Adjust controls or perform other actions based on the new DPI
+            // For simplicity, we'll just update the label font size
+            foreach (Control control in this.Controls)
+            {
+                control.Font = new Font(control.Font.FontFamily, control.Font.Size * (newDpiY / 96f));
+            }
+        }
     }
 }

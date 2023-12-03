@@ -14,6 +14,8 @@ namespace Archivary.PARENT_FORMS
     {
         private FORM_ROOT FormsRoot;
         private FORM_SIDEBAR FormsSidebar;
+        private FORM_SIDEBAR1 FormsSidebar1;
+
 
         public FORM_LOGIN(FORM_ROOT formsRoot)
         {
@@ -23,7 +25,8 @@ namespace Archivary.PARENT_FORMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
+            //FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
+            FormsRoot.loadParentForm(new FORM_SIDEBAR1(FormsRoot));
         }
 
         private void button2_Click(object sender, EventArgs e)

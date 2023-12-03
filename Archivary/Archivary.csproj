@@ -130,6 +130,12 @@
     <Compile Include="FORM_ROOT.Designer.cs">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORM_SIDEBAR1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM_SIDEBAR1.Designer.cs">
+      <DependentUpon>FORM_SIDEBAR1.cs</DependentUpon>
+    </Compile>
     <Compile Include="MAIN FORMS\FORM_CIRCULATION.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </Compile>
     <EmbeddedResource Include="FORM_ROOT.resx">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM_SIDEBAR1.resx">
+      <DependentUpon>FORM_SIDEBAR1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_LIBRARY.resx">
       <DependentUpon>FORM_LIBRARY.cs</DependentUpon>
