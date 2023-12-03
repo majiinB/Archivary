@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -40,8 +41,19 @@ namespace Archivary
             }
             else
             {
-                PANEL_SIDEBAR.Size = new System.Drawing.Size(60, 540);
+                PANEL_SIDEBAR.Size = new System.Drawing.Size(70, 540);
             }
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void PANEL_HEADER_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.FormsRoot.Handle, 0x112, 0xf012, 0);
         }
     }
 }
