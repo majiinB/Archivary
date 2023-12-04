@@ -305,5 +305,29 @@
   <ItemGroup>
     <None Include="Resources\ArchivaryLogoBannerPNG.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLOSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE_TOGGLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLOSE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE_TOGGLE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MINIMIZE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MINIMIZE_WHITE.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,15 +40,14 @@ namespace Archivary
             this.PANEL_HOLDER.Location = new System.Drawing.Point(0, 0);
             this.PANEL_HOLDER.Margin = new System.Windows.Forms.Padding(2);
             this.PANEL_HOLDER.Name = "PANEL_HOLDER";
-            this.PANEL_HOLDER.Size = new System.Drawing.Size(942, 522);
+            this.PANEL_HOLDER.Size = new System.Drawing.Size(944, 524);
             this.PANEL_HOLDER.TabIndex = 0;
             // 
             // FORM_ROOT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(942, 522);
+            this.ClientSize = new System.Drawing.Size(944, 524);
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_HOLDER);
             this.DoubleBuffered = true;

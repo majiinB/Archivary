@@ -14,8 +14,8 @@ namespace Archivary
 {
     public partial class FORM_ROOT : Form
     {
-        private int borderSize = 5;
-        private readonly Size minimumSize = new Size(1200, 650);
+        private int borderSize = 3;
+        private readonly Size minimumSize = new Size(960, 650);
 
         public FORM_ROOT()
         {
@@ -33,6 +33,10 @@ namespace Archivary
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
 
             this.MinimumSize = minimumSize;
+            this.Size = new Size(960, 540);
+
+            /*this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);*/
 
         }
 
@@ -183,7 +187,6 @@ namespace Archivary
                     break;
             }*/
         }
-
 
     }
 }
