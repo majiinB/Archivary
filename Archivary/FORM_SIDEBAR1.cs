@@ -1,5 +1,6 @@
 ﻿using Archivary.PARENT_FORMS;
 using Archivary.Properties;
+using sidebarComponents;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,9 @@ namespace Archivary
             sidebarControlsSize();
         }
 
+        //
+        // SIDEBAR FIXED SIZES FOR OVERRIDE DO NOT TOUCH JEBAL
+        //
         private void sidebarControlsSize()
         {
             PANEL_SIDEBAR.Size = new System.Drawing.Size(70, 650);
@@ -53,6 +57,9 @@ namespace Archivary
             logoutButton.Size = new System.Drawing.Size(50, 50);
         }
 
+        //
+        // SIDEBAR BUTTON
+        //
         private void sidebarButton_Click(object sender, EventArgs e)
         {
             isToggled = !isToggled;
@@ -64,10 +71,14 @@ namespace Archivary
             if (isToggled)
             {
                 PANEL_SIDEBAR.Size = new System.Drawing.Size(220, 650);
+                this.sidebarButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SIDEBAR_CLOSE;
+                this.logoPictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoBannerPNG;
             }
             else
             {
                 PANEL_SIDEBAR.Size = new System.Drawing.Size(70, 650);
+                this.sidebarButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SIDEBAR_OPEN;
+                this.logoPictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoGreen;
             }
         }
 
@@ -101,7 +112,7 @@ namespace Archivary
             if (FormsRoot.WindowState == System.Windows.Forms.FormWindowState.Normal)
             {
                 FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                this.maximizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MAXIMIZE_TOGGLE;
+                this.maximizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MAXIMIZE_TOGGLE; 
             }
             else
             {
@@ -121,13 +132,13 @@ namespace Archivary
         //
         private void closeButton_MouseEnter(object sender, EventArgs e)
         {
-            closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
+            closeButton.BackColor = archivaryRed();
             this.closeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CLOSE_WHITE;
         }
 
         private void closeButton_MouseLeave(object sender, EventArgs e)
         {
-            closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            closeButton.BackColor = archivaryBlack();
             this.closeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CLOSE;
         }
 
@@ -152,5 +163,161 @@ namespace Archivary
         {
             this.minimizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MINIMIZE;
         }
+        
+        //
+        // LIBRARY BUTTON
+        //
+        private void libraryButton_MouseEnter(object sender, EventArgs e)
+        {
+            sidebarButton button = (sidebarButton)sender;
+            if (button != clickedButton) libraryButton.ForeColor = archivaryGreen();
+        }
+
+        private void libraryButton_MouseLeave(object sender, EventArgs e)
+        {
+            sidebarButton button = (sidebarButton)sender;
+            if (button != clickedButton) libraryButton.ForeColor = archivaryWhite();
+        }
+
+
+        //
+        // CIRCULATIONS BUTTON
+        //
+        private void circulationsButton_MouseEnter(object sender, EventArgs e)
+        {
+            sidebarButton button = (sidebarButton)sender;
+            if (button != clickedButton) circulationsButton.ForeColor = archivaryGreen();
+        }
+
+        private void circulationsButton_MouseLeave(object sender, EventArgs e)
+        {
+            sidebarButton button = (sidebarButton)sender;
+            if (button != clickedButton) circulationsButton.ForeColor = archivaryWhite();
+        }
+
+        //
+        // USERS BUTTON
+        //
+        private void usersButton_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usersButton_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        //
+        // REPORTS BUTTON
+        //
+        private void reportsButton_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportsButton_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        //
+        // SETTINGS BUTTON
+        //
+        private void settingsButton_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsButton_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        //
+        // LOGOUT BUTTON
+        //
+        private void logoutButton_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logoutButton_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //
+        // SIDEBAR CLICK METHODS
+        //
+        private sidebarButton clickedButton = null;
+
+        private void libraryButton_Click(object sender, EventArgs e)
+        {
+            sidebarButton button = (sidebarButton)sender;
+            clickedButton = button;
+            if (clickedButton == button) libraryButton.BackColor = archivarytest();
+        }
+
+        private void circulationsButton_Click(object sender, EventArgs e)
+        {
+            sidebarButton button = (sidebarButton)sender;
+            clickedButton = button;
+            if (clickedButton == button) circulationsButton.BackColor = archivarytest();
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reportsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
+        }
+
+
+
+
+        //
+        // COLOR METHODS
+        //
+        private Color archivaryGreen()
+        {
+            return Color.FromArgb(37, 211, 102);
+        }
+
+        private Color archivaryWhite()
+        {
+            return Color.FromArgb(244, 244, 244);
+        }
+
+        private Color archivaryBlack()
+        {
+            return Color.FromArgb(20, 18, 18);
+        }
+
+        private Color archivaryRed()
+        {
+            return Color.FromArgb(227, 25, 55);
+        }
+
+        private Color archivarytest()
+        {
+            return Color.Green;
+        }
+
+
     }
 }

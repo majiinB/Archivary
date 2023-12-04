@@ -95,14 +95,14 @@
             this.PANEL_SIDEBAR.Margin = new System.Windows.Forms.Padding(0);
             this.PANEL_SIDEBAR.Name = "PANEL_SIDEBAR";
             this.PANEL_SIDEBAR.Padding = new System.Windows.Forms.Padding(10);
-            this.PANEL_SIDEBAR.Size = new System.Drawing.Size(70, 540);
+            this.PANEL_SIDEBAR.Size = new System.Drawing.Size(70, 650);
             this.PANEL_SIDEBAR.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(10, 458);
+            this.panel3.Location = new System.Drawing.Point(10, 568);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(50, 2);
@@ -111,7 +111,7 @@
             // LAYOUT5
             // 
             this.LAYOUT5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT5.Location = new System.Drawing.Point(10, 460);
+            this.LAYOUT5.Location = new System.Drawing.Point(10, 570);
             this.LAYOUT5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT5.Name = "LAYOUT5";
             this.LAYOUT5.Size = new System.Drawing.Size(50, 10);
@@ -124,27 +124,30 @@
             this.logoutButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.logoutButton.BorderRadius = 10;
             this.logoutButton.BorderSize = 0;
-            this.logoutButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY;
+            this.logoutButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LOGOUT;
             this.logoutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.logoutButton.FlatAppearance.BorderSize = 0;
             this.logoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logoutButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(10, 470);
+            this.logoutButton.Location = new System.Drawing.Point(10, 580);
             this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.logoutButton.Size = new System.Drawing.Size(50, 50);
             this.logoutButton.TabIndex = 14;
-            this.logoutButton.Text = "Library";
+            this.logoutButton.Text = "Log Out";
             this.logoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logoutButton.TextColor = System.Drawing.Color.White;
             this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            this.logoutButton.MouseEnter += new System.EventHandler(this.logoutButton_MouseEnter);
+            this.logoutButton.MouseLeave += new System.EventHandler(this.logoutButton_MouseLeave);
             // 
             // LAYOUT6
             // 
             this.LAYOUT6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT6.Location = new System.Drawing.Point(10, 520);
+            this.LAYOUT6.Location = new System.Drawing.Point(10, 630);
             this.LAYOUT6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT6.Name = "LAYOUT6";
             this.LAYOUT6.Size = new System.Drawing.Size(50, 10);
@@ -157,7 +160,7 @@
             this.settingsButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.settingsButton.BorderRadius = 10;
             this.settingsButton.BorderSize = 0;
-            this.settingsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY;
+            this.settingsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SETTING;
             this.settingsButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsButton.FlatAppearance.BorderSize = 0;
             this.settingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -169,10 +172,13 @@
             this.settingsButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.settingsButton.Size = new System.Drawing.Size(50, 50);
             this.settingsButton.TabIndex = 12;
-            this.settingsButton.Text = "Library";
+            this.settingsButton.Text = "Settings";
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.TextColor = System.Drawing.Color.White;
             this.settingsButton.UseVisualStyleBackColor = false;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            this.settingsButton.MouseEnter += new System.EventHandler(this.settingsButton_MouseEnter);
+            this.settingsButton.MouseLeave += new System.EventHandler(this.settingsButton_MouseLeave);
             // 
             // reportsButton
             // 
@@ -181,7 +187,7 @@
             this.reportsButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.reportsButton.BorderRadius = 10;
             this.reportsButton.BorderSize = 0;
-            this.reportsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY;
+            this.reportsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_REPORT;
             this.reportsButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.reportsButton.FlatAppearance.BorderSize = 0;
             this.reportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -193,10 +199,13 @@
             this.reportsButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.reportsButton.Size = new System.Drawing.Size(50, 50);
             this.reportsButton.TabIndex = 11;
-            this.reportsButton.Text = "Library";
+            this.reportsButton.Text = "Reports";
             this.reportsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportsButton.TextColor = System.Drawing.Color.White;
             this.reportsButton.UseVisualStyleBackColor = false;
+            this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
+            this.reportsButton.MouseEnter += new System.EventHandler(this.reportsButton_MouseEnter);
+            this.reportsButton.MouseLeave += new System.EventHandler(this.reportsButton_MouseLeave);
             // 
             // usersButton
             // 
@@ -205,7 +214,7 @@
             this.usersButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.usersButton.BorderRadius = 10;
             this.usersButton.BorderSize = 0;
-            this.usersButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY;
+            this.usersButton.ButtonImage = global::Archivary.Properties.Resources.ICON_USER;
             this.usersButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersButton.FlatAppearance.BorderSize = 0;
             this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -217,10 +226,13 @@
             this.usersButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.usersButton.Size = new System.Drawing.Size(50, 50);
             this.usersButton.TabIndex = 10;
-            this.usersButton.Text = "Library";
+            this.usersButton.Text = "Users";
             this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.usersButton.TextColor = System.Drawing.Color.White;
             this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
+            this.usersButton.MouseEnter += new System.EventHandler(this.usersButton_MouseEnter);
+            this.usersButton.MouseLeave += new System.EventHandler(this.usersButton_MouseLeave);
             // 
             // circulationsButton
             // 
@@ -229,7 +241,7 @@
             this.circulationsButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.circulationsButton.BorderRadius = 10;
             this.circulationsButton.BorderSize = 0;
-            this.circulationsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY;
+            this.circulationsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CIRCULATION;
             this.circulationsButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.circulationsButton.FlatAppearance.BorderSize = 0;
             this.circulationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -241,10 +253,13 @@
             this.circulationsButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
             this.circulationsButton.Size = new System.Drawing.Size(50, 50);
             this.circulationsButton.TabIndex = 9;
-            this.circulationsButton.Text = "Library";
+            this.circulationsButton.Text = "Circulations";
             this.circulationsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.circulationsButton.TextColor = System.Drawing.Color.White;
             this.circulationsButton.UseVisualStyleBackColor = false;
+            this.circulationsButton.Click += new System.EventHandler(this.circulationsButton_Click);
+            this.circulationsButton.MouseEnter += new System.EventHandler(this.circulationsButton_MouseEnter);
+            this.circulationsButton.MouseLeave += new System.EventHandler(this.circulationsButton_MouseLeave);
             // 
             // libraryButton
             // 
@@ -269,6 +284,9 @@
             this.libraryButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.libraryButton.TextColor = System.Drawing.Color.White;
             this.libraryButton.UseVisualStyleBackColor = false;
+            this.libraryButton.Click += new System.EventHandler(this.libraryButton_Click);
+            this.libraryButton.MouseEnter += new System.EventHandler(this.libraryButton_MouseEnter);
+            this.libraryButton.MouseLeave += new System.EventHandler(this.libraryButton_MouseLeave);
             // 
             // LAYOUT4
             // 
@@ -450,7 +468,7 @@
             this.LAYOUT_SIDEBAR.Location = new System.Drawing.Point(70, 0);
             this.LAYOUT_SIDEBAR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_SIDEBAR.Name = "LAYOUT_SIDEBAR";
-            this.LAYOUT_SIDEBAR.Size = new System.Drawing.Size(3, 540);
+            this.LAYOUT_SIDEBAR.Size = new System.Drawing.Size(3, 650);
             this.LAYOUT_SIDEBAR.TabIndex = 1;
             // 
             // PANEL_HEADER
@@ -557,7 +575,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(960, 540);
+            this.ClientSize = new System.Drawing.Size(960, 650);
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_HEADER);
             this.Controls.Add(this.LAYOUT_SIDEBAR);

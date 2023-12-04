@@ -57,7 +57,6 @@ namespace Archivary
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FORM_ROOT_Load);
             this.DpiChanged += new System.Windows.Forms.DpiChangedEventHandler(this.FORM_ROOT_DpiChanged);
-            this.Resize += new System.EventHandler(this.FORM_ROOT_Resize);
             this.ResumeLayout(false);
 
         }

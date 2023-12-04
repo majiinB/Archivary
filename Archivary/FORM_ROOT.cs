@@ -16,6 +16,7 @@ namespace Archivary
     {
         private int borderSize = 3;
         private readonly Size minimumSize = new Size(960, 650);
+        private Size formSize;
 
         public FORM_ROOT()
         {
@@ -153,40 +154,19 @@ namespace Archivary
                 return;
             }
 
-            /*//Keep form size when it is minimized and restored. Since the form is resized because it takes into account the size of the title bar and borders.
+            //Keep form size when it is minimized and restored. Since the form is resized because it takes into account the size of the title bar and borders.
             if (m.Msg == WM_SYSCOMMAND)
             {
-                /// <see cref="https://docs.microsoft.com/en-us/windows/win32/menurc/wm-syscommand"/>
-                /// Quote:
-                /// In WM_SYSCOMMAND messages, the four low - order bits of the wParam parameter 
-                /// are used internally by the system.To obtain the correct result when testing 
-                /// the value of wParam, an application must combine the value 0xFFF0 with the 
-                /// wParam value by using the bitwise AND operator.
                 int wParam = (m.WParam.ToInt32() & 0xFFF0);
 
                 if (wParam == SC_MINIMIZE)  //Before
                     formSize = this.ClientSize;
                 if (wParam == SC_RESTORE)// Restored form(Before)
                     this.Size = formSize;
-            }*/
+            }
             base.WndProc(ref m);
         }
 
-        private void FORM_ROOT_Resize(object sender, EventArgs e)
-        {
-            FormResize();
-
-        }
-
-        private void FormResize()
-        {
-/*            switch (this.WindowState)
-            {
-                case FormWindowState.Maximized:
-                    
-                    break;
-            }*/
-        }
 
     }
 }
