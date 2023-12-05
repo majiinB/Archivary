@@ -37,6 +37,7 @@ namespace Archivary
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;
 
+            //CALL FORMS LIBRARY AS DEFAULT HOMEPAGE
             libraryButton_Click(libraryButton, EventArgs.Empty);
 
             sidebarControlsSize();
@@ -268,32 +269,27 @@ namespace Archivary
 
         private void libraryButton_Click(object sender, EventArgs e)
         {
-            selectedButton(sender, archivaryGreen());
-            showMainForms(FormsLibrary);
+            ToggleForm(FormsLibrary, sender);
         }
 
         private void circulationsButton_Click(object sender, EventArgs e)
         {
-            selectedButton(sender, archivaryGreen());
-            showMainForms(FormsCirculation);
+            ToggleForm(FormsCirculation, sender);
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            selectedButton(sender, archivaryGreen());
-            showMainForms(FormsUsers);
+            ToggleForm(FormsUsers, sender);
         }
 
         private void reportsButton_Click(object sender, EventArgs e)
         {
-            selectedButton(sender, archivaryGreen());
-            showMainForms(FormsReports);
+            ToggleForm(FormsReports, sender);
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            selectedButton(sender, archivaryGreen());
-            showMainForms(FormsSettings);
+            ToggleForm(FormsSettings, sender);
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -316,6 +312,38 @@ namespace Archivary
             showChildForm.Show();
         }
 
+        //
+        // CLOSE NOT NEEDED FORMS IN SIDEBAR BUTTONS
+        //
+        private Form currentlyOpenForm = null;
+        private void ToggleForm(Form formToToggle, object sender)
+        {
+            if (currentlyOpenForm == formToToggle)
+            {
+                if (formToToggle.Visible)
+                {
+                    formToToggle.Hide();
+                    selectedButton(sender, archivaryGreen());
+                }
+                else
+                {
+                    formToToggle.Show();
+                    selectedButton(sender, archivaryGreen());
+                }
+            }
+            else
+            {
+                CloseFormIfOpen(currentlyOpenForm);
+                selectedButton(sender, archivaryGreen());
+                currentlyOpenForm = formToToggle;
+                showMainForms(formToToggle);
+            }
+        }
+
+        private void CloseFormIfOpen(Form form)
+        {
+            if (form != null && !form.IsDisposed && form.Visible) form.Hide();
+        }
 
         //
         // COLOR METHODS
