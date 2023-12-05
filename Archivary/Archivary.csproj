@@ -213,6 +213,9 @@
     <EmbeddedResource Include="MAIN FORMS\FORM_TITLE.resx">
       <DependentUpon>FORM_TITLE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_USERS.resx">
+      <DependentUpon>FORM_USERS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
