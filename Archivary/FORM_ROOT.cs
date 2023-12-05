@@ -17,17 +17,17 @@ namespace Archivary
         private int borderSize = 3;
         private readonly Size minimumSize = new Size(960, 650);
         private Size formSize;
-
+            
         public FORM_ROOT()
         {
             InitializeComponent();
-            //M
+            //pole
             this.Text = "Archivary";
             //this.Text = string.Empty;
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             //this.Shown += (sender, e) => this.Text = string.Empty;
-            this.DoubleBuffered = true;
+            this.DoubleBuffered = false;
             this.ShowInTaskbar = true;
 
             this.Padding = new System.Windows.Forms.Padding(borderSize);
