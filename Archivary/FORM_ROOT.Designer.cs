@@ -40,14 +40,14 @@ namespace Archivary
             this.PANEL_HOLDER.Location = new System.Drawing.Point(0, 0);
             this.PANEL_HOLDER.Margin = new System.Windows.Forms.Padding(2);
             this.PANEL_HOLDER.Name = "PANEL_HOLDER";
-            this.PANEL_HOLDER.Size = new System.Drawing.Size(944, 524);
+            this.PANEL_HOLDER.Size = new System.Drawing.Size(942, 522);
             this.PANEL_HOLDER.TabIndex = 0;
             // 
             // FORM_ROOT
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(944, 524);
+            this.ClientSize = new System.Drawing.Size(942, 522);
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_HOLDER);
             this.DoubleBuffered = true;
@@ -56,7 +56,7 @@ namespace Archivary
             this.Name = "FORM_ROOT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FORM_ROOT_Load);
-            this.DpiChanged += new System.Windows.Forms.DpiChangedEventHandler(this.FORM_ROOT_DpiChanged);
+            this.Resize += new System.EventHandler(this.FORM_ROOT_Resize);
             this.ResumeLayout(false);
 
         }

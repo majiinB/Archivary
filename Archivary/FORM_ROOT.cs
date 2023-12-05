@@ -15,18 +15,15 @@ namespace Archivary
     public partial class FORM_ROOT : Form
     {
         private int borderSize = 3;
-        private readonly Size minimumSize = new Size(960, 650);
+        private readonly Size minimumSize = new Size(970, 670);
         private Size formSize;
             
         public FORM_ROOT()
         {
             InitializeComponent();
-            //pole
             this.Text = "Archivary";
-            //this.Text = string.Empty;
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.Sizable;
-            //this.Shown += (sender, e) => this.Text = string.Empty;
             this.DoubleBuffered = true;
             this.ShowInTaskbar = true;
 
@@ -34,16 +31,28 @@ namespace Archivary
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
 
             this.MinimumSize = minimumSize;
-            this.Size = new Size(960, 540);
-
-            /*this.AutoScaleMode = AutoScaleMode.Font;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);*/
+            this.Size = new Size(960, 650);
+            this.ClientSize = new Size(960, 650);
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FORM_ROOT_Resize(object sender, EventArgs e)
         {
-            
+            fixedForm();
+        }
+
+        private void fixedForm()
+        {
+            switch (this.WindowState)
+            {
+                case FormWindowState.Maximized:
+                    this.Padding = new Padding(8, 8, 8, 8);
+                    break;
+                case FormWindowState.Normal:
+                    if(this.Padding.Top != borderSize)
+                    this.Padding = new Padding(borderSize);
+                    break;
+            }
         }
 
         public void loadParentForm(Form loadForm)
@@ -62,25 +71,6 @@ namespace Archivary
         private void FORM_ROOT_Load(object sender, EventArgs e)
         {
             loadParentForm(new FORM_TITLE(this));
-        }
-
-        private void FORM_ROOT_DpiChanged(object sender, DpiChangedEventArgs e)
-        {
-            //HandleDpiChange();
-        }
-
-        private void HandleDpiChange()
-        {
-            // Retrieve the new DPI settings
-            float newDpiX = this.DeviceDpi;
-            float newDpiY = this.DeviceDpi;
-
-            // Adjust controls or perform other actions based on the new DPI
-            // For simplicity, we'll just update the label font size
-            foreach (Control control in this.Controls)
-            {
-                control.Font = new Font(control.Font.FontFamily, control.Font.Size * (newDpiY / 96f));
-            }
         }
 
         //Overridden methods
