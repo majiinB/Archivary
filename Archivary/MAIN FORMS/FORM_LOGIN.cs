@@ -26,6 +26,7 @@ namespace Archivary.PARENT_FORMS
         {
             //FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
             FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
+            FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }
 
         private void button2_Click(object sender, EventArgs e)

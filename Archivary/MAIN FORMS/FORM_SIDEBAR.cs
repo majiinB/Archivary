@@ -164,35 +164,33 @@ namespace Archivary
             this.minimizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MINIMIZE;
         }
         
+
+
+        // HOVER EFFECTS OF BUTTON (MOUSE ENTER MOUSE LEAVE EVENT HANDLERS)
         //
         // LIBRARY BUTTON
         //
         private void libraryButton_MouseEnter(object sender, EventArgs e)
         {
-            sidebarButton button = (sidebarButton)sender;
-            if (button != clickedButton) libraryButton.ForeColor = archivaryGreen();
+
         }
 
         private void libraryButton_MouseLeave(object sender, EventArgs e)
         {
-            sidebarButton button = (sidebarButton)sender;
-            if (button != clickedButton) libraryButton.ForeColor = archivaryWhite();
-        }
 
+        }
 
         //
         // CIRCULATIONS BUTTON
         //
         private void circulationsButton_MouseEnter(object sender, EventArgs e)
         {
-            sidebarButton button = (sidebarButton)sender;
-            if (button != clickedButton) circulationsButton.ForeColor = archivaryGreen();
+
         }
 
         private void circulationsButton_MouseLeave(object sender, EventArgs e)
         {
-            sidebarButton button = (sidebarButton)sender;
-            if (button != clickedButton) circulationsButton.ForeColor = archivaryWhite();
+
         }
 
         //
@@ -256,15 +254,11 @@ namespace Archivary
         private void libraryButton_Click(object sender, EventArgs e)
         {
             sidebarButton button = (sidebarButton)sender;
-            clickedButton = button;
-            if (clickedButton == button) libraryButton.BackColor = archivarytest();
         }
 
         private void circulationsButton_Click(object sender, EventArgs e)
         {
             sidebarButton button = (sidebarButton)sender;
-            clickedButton = button;
-            if (clickedButton == button) circulationsButton.BackColor = archivarytest();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
@@ -285,9 +279,21 @@ namespace Archivary
         private void logoutButton_Click(object sender, EventArgs e)
         {
             FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
+            FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Normal;
         }
 
 
+        //
+        // SHOW MAIN FORMS IN PANEL_CONTENTS
+        //
+        private void showMainForms(Form showChildForm)
+        {
+            showChildForm.TopLevel = false;
+            /*PANEL_CONTENTS.Controls.Add(showChildForm);*/
+            showChildForm.Dock = DockStyle.Fill;
+            showChildForm.BringToFront();
+            showChildForm.Show();
+        }
 
 
         //
@@ -308,14 +314,39 @@ namespace Archivary
             return Color.FromArgb(20, 18, 18);
         }
 
+        private Color archivaryGray()
+        {
+            return Color.FromArgb(40, 40, 40);
+        }
+
         private Color archivaryRed()
         {
             return Color.FromArgb(227, 25, 55);
         }
 
-        private Color archivarytest()
+
+        //
+        // BUTTON STAYS COLOR WHEN CLICKED
+        //
+        private sidebarButton currentButton;
+        private void selectedButton(object btn, Color color)
         {
-            return Color.Green;
+            if (btn != null)
+            {
+                disableButton();
+                currentButton = (sidebarButton)btn;
+                currentButton.BackColor = archivaryGray();
+                currentButton.ForeColor = color;
+            }
+        }
+
+        private void disableButton()
+        {
+            if (currentButton != null)
+            {
+                currentButton.BackColor = archivaryBlack();
+                currentButton.ForeColor = archivaryWhite();
+            }
         }
 
 

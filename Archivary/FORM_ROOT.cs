@@ -27,7 +27,7 @@ namespace Archivary
             this.ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             //this.Shown += (sender, e) => this.Text = string.Empty;
-            this.DoubleBuffered = false;
+            this.DoubleBuffered = true;
             this.ShowInTaskbar = true;
 
             this.Padding = new System.Windows.Forms.Padding(borderSize);
