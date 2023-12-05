@@ -330,6 +330,11 @@ namespace Archivary
             return Color.FromArgb(40, 40, 40);
         }
 
+        private Color archivaryCream()
+        {
+            return Color.FromArgb(208, 190, 143);
+        }
+
         private Color archivaryRed()
         {
             return Color.FromArgb(227, 25, 55);
@@ -346,7 +351,7 @@ namespace Archivary
             {
                 disableButton();
                 currentButton = (sidebarButton)btn;
-                currentButton.BackColor = archivaryGray();
+                currentButton.BackColor = archivaryGreen();
                 currentButton.ForeColor = color;
             }
         }

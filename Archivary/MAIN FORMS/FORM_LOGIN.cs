@@ -13,7 +13,6 @@ namespace Archivary.PARENT_FORMS
     public partial class FORM_LOGIN : Form
     {
         private FORM_ROOT FormsRoot;
-        private FORM_SIDEBAR FormsSidebar;
 
 
         public FORM_LOGIN(FORM_ROOT formsRoot)
@@ -24,7 +23,6 @@ namespace Archivary.PARENT_FORMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
             FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
             FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
         }

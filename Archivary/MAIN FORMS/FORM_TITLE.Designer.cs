@@ -56,10 +56,10 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(9, 261);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(12, 314);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 50);
+            this.button1.Size = new System.Drawing.Size(179, 62);
             this.button1.TabIndex = 0;
             this.button1.Text = "close";
             this.button1.UseVisualStyleBackColor = true;
@@ -68,10 +68,10 @@
             // LAYOUT_BOTTOM
             // 
             this.LAYOUT_BOTTOM.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT_BOTTOM.Location = new System.Drawing.Point(0, 443);
-            this.LAYOUT_BOTTOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_BOTTOM.Location = new System.Drawing.Point(0, 531);
+            this.LAYOUT_BOTTOM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_BOTTOM.Name = "LAYOUT_BOTTOM";
-            this.LAYOUT_BOTTOM.Size = new System.Drawing.Size(960, 97);
+            this.LAYOUT_BOTTOM.Size = new System.Drawing.Size(960, 119);
             this.LAYOUT_BOTTOM.TabIndex = 1;
             // 
             // LAYOUT_CENTER
@@ -81,9 +81,9 @@
             this.LAYOUT_CENTER.Controls.Add(this.LAYOUT_CENTER_LEFT);
             this.LAYOUT_CENTER.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LAYOUT_CENTER.Location = new System.Drawing.Point(0, 0);
-            this.LAYOUT_CENTER.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER.Name = "LAYOUT_CENTER";
-            this.LAYOUT_CENTER.Size = new System.Drawing.Size(960, 443);
+            this.LAYOUT_CENTER.Size = new System.Drawing.Size(960, 531);
             this.LAYOUT_CENTER.TabIndex = 2;
             // 
             // LAYOUT_CENTER_CENTER
@@ -92,20 +92,20 @@
             this.LAYOUT_CENTER_CENTER.Controls.Add(this.LAYOUT_CENTER_CENTER_TOP);
             this.LAYOUT_CENTER_CENTER.Controls.Add(this.LAYOUT_CENTER_CENTER_BOTTOM);
             this.LAYOUT_CENTER_CENTER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LAYOUT_CENTER_CENTER.Location = new System.Drawing.Point(150, 0);
-            this.LAYOUT_CENTER_CENTER.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER.Location = new System.Drawing.Point(200, 0);
+            this.LAYOUT_CENTER_CENTER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER.Name = "LAYOUT_CENTER_CENTER";
-            this.LAYOUT_CENTER_CENTER.Size = new System.Drawing.Size(660, 443);
+            this.LAYOUT_CENTER_CENTER.Size = new System.Drawing.Size(560, 531);
             this.LAYOUT_CENTER_CENTER.TabIndex = 2;
             // 
             // LAYOUT_CENTER_CENTER_CENTER
             // 
             this.LAYOUT_CENTER_CENTER_CENTER.Controls.Add(this.bannerPictureBox);
             this.LAYOUT_CENTER_CENTER_CENTER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LAYOUT_CENTER_CENTER_CENTER.Location = new System.Drawing.Point(0, 81);
-            this.LAYOUT_CENTER_CENTER_CENTER.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER_CENTER.Location = new System.Drawing.Point(0, 100);
+            this.LAYOUT_CENTER_CENTER_CENTER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER_CENTER.Name = "LAYOUT_CENTER_CENTER_CENTER";
-            this.LAYOUT_CENTER_CENTER_CENTER.Size = new System.Drawing.Size(660, 281);
+            this.LAYOUT_CENTER_CENTER_CENTER.Size = new System.Drawing.Size(560, 331);
             this.LAYOUT_CENTER_CENTER_CENTER.TabIndex = 2;
             // 
             // bannerPictureBox
@@ -114,9 +114,9 @@
             this.bannerPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bannerPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("bannerPictureBox.Image")));
             this.bannerPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.bannerPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bannerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bannerPictureBox.Name = "bannerPictureBox";
-            this.bannerPictureBox.Size = new System.Drawing.Size(660, 281);
+            this.bannerPictureBox.Size = new System.Drawing.Size(560, 331);
             this.bannerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bannerPictureBox.TabIndex = 0;
             this.bannerPictureBox.TabStop = false;
@@ -125,9 +125,9 @@
             // 
             this.LAYOUT_CENTER_CENTER_TOP.Dock = System.Windows.Forms.DockStyle.Top;
             this.LAYOUT_CENTER_CENTER_TOP.Location = new System.Drawing.Point(0, 0);
-            this.LAYOUT_CENTER_CENTER_TOP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER_TOP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER_TOP.Name = "LAYOUT_CENTER_CENTER_TOP";
-            this.LAYOUT_CENTER_CENTER_TOP.Size = new System.Drawing.Size(660, 81);
+            this.LAYOUT_CENTER_CENTER_TOP.Size = new System.Drawing.Size(560, 100);
             this.LAYOUT_CENTER_CENTER_TOP.TabIndex = 1;
             // 
             // LAYOUT_CENTER_CENTER_BOTTOM
@@ -136,20 +136,20 @@
             this.LAYOUT_CENTER_CENTER_BOTTOM.Controls.Add(this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT);
             this.LAYOUT_CENTER_CENTER_BOTTOM.Controls.Add(this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT);
             this.LAYOUT_CENTER_CENTER_BOTTOM.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT_CENTER_CENTER_BOTTOM.Location = new System.Drawing.Point(0, 362);
-            this.LAYOUT_CENTER_CENTER_BOTTOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER_BOTTOM.Location = new System.Drawing.Point(0, 431);
+            this.LAYOUT_CENTER_CENTER_BOTTOM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER_BOTTOM.Name = "LAYOUT_CENTER_CENTER_BOTTOM";
-            this.LAYOUT_CENTER_CENTER_BOTTOM.Size = new System.Drawing.Size(660, 81);
+            this.LAYOUT_CENTER_CENTER_BOTTOM.Size = new System.Drawing.Size(560, 100);
             this.LAYOUT_CENTER_CENTER_BOTTOM.TabIndex = 0;
             // 
             // LAYOUT_CENTER_CENTER_BOTTOM_CENTER
             // 
             this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Controls.Add(this.goLoginButton);
             this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Location = new System.Drawing.Point(114, 0);
-            this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Location = new System.Drawing.Point(152, 0);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Name = "LAYOUT_CENTER_CENTER_BOTTOM_CENTER";
-            this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Size = new System.Drawing.Size(434, 81);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.Size = new System.Drawing.Size(259, 100);
             this.LAYOUT_CENTER_CENTER_BOTTOM_CENTER.TabIndex = 2;
             // 
             // goLoginButton
@@ -165,9 +165,9 @@
             this.goLoginButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goLoginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.goLoginButton.Location = new System.Drawing.Point(0, 0);
-            this.goLoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.goLoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.goLoginButton.Name = "goLoginButton";
-            this.goLoginButton.Size = new System.Drawing.Size(434, 81);
+            this.goLoginButton.Size = new System.Drawing.Size(259, 100);
             this.goLoginButton.TabIndex = 0;
             this.goLoginButton.Text = "Start";
             this.goLoginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
@@ -177,28 +177,28 @@
             // LAYOUT_CENTER_CENTER_BOTTOM_RIGHT
             // 
             this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Location = new System.Drawing.Point(548, 0);
-            this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Location = new System.Drawing.Point(411, 0);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Name = "LAYOUT_CENTER_CENTER_BOTTOM_RIGHT";
-            this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Size = new System.Drawing.Size(112, 81);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.Size = new System.Drawing.Size(149, 100);
             this.LAYOUT_CENTER_CENTER_BOTTOM_RIGHT.TabIndex = 1;
             // 
             // LAYOUT_CENTER_CENTER_BOTTOM_LEFT
             // 
             this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Dock = System.Windows.Forms.DockStyle.Left;
             this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Location = new System.Drawing.Point(0, 0);
-            this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Name = "LAYOUT_CENTER_CENTER_BOTTOM_LEFT";
-            this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Size = new System.Drawing.Size(114, 81);
+            this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.Size = new System.Drawing.Size(152, 100);
             this.LAYOUT_CENTER_CENTER_BOTTOM_LEFT.TabIndex = 0;
             // 
             // LAYOUT_CENTER_RIGHT
             // 
             this.LAYOUT_CENTER_RIGHT.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LAYOUT_CENTER_RIGHT.Location = new System.Drawing.Point(810, 0);
-            this.LAYOUT_CENTER_RIGHT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_RIGHT.Location = new System.Drawing.Point(760, 0);
+            this.LAYOUT_CENTER_RIGHT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_RIGHT.Name = "LAYOUT_CENTER_RIGHT";
-            this.LAYOUT_CENTER_RIGHT.Size = new System.Drawing.Size(150, 443);
+            this.LAYOUT_CENTER_RIGHT.Size = new System.Drawing.Size(200, 531);
             this.LAYOUT_CENTER_RIGHT.TabIndex = 1;
             // 
             // LAYOUT_CENTER_LEFT
@@ -206,17 +206,17 @@
             this.LAYOUT_CENTER_LEFT.Controls.Add(this.button1);
             this.LAYOUT_CENTER_LEFT.Dock = System.Windows.Forms.DockStyle.Left;
             this.LAYOUT_CENTER_LEFT.Location = new System.Drawing.Point(0, 0);
-            this.LAYOUT_CENTER_LEFT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_CENTER_LEFT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_CENTER_LEFT.Name = "LAYOUT_CENTER_LEFT";
-            this.LAYOUT_CENTER_LEFT.Size = new System.Drawing.Size(150, 443);
+            this.LAYOUT_CENTER_LEFT.Size = new System.Drawing.Size(200, 531);
             this.LAYOUT_CENTER_LEFT.TabIndex = 0;
             // 
             // FORM_TITLE
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(960, 540);
+            this.ClientSize = new System.Drawing.Size(960, 650);
             this.ControlBox = false;
             this.Controls.Add(this.LAYOUT_CENTER);
             this.Controls.Add(this.LAYOUT_BOTTOM);
@@ -224,8 +224,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MinimumSize = new System.Drawing.Size(960, 540);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FORM_TITLE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.LAYOUT_CENTER.ResumeLayout(false);
