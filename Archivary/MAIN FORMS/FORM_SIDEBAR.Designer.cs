@@ -60,6 +60,8 @@
             this.closeButton = new sidebarComponents.sidebarButton();
             this.maximizeButton = new sidebarComponents.sidebarButton();
             this.minimizeButton = new sidebarComponents.sidebarButton();
+            this.PANEL_CONTAINER = new System.Windows.Forms.Panel();
+            this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
             this.PANEL_SIDEBAR.SuspendLayout();
             this.LAYOUT_ACCOUNT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountPictureBox)).BeginInit();
@@ -68,6 +70,7 @@
             this.LAYOUT_sidebarButton.SuspendLayout();
             this.PANEL_HEADER.SuspendLayout();
             this.PANEL_controlBox.SuspendLayout();
+            this.PANEL_CONTAINER.SuspendLayout();
             this.SuspendLayout();
             // 
             // PANEL_SIDEBAR
@@ -571,19 +574,40 @@
             this.minimizeButton.MouseEnter += new System.EventHandler(this.minimizeButton_MouseEnter);
             this.minimizeButton.MouseLeave += new System.EventHandler(this.minimizeButton_MouseLeave);
             // 
-            // FORM_SIDEBAR1
+            // PANEL_CONTAINER
+            // 
+            this.PANEL_CONTAINER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.PANEL_CONTAINER.Controls.Add(this.PANEL_CONTENTS);
+            this.PANEL_CONTAINER.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_CONTAINER.Location = new System.Drawing.Point(73, 50);
+            this.PANEL_CONTAINER.Name = "PANEL_CONTAINER";
+            this.PANEL_CONTAINER.Padding = new System.Windows.Forms.Padding(20);
+            this.PANEL_CONTAINER.Size = new System.Drawing.Size(887, 600);
+            this.PANEL_CONTAINER.TabIndex = 3;
+            // 
+            // PANEL_CONTENTS
+            // 
+            this.PANEL_CONTENTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_CONTENTS.Location = new System.Drawing.Point(20, 20);
+            this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(847, 560);
+            this.PANEL_CONTENTS.TabIndex = 0;
+            // 
+            // FORM_SIDEBAR
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(960, 650);
             this.ControlBox = false;
+            this.Controls.Add(this.PANEL_CONTAINER);
             this.Controls.Add(this.PANEL_HEADER);
             this.Controls.Add(this.LAYOUT_SIDEBAR);
             this.Controls.Add(this.PANEL_SIDEBAR);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FORM_SIDEBAR1";
+            this.Name = "FORM_SIDEBAR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PANEL_SIDEBAR.ResumeLayout(false);
             this.LAYOUT_ACCOUNT.ResumeLayout(false);
@@ -593,6 +617,7 @@
             this.LAYOUT_sidebarButton.ResumeLayout(false);
             this.PANEL_HEADER.ResumeLayout(false);
             this.PANEL_controlBox.ResumeLayout(false);
+            this.PANEL_CONTAINER.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -630,5 +655,7 @@
         private sidebarComponents.sidebarButton closeButton;
         private sidebarComponents.sidebarButton minimizeButton;
         private sidebarComponents.sidebarButton maximizeButton;
+        private System.Windows.Forms.Panel PANEL_CONTAINER;
+        private System.Windows.Forms.Panel PANEL_CONTENTS;
     }
 }

@@ -20,6 +20,10 @@ namespace Archivary
         private FORM_ROOT FormsRoot;
         private FORM_LOGIN FormsLogin;
         private FORM_LIBRARY FormsLibrary = new FORM_LIBRARY();
+        private FORM_CIRCULATION FormsCirculation = new FORM_CIRCULATION();
+        private FORM_USERS FormsUsers = new FORM_USERS();
+        private FORM_REPORTS FormsReports = new FORM_REPORTS();
+        private FORM_SETTINGS FormsSettings = new FORM_SETTINGS();
 
         private bool isToggled = false;
 
@@ -172,12 +176,12 @@ namespace Archivary
         //
         private void libraryButton_MouseEnter(object sender, EventArgs e)
         {
-
+            libraryButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY_GREEN;
         }
 
         private void libraryButton_MouseLeave(object sender, EventArgs e)
         {
-
+            libraryButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LIBRARY;
         }
 
         //
@@ -185,12 +189,12 @@ namespace Archivary
         //
         private void circulationsButton_MouseEnter(object sender, EventArgs e)
         {
-
+            circulationsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CIRCULATION_GREEN;
         }
 
         private void circulationsButton_MouseLeave(object sender, EventArgs e)
         {
-
+            circulationsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CIRCULATION;
         }
 
         //
@@ -198,12 +202,12 @@ namespace Archivary
         //
         private void usersButton_MouseEnter(object sender, EventArgs e)
         {
-
+            usersButton.ButtonImage = global::Archivary.Properties.Resources.ICON_USER_GREEN;
         }
 
         private void usersButton_MouseLeave(object sender, EventArgs e)
         {
-
+            usersButton.ButtonImage = global::Archivary.Properties.Resources.ICON_USER;
         }
 
         //
@@ -211,12 +215,12 @@ namespace Archivary
         //
         private void reportsButton_MouseEnter(object sender, EventArgs e)
         {
-
+            reportsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_REPORT_GREEN;
         }
 
         private void reportsButton_MouseLeave(object sender, EventArgs e)
         {
-
+            reportsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_REPORT;
         }
 
         //
@@ -224,12 +228,12 @@ namespace Archivary
         //
         private void settingsButton_MouseEnter(object sender, EventArgs e)
         {
-
+            settingsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SETTING_GREEN;
         }
 
         private void settingsButton_MouseLeave(object sender, EventArgs e)
         {
-
+            settingsButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SETTING;
         }
 
         //
@@ -237,12 +241,14 @@ namespace Archivary
         //
         private void logoutButton_MouseEnter(object sender, EventArgs e)
         {
-
+            logoutButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LOGOUT_GREEN;
+            logoutButton.ForeColor = archivaryGreen();
         }
 
         private void logoutButton_MouseLeave(object sender, EventArgs e)
         {
-
+            logoutButton.ButtonImage = global::Archivary.Properties.Resources.ICON_LOGOUT;
+            logoutButton.ForeColor = archivaryWhite();
         }
 
 
@@ -253,27 +259,32 @@ namespace Archivary
 
         private void libraryButton_Click(object sender, EventArgs e)
         {
-            sidebarButton button = (sidebarButton)sender;
+            selectedButton(sender, archivaryGreen());
+            showMainForms(FormsLibrary);
         }
 
         private void circulationsButton_Click(object sender, EventArgs e)
         {
-            sidebarButton button = (sidebarButton)sender;
+            selectedButton(sender, archivaryGreen());
+            showMainForms(FormsCirculation);
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-
+            selectedButton(sender, archivaryGreen());
+            showMainForms(FormsUsers);
         }
 
         private void reportsButton_Click(object sender, EventArgs e)
         {
-
+            selectedButton(sender, archivaryGreen());
+            showMainForms(FormsReports);
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-
+            selectedButton(sender, archivaryGreen());
+            showMainForms(FormsSettings);
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -289,7 +300,7 @@ namespace Archivary
         private void showMainForms(Form showChildForm)
         {
             showChildForm.TopLevel = false;
-            /*PANEL_CONTENTS.Controls.Add(showChildForm);*/
+            PANEL_CONTENTS.Controls.Add(showChildForm);
             showChildForm.Dock = DockStyle.Fill;
             showChildForm.BringToFront();
             showChildForm.Show();
