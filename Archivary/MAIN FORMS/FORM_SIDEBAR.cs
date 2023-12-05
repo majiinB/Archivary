@@ -37,6 +37,8 @@ namespace Archivary
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;
 
+            libraryButton_Click(libraryButton, EventArgs.Empty);
+
             sidebarControlsSize();
         }
 
@@ -106,30 +108,37 @@ namespace Archivary
         //
         // CONTROL BOX EVENT METHODS
         //
+        // CLOSE BUTTON
         private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //
+        // MAXIMIZE BUTTON
+        //
         private void maximizeButton_Click(object sender, EventArgs e)
         {
             if (FormsRoot.WindowState == System.Windows.Forms.FormWindowState.Normal)
             {
                 FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                this.maximizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MAXIMIZE_TOGGLE; 
+                this.maximizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MAXIMIZE_TOGGLE;
             }
             else
             {
                 FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Normal;
                 this.maximizeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_MAXIMIZE;
             }
-            
         }
 
+        //
+        // MINIMIZE BUTTON
+        //
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
+
 
         //
         // CONTROL BOX HOVER EFFECTS
@@ -291,6 +300,7 @@ namespace Archivary
         {
             FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
             FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.Close();
         }
 
 
@@ -351,7 +361,7 @@ namespace Archivary
             {
                 disableButton();
                 currentButton = (sidebarButton)btn;
-                currentButton.BackColor = archivaryGreen();
+                currentButton.BackColor = archivaryGray();
                 currentButton.ForeColor = color;
             }
         }

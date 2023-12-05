@@ -320,5 +320,11 @@
   <ItemGroup>
     <None Include="Resources\ICON_MINIMIZE_WHITE.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND_START.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
