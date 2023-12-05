@@ -320,20 +320,22 @@ namespace Archivary
         {
             if (currentlyOpenForm == formToToggle)
             {
-                if (formToToggle.Visible)
+                // If the clicked button corresponds to the currently open form
+                // and the form is already visible, do nothing
+                if (!formToToggle.Visible)
                 {
-                    formToToggle.Hide();
-                    selectedButton(sender, archivaryGreen());
-                }
-                else
-                {
+                    // If the form is not visible, show it
                     formToToggle.Show();
+                    formToToggle.BringToFront();
                     selectedButton(sender, archivaryGreen());
                 }
             }
             else
             {
+                // If the clicked button is different, close the currently open form (if any)
                 CloseFormIfOpen(currentlyOpenForm);
+
+                // Open the new form
                 selectedButton(sender, archivaryGreen());
                 currentlyOpenForm = formToToggle;
                 showMainForms(formToToggle);
@@ -342,7 +344,10 @@ namespace Archivary
 
         private void CloseFormIfOpen(Form form)
         {
-            if (form != null && !form.IsDisposed && form.Visible) form.Hide();
+            if (form != null && !form.IsDisposed && form.Visible)
+            {
+                form.Hide();
+            }
         }
 
         //
