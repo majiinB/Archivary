@@ -14,7 +14,6 @@ namespace Archivary
     public partial class FORM_TITLE : Form
     {
         private FORM_ROOT FormsRoot;
-        private FORM_LOGIN FormsLogin;
 
         private readonly Size minimumSize = new Size(960, 650);
 

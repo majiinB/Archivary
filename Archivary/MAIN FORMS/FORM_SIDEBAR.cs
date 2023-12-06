@@ -18,7 +18,6 @@ namespace Archivary
     public partial class FORM_SIDEBAR : Form
     {
         private FORM_ROOT FormsRoot;
-        private FORM_LOGIN FormsLogin;
         private FORM_LIBRARY FormsLibrary = new FORM_LIBRARY();
         private FORM_CIRCULATION FormsCirculation = new FORM_CIRCULATION();
         private FORM_USERS FormsUsers = new FORM_USERS();
@@ -265,7 +264,6 @@ namespace Archivary
         //
         // SIDEBAR CLICK METHODS
         //
-        private sidebarButton clickedButton = null;
 
         private void libraryButton_Click(object sender, EventArgs e)
         {

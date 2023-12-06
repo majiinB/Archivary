@@ -124,6 +124,9 @@
     <Compile Include="Archivary Components\RoundedPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Archivary Components\RoundedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FORM_ROOT.cs">
       <SubType>Form</SubType>
     </Compile>
