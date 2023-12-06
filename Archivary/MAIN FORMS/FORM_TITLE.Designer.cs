@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_TITLE));
             this.backgroundPictureBox = new System.Windows.Forms.PictureBox();
+            this.titlePictureBox = new System.Windows.Forms.PictureBox();
             this.goLoginButton = new roundedCorners.roundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titlePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // backgroundPictureBox
@@ -43,6 +45,17 @@
             this.backgroundPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.backgroundPictureBox.TabIndex = 1;
             this.backgroundPictureBox.TabStop = false;
+            // 
+            // titlePictureBox
+            // 
+            this.titlePictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titlePictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoBannerPNG;
+            this.titlePictureBox.Location = new System.Drawing.Point(195, 118);
+            this.titlePictureBox.Name = "titlePictureBox";
+            this.titlePictureBox.Size = new System.Drawing.Size(560, 224);
+            this.titlePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.titlePictureBox.TabIndex = 2;
+            this.titlePictureBox.TabStop = false;
             // 
             // goLoginButton
             // 
@@ -56,7 +69,7 @@
             this.goLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goLoginButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goLoginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.goLoginButton.Location = new System.Drawing.Point(241, 388);
+            this.goLoginButton.Location = new System.Drawing.Point(257, 388);
             this.goLoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.goLoginButton.Name = "goLoginButton";
             this.goLoginButton.Size = new System.Drawing.Size(437, 100);
@@ -73,6 +86,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.ClientSize = new System.Drawing.Size(960, 650);
             this.ControlBox = false;
+            this.Controls.Add(this.titlePictureBox);
             this.Controls.Add(this.goLoginButton);
             this.Controls.Add(this.backgroundPictureBox);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -83,6 +97,7 @@
             this.Name = "FORM_TITLE";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.backgroundPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titlePictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,6 +105,7 @@
         #endregion
         private roundedCorners.roundedButton goLoginButton;
         private System.Windows.Forms.PictureBox backgroundPictureBox;
+        private System.Windows.Forms.PictureBox titlePictureBox;
     }
 }
 
