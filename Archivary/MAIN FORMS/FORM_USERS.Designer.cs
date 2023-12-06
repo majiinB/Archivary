@@ -28,17 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(532, 50);
-            this.textBox1.TabIndex = 0;
             // 
             // FORM_USERS
             // 
@@ -46,18 +36,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_USERS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_USERS";
             this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
