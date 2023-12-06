@@ -28,22 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.roundedTextBox1 = new WHYWHYWHYW.RoundedTextBox();
+            this.roundedPanel1 = new RoundedCorners.RoundedPanel();
+            this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // roundedTextBox1
+            // 
+            this.roundedTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedTextBox1.BackgroundColor = System.Drawing.Color.White;
+            this.roundedTextBox1.BorderColor = System.Drawing.Color.Black;
+            this.roundedTextBox1.BorderThickness = 0;
+            this.roundedTextBox1.Br = System.Drawing.Color.White;
+            this.roundedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.roundedTextBox1.ForeColor = System.Drawing.Color.Black;
+            this.roundedTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.roundedTextBox1.Name = "roundedTextBox1";
+            this.roundedTextBox1.Radius = 30;
+            this.roundedTextBox1.Size = new System.Drawing.Size(397, 57);
+            this.roundedTextBox1.TabIndex = 0;
+            this.roundedTextBox1.Text = "roundedTextBox1";
+            this.roundedTextBox1.UseSystemPasswordChar = false;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackgroundColor = System.Drawing.Color.CadetBlue;
+            this.roundedPanel1.BorderColor = System.Drawing.SystemColors.Control;
+            this.roundedPanel1.BorderWidth = 1F;
+            this.roundedPanel1.Controls.Add(this.roundedTextBox1);
+            this.roundedPanel1.Location = new System.Drawing.Point(368, 146);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(3);
+            this.roundedPanel1.Radius = 30;
+            this.roundedPanel1.Size = new System.Drawing.Size(403, 63);
+            this.roundedPanel1.TabIndex = 1;
             // 
             // FORM_LIBRARY
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(960, 670);
-            this.ControlBox = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(1073, 386);
+            this.Controls.Add(this.roundedPanel1);
             this.Name = "FORM_LIBRARY";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FORM_LIBRARY";
+            this.roundedPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private WHYWHYWHYW.RoundedTextBox roundedTextBox1;
+        private RoundedCorners.RoundedPanel roundedPanel1;
     }
 }
