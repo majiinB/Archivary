@@ -28,68 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.roundedButton1 = new roundedCorners.roundedButton();
+            this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
+            this.searchBar = new WHYWHYWHYW.RoundedTextBox();
+            this.LAYOUT_searchBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // roundedButton1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(918, 483);
-            this.panel1.TabIndex = 0;
+            this.roundedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.roundedButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.roundedButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.roundedButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.roundedButton1.BorderRadius = 40;
+            this.roundedButton1.BorderSize = 0;
+            this.roundedButton1.FlatAppearance.BorderSize = 0;
+            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton1.ForeColor = System.Drawing.Color.White;
+            this.roundedButton1.Location = new System.Drawing.Point(646, 13);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.Size = new System.Drawing.Size(128, 64);
+            this.roundedButton1.TabIndex = 1;
+            this.roundedButton1.Text = "roundedButton1";
+            this.roundedButton1.TextColor = System.Drawing.Color.White;
+            this.roundedButton1.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel1
+            // LAYOUT_searchBar
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(898, 463);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.LAYOUT_searchBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.panel9.Controls.Add(this.panel1);
-            this.panel9.Location = new System.Drawing.Point(29, 28);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(918, 483);
-            this.panel9.TabIndex = 1;
+            this.LAYOUT_searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.LAYOUT_searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.LAYOUT_searchBar.BorderWidth = 1F;
+            this.LAYOUT_searchBar.Controls.Add(this.searchBar);
+            this.LAYOUT_searchBar.Location = new System.Drawing.Point(13, 13);
+            this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
+            this.LAYOUT_searchBar.Padding = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_searchBar.Radius = 10;
+            this.LAYOUT_searchBar.Size = new System.Drawing.Size(618, 64);
+            this.LAYOUT_searchBar.TabIndex = 0;
+            // 
+            // searchBar
+            // 
+            this.searchBar.BackColor = System.Drawing.Color.Transparent;
+            this.searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.searchBar.BorderThickness = 0;
+            this.searchBar.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBar.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.searchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.searchBar.Location = new System.Drawing.Point(2, 2);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Radius = 9;
+            this.searchBar.Size = new System.Drawing.Size(614, 60);
+            this.searchBar.TabIndex = 1;
+            this.searchBar.Text = "l";
+            this.searchBar.UseSystemPasswordChar = false;
             // 
             // FORM_LIBRARY
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
-            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.roundedButton1);
+            this.Controls.Add(this.LAYOUT_searchBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_LIBRARY";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FORM_LIBRARY_Load);
             this.Resize += new System.EventHandler(this.FORM_LIBRARY_Resize);
-            this.panel1.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
+            this.LAYOUT_searchBar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel9;
+        private RoundedCorners.RoundedPanel LAYOUT_searchBar;
+        private WHYWHYWHYW.RoundedTextBox searchBar;
+        private roundedCorners.roundedButton roundedButton1;
     }
 }
