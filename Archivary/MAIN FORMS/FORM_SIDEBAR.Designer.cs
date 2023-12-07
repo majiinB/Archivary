@@ -223,6 +223,7 @@
             // 
             // LAYOUT_sidebarButton
             // 
+            this.LAYOUT_sidebarButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.LAYOUT_sidebarButton.Controls.Add(this.dashboardLabel);
             this.LAYOUT_sidebarButton.Controls.Add(this.sidebarButton);
             this.LAYOUT_sidebarButton.Dock = System.Windows.Forms.DockStyle.Top;

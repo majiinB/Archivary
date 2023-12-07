@@ -28,55 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.roundedTextBox1 = new WHYWHYWHYW.RoundedTextBox();
-            this.roundedPanel1 = new RoundedCorners.RoundedPanel();
-            this.roundedPanel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
-            // roundedTextBox1
+            // panel1
             // 
-            this.roundedTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedTextBox1.BackgroundColor = System.Drawing.Color.White;
-            this.roundedTextBox1.BorderColor = System.Drawing.Color.Black;
-            this.roundedTextBox1.BorderThickness = 0;
-            this.roundedTextBox1.Br = System.Drawing.Color.White;
-            this.roundedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.roundedTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.roundedTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.roundedTextBox1.Name = "roundedTextBox1";
-            this.roundedTextBox1.Radius = 30;
-            this.roundedTextBox1.Size = new System.Drawing.Size(397, 57);
-            this.roundedTextBox1.TabIndex = 0;
-            this.roundedTextBox1.Text = "roundedTextBox1";
-            this.roundedTextBox1.UseSystemPasswordChar = false;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(918, 483);
+            this.panel1.TabIndex = 0;
             // 
-            // roundedPanel1
+            // flowLayoutPanel1
             // 
-            this.roundedPanel1.BackgroundColor = System.Drawing.Color.CadetBlue;
-            this.roundedPanel1.BorderColor = System.Drawing.SystemColors.Control;
-            this.roundedPanel1.BorderWidth = 1F;
-            this.roundedPanel1.Controls.Add(this.roundedTextBox1);
-            this.roundedPanel1.Location = new System.Drawing.Point(368, 146);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.roundedPanel1.Radius = 30;
-            this.roundedPanel1.Size = new System.Drawing.Size(403, 63);
-            this.roundedPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(898, 463);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // panel9
+            // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel9.Controls.Add(this.panel1);
+            this.panel9.Location = new System.Drawing.Point(29, 28);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(918, 483);
+            this.panel9.TabIndex = 1;
             // 
             // FORM_LIBRARY
             // 
-            this.ClientSize = new System.Drawing.Size(1073, 386);
-            this.Controls.Add(this.roundedPanel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ClientSize = new System.Drawing.Size(960, 670);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_LIBRARY";
-            this.roundedPanel1.ResumeLayout(false);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FORM_LIBRARY_Load);
+            this.Resize += new System.EventHandler(this.FORM_LIBRARY_Resize);
+            this.panel1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private WHYWHYWHYW.RoundedTextBox roundedTextBox1;
-        private RoundedCorners.RoundedPanel roundedPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel9;
     }
 }

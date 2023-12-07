@@ -17,7 +17,7 @@ namespace Archivary
         private int borderSize = 3;
         private readonly Size minimumSize = new Size(970, 670);
         private Size formSize;
-            
+
         public FORM_ROOT()
         {
             InitializeComponent();
@@ -96,14 +96,14 @@ namespace Archivary
             const int HTBOTTOMRIGHT = 17;
 
             if (m.Msg == WM_NCHITTEST)
-            { 
+            {
                 base.WndProc(ref m);
                 if (this.WindowState == FormWindowState.Normal)
                 {
                     if ((int)m.Result == HTCLIENT)
                     {
-                        Point screenPoint = new Point(m.LParam.ToInt32());                     
-                        Point clientPoint = this.PointToClient(screenPoint);                
+                        Point screenPoint = new Point(m.LParam.ToInt32());
+                        Point clientPoint = this.PointToClient(screenPoint);
 
                         if (clientPoint.Y <= resizeAreaSize)
                         {
@@ -152,7 +152,5 @@ namespace Archivary
             }
             base.WndProc(ref m);
         }
-
-
     }
 }

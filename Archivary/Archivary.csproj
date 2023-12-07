@@ -127,6 +127,12 @@
     <Compile Include="Archivary Components\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="bookDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bookDetails.Designer.cs">
+      <DependentUpon>bookDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORM_ROOT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
       <DependentUpon>FORM_RETURN.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="bookDetails.resx">
+      <DependentUpon>bookDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM_ROOT.resx">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
     </EmbeddedResource>
