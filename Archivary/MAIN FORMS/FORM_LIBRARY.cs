@@ -13,6 +13,9 @@ namespace Archivary.PARENT_FORMS
     public partial class FORM_LIBRARY : Form
     {
         private int buttonWidth;
+        private int controlPadding;
+        private Button buttonize;
+        private int maxButtons = 5;
 
         public FORM_LIBRARY()
         {
@@ -21,12 +24,40 @@ namespace Archivary.PARENT_FORMS
 
         private void FORM_LIBRARY_Load(object sender, EventArgs e)
         {
-
+            CreateButtons();
         }
 
         private void FORM_LIBRARY_Resize(object sender, EventArgs e)
         {
-
+            
         }
+
+        private void CreateButtons()
+        {
+            libraryList.Controls.Clear(); // Clear existing controls
+
+            int maxButtons = 3;
+            int total = 0;
+
+            buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2);
+
+            // Adjust padding to provide space at the bottom
+            libraryList.Padding = new Padding(0, 0, 0, 10);
+
+            for (int i = 1; i <= maxButtons; i++)
+            {
+                Button buttonize = new Button();
+                buttonize.Text = "Button " + i;
+                buttonize.Width = buttonWidth;
+                buttonize.Height = 200;
+                buttonize.BackColor = Color.Gainsboro;
+                libraryList.Controls.Add(buttonize);
+                total += i;
+            }
+
+            // Set AutoScroll based on the number of controls
+            libraryList.AutoScroll = libraryList.Controls.Count > 6;
+        }
+
     }
 }

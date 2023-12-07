@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.PANEL_libraryListContainer = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.libraryList = new System.Windows.Forms.FlowLayoutPanel();
             this.roundedButton1 = new roundedCorners.roundedButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
             this.searchBar = new WHYWHYWHYW.RoundedTextBox();
@@ -42,21 +42,22 @@
             this.PANEL_libraryListContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PANEL_libraryListContainer.Controls.Add(this.flowLayoutPanel1);
-            this.PANEL_libraryListContainer.Location = new System.Drawing.Point(15, 107);
+            this.PANEL_libraryListContainer.Controls.Add(this.libraryList);
+            this.PANEL_libraryListContainer.Location = new System.Drawing.Point(5, 93);
             this.PANEL_libraryListContainer.Name = "PANEL_libraryListContainer";
             this.PANEL_libraryListContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.PANEL_libraryListContainer.Size = new System.Drawing.Size(932, 550);
+            this.PANEL_libraryListContainer.Size = new System.Drawing.Size(952, 574);
             this.PANEL_libraryListContainer.TabIndex = 2;
             // 
-            // flowLayoutPanel1
+            // libraryList
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 10);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(912, 530);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.libraryList.AutoScroll = true;
+            this.libraryList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.libraryList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.libraryList.Location = new System.Drawing.Point(10, 10);
+            this.libraryList.Name = "libraryList";
+            this.libraryList.Size = new System.Drawing.Size(932, 554);
+            this.libraryList.TabIndex = 0;
             // 
             // roundedButton1
             // 
@@ -69,7 +70,7 @@
             this.roundedButton1.FlatAppearance.BorderSize = 0;
             this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton1.ForeColor = System.Drawing.Color.White;
-            this.roundedButton1.Location = new System.Drawing.Point(646, 13);
+            this.roundedButton1.Location = new System.Drawing.Point(656, 3);
             this.roundedButton1.Margin = new System.Windows.Forms.Padding(0);
             this.roundedButton1.Name = "roundedButton1";
             this.roundedButton1.Size = new System.Drawing.Size(128, 54);
@@ -86,11 +87,11 @@
             this.LAYOUT_searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.LAYOUT_searchBar.BorderWidth = 1F;
             this.LAYOUT_searchBar.Controls.Add(this.searchBar);
-            this.LAYOUT_searchBar.Location = new System.Drawing.Point(13, 13);
+            this.LAYOUT_searchBar.Location = new System.Drawing.Point(3, 3);
             this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
             this.LAYOUT_searchBar.Padding = new System.Windows.Forms.Padding(2);
             this.LAYOUT_searchBar.Radius = 10;
-            this.LAYOUT_searchBar.Size = new System.Drawing.Size(618, 54);
+            this.LAYOUT_searchBar.Size = new System.Drawing.Size(638, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
             // 
             // searchBar
@@ -106,7 +107,7 @@
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
-            this.searchBar.Size = new System.Drawing.Size(614, 50);
+            this.searchBar.Size = new System.Drawing.Size(634, 50);
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "l";
             this.searchBar.UseSystemPasswordChar = false;
@@ -121,7 +122,6 @@
             this.Controls.Add(this.LAYOUT_searchBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_LIBRARY";
-            this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FORM_LIBRARY_Load);
             this.Resize += new System.EventHandler(this.FORM_LIBRARY_Resize);
@@ -137,6 +137,6 @@
         private WHYWHYWHYW.RoundedTextBox searchBar;
         private roundedCorners.roundedButton roundedButton1;
         private System.Windows.Forms.Panel PANEL_libraryListContainer;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel libraryList;
     }
 }
