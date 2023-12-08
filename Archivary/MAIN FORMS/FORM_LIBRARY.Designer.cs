@@ -33,6 +33,7 @@
             this.roundedButton1 = new roundedCorners.roundedButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
             this.searchBar = new WHYWHYWHYW.RoundedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
             this.roundedButton1.FlatAppearance.BorderSize = 0;
             this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButton1.ForeColor = System.Drawing.Color.White;
-            this.roundedButton1.Location = new System.Drawing.Point(656, 3);
+            this.roundedButton1.Location = new System.Drawing.Point(695, 22);
             this.roundedButton1.Margin = new System.Windows.Forms.Padding(0);
             this.roundedButton1.Name = "roundedButton1";
             this.roundedButton1.Size = new System.Drawing.Size(128, 54);
@@ -112,11 +113,21 @@
             this.searchBar.Text = "l";
             this.searchBar.UseSystemPasswordChar = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(853, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FORM_LIBRARY
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.PANEL_libraryListContainer);
             this.Controls.Add(this.roundedButton1);
             this.Controls.Add(this.LAYOUT_searchBar);
@@ -138,5 +149,6 @@
         private roundedCorners.roundedButton roundedButton1;
         private System.Windows.Forms.Panel PANEL_libraryListContainer;
         private System.Windows.Forms.FlowLayoutPanel libraryList;
+        private System.Windows.Forms.Button button1;
     }
 }
