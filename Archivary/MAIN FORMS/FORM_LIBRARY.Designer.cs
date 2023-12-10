@@ -30,10 +30,10 @@
         {
             this.PANEL_libraryListContainer = new System.Windows.Forms.Panel();
             this.libraryList = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.roundedButton1 = new roundedCorners.roundedButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
             this.searchBar = new WHYWHYWHYW.RoundedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,15 @@
             this.libraryList.Name = "libraryList";
             this.libraryList.Size = new System.Drawing.Size(932, 554);
             this.libraryList.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(853, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // roundedButton1
             // 
@@ -112,15 +121,6 @@
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "l";
             this.searchBar.UseSystemPasswordChar = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(853, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FORM_LIBRARY
             // 
