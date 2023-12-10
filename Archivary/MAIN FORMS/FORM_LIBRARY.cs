@@ -40,8 +40,8 @@ namespace Archivary.PARENT_FORMS
             int maxButtons = 7;
             int total = 0;
 
-            buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 6;
-            buttonWidth1 = ((libraryList.ClientSize.Width) / 2) - 6;
+            buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20;
+            buttonWidth1 = ((libraryList.ClientSize.Width) / 2) - 16;
 
             // Adjust padding to provide space at the bottom
             libraryList.Padding = new Padding(0, 0, 0, 10);
@@ -51,6 +51,7 @@ namespace Archivary.PARENT_FORMS
                 buttonize = new Button();
                 buttonize.Text = "Button " + i;
                 buttonize.Height = 200;
+                buttonize.Margin = new Padding(10);
                 buttonize.BackColor = Color.Gainsboro;
                 libraryList.Controls.Add(buttonize);
                 total += i;

@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace WHYWHYWHYW
+namespace RoundedCorners
 {
     public class RoundedTextBox : Control
     {
