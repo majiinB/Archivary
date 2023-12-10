@@ -98,8 +98,8 @@ namespace Archivary.PARENT_FORMS
 
         private void dropdownProperties()
         {
-            dropdownMenu1.IsMainMenu = true;
-            dropdownMenu1.PrimaryColor = archivaryGreen();
+            filterDropdown.IsMainMenu = true;
+            filterDropdown.PrimaryColor = archivaryGreen();
         }
 
         private void openDropdownMenu(DropdownMenu dropdownMenu, object sender)
@@ -110,5 +110,9 @@ namespace Archivary.PARENT_FORMS
             dropdownMenu.Show(control, control.Width - dropdownMenu.Width, control.Height);
         }
 
+        private void filterSearchButton_Click(object sender, EventArgs e)
+        {
+            openDropdownMenu(filterDropdown, sender);
+        }
     }
 }

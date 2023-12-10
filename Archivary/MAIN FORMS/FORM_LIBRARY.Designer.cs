@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_LIBRARY));
             this.PANEL_libraryListContainer = new System.Windows.Forms.Panel();
             this.libraryList = new System.Windows.Forms.FlowLayoutPanel();
@@ -35,8 +36,14 @@
             this.addBookButton = new sidebarComponents.RoundedSidebarButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
             this.searchBar = new RoundedCorners.RoundedTextBox();
+            this.filterDropdown = new CustomDropdown.DropdownMenu(this.components);
+            this.aZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nonFictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
+            this.filterDropdown.SuspendLayout();
             this.SuspendLayout();
             // 
             // PANEL_libraryListContainer
@@ -82,6 +89,7 @@
             this.filterSearchButton.Text = "Filter";
             this.filterSearchButton.TextColor = System.Drawing.Color.White;
             this.filterSearchButton.UseVisualStyleBackColor = false;
+            this.filterSearchButton.Click += new System.EventHandler(this.filterSearchButton_Click);
             // 
             // addBookButton
             // 
@@ -138,14 +146,53 @@
             this.searchBar.Text = "l";
             this.searchBar.UseSystemPasswordChar = false;
             // 
+            // filterDropdown
+            // 
+            this.filterDropdown.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.filterDropdown.IsMainMenu = false;
+            this.filterDropdown.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aZToolStripMenuItem,
+            this.zAToolStripMenuItem,
+            this.fictionToolStripMenuItem,
+            this.nonFictionToolStripMenuItem});
+            this.filterDropdown.MenuItemHeight = 25;
+            this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.filterDropdown.Name = "filterDropdown";
+            this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
+            this.filterDropdown.Size = new System.Drawing.Size(157, 100);
+            // 
+            // aZToolStripMenuItem
+            // 
+            this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
+            this.aZToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.aZToolStripMenuItem.Text = "A-Z";
+            // 
+            // zAToolStripMenuItem
+            // 
+            this.zAToolStripMenuItem.Name = "zAToolStripMenuItem";
+            this.zAToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.zAToolStripMenuItem.Text = "Z-A";
+            // 
+            // fictionToolStripMenuItem
+            // 
+            this.fictionToolStripMenuItem.Name = "fictionToolStripMenuItem";
+            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.fictionToolStripMenuItem.Text = "Fiction";
+            // 
+            // nonFictionToolStripMenuItem
+            // 
+            this.nonFictionToolStripMenuItem.Name = "nonFictionToolStripMenuItem";
+            this.nonFictionToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.nonFictionToolStripMenuItem.Text = "Non-Fiction";
+            // 
             // FORM_LIBRARY
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
+            this.Controls.Add(this.PANEL_libraryListContainer);
             this.Controls.Add(this.filterSearchButton);
             this.Controls.Add(this.addBookButton);
-            this.Controls.Add(this.PANEL_libraryListContainer);
             this.Controls.Add(this.LAYOUT_searchBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_LIBRARY";
@@ -154,6 +201,7 @@
             this.Resize += new System.EventHandler(this.FORM_LIBRARY_Resize);
             this.PANEL_libraryListContainer.ResumeLayout(false);
             this.LAYOUT_searchBar.ResumeLayout(false);
+            this.filterDropdown.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -166,5 +214,10 @@
         private System.Windows.Forms.FlowLayoutPanel libraryList;
         private sidebarComponents.RoundedSidebarButton addBookButton;
         private sidebarComponents.RoundedPictureButtonRight filterSearchButton;
+        private CustomDropdown.DropdownMenu filterDropdown;
+        private System.Windows.Forms.ToolStripMenuItem aZToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nonFictionToolStripMenuItem;
     }
 }
