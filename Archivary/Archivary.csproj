@@ -118,10 +118,18 @@
     <Compile Include="900X500\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivary Components\DropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\MenuColorTable.cs" />
+    <Compile Include="Archivary Components\MenuRenderer.cs" />
     <Compile Include="Archivary Components\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Archivary Components\RoundedPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\RoundedSidebarButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Archivary Components\RoundedTextBox.cs">
@@ -193,6 +201,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Archivary Components\sidebarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RoundedPictureButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
