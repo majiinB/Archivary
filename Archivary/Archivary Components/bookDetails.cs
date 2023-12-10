@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Archivary
+namespace Archivary.Archivary_Components
 {
     public partial class bookDetails : UserControl
     {

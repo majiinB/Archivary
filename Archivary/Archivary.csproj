@@ -118,6 +118,12 @@
     <Compile Include="900X500\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivary Components\bookDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\bookDetails.Designer.cs">
+      <DependentUpon>bookDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Archivary Components\DropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -134,12 +140,6 @@
     </Compile>
     <Compile Include="Archivary Components\RoundedTextBox.cs">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="bookDetails.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="bookDetails.Designer.cs">
-      <DependentUpon>bookDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="FORM_ROOT.cs">
       <SubType>Form</SubType>
@@ -208,7 +208,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RoundedPictureButtonRight.cs">
+    <Compile Include="Archivary Components\RoundedPictureButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
@@ -223,7 +223,7 @@
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
       <DependentUpon>FORM_RETURN.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="bookDetails.resx">
+    <EmbeddedResource Include="Archivary Components\bookDetails.resx">
       <DependentUpon>bookDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM_ROOT.resx">

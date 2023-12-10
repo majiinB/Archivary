@@ -41,6 +41,8 @@
             this.zAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nonFictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mikhaelaPatriciaCruzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
             this.filterDropdown.SuspendLayout();
@@ -52,10 +54,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PANEL_libraryListContainer.Controls.Add(this.libraryList);
-            this.PANEL_libraryListContainer.Location = new System.Drawing.Point(5, 93);
+            this.PANEL_libraryListContainer.Location = new System.Drawing.Point(0, 67);
+            this.PANEL_libraryListContainer.Margin = new System.Windows.Forms.Padding(2);
             this.PANEL_libraryListContainer.Name = "PANEL_libraryListContainer";
-            this.PANEL_libraryListContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.PANEL_libraryListContainer.Size = new System.Drawing.Size(952, 574);
+            this.PANEL_libraryListContainer.Padding = new System.Windows.Forms.Padding(0, 10, 0, 40);
+            this.PANEL_libraryListContainer.Size = new System.Drawing.Size(958, 603);
             this.PANEL_libraryListContainer.TabIndex = 2;
             // 
             // libraryList
@@ -63,9 +66,9 @@
             this.libraryList.AutoScroll = true;
             this.libraryList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.libraryList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.libraryList.Location = new System.Drawing.Point(10, 10);
+            this.libraryList.Location = new System.Drawing.Point(0, 10);
             this.libraryList.Name = "libraryList";
-            this.libraryList.Size = new System.Drawing.Size(932, 554);
+            this.libraryList.Size = new System.Drawing.Size(958, 553);
             this.libraryList.TabIndex = 0;
             // 
             // filterSearchButton
@@ -136,15 +139,17 @@
             this.searchBar.BorderThickness = 0;
             this.searchBar.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.searchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.searchBar.Font = new System.Drawing.Font("Montserrat Light", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
             this.searchBar.Size = new System.Drawing.Size(619, 50);
             this.searchBar.TabIndex = 1;
-            this.searchBar.Text = "l";
+            this.searchBar.Text = "Search Book";
             this.searchBar.UseSystemPasswordChar = false;
+            this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
+            this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
             // filterDropdown
             // 
@@ -154,46 +159,58 @@
             this.aZToolStripMenuItem,
             this.zAToolStripMenuItem,
             this.fictionToolStripMenuItem,
-            this.nonFictionToolStripMenuItem});
+            this.nonFictionToolStripMenuItem,
+            this.mikhaelaPatriciaCruzToolStripMenuItem});
             this.filterDropdown.MenuItemHeight = 25;
             this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
             this.filterDropdown.Name = "filterDropdown";
             this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Size = new System.Drawing.Size(157, 100);
+            this.filterDropdown.Size = new System.Drawing.Size(211, 152);
             // 
             // aZToolStripMenuItem
             // 
             this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
-            this.aZToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.aZToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.aZToolStripMenuItem.Text = "A-Z";
             // 
             // zAToolStripMenuItem
             // 
             this.zAToolStripMenuItem.Name = "zAToolStripMenuItem";
-            this.zAToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.zAToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.zAToolStripMenuItem.Text = "Z-A";
             // 
             // fictionToolStripMenuItem
             // 
             this.fictionToolStripMenuItem.Name = "fictionToolStripMenuItem";
-            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.fictionToolStripMenuItem.Text = "Fiction";
             // 
             // nonFictionToolStripMenuItem
             // 
             this.nonFictionToolStripMenuItem.Name = "nonFictionToolStripMenuItem";
-            this.nonFictionToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.nonFictionToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.nonFictionToolStripMenuItem.Text = "Non-Fiction";
+            // 
+            // mikhaelaPatriciaCruzToolStripMenuItem
+            // 
+            this.mikhaelaPatriciaCruzToolStripMenuItem.Name = "mikhaelaPatriciaCruzToolStripMenuItem";
+            this.mikhaelaPatriciaCruzToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.mikhaelaPatriciaCruzToolStripMenuItem.Text = "Academic";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
             // 
             // FORM_LIBRARY
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
-            this.Controls.Add(this.PANEL_libraryListContainer);
             this.Controls.Add(this.filterSearchButton);
             this.Controls.Add(this.addBookButton);
             this.Controls.Add(this.LAYOUT_searchBar);
+            this.Controls.Add(this.PANEL_libraryListContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_LIBRARY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -219,5 +236,7 @@
         private System.Windows.Forms.ToolStripMenuItem zAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nonFictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem mikhaelaPatriciaCruzToolStripMenuItem;
     }
 }

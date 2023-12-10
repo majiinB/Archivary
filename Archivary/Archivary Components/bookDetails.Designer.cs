@@ -1,4 +1,4 @@
-﻿namespace Archivary
+﻿namespace Archivary.Archivary_Components
 {
     partial class bookDetails
     {
@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // bookDetails
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Name = "bookDetails";
+            this.Size = new System.Drawing.Size(400, 200);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

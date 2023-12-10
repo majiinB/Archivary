@@ -15,7 +15,6 @@ namespace Archivary.PARENT_FORMS
     {
         private int buttonWidth;
         private int buttonWidth1;
-        private int controlPadding;
         private Button buttonize;
 
         //
@@ -31,19 +30,9 @@ namespace Archivary.PARENT_FORMS
             return Color.FromArgb(244, 244, 244);
         }
 
-        private Color archivaryBlack()
+        private Color archivaryHoverGray()
         {
-            return Color.FromArgb(20, 18, 18);
-        }
-
-        private Color archivaryGray()
-        {
-            return Color.FromArgb(40, 40, 40);
-        }
-
-        private Color archivaryCream()
-        {
-            return Color.FromArgb(208, 190, 143);
+            return Color.FromArgb(200, 200, 200);
         }
 
         //MAIN
@@ -67,7 +56,7 @@ namespace Archivary.PARENT_FORMS
         {
             libraryList.Controls.Clear(); // Clear existing controls
 
-            int maxButtons = 3;
+            int maxButtons = 20;
             int total = 0;
 
             buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20; //( -20 <-- this is padding size)
@@ -105,14 +94,33 @@ namespace Archivary.PARENT_FORMS
         private void openDropdownMenu(DropdownMenu dropdownMenu, object sender)
         {
             Control control = (Control)sender;
-            /*dropdownMenu.VisibleChanged += new EventHandler((sender2, ev)
-                => DropdownMenu.VisibleChanged(sender2, ev, control));*/
-            dropdownMenu.Show(control, control.Width - dropdownMenu.Width, control.Height);
+            //dropdownMenu.Show(control, control.Width - dropdownMenu.Width, control.Height);
+            dropdownMenu.Show(control, control.Width - control.Width, control.Height);
         }
 
         private void filterSearchButton_Click(object sender, EventArgs e)
         {
             openDropdownMenu(filterDropdown, sender);
+        }
+
+        private void searchBar_Enter(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "Search Book")
+            {
+                searchBar.Text = "";
+                searchBar.Font = new Font("Montserrat", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+                searchBar.ForeColor = archivaryWhite();
+            }
+        }
+
+        private void searchBar_Leave(object sender, EventArgs e)
+        {
+            if (searchBar.Text == "")
+            {
+                searchBar.Text = "Search Book";
+                searchBar.ForeColor = archivaryHoverGray();
+                searchBar.Font = new Font("Montserrat Light", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            }
         }
     }
 }

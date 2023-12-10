@@ -21,9 +21,12 @@ namespace CustomDropdown
         {
             if (isMainMenu)
             {
-                backColor = Color.FromArgb(37, 39, 60);
+                /*backColor = Color.FromArgb(37, 39, 60);
                 leftColumnColor = Color.FromArgb(32, 33, 51);
-                borderColor = Color.FromArgb(32, 33, 51);
+                borderColor = Color.FromArgb(32, 33, 51);*/
+                backColor = Color.FromArgb(20, 18, 18);
+                leftColumnColor = Color.FromArgb(40, 40, 40);
+                borderColor = Color.FromArgb(40, 40, 40);
                 menuItemBorderColor = primaryColor;
                 menuItemSelectedColor = primaryColor;
             }
