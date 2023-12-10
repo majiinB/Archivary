@@ -173,6 +173,46 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICON_DROPDOWN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_DROPDOWN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_DROPDOWN_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_DROPDOWN_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_DROPUP {
+            get {
+                object obj = ResourceManager.GetObject("ICON_DROPUP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_DROPUP_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_DROPUP_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON_LIBRARY {
             get {
                 object obj = ResourceManager.GetObject("ICON_LIBRARY", resourceCulture);

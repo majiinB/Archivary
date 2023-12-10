@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_LIBRARY));
             this.PANEL_libraryListContainer = new System.Windows.Forms.Panel();
             this.libraryList = new System.Windows.Forms.FlowLayoutPanel();
-            this.roundedSidebarButton1 = new sidebarComponents.RoundedSidebarButton();
-            this.roundedButton1 = new roundedCorners.roundedButton();
+            this.filterSearchButton = new sidebarComponents.RoundedPictureButtonRight();
+            this.addBookButton = new sidebarComponents.RoundedSidebarButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
             this.searchBar = new RoundedCorners.RoundedTextBox();
-            this.dropdownMenu1 = new CustomDropdown.DropdownMenu(this.components);
-            this.fictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nonfictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.academicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
-            this.dropdownMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PANEL_libraryListContainer
@@ -66,44 +61,49 @@
             this.libraryList.Size = new System.Drawing.Size(932, 554);
             this.libraryList.TabIndex = 0;
             // 
-            // roundedSidebarButton1
+            // filterSearchButton
             // 
-            this.roundedSidebarButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundedSidebarButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.roundedSidebarButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.roundedSidebarButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.roundedSidebarButton1.BorderRadius = 20;
-            this.roundedSidebarButton1.BorderSize = 0;
-            this.roundedSidebarButton1.ButtonImage = global::Archivary.Properties.Resources.ICON_USER;
-            this.roundedSidebarButton1.FlatAppearance.BorderSize = 0;
-            this.roundedSidebarButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedSidebarButton1.ForeColor = System.Drawing.Color.White;
-            this.roundedSidebarButton1.Location = new System.Drawing.Point(756, 12);
-            this.roundedSidebarButton1.Name = "roundedSidebarButton1";
-            this.roundedSidebarButton1.Size = new System.Drawing.Size(175, 54);
-            this.roundedSidebarButton1.TabIndex = 5;
-            this.roundedSidebarButton1.Text = "roundedSidebarButton1";
-            this.roundedSidebarButton1.TextColor = System.Drawing.Color.White;
-            this.roundedSidebarButton1.UseVisualStyleBackColor = false;
+            this.filterSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterSearchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.filterSearchButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.filterSearchButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.filterSearchButton.BorderRadius = 10;
+            this.filterSearchButton.BorderSize = 0;
+            this.filterSearchButton.ButtonImage = ((System.Drawing.Image)(resources.GetObject("filterSearchButton.ButtonImage")));
+            this.filterSearchButton.FlatAppearance.BorderSize = 0;
+            this.filterSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterSearchButton.ForeColor = System.Drawing.Color.White;
+            this.filterSearchButton.Location = new System.Drawing.Point(641, 12);
+            this.filterSearchButton.Name = "filterSearchButton";
+            this.filterSearchButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.filterSearchButton.Size = new System.Drawing.Size(150, 54);
+            this.filterSearchButton.TabIndex = 6;
+            this.filterSearchButton.Text = "Filter";
+            this.filterSearchButton.TextColor = System.Drawing.Color.White;
+            this.filterSearchButton.UseVisualStyleBackColor = false;
             // 
-            // roundedButton1
+            // addBookButton
             // 
-            this.roundedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.roundedButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundedButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.roundedButton1.BorderRadius = 40;
-            this.roundedButton1.BorderSize = 0;
-            this.roundedButton1.FlatAppearance.BorderSize = 0;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.ForeColor = System.Drawing.Color.White;
-            this.roundedButton1.Location = new System.Drawing.Point(573, 10);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(150, 54);
-            this.roundedButton1.TabIndex = 3;
-            this.roundedButton1.Text = "roundedButton1";
-            this.roundedButton1.TextColor = System.Drawing.Color.White;
-            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.addBookButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addBookButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.addBookButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.addBookButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.addBookButton.BorderRadius = 10;
+            this.addBookButton.BorderSize = 0;
+            this.addBookButton.ButtonImage = global::Archivary.Properties.Resources.ICON_ADD;
+            this.addBookButton.FlatAppearance.BorderSize = 0;
+            this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBookButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBookButton.ForeColor = System.Drawing.Color.White;
+            this.addBookButton.Location = new System.Drawing.Point(797, 12);
+            this.addBookButton.Name = "addBookButton";
+            this.addBookButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.addBookButton.Size = new System.Drawing.Size(150, 54);
+            this.addBookButton.TabIndex = 5;
+            this.addBookButton.Text = "Add";
+            this.addBookButton.TextColor = System.Drawing.Color.White;
+            this.addBookButton.UseVisualStyleBackColor = false;
             // 
             // LAYOUT_searchBar
             // 
@@ -117,7 +117,7 @@
             this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
             this.LAYOUT_searchBar.Padding = new System.Windows.Forms.Padding(2);
             this.LAYOUT_searchBar.Radius = 10;
-            this.LAYOUT_searchBar.Size = new System.Drawing.Size(510, 54);
+            this.LAYOUT_searchBar.Size = new System.Drawing.Size(623, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
             // 
             // searchBar
@@ -133,50 +133,18 @@
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
-            this.searchBar.Size = new System.Drawing.Size(506, 50);
+            this.searchBar.Size = new System.Drawing.Size(619, 50);
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "l";
             this.searchBar.UseSystemPasswordChar = false;
-            // 
-            // dropdownMenu1
-            // 
-            this.dropdownMenu1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.dropdownMenu1.IsMainMenu = false;
-            this.dropdownMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fictionToolStripMenuItem,
-            this.nonfictionToolStripMenuItem,
-            this.academicToolStripMenuItem});
-            this.dropdownMenu1.MenuItemHeight = 25;
-            this.dropdownMenu1.MenuItemTextColor = System.Drawing.Color.Empty;
-            this.dropdownMenu1.Name = "dropdownMenu1";
-            this.dropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
-            this.dropdownMenu1.Size = new System.Drawing.Size(146, 76);
-            // 
-            // fictionToolStripMenuItem
-            // 
-            this.fictionToolStripMenuItem.Name = "fictionToolStripMenuItem";
-            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
-            this.fictionToolStripMenuItem.Text = "fiction";
-            // 
-            // nonfictionToolStripMenuItem
-            // 
-            this.nonfictionToolStripMenuItem.Name = "nonfictionToolStripMenuItem";
-            this.nonfictionToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
-            this.nonfictionToolStripMenuItem.Text = "nonfiction";
-            // 
-            // academicToolStripMenuItem
-            // 
-            this.academicToolStripMenuItem.Name = "academicToolStripMenuItem";
-            this.academicToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
-            this.academicToolStripMenuItem.Text = "academic";
             // 
             // FORM_LIBRARY
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
-            this.Controls.Add(this.roundedSidebarButton1);
-            this.Controls.Add(this.roundedButton1);
+            this.Controls.Add(this.filterSearchButton);
+            this.Controls.Add(this.addBookButton);
             this.Controls.Add(this.PANEL_libraryListContainer);
             this.Controls.Add(this.LAYOUT_searchBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -186,7 +154,6 @@
             this.Resize += new System.EventHandler(this.FORM_LIBRARY_Resize);
             this.PANEL_libraryListContainer.ResumeLayout(false);
             this.LAYOUT_searchBar.ResumeLayout(false);
-            this.dropdownMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,11 +164,7 @@
         private RoundedCorners.RoundedTextBox searchBar;
         private System.Windows.Forms.Panel PANEL_libraryListContainer;
         private System.Windows.Forms.FlowLayoutPanel libraryList;
-        private CustomDropdown.DropdownMenu dropdownMenu1;
-        private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nonfictionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem academicToolStripMenuItem;
-        private roundedCorners.roundedButton roundedButton1;
-        private sidebarComponents.RoundedSidebarButton roundedSidebarButton1;
+        private sidebarComponents.RoundedSidebarButton addBookButton;
+        private sidebarComponents.RoundedPictureButtonRight filterSearchButton;
     }
 }

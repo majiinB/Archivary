@@ -203,6 +203,11 @@
     <Compile Include="Archivary Components\sidebarButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RoundedPictureButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -244,14 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -354,6 +354,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BACKGROUND_START.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ADD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPDOWN_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPUP_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPDOWN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
