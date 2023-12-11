@@ -32,11 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_LIBRARY));
             this.PANEL_libraryListContainer = new System.Windows.Forms.Panel();
             this.libraryList = new System.Windows.Forms.FlowLayoutPanel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.filterSearchButton = new sidebarComponents.RoundedPictureButtonRight();
             this.addBookButton = new sidebarComponents.RoundedSidebarButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
-            this.buttones = new System.Windows.Forms.Button();
             this.searchBar = new RoundedCorners.RoundedTextBox();
             this.filterDropdown = new CustomDropdown.DropdownMenu(this.components);
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,11 +70,6 @@
             this.libraryList.Size = new System.Drawing.Size(958, 580);
             this.libraryList.TabIndex = 0;
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 6);
-            // 
             // filterSearchButton
             // 
             this.filterSearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -90,10 +83,10 @@
             this.filterSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterSearchButton.ForeColor = System.Drawing.Color.White;
-            this.filterSearchButton.Location = new System.Drawing.Point(641, 12);
+            this.filterSearchButton.Location = new System.Drawing.Point(606, 12);
             this.filterSearchButton.Name = "filterSearchButton";
             this.filterSearchButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.filterSearchButton.Size = new System.Drawing.Size(150, 54);
+            this.filterSearchButton.Size = new System.Drawing.Size(185, 54);
             this.filterSearchButton.TabIndex = 6;
             this.filterSearchButton.Text = "Filter";
             this.filterSearchButton.TextColor = System.Drawing.Color.White;
@@ -129,24 +122,13 @@
             this.LAYOUT_searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.LAYOUT_searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.LAYOUT_searchBar.BorderWidth = 1F;
-            this.LAYOUT_searchBar.Controls.Add(this.buttones);
             this.LAYOUT_searchBar.Controls.Add(this.searchBar);
             this.LAYOUT_searchBar.Location = new System.Drawing.Point(12, 12);
             this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
             this.LAYOUT_searchBar.Padding = new System.Windows.Forms.Padding(2);
             this.LAYOUT_searchBar.Radius = 10;
-            this.LAYOUT_searchBar.Size = new System.Drawing.Size(623, 54);
+            this.LAYOUT_searchBar.Size = new System.Drawing.Size(588, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
-            // 
-            // buttones
-            // 
-            this.buttones.Location = new System.Drawing.Point(438, 18);
-            this.buttones.Name = "buttones";
-            this.buttones.Size = new System.Drawing.Size(75, 23);
-            this.buttones.TabIndex = 0;
-            this.buttones.Text = "buttones";
-            this.buttones.UseVisualStyleBackColor = true;
-            this.buttones.Visible = false;
             // 
             // searchBar
             // 
@@ -161,7 +143,7 @@
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
-            this.searchBar.Size = new System.Drawing.Size(619, 50);
+            this.searchBar.Size = new System.Drawing.Size(584, 50);
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "Search Book";
             this.searchBar.UseSystemPasswordChar = false;
@@ -183,47 +165,47 @@
             this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
             this.filterDropdown.Name = "dropdownMenu1";
             this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Size = new System.Drawing.Size(211, 176);
+            this.filterDropdown.Size = new System.Drawing.Size(157, 148);
             // 
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.allToolStripMenuItem.Text = "All";
             this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
             // bookNameToolStripMenuItem
             // 
             this.bookNameToolStripMenuItem.Name = "bookNameToolStripMenuItem";
-            this.bookNameToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.bookNameToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.bookNameToolStripMenuItem.Text = "Book Name";
             this.bookNameToolStripMenuItem.Click += new System.EventHandler(this.bookNameToolStripMenuItem_Click);
             // 
             // authorToolStripMenuItem
             // 
             this.authorToolStripMenuItem.Name = "authorToolStripMenuItem";
-            this.authorToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.authorToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.authorToolStripMenuItem.Text = "Author";
             this.authorToolStripMenuItem.Click += new System.EventHandler(this.authorToolStripMenuItem_Click);
             // 
             // categoryToolStripMenuItem
             // 
             this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.categoryToolStripMenuItem.Text = "Category";
             this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click);
             // 
             // genreToolStripMenuItem
             // 
             this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
-            this.genreToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.genreToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.genreToolStripMenuItem.Text = "Genre";
             this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
             // 
             // ISBNToolStripMenuItem
             // 
             this.ISBNToolStripMenuItem.Name = "ISBNToolStripMenuItem";
-            this.ISBNToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.ISBNToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.ISBNToolStripMenuItem.Text = "ISBN";
             this.ISBNToolStripMenuItem.Click += new System.EventHandler(this.ISBNToolStripMenuItem_Click);
             // 
@@ -256,14 +238,6 @@
         private System.Windows.Forms.FlowLayoutPanel libraryList;
         private sidebarComponents.RoundedSidebarButton addBookButton;
         private sidebarComponents.RoundedPictureButtonRight filterSearchButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.Button buttones;
-        private System.Windows.Forms.ToolStripMenuItem aZToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zAToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nonFictionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mikhaelaPatriciaCruzToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem iSBNToolStripMenuItem;
         private CustomDropdown.DropdownMenu filterDropdown;
         private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookNameToolStripMenuItem;
