@@ -36,13 +36,15 @@
             this.filterSearchButton = new sidebarComponents.RoundedPictureButtonRight();
             this.addBookButton = new sidebarComponents.RoundedSidebarButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
+            this.buttones = new System.Windows.Forms.Button();
             this.searchBar = new RoundedCorners.RoundedTextBox();
             this.filterDropdown = new CustomDropdown.DropdownMenu(this.components);
-            this.aZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nonFictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mikhaelaPatriciaCruzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.authorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ISBNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
             this.filterDropdown.SuspendLayout();
@@ -73,7 +75,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 6);
             // 
             // filterSearchButton
             // 
@@ -127,6 +129,7 @@
             this.LAYOUT_searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.LAYOUT_searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.LAYOUT_searchBar.BorderWidth = 1F;
+            this.LAYOUT_searchBar.Controls.Add(this.buttones);
             this.LAYOUT_searchBar.Controls.Add(this.searchBar);
             this.LAYOUT_searchBar.Location = new System.Drawing.Point(12, 12);
             this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
@@ -134,6 +137,16 @@
             this.LAYOUT_searchBar.Radius = 10;
             this.LAYOUT_searchBar.Size = new System.Drawing.Size(623, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
+            // 
+            // buttones
+            // 
+            this.buttones.Location = new System.Drawing.Point(438, 18);
+            this.buttones.Name = "buttones";
+            this.buttones.Size = new System.Drawing.Size(75, 23);
+            this.buttones.TabIndex = 0;
+            this.buttones.Text = "buttones";
+            this.buttones.UseVisualStyleBackColor = true;
+            this.buttones.Visible = false;
             // 
             // searchBar
             // 
@@ -160,46 +173,59 @@
             this.filterDropdown.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.filterDropdown.IsMainMenu = false;
             this.filterDropdown.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aZToolStripMenuItem,
-            this.zAToolStripMenuItem,
-            this.fictionToolStripMenuItem,
-            this.nonFictionToolStripMenuItem,
-            this.mikhaelaPatriciaCruzToolStripMenuItem});
+            this.allToolStripMenuItem,
+            this.bookNameToolStripMenuItem,
+            this.authorToolStripMenuItem,
+            this.categoryToolStripMenuItem,
+            this.genreToolStripMenuItem,
+            this.ISBNToolStripMenuItem});
             this.filterDropdown.MenuItemHeight = 25;
             this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Name = "filterDropdown";
+            this.filterDropdown.Name = "dropdownMenu1";
             this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Size = new System.Drawing.Size(157, 124);
+            this.filterDropdown.Size = new System.Drawing.Size(211, 176);
             // 
-            // aZToolStripMenuItem
+            // allToolStripMenuItem
             // 
-            this.aZToolStripMenuItem.Name = "aZToolStripMenuItem";
-            this.aZToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.aZToolStripMenuItem.Text = "A-Z";
+            this.allToolStripMenuItem.Name = "allToolStripMenuItem";
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.allToolStripMenuItem.Text = "All";
+            this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
-            // zAToolStripMenuItem
+            // bookNameToolStripMenuItem
             // 
-            this.zAToolStripMenuItem.Name = "zAToolStripMenuItem";
-            this.zAToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.zAToolStripMenuItem.Text = "Z-A";
+            this.bookNameToolStripMenuItem.Name = "bookNameToolStripMenuItem";
+            this.bookNameToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.bookNameToolStripMenuItem.Text = "Book Name";
+            this.bookNameToolStripMenuItem.Click += new System.EventHandler(this.bookNameToolStripMenuItem_Click);
             // 
-            // fictionToolStripMenuItem
+            // authorToolStripMenuItem
             // 
-            this.fictionToolStripMenuItem.Name = "fictionToolStripMenuItem";
-            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.fictionToolStripMenuItem.Text = "Fiction";
+            this.authorToolStripMenuItem.Name = "authorToolStripMenuItem";
+            this.authorToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.authorToolStripMenuItem.Text = "Author";
+            this.authorToolStripMenuItem.Click += new System.EventHandler(this.authorToolStripMenuItem_Click);
             // 
-            // nonFictionToolStripMenuItem
+            // categoryToolStripMenuItem
             // 
-            this.nonFictionToolStripMenuItem.Name = "nonFictionToolStripMenuItem";
-            this.nonFictionToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.nonFictionToolStripMenuItem.Text = "Non-Fiction";
+            this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
+            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.categoryToolStripMenuItem.Text = "Category";
+            this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click);
             // 
-            // mikhaelaPatriciaCruzToolStripMenuItem
+            // genreToolStripMenuItem
             // 
-            this.mikhaelaPatriciaCruzToolStripMenuItem.Name = "mikhaelaPatriciaCruzToolStripMenuItem";
-            this.mikhaelaPatriciaCruzToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.mikhaelaPatriciaCruzToolStripMenuItem.Text = "Academic";
+            this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
+            this.genreToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.genreToolStripMenuItem.Text = "Genre";
+            this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
+            // 
+            // ISBNToolStripMenuItem
+            // 
+            this.ISBNToolStripMenuItem.Name = "ISBNToolStripMenuItem";
+            this.ISBNToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.ISBNToolStripMenuItem.Text = "ISBN";
+            this.ISBNToolStripMenuItem.Click += new System.EventHandler(this.ISBNToolStripMenuItem_Click);
             // 
             // FORM_LIBRARY
             // 
@@ -230,12 +256,20 @@
         private System.Windows.Forms.FlowLayoutPanel libraryList;
         private sidebarComponents.RoundedSidebarButton addBookButton;
         private sidebarComponents.RoundedPictureButtonRight filterSearchButton;
-        private CustomDropdown.DropdownMenu filterDropdown;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.Button buttones;
         private System.Windows.Forms.ToolStripMenuItem aZToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nonFictionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mikhaelaPatriciaCruzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iSBNToolStripMenuItem;
+        private CustomDropdown.DropdownMenu filterDropdown;
+        private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem authorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem genreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ISBNToolStripMenuItem;
     }
 }

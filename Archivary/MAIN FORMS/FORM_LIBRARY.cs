@@ -122,5 +122,38 @@ namespace Archivary.PARENT_FORMS
                 searchBar.Font = new Font("Montserrat Light", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             }
         }
+
+        //
+        // DROPDOWN EVENTS
+        //
+        private void allToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterSearchButton.Text = "All";
+        }
+
+        private void bookNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterSearchButton.Text = "Book Name";
+        }
+
+        private void authorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterSearchButton.Text = "Author";
+        }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterSearchButton.Text = "Category";
+        }
+
+        private void genreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterSearchButton.Text = "Genre";
+        }
+
+        private void ISBNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterSearchButton.Text = "ISBN";
+        }
     }
 }
