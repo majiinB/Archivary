@@ -28,19 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.LAYOUT_buttons = new System.Windows.Forms.TableLayoutPanel();
             this.saveButton = new roundedCorners.roundedButton();
             this.editButton = new roundedCorners.roundedButton();
-            this.LAYOUT_buttons = new System.Windows.Forms.TableLayoutPanel();
+            this.PANEL_CONTAINER = new System.Windows.Forms.Panel();
+            this.rightPanel = new RoundedCorners.RoundedPanel();
+            this.leftPanel = new RoundedCorners.RoundedPanel();
             this.LAYOUT_buttons.SuspendLayout();
+            this.PANEL_CONTAINER.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // LAYOUT_buttons
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(430, 65);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.LAYOUT_buttons.ColumnCount = 2;
+            this.LAYOUT_buttons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LAYOUT_buttons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LAYOUT_buttons.Controls.Add(this.saveButton, 1, 0);
+            this.LAYOUT_buttons.Controls.Add(this.editButton, 0, 0);
+            this.LAYOUT_buttons.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LAYOUT_buttons.Location = new System.Drawing.Point(0, 570);
+            this.LAYOUT_buttons.Name = "LAYOUT_buttons";
+            this.LAYOUT_buttons.Padding = new System.Windows.Forms.Padding(10);
+            this.LAYOUT_buttons.RowCount = 1;
+            this.LAYOUT_buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LAYOUT_buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.LAYOUT_buttons.Size = new System.Drawing.Size(960, 100);
+            this.LAYOUT_buttons.TabIndex = 1;
             // 
             // saveButton
             // 
@@ -82,45 +95,70 @@
             this.editButton.TextColor = System.Drawing.Color.White;
             this.editButton.UseVisualStyleBackColor = false;
             // 
-            // LAYOUT_buttons
+            // PANEL_CONTAINER
             // 
-            this.LAYOUT_buttons.ColumnCount = 2;
-            this.LAYOUT_buttons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LAYOUT_buttons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LAYOUT_buttons.Controls.Add(this.saveButton, 1, 0);
-            this.LAYOUT_buttons.Controls.Add(this.editButton, 0, 0);
-            this.LAYOUT_buttons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT_buttons.Location = new System.Drawing.Point(0, 570);
-            this.LAYOUT_buttons.Name = "LAYOUT_buttons";
-            this.LAYOUT_buttons.Padding = new System.Windows.Forms.Padding(10);
-            this.LAYOUT_buttons.RowCount = 1;
-            this.LAYOUT_buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LAYOUT_buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LAYOUT_buttons.Size = new System.Drawing.Size(960, 100);
-            this.LAYOUT_buttons.TabIndex = 1;
+            this.PANEL_CONTAINER.Controls.Add(this.rightPanel);
+            this.PANEL_CONTAINER.Controls.Add(this.leftPanel);
+            this.PANEL_CONTAINER.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_CONTAINER.Location = new System.Drawing.Point(0, 0);
+            this.PANEL_CONTAINER.Name = "PANEL_CONTAINER";
+            this.PANEL_CONTAINER.Size = new System.Drawing.Size(960, 570);
+            this.PANEL_CONTAINER.TabIndex = 2;
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rightPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.rightPanel.BorderWidth = 3F;
+            this.rightPanel.Location = new System.Drawing.Point(527, 12);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Radius = 10;
+            this.rightPanel.Size = new System.Drawing.Size(420, 539);
+            this.rightPanel.TabIndex = 1;
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.leftPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.leftPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.leftPanel.BorderWidth = 3F;
+            this.leftPanel.Location = new System.Drawing.Point(13, 12);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Radius = 10;
+            this.leftPanel.Size = new System.Drawing.Size(493, 539);
+            this.leftPanel.TabIndex = 0;
             // 
             // FORM_SETTINGS
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
+            this.Controls.Add(this.PANEL_CONTAINER);
             this.Controls.Add(this.LAYOUT_buttons);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_SETTINGS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_SETTINGS";
+            this.Load += new System.EventHandler(this.FORM_SETTINGS_Load);
+            this.Resize += new System.EventHandler(this.FORM_SETTINGS_Resize);
             this.LAYOUT_buttons.ResumeLayout(false);
+            this.PANEL_CONTAINER.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private roundedCorners.roundedButton saveButton;
         private roundedCorners.roundedButton editButton;
         private System.Windows.Forms.TableLayoutPanel LAYOUT_buttons;
+        private System.Windows.Forms.Panel PANEL_CONTAINER;
+        private RoundedCorners.RoundedPanel leftPanel;
+        private RoundedCorners.RoundedPanel rightPanel;
     }
 }
