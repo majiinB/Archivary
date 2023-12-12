@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.LAYOUT_buttons = new System.Windows.Forms.TableLayoutPanel();
+            this.PANEL_CONTAINER = new System.Windows.Forms.Panel();
+            this.leftPanelBorder = new System.Windows.Forms.Panel();
+            this.leftPanel = new System.Windows.Forms.Panel();
+            this.rightPanelBorder = new System.Windows.Forms.Panel();
+            this.rightPanel = new System.Windows.Forms.Panel();
             this.saveButton = new roundedCorners.roundedButton();
             this.editButton = new roundedCorners.roundedButton();
-            this.PANEL_CONTAINER = new System.Windows.Forms.Panel();
-            this.rightPanel = new RoundedCorners.RoundedPanel();
-            this.leftPanel = new RoundedCorners.RoundedPanel();
             this.LAYOUT_buttons.SuspendLayout();
             this.PANEL_CONTAINER.SuspendLayout();
+            this.leftPanelBorder.SuspendLayout();
+            this.rightPanelBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // LAYOUT_buttons
@@ -54,6 +58,59 @@
             this.LAYOUT_buttons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.LAYOUT_buttons.Size = new System.Drawing.Size(960, 100);
             this.LAYOUT_buttons.TabIndex = 1;
+            // 
+            // PANEL_CONTAINER
+            // 
+            this.PANEL_CONTAINER.Controls.Add(this.leftPanelBorder);
+            this.PANEL_CONTAINER.Controls.Add(this.rightPanelBorder);
+            this.PANEL_CONTAINER.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_CONTAINER.Location = new System.Drawing.Point(0, 0);
+            this.PANEL_CONTAINER.Name = "PANEL_CONTAINER";
+            this.PANEL_CONTAINER.Size = new System.Drawing.Size(960, 570);
+            this.PANEL_CONTAINER.TabIndex = 2;
+            // 
+            // leftPanelBorder
+            // 
+            this.leftPanelBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.leftPanelBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.leftPanelBorder.Controls.Add(this.leftPanel);
+            this.leftPanelBorder.Location = new System.Drawing.Point(13, 12);
+            this.leftPanelBorder.Name = "leftPanelBorder";
+            this.leftPanelBorder.Padding = new System.Windows.Forms.Padding(3);
+            this.leftPanelBorder.Size = new System.Drawing.Size(479, 534);
+            this.leftPanelBorder.TabIndex = 0;
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.leftPanel.Location = new System.Drawing.Point(3, 3);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(473, 528);
+            this.leftPanel.TabIndex = 0;
+            // 
+            // rightPanelBorder
+            // 
+            this.rightPanelBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rightPanelBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.rightPanelBorder.Controls.Add(this.rightPanel);
+            this.rightPanelBorder.Location = new System.Drawing.Point(510, 12);
+            this.rightPanelBorder.Name = "rightPanelBorder";
+            this.rightPanelBorder.Padding = new System.Windows.Forms.Padding(3);
+            this.rightPanelBorder.Size = new System.Drawing.Size(437, 534);
+            this.rightPanelBorder.TabIndex = 1;
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightPanel.Location = new System.Drawing.Point(3, 3);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(431, 528);
+            this.rightPanel.TabIndex = 0;
             // 
             // saveButton
             // 
@@ -95,43 +152,6 @@
             this.editButton.TextColor = System.Drawing.Color.White;
             this.editButton.UseVisualStyleBackColor = false;
             // 
-            // PANEL_CONTAINER
-            // 
-            this.PANEL_CONTAINER.Controls.Add(this.rightPanel);
-            this.PANEL_CONTAINER.Controls.Add(this.leftPanel);
-            this.PANEL_CONTAINER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_CONTAINER.Location = new System.Drawing.Point(0, 0);
-            this.PANEL_CONTAINER.Name = "PANEL_CONTAINER";
-            this.PANEL_CONTAINER.Size = new System.Drawing.Size(960, 570);
-            this.PANEL_CONTAINER.TabIndex = 2;
-            // 
-            // rightPanel
-            // 
-            this.rightPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rightPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.rightPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.rightPanel.BorderWidth = 3F;
-            this.rightPanel.Location = new System.Drawing.Point(527, 12);
-            this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Radius = 10;
-            this.rightPanel.Size = new System.Drawing.Size(420, 539);
-            this.rightPanel.TabIndex = 1;
-            // 
-            // leftPanel
-            // 
-            this.leftPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.leftPanel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.leftPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.leftPanel.BorderWidth = 3F;
-            this.leftPanel.Location = new System.Drawing.Point(13, 12);
-            this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Radius = 10;
-            this.leftPanel.Size = new System.Drawing.Size(493, 539);
-            this.leftPanel.TabIndex = 0;
-            // 
             // FORM_SETTINGS
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -149,6 +169,8 @@
             this.Resize += new System.EventHandler(this.FORM_SETTINGS_Resize);
             this.LAYOUT_buttons.ResumeLayout(false);
             this.PANEL_CONTAINER.ResumeLayout(false);
+            this.leftPanelBorder.ResumeLayout(false);
+            this.rightPanelBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -158,7 +180,9 @@
         private roundedCorners.roundedButton editButton;
         private System.Windows.Forms.TableLayoutPanel LAYOUT_buttons;
         private System.Windows.Forms.Panel PANEL_CONTAINER;
-        private RoundedCorners.RoundedPanel leftPanel;
-        private RoundedCorners.RoundedPanel rightPanel;
+        private System.Windows.Forms.Panel leftPanelBorder;
+        private System.Windows.Forms.Panel rightPanelBorder;
+        private System.Windows.Forms.Panel leftPanel;
+        private System.Windows.Forms.Panel rightPanel;
     }
 }

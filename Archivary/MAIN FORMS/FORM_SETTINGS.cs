@@ -33,8 +33,8 @@ namespace Archivary.PARENT_FORMS
         {
             panelWidth = (PANEL_CONTAINER.ClientSize.Width / 1) - 20; //( -20 <-- this is padding size)
 
-            leftPanel.Width = panelWidth;
-            rightPanel.Width = panelWidth;
+            leftPanelBorder.Width = panelWidth;
+            rightPanelBorder.Width = panelWidth;
         }
 
 
