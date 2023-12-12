@@ -58,7 +58,7 @@ namespace Archivary.PARENT_FORMS
         {
             libraryList.Controls.Clear(); // Clear existing controls
 
-            int maxButtons = 20;
+            int maxButtons = 7;
             int total = 0;
 
             buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20; //( -20 <-- this is padding size)

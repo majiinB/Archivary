@@ -57,6 +57,7 @@
             this.bookPicture.Location = new System.Drawing.Point(10, 10);
             this.bookPicture.Name = "bookPicture";
             this.bookPicture.Size = new System.Drawing.Size(130, 180);
+            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bookPicture.TabIndex = 0;
             this.bookPicture.TabStop = false;
             // 
