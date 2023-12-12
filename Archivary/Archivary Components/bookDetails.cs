@@ -25,18 +25,31 @@ namespace Archivary.Archivary_Components
         private Image _image;
         private Button _button;
 
+
+        [Browsable(false)]
+        public string AuthorHolder
+        {
+            get { return "Author: "; }
+        }
+
+        [Browsable(false)]
+        public string ISBNHolder
+        {
+            get { return "ISBN: "; }
+        }
+
         [Category("Book Information")]
         public string Title
         {
             get { return _title; }
-            set { _title = value; bookTitleLabel.Text = value; }
+            set { _title = value;  bookTitleLabel.Text = value; }
         }
 
         [Category("Book Information")]
         public string Author
         {
             get { return _author; }
-            set { _author = value; authorLabel.Text = value; }
+            set { _author = value;  authorLabel.Text = value; }
         }
 
         [Category("Book Information")]
@@ -59,10 +72,10 @@ namespace Archivary.Archivary_Components
             get { return _button; }
             set { _button = value; }
         }
-        
+
+
 
         #endregion
-
 
     }
 }
