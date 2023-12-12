@@ -1,4 +1,5 @@
-﻿using CustomDropdown;
+﻿using Archivary.Archivary_Components;
+using CustomDropdown;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Archivary.PARENT_FORMS
         private int buttonWidth;
         private int buttonWidth1;
         private Button buttonize;
+        private bookDetails bookInfo;
 
         //
         // COLOR METHODS
@@ -43,13 +45,45 @@ namespace Archivary.PARENT_FORMS
 
         private void FORM_LIBRARY_Load(object sender, EventArgs e)
         {
-            CreateButtons();
+            CreateButtons1();
             dropdownProperties();
         }
 
         private void FORM_LIBRARY_Resize(object sender, EventArgs e)
         {
-            CreateButtons();
+            CreateButtons1();
+        }
+
+        private void CreateButtons1()
+        {
+            libraryList.Controls.Clear(); // Clear existing controls
+
+            int maxButtons = 20;
+            int total = 0;
+
+            buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20; //( -20 <-- this is padding size)
+            buttonWidth1 = (libraryList.ClientSize.Width / 2) - 20; //( -20 <-- this is padding size)
+
+            // Adjust padding to provide space at the bottom
+            libraryList.Padding = new Padding(0, 0, 0, 10);
+
+            for (int i = 1; i <= maxButtons; i++)
+            {
+                bookInfo = new bookDetails();
+                bookInfo.Text = "Button " + i;
+                bookInfo.Height = 200;
+                bookInfo.Margin = new Padding(10);
+                libraryList.Controls.Add(bookInfo);
+                total += i;
+                if (maxButtons <= 4)
+                {
+                    bookInfo.Width = buttonWidth1;
+                }
+                else if (maxButtons > 4)
+                {
+                    bookInfo.Width = buttonWidth;
+                }
+            }
         }
 
         private void CreateButtons()
