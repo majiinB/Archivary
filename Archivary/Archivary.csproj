@@ -232,6 +232,9 @@
     <EmbeddedResource Include="MAIN FORMS\FORM_CIRCULATION.resx">
       <DependentUpon>FORM_CIRCULATION.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_SETTINGS.resx">
+      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_SIDEBAR.resx">
       <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
     </EmbeddedResource>
