@@ -14,12 +14,16 @@ namespace Archivary
     public partial class FORM_TITLE : Form
     {
         private FORM_ROOT FormsRoot;
-        private FORM_LOGIN FormsLogin;
+
+        private readonly Size minimumSize = new Size(960, 650);
 
         public FORM_TITLE(FORM_ROOT showFormsRoot)
         {
             InitializeComponent();
             FormsRoot = showFormsRoot;
+
+            this.Size = new Size(960, 650);
+            this.MinimumSize = minimumSize;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,6 +34,7 @@ namespace Archivary
         private void goLoginButton_Click(object sender, EventArgs e)
         {
             FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
+            this.Close();
         }
     }
 }

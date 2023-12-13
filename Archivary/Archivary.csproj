@@ -118,10 +118,27 @@
     <Compile Include="900X500\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivary Components\bookDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\bookDetails.Designer.cs">
+      <DependentUpon>bookDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\DropdownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\MenuColorTable.cs" />
+    <Compile Include="Archivary Components\MenuRenderer.cs" />
     <Compile Include="Archivary Components\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Archivary Components\RoundedPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\RoundedSidebarButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FORM_ROOT.cs">
@@ -129,6 +146,12 @@
     </Compile>
     <Compile Include="FORM_ROOT.Designer.cs">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SIDEBAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SIDEBAR.Designer.cs">
+      <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
     </Compile>
     <Compile Include="MAIN FORMS\FORM_CIRCULATION.cs">
       <SubType>Form</SubType>
@@ -160,12 +183,6 @@
     <Compile Include="MAIN FORMS\FORM_SETTINGS.Designer.cs">
       <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
     </Compile>
-    <Compile Include="MAIN FORMS\FORM_SIDEBAR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_SIDEBAR.Designer.cs">
-      <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
-    </Compile>
     <Compile Include="MAIN FORMS\FORM_TITLE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +203,14 @@
     <Compile Include="Archivary Components\sidebarButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\RoundedPictureButtonRight.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,8 +223,23 @@
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
       <DependentUpon>FORM_RETURN.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.resx">
+      <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\bookDetails.resx">
+      <DependentUpon>bookDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORM_ROOT.resx">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_CIRCULATION.resx">
+      <DependentUpon>FORM_CIRCULATION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_SETTINGS.resx">
+      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_SIDEBAR.resx">
+      <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_LIBRARY.resx">
       <DependentUpon>FORM_LIBRARY.cs</DependentUpon>
@@ -207,22 +247,17 @@
     <EmbeddedResource Include="MAIN FORMS\FORM_LOGIN.resx">
       <DependentUpon>FORM_LOGIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MAIN FORMS\FORM_SIDEBAR.resx">
-      <DependentUpon>FORM_SIDEBAR.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_TITLE.resx">
       <DependentUpon>FORM_TITLE.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_USERS.resx">
+      <DependentUpon>FORM_USERS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -295,6 +330,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ArchivaryLogoBannerPNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLOSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE_TOGGLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_CLOSE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE_TOGGLE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MAXIMIZE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MINIMIZE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_MINIMIZE_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND_START.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_ADD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPDOWN_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPUP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPUP_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_DROPDOWN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

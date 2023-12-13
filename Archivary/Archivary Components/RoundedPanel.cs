@@ -56,12 +56,31 @@ namespace RoundedCorners
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             Resize += RoundedPanel_Resize;
+            ControlAdded += RoundedPanel_ControlAdded;
         }
 
         private void RoundedPanel_Resize(object sender, EventArgs e)
         {
             // Redraw the panel on resize
             Invalidate();
+
+            // Update the region of the child controls
+            foreach (Control control in Controls)
+            {
+                if (control != null)
+                {
+                    control.Region = new Region(CreateRoundedRectanglePath());
+                }
+            }
+        }
+
+        private void RoundedPanel_ControlAdded(object sender, ControlEventArgs e)
+        {
+            // Clip the child controls to the rounded shape of the panel
+            if (e.Control != null)
+            {
+                e.Control.Region = new Region(CreateRoundedRectanglePath());
+            }
         }
 
         protected override void OnPaint(PaintEventArgs e)
