@@ -223,6 +223,9 @@
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
       <DependentUpon>FORM_RETURN.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.resx">
+      <DependentUpon>FORM_BOOKEDIT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.resx">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
     </EmbeddedResource>

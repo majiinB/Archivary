@@ -281,6 +281,7 @@
             this.editInfoButton.Text = "Edit Info";
             this.editInfoButton.TextColor = System.Drawing.Color.White;
             this.editInfoButton.UseVisualStyleBackColor = false;
+            this.editInfoButton.Click += new System.EventHandler(this.editInfoButton_Click);
             // 
             // ISBNTextbox
             // 
@@ -407,6 +408,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_BOOKINFO";
             this.Padding = new System.Windows.Forms.Padding(3);
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_BOOKINFO";
             this.PANEL_CONTENTS.ResumeLayout(false);
