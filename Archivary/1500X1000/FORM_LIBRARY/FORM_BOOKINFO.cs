@@ -16,5 +16,10 @@ namespace Archivary._1500X1000.FORM_LIBRARY
         {
             InitializeComponent();
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

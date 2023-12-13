@@ -83,7 +83,7 @@ namespace Archivary.Archivary_Components
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            formInfo.Show();
+            formInfo.ShowDialog();
         }
     }
 }

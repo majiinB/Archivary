@@ -28,91 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.categoryLabel = new System.Windows.Forms.Label();
-            this.genreLabel = new System.Windows.Forms.Label();
-            this.availableLabel = new System.Windows.Forms.Label();
-            this.booktitleLabel = new System.Windows.Forms.Label();
+            this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ISBNLabel = new System.Windows.Forms.Label();
-            this.ISBNTextbox = new RoundedCorners.RoundedTextBox();
             this.authorLabel = new System.Windows.Forms.Label();
-            this.authorTextbox = new RoundedCorners.RoundedTextBox();
-            this.publisherLabel = new System.Windows.Forms.Label();
-            this.copyrightLabel = new System.Windows.Forms.Label();
-            this.aisleLabel = new System.Windows.Forms.Label();
             this.shelfLabel = new System.Windows.Forms.Label();
+            this.aisleLabel = new System.Windows.Forms.Label();
+            this.copyrightLabel = new System.Windows.Forms.Label();
+            this.publisherLabel = new System.Windows.Forms.Label();
+            this.bookPictureBox = new System.Windows.Forms.PictureBox();
+            this.booktitleLabel = new System.Windows.Forms.Label();
+            this.availableLabel = new System.Windows.Forms.Label();
+            this.genreLabel = new System.Windows.Forms.Label();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.cancelButton = new roundedCorners.roundedButton();
+            this.editInfoButton = new roundedCorners.roundedButton();
+            this.ISBNTextbox = new RoundedCorners.RoundedTextBox();
+            this.authorTextbox = new RoundedCorners.RoundedTextBox();
             this.publisherTextbox = new RoundedCorners.RoundedTextBox();
             this.copyrightTextbox = new RoundedCorners.RoundedTextBox();
             this.aisleTextbox = new RoundedCorners.RoundedTextBox();
             this.shelfTextbox = new RoundedCorners.RoundedTextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.PANEL_CONTENTS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // PANEL_CONTENTS
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.booktitleLabel);
-            this.panel1.Controls.Add(this.availableLabel);
-            this.panel1.Controls.Add(this.genreLabel);
-            this.panel1.Controls.Add(this.categoryLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 664);
-            this.panel1.TabIndex = 0;
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.categoryLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.categoryLabel.Location = new System.Drawing.Point(14, 11);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(150, 30);
-            this.categoryLabel.TabIndex = 0;
-            this.categoryLabel.Text = "Category";
-            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // genreLabel
-            // 
-            this.genreLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.genreLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.genreLabel.Location = new System.Drawing.Point(184, 11);
-            this.genreLabel.Name = "genreLabel";
-            this.genreLabel.Size = new System.Drawing.Size(150, 30);
-            this.genreLabel.TabIndex = 1;
-            this.genreLabel.Text = "Genre";
-            this.genreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // availableLabel
-            // 
-            this.availableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.availableLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.availableLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.availableLabel.Location = new System.Drawing.Point(790, 11);
-            this.availableLabel.Name = "availableLabel";
-            this.availableLabel.Size = new System.Drawing.Size(150, 30);
-            this.availableLabel.TabIndex = 2;
-            this.availableLabel.Text = "Available";
-            this.availableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // booktitleLabel
-            // 
-            this.booktitleLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.booktitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.booktitleLabel.Location = new System.Drawing.Point(3, 41);
-            this.booktitleLabel.Name = "booktitleLabel";
-            this.booktitleLabel.Size = new System.Drawing.Size(948, 90);
-            this.booktitleLabel.TabIndex = 3;
-            this.booktitleLabel.Text = "LORD OF THE RINGS";
-            this.booktitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PANEL_CONTENTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PANEL_CONTENTS.Controls.Add(this.cancelButton);
+            this.PANEL_CONTENTS.Controls.Add(this.editInfoButton);
+            this.PANEL_CONTENTS.Controls.Add(this.tableLayoutPanel1);
+            this.PANEL_CONTENTS.Controls.Add(this.booktitleLabel);
+            this.PANEL_CONTENTS.Controls.Add(this.availableLabel);
+            this.PANEL_CONTENTS.Controls.Add(this.genreLabel);
+            this.PANEL_CONTENTS.Controls.Add(this.categoryLabel);
+            this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 3);
+            this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(954, 664);
+            this.PANEL_CONTENTS.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -131,7 +87,7 @@
             this.tableLayoutPanel1.Controls.Add(this.copyrightTextbox, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.aisleTextbox, 1, 9);
             this.tableLayoutPanel1.Controls.Add(this.shelfTextbox, 1, 11);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.bookPictureBox, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(60, 134);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 12;
@@ -163,6 +119,169 @@
             this.ISBNLabel.Text = "ISBN";
             this.ISBNLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // authorLabel
+            // 
+            this.authorLabel.AutoSize = true;
+            this.authorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.authorLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.authorLabel.Location = new System.Drawing.Point(418, 74);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(409, 37);
+            this.authorLabel.TabIndex = 2;
+            this.authorLabel.Text = "Author";
+            this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // shelfLabel
+            // 
+            this.shelfLabel.AutoSize = true;
+            this.shelfLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shelfLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.shelfLabel.Location = new System.Drawing.Point(418, 370);
+            this.shelfLabel.Name = "shelfLabel";
+            this.shelfLabel.Size = new System.Drawing.Size(409, 37);
+            this.shelfLabel.TabIndex = 7;
+            this.shelfLabel.Text = "Shelf";
+            this.shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // aisleLabel
+            // 
+            this.aisleLabel.AutoSize = true;
+            this.aisleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aisleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aisleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.aisleLabel.Location = new System.Drawing.Point(418, 296);
+            this.aisleLabel.Name = "aisleLabel";
+            this.aisleLabel.Size = new System.Drawing.Size(409, 37);
+            this.aisleLabel.TabIndex = 6;
+            this.aisleLabel.Text = "Aisle";
+            this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // copyrightLabel
+            // 
+            this.copyrightLabel.AutoSize = true;
+            this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.copyrightLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.copyrightLabel.Location = new System.Drawing.Point(418, 222);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(409, 37);
+            this.copyrightLabel.TabIndex = 5;
+            this.copyrightLabel.Text = "Copyright";
+            this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // publisherLabel
+            // 
+            this.publisherLabel.AutoSize = true;
+            this.publisherLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.publisherLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.publisherLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.publisherLabel.Location = new System.Drawing.Point(418, 148);
+            this.publisherLabel.Name = "publisherLabel";
+            this.publisherLabel.Size = new System.Drawing.Size(409, 37);
+            this.publisherLabel.TabIndex = 4;
+            this.publisherLabel.Text = "Publisher";
+            this.publisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // bookPictureBox
+            // 
+            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.bookPictureBox.Name = "bookPictureBox";
+            this.tableLayoutPanel1.SetRowSpan(this.bookPictureBox, 12);
+            this.bookPictureBox.Size = new System.Drawing.Size(409, 444);
+            this.bookPictureBox.TabIndex = 12;
+            this.bookPictureBox.TabStop = false;
+            // 
+            // booktitleLabel
+            // 
+            this.booktitleLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.booktitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.booktitleLabel.Location = new System.Drawing.Point(3, 41);
+            this.booktitleLabel.Name = "booktitleLabel";
+            this.booktitleLabel.Size = new System.Drawing.Size(948, 90);
+            this.booktitleLabel.TabIndex = 3;
+            this.booktitleLabel.Text = "LORD OF THE RINGS";
+            this.booktitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // availableLabel
+            // 
+            this.availableLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.availableLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.availableLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.availableLabel.Location = new System.Drawing.Point(790, 11);
+            this.availableLabel.Name = "availableLabel";
+            this.availableLabel.Size = new System.Drawing.Size(150, 30);
+            this.availableLabel.TabIndex = 2;
+            this.availableLabel.Text = "Available";
+            this.availableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // genreLabel
+            // 
+            this.genreLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.genreLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.genreLabel.Location = new System.Drawing.Point(184, 11);
+            this.genreLabel.Name = "genreLabel";
+            this.genreLabel.Size = new System.Drawing.Size(150, 30);
+            this.genreLabel.TabIndex = 1;
+            this.genreLabel.Text = "Genre";
+            this.genreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.categoryLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.categoryLabel.Location = new System.Drawing.Point(14, 11);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(150, 30);
+            this.categoryLabel.TabIndex = 0;
+            this.categoryLabel.Text = "Category";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cancelButton.BorderRadius = 15;
+            this.cancelButton.BorderSize = 3;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(478, 592);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(412, 58);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.TextColor = System.Drawing.Color.White;
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // editInfoButton
+            // 
+            this.editInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.editInfoButton.BorderRadius = 15;
+            this.editInfoButton.BorderSize = 0;
+            this.editInfoButton.FlatAppearance.BorderSize = 0;
+            this.editInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editInfoButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInfoButton.ForeColor = System.Drawing.Color.White;
+            this.editInfoButton.Location = new System.Drawing.Point(60, 592);
+            this.editInfoButton.Name = "editInfoButton";
+            this.editInfoButton.Size = new System.Drawing.Size(412, 58);
+            this.editInfoButton.TabIndex = 0;
+            this.editInfoButton.Text = "Edit Info";
+            this.editInfoButton.TextColor = System.Drawing.Color.White;
+            this.editInfoButton.UseVisualStyleBackColor = false;
+            // 
             // ISBNTextbox
             // 
             this.ISBNTextbox.BackColor = System.Drawing.Color.Transparent;
@@ -182,19 +301,6 @@
             this.ISBNTextbox.Text = "1436969143";
             this.ISBNTextbox.UseSystemPasswordChar = false;
             // 
-            // authorLabel
-            // 
-            this.authorLabel.AutoSize = true;
-            this.authorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.authorLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorLabel.Location = new System.Drawing.Point(418, 74);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(409, 37);
-            this.authorLabel.TabIndex = 2;
-            this.authorLabel.Text = "Author";
-            this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // authorTextbox
             // 
             this.authorTextbox.BackColor = System.Drawing.Color.Transparent;
@@ -213,58 +319,6 @@
             this.authorTextbox.TabIndex = 3;
             this.authorTextbox.Text = "Reach Mound";
             this.authorTextbox.UseSystemPasswordChar = false;
-            // 
-            // publisherLabel
-            // 
-            this.publisherLabel.AutoSize = true;
-            this.publisherLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.publisherLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.publisherLabel.Location = new System.Drawing.Point(418, 148);
-            this.publisherLabel.Name = "publisherLabel";
-            this.publisherLabel.Size = new System.Drawing.Size(409, 37);
-            this.publisherLabel.TabIndex = 4;
-            this.publisherLabel.Text = "Publisher";
-            this.publisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // copyrightLabel
-            // 
-            this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.copyrightLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.copyrightLabel.Location = new System.Drawing.Point(418, 222);
-            this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(409, 37);
-            this.copyrightLabel.TabIndex = 5;
-            this.copyrightLabel.Text = "Copyright";
-            this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // aisleLabel
-            // 
-            this.aisleLabel.AutoSize = true;
-            this.aisleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aisleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aisleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.aisleLabel.Location = new System.Drawing.Point(418, 296);
-            this.aisleLabel.Name = "aisleLabel";
-            this.aisleLabel.Size = new System.Drawing.Size(409, 37);
-            this.aisleLabel.TabIndex = 6;
-            this.aisleLabel.Text = "Aisle";
-            this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // shelfLabel
-            // 
-            this.shelfLabel.AutoSize = true;
-            this.shelfLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shelfLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.shelfLabel.Location = new System.Drawing.Point(418, 370);
-            this.shelfLabel.Name = "shelfLabel";
-            this.shelfLabel.Size = new System.Drawing.Size(409, 37);
-            this.shelfLabel.TabIndex = 7;
-            this.shelfLabel.Text = "Shelf";
-            this.shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // publisherTextbox
             // 
@@ -301,7 +355,7 @@
             this.copyrightTextbox.Radius = 10;
             this.copyrightTextbox.Size = new System.Drawing.Size(409, 31);
             this.copyrightTextbox.TabIndex = 9;
-            this.copyrightTextbox.Text = "<000>";
+            this.copyrightTextbox.Text = "© 2017 by Taylor Jenkins Reid";
             this.copyrightTextbox.UseSystemPasswordChar = false;
             // 
             // aisleTextbox
@@ -342,14 +396,6 @@
             this.shelfTextbox.Text = "<000>";
             this.shelfTextbox.UseSystemPasswordChar = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(333, 31);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
             // FORM_BOOKINFO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -357,23 +403,23 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PANEL_CONTENTS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_BOOKINFO";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_BOOKINFO";
-            this.panel1.ResumeLayout(false);
+            this.PANEL_CONTENTS.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PANEL_CONTENTS;
         private System.Windows.Forms.Label genreLabel;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label availableLabel;
@@ -391,6 +437,8 @@
         private RoundedCorners.RoundedTextBox copyrightTextbox;
         private RoundedCorners.RoundedTextBox aisleTextbox;
         private RoundedCorners.RoundedTextBox shelfTextbox;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox bookPictureBox;
+        private roundedCorners.roundedButton editInfoButton;
+        private roundedCorners.roundedButton cancelButton;
     }
 }
