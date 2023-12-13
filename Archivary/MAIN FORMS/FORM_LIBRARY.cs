@@ -18,6 +18,7 @@ namespace Archivary.PARENT_FORMS
         private int buttonWidth1;
         private Button buttonize;
         private bookDetails bookInfo;
+        private Panel PANEL_POPUP;
 
         //
         // COLOR METHODS
@@ -41,12 +42,16 @@ namespace Archivary.PARENT_FORMS
         public FORM_LIBRARY()
         {
             InitializeComponent();
+            Controls.Add(PANEL_POPUP);
         }
 
         private void FORM_LIBRARY_Load(object sender, EventArgs e)
         {
             CreateButtons1();
             dropdownProperties();
+            openPopup();
+            Controls.Add(PANEL_POPUP);
+            PANEL_POPUP.BringToFront();
         }
 
         private void FORM_LIBRARY_Resize(object sender, EventArgs e)
@@ -189,5 +194,19 @@ namespace Archivary.PARENT_FORMS
         {
             filterSearchButton.Text = "ISBN";
         }
+
+        private void openPopup()
+        {
+            PANEL_POPUP = new Panel();
+            PANEL_POPUP.BringToFront();
+            PANEL_POPUP.Anchor = System.Windows.Forms.AnchorStyles.None;
+            PANEL_POPUP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            PANEL_POPUP.Location = new System.Drawing.Point(223, 71);
+            PANEL_POPUP.Name = "PANEL_POPUP";
+            PANEL_POPUP.Size = new System.Drawing.Size(527, 293);
+            PANEL_POPUP.TabIndex = 7;
+            PANEL_POPUP.Visible = true;
+        }
+
     }
 }

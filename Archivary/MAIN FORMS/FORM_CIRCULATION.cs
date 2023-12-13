@@ -15,6 +15,7 @@ namespace Archivary.PARENT_FORMS
         public FORM_CIRCULATION()
         {
             InitializeComponent();
+
         }
     }
 }

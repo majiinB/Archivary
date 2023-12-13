@@ -142,6 +142,7 @@
             this.viewButton.Text = "View Book";
             this.viewButton.TextColor = System.Drawing.Color.White;
             this.viewButton.UseVisualStyleBackColor = false;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // bookDetails
             // 
