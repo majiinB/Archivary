@@ -612,6 +612,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FORM_SIDEBAR";
+            this.Opacity = 0.5D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PANEL_SIDEBAR.ResumeLayout(false);
             this.LAYOUT_ACCOUNT.ResumeLayout(false);

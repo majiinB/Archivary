@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archivary.PARENT_FORMS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
     public partial class FORM_BOOKINFO : Form
     {
 
-        private FORM_BOOKINFO formsBookInfo;
+        private FORM_BOOKEDIT FormsBookEdit = new FORM_BOOKEDIT();
 
         public FORM_BOOKINFO()
         {
@@ -23,11 +24,12 @@ namespace Archivary._1500X1000.FORM_LIBRARY
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void editInfoButton_Click(object sender, EventArgs e)
         {
-
+            //FormsBookEdit.ShowDialog();
         }
     }
 }

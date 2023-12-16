@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.roundedButton1 = new roundedCorners.roundedButton();
             this.editInfoButton = new roundedCorners.roundedButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.PANEL_CONTENTS.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,25 @@
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
             this.PANEL_CONTENTS.Size = new System.Drawing.Size(954, 664);
             this.PANEL_CONTENTS.TabIndex = 0;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Items.AddRange(new object[] {
+            "asdf",
+            "asd",
+            "asd",
+            "asd",
+            "asd",
+            "asd",
+            "asd",
+            "as",
+            "asd"});
+            this.listBox1.Location = new System.Drawing.Point(640, 256);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 84);
+            this.listBox1.TabIndex = 9;
             // 
             // roundedButton1
             // 
@@ -85,25 +104,6 @@
             this.editInfoButton.TextColor = System.Drawing.Color.White;
             this.editInfoButton.UseVisualStyleBackColor = false;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Items.AddRange(new object[] {
-            "asdf",
-            "asd",
-            "asd",
-            "asd",
-            "asd",
-            "asd",
-            "asd",
-            "as",
-            "asd"});
-            this.listBox1.Location = new System.Drawing.Point(640, 256);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
-            this.listBox1.TabIndex = 9;
-            // 
             // FORM_BOOKEDIT
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -114,6 +114,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FORM_BOOKEDIT";
             this.Padding = new System.Windows.Forms.Padding(3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_BOOKEDIT";
             this.PANEL_CONTENTS.ResumeLayout(false);
             this.ResumeLayout(false);

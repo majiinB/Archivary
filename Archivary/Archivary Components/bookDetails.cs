@@ -1,4 +1,5 @@
 ﻿using Archivary._1500X1000.FORM_LIBRARY;
+using Archivary.MAIN_FORMS;
 using Archivary.PARENT_FORMS;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Archivary.Archivary_Components
 {
     public partial class bookDetails : UserControl
     {
-        private FORM_BOOKINFO formInfo = new FORM_BOOKINFO();
+        //private FORM_BOOKINFO formInfo = new FORM_BOOKINFO();
 
         public bookDetails()
         {
@@ -24,7 +25,8 @@ namespace Archivary.Archivary_Components
 
         #region Properties
 
-        private FORM_BOOKINFO FormsBookInfo = new FORM_BOOKINFO();
+        private FORM_BOOKINFO FormsBookInfo;
+        private FORM_BLUR FormsBlur = new FORM_BLUR();
         private string _title;
         private string _author;
         private string _isbn;
@@ -83,7 +85,12 @@ namespace Archivary.Archivary_Components
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            formInfo.ShowDialog();
+            FormsBlur.Show(this);
+            using(FormsBookInfo = new FORM_BOOKINFO())
+            {
+                FormsBookInfo.ShowDialog();
+                FormsBlur.Hide();
+            }
         }
     }
 }

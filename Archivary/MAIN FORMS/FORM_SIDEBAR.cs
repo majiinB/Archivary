@@ -268,6 +268,7 @@ namespace Archivary
         private void libraryButton_Click(object sender, EventArgs e)
         {
             ToggleForm(FormsLibrary, sender);
+            FormsRoot.BringToFront();
         }
 
         private void circulationsButton_Click(object sender, EventArgs e)
