@@ -85,12 +85,13 @@ namespace Archivary.Archivary_Components
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            FormsBlur.Show(this);
+            //FormsBlur.Show();
             using(FormsBookInfo = new FORM_BOOKINFO())
             {
                 FormsBookInfo.ShowDialog();
-                FormsBlur.Hide();
+                //FormsBlur.Hide();
             }
+
         }
     }
 }
