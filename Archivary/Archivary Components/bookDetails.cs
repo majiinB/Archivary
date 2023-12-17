@@ -80,12 +80,12 @@ namespace Archivary.Archivary_Components
 
         #endregion
 
+        public void setLabel(string value)
+        {
+            bookTitleLabel.Text = value;
+        }
         private void viewButton_Click(object sender, EventArgs e)
         {
-            /*using(FormsBookInfo = new FORM_BOOKINFO())
-            {
-                
-            }*/
             FormsBookInfo.ShowDialog();
         }
     }

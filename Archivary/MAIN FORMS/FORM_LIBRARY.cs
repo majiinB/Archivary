@@ -20,6 +20,13 @@ namespace Archivary.PARENT_FORMS
         private Button buttonize;
         private bookDetails bookInfo;
         private FORM_BOOKADD FormsBookAdd;
+        private int start = 0;
+        private int end = 0;
+        private int max = 0;
+        private int pagesToAdd = 6;
+        private int prev = -1;
+        private int[] ints;
+        private bool isDataLoading = false;
 
         //
         // COLOR METHODS
@@ -43,81 +50,95 @@ namespace Archivary.PARENT_FORMS
         public FORM_LIBRARY()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+            UpdateStyles();
         }
 
         private void FORM_LIBRARY_Load(object sender, EventArgs e)
         {
-            CreateButtons1();
             dropdownProperties();
-        }
+            //Subscribe to both
+            libraryList.Scroll += libraryList_Scroll;
+            libraryList.MouseWheel += libraryList_MouseWheel;
 
-        private void FORM_LIBRARY_Resize(object sender, EventArgs e)
-        {
-            CreateButtons1();
-        }
-
-        private void CreateButtons1()
-        {
-            libraryList.Controls.Clear(); // Clear existing controls
-
-            int maxButtons = 7;
-            int total = 0;
-
-            buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20; //( -20 <-- this is padding size)
-            buttonWidth1 = (libraryList.ClientSize.Width / 2) - 20; //( -20 <-- this is padding size)
-
-            // Adjust padding to provide space at the bottom
-            libraryList.Padding = new Padding(0, 0, 0, 10);
-
-            for (int i = 1; i <= maxButtons; i++)
+            //load first list
+            ints = new int[100]; //Sample data to be loaded
+            max = ints.Length;
+            if (!isDataLoading)
             {
-                bookInfo = new bookDetails();
-                bookInfo.Text = "Button " + i;
-                bookInfo.Height = 200;
-                bookInfo.Margin = new Padding(10);
-                libraryList.Controls.Add(bookInfo);
-                total += i;
-                if (maxButtons <= 4)
-                {
-                    bookInfo.Width = buttonWidth1;
-                }
-                else if (maxButtons > 4)
-                {
-                    bookInfo.Width = buttonWidth;
-                }
+                isDataLoading = true;
+                LoadListAsync();
             }
         }
 
-        private void CreateButtons()
-        {
-            libraryList.Controls.Clear(); // Clear existing controls
+        private void FORM_LIBRARY_Resize(object sender, EventArgs e)
+        {  
+            start = 0;
+            libraryList.Controls.Clear();
 
-            int maxButtons = 20;
-            int total = 0;
-
-            buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20; //( -20 <-- this is padding size)
-            buttonWidth1 = (libraryList.ClientSize.Width / 2) - 20; //( -20 <-- this is padding size)
-
-            // Adjust padding to provide space at the bottom
-            libraryList.Padding = new Padding(0, 0, 0, 10);
-
-            for (int i = 1; i <= maxButtons; i++)
+            if (!isDataLoading)
             {
-                buttonize = new Button();
-                buttonize.Text = "Button " + i;
-                buttonize.Height = 200;
-                buttonize.Margin = new Padding(10);
-                buttonize.BackColor = Color.Gainsboro;
-                libraryList.Controls.Add(buttonize);
-                total += i;
-                if (maxButtons <= 4)
+                isDataLoading = true;
+                LoadListAsync();
+            }
+        }
+
+        private async Task LoadListAsync()
+        {
+
+            await Task.Run(() =>
+            {
+                if (start == 0) Task.Delay(500).Wait();
+                buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20;
+                buttonWidth1 = (libraryList.ClientSize.Width / 2) - 20;
+
+
+                // Adjust padding to provide space at the bottom
+                libraryList.Padding = new Padding(0, 0, 0, 10);
+
+                if (start < max)
                 {
-                    buttonize.Width = buttonWidth1;
+                    if (start == 0) end = 8; // If start is less than the initially loaded books, load 8 books
+                    else if (start > 0) end = start + pagesToAdd; // Otherwise, add the intended pages to be loaded
+
+                    if (end > max) end = max; // Check if the end will be greater than the max number of items
+
+                    for (int i = start; i < end; i++)
+                    {
+                        CreateButtonsAsync(i);
+                    }
+                    start = end;
                 }
-                else if (maxButtons > 4)
-                {
-                    buttonize.Width = buttonWidth;
-                }
+                isDataLoading = false;
+            });
+        }
+
+        private void CreateButtonsAsync(int i)
+        {
+            // Marshal task to go back to the thread that handles the ui
+            if (libraryList.InvokeRequired)
+            {
+                libraryList.BeginInvoke(new MethodInvoker(() => CreateButtonsAsync(i)));
+                return;
+            }
+
+            if (prev != i)
+            {
+                bookInfo = new bookDetails();
+                bookInfo.setLabel("New book " + i);
+                bookInfo.Height = 200;
+                bookInfo.Margin = new Padding(10);
+                libraryList.Controls.Add(bookInfo);
+                prev = i;
+            }
+
+            if (max <= 4)
+            {
+                bookInfo.Width = buttonWidth1;
+            }
+            else if (max > 4)
+            {
+                bookInfo.Width = buttonWidth;
             }
         }
 
@@ -198,5 +219,31 @@ namespace Archivary.PARENT_FORMS
             filterSearchButton.Text = "ISBN";
         }
 
+        //Scroll events to load other data
+        private void libraryList_Scroll(object sender, ScrollEventArgs e)
+        {
+            CheckIfAtBottom();
+        }
+        private void libraryList_MouseWheel(object sender, MouseEventArgs e)
+        {
+            CheckIfAtBottom();
+        }
+
+        private void CheckIfAtBottom()
+        {
+            FlowLayoutPanel libraryList = this.libraryList;
+            int visibleHeight = libraryList.ClientSize.Height;
+            int totalHeigth = libraryList.VerticalScroll.Value + visibleHeight;
+
+            if (totalHeigth >= (libraryList.VerticalScroll.Maximum - (bookInfo.Height * 4)) && libraryList.VerticalScroll.Visible)
+            {
+                if (!isDataLoading)
+                {
+                    isDataLoading = true;
+                    LoadListAsync();
+                }
+            }
+
+        }
     }
 }
