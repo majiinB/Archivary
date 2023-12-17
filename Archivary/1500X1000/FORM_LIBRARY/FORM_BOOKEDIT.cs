@@ -22,12 +22,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            /*using (FormsBookInfo = new FORM_BOOKINFO())
-            {
-                FormsBookInfo.ShowDialog();
-            }*/
-
-                this.Close();
+            this.Close();
         }
     }
 }

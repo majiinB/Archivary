@@ -29,12 +29,9 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void editInfoButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-            using (FormsBookEdit = new FORM_BOOKEDIT())
-            {
-                this.Close();
-                FormsBookEdit.ShowDialog();
-            }
+            FormsBookEdit = new FORM_BOOKEDIT();
+            FormsBookEdit.ShowDialog(this);
+            this.Show();
                 
         }
     }
