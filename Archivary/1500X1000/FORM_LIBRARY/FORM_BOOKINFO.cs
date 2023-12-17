@@ -14,7 +14,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
     public partial class FORM_BOOKINFO : Form
     {
 
-        private FORM_BOOKEDIT FormsBookEdit = new FORM_BOOKEDIT();
+        private FORM_BOOKEDIT FormsBookEdit;
 
         public FORM_BOOKINFO()
         {
@@ -29,7 +29,13 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void editInfoButton_Click(object sender, EventArgs e)
         {
-            //FormsBookEdit.ShowDialog();
+            this.Close();
+            using (FormsBookEdit = new FORM_BOOKEDIT())
+            {
+                this.Close();
+                FormsBookEdit.ShowDialog();
+            }
+                
         }
     }
 }

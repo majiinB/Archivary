@@ -12,9 +12,22 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 {
     public partial class FORM_BOOKEDIT : Form
     {
+
+        private FORM_BOOKINFO FormsBookInfo = new FORM_BOOKINFO();
+
         public FORM_BOOKEDIT()
         {
             InitializeComponent();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            /*using (FormsBookInfo = new FORM_BOOKINFO())
+            {
+                FormsBookInfo.ShowDialog();
+            }*/
+
+                this.Close();
         }
     }
 }
