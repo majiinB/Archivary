@@ -114,6 +114,7 @@
             this.addBookButton.Text = "Add";
             this.addBookButton.TextColor = System.Drawing.Color.White;
             this.addBookButton.UseVisualStyleBackColor = false;
+            this.addBookButton.Click += new System.EventHandler(this.addBookButton_Click);
             // 
             // LAYOUT_searchBar
             // 

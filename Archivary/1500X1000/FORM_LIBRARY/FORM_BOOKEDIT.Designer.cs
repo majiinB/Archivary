@@ -256,7 +256,7 @@
             this.shelfTextbox.Radius = 10;
             this.shelfTextbox.Size = new System.Drawing.Size(624, 43);
             this.shelfTextbox.TabIndex = 19;
-            this.shelfTextbox.Text = "Lord of the Rings";
+            this.shelfTextbox.Text = "69";
             this.shelfTextbox.UseSystemPasswordChar = false;
             // 
             // aisleTextbox
@@ -276,7 +276,7 @@
             this.aisleTextbox.Radius = 10;
             this.aisleTextbox.Size = new System.Drawing.Size(624, 36);
             this.aisleTextbox.TabIndex = 17;
-            this.aisleTextbox.Text = "Lord of the Rings";
+            this.aisleTextbox.Text = "1";
             this.aisleTextbox.UseSystemPasswordChar = false;
             // 
             // copyrightTextbox
@@ -296,7 +296,7 @@
             this.copyrightTextbox.Radius = 10;
             this.copyrightTextbox.Size = new System.Drawing.Size(624, 36);
             this.copyrightTextbox.TabIndex = 15;
-            this.copyrightTextbox.Text = "Lord of the Rings";
+            this.copyrightTextbox.Text = "<1969>";
             this.copyrightTextbox.UseSystemPasswordChar = false;
             // 
             // authorMITextbox
@@ -315,7 +315,7 @@
             this.authorMITextbox.Radius = 10;
             this.authorMITextbox.Size = new System.Drawing.Size(90, 36);
             this.authorMITextbox.TabIndex = 13;
-            this.authorMITextbox.Text = "Lord of the Rings";
+            this.authorMITextbox.Text = "R";
             this.authorMITextbox.UseSystemPasswordChar = false;
             // 
             // authorFNTextbox
@@ -335,7 +335,7 @@
             this.authorFNTextbox.Radius = 10;
             this.authorFNTextbox.Size = new System.Drawing.Size(261, 36);
             this.authorFNTextbox.TabIndex = 11;
-            this.authorFNTextbox.Text = "Lord of the Rings";
+            this.authorFNTextbox.Text = "Andrei";
             this.authorFNTextbox.UseSystemPasswordChar = false;
             // 
             // authorLNTextbox
@@ -355,7 +355,7 @@
             this.authorLNTextbox.Radius = 10;
             this.authorLNTextbox.Size = new System.Drawing.Size(261, 36);
             this.authorLNTextbox.TabIndex = 10;
-            this.authorLNTextbox.Text = "Lord of the Rings";
+            this.authorLNTextbox.Text = "Ayala";
             this.authorLNTextbox.UseSystemPasswordChar = false;
             // 
             // publisherTextbox
@@ -375,7 +375,7 @@
             this.publisherTextbox.Radius = 10;
             this.publisherTextbox.Size = new System.Drawing.Size(357, 36);
             this.publisherTextbox.TabIndex = 8;
-            this.publisherTextbox.Text = "Lord of the Rings";
+            this.publisherTextbox.Text = "Lampara Books";
             this.publisherTextbox.UseSystemPasswordChar = false;
             // 
             // ISBNTextbox
@@ -395,7 +395,7 @@
             this.ISBNTextbox.Radius = 10;
             this.ISBNTextbox.Size = new System.Drawing.Size(261, 36);
             this.ISBNTextbox.TabIndex = 6;
-            this.ISBNTextbox.Text = "Lord of the Rings";
+            this.ISBNTextbox.Text = "1436969143";
             this.ISBNTextbox.UseSystemPasswordChar = false;
             // 
             // titleTextbox

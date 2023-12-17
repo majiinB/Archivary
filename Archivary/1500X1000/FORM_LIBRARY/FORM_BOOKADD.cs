@@ -12,9 +12,16 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 {
     public partial class FORM_BOOKADD : Form
     {
+
+
         public FORM_BOOKADD()
         {
             InitializeComponent();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

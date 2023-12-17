@@ -1,4 +1,5 @@
-﻿using Archivary.Archivary_Components;
+﻿using Archivary._1500X1000.FORM_LIBRARY;
+using Archivary.Archivary_Components;
 using CustomDropdown;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Archivary.PARENT_FORMS
         private int buttonWidth1;
         private Button buttonize;
         private bookDetails bookInfo;
+        private FORM_BOOKADD FormsBookAdd;
 
         //
         // COLOR METHODS
@@ -155,6 +157,12 @@ namespace Archivary.PARENT_FORMS
                 searchBar.ForeColor = archivaryHoverGray();
                 searchBar.Font = new Font("Montserrat Light", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
             }
+        }
+
+        private void addBookButton_Click(object sender, EventArgs e)
+        {
+            FormsBookAdd = new FORM_BOOKADD();
+            FormsBookAdd.ShowDialog();
         }
 
         //
