@@ -209,6 +209,7 @@
             this.addUserButton.Text = "Add";
             this.addUserButton.TextColor = System.Drawing.Color.White;
             this.addUserButton.UseVisualStyleBackColor = false;
+            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
             // LAYOUT_searchBar
             // 

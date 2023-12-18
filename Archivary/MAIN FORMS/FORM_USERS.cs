@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Archivary._1500X1000.FORM_LIBRARY;
+using Archivary._1200X800.FORM_USERS;
 
 namespace Archivary.PARENT_FORMS
 {
@@ -19,6 +21,7 @@ namespace Archivary.PARENT_FORMS
         private FORM_INFOEMPLOYEE employeeInfo= new FORM_INFOEMPLOYEE();
         private FORM_INFOTEACHER teacherInfo = new FORM_INFOTEACHER();
         private FORM_INFOSTUDENT studentInfo = new FORM_INFOSTUDENT();
+        private FORM_SIGNUP FormsSignup = new FORM_SIGNUP();
         //
         // COLOR METHODS
         //
@@ -184,6 +187,13 @@ namespace Archivary.PARENT_FORMS
            teacherInfo.ShowDialog();
            studentInfo.ShowDialog();
            employeeInfo.ShowDialog();
+
+        }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            //FormsSignup = new FORM_SIGNUP();
+            FormsSignup.ShowDialog();
 
         }
     }
