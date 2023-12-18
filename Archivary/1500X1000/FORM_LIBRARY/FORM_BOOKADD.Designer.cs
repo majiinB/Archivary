@@ -31,34 +31,48 @@
             System.Windows.Forms.Label shelfLabel;
             this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
             this.LAYOUT_RightSide = new System.Windows.Forms.TableLayoutPanel();
-            this.LAYOUT_LeftSide = new System.Windows.Forms.TableLayoutPanel();
-            this.bookPIctureBox = new System.Windows.Forms.PictureBox();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.ISBNLabel = new System.Windows.Forms.Label();
-            this.PublisherLabel = new System.Windows.Forms.Label();
-            this.authorLabel = new System.Windows.Forms.Label();
-            this.copyrightLabel = new System.Windows.Forms.Label();
-            this.aisleLabel = new System.Windows.Forms.Label();
             this.shelfTextbox = new RoundedCorners.RoundedTextBox();
             this.aisleTextbox = new RoundedCorners.RoundedTextBox();
+            this.aisleLabel = new System.Windows.Forms.Label();
             this.copyrightTextbox = new RoundedCorners.RoundedTextBox();
+            this.copyrightLabel = new System.Windows.Forms.Label();
             this.authorMITextbox = new RoundedCorners.RoundedTextBox();
             this.authorFNTextbox = new RoundedCorners.RoundedTextBox();
             this.authorLNTextbox = new RoundedCorners.RoundedTextBox();
+            this.authorLabel = new System.Windows.Forms.Label();
             this.publisherTextbox = new RoundedCorners.RoundedTextBox();
             this.ISBNTextbox = new RoundedCorners.RoundedTextBox();
+            this.PublisherLabel = new System.Windows.Forms.Label();
+            this.ISBNLabel = new System.Windows.Forms.Label();
             this.titleTextbox = new RoundedCorners.RoundedTextBox();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.LAYOUT_LeftSide = new System.Windows.Forms.TableLayoutPanel();
             this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
+            this.bookPIctureBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
             this.categoryDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveInfoButton = new roundedCorners.roundedButton();
+            this.uploadExcelButton = new roundedCorners.roundedButton();
             shelfLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.LAYOUT_RightSide.SuspendLayout();
             this.LAYOUT_LeftSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPIctureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // shelfLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(shelfLabel, 7);
+            shelfLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            shelfLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            shelfLabel.Location = new System.Drawing.Point(3, 420);
+            shelfLabel.Name = "shelfLabel";
+            shelfLabel.Size = new System.Drawing.Size(624, 42);
+            shelfLabel.TabIndex = 18;
+            shelfLabel.Text = "Shelf";
+            shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PANEL_CONTENTS
             // 
@@ -117,128 +131,6 @@
             this.LAYOUT_RightSide.Size = new System.Drawing.Size(630, 511);
             this.LAYOUT_RightSide.TabIndex = 10;
             // 
-            // LAYOUT_LeftSide
-            // 
-            this.LAYOUT_LeftSide.ColumnCount = 1;
-            this.LAYOUT_LeftSide.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LAYOUT_LeftSide.Controls.Add(this.genreDropdown, 0, 6);
-            this.LAYOUT_LeftSide.Controls.Add(this.bookPIctureBox, 0, 0);
-            this.LAYOUT_LeftSide.Controls.Add(this.uploadImageButton, 0, 2);
-            this.LAYOUT_LeftSide.Controls.Add(this.categoryDropdown, 0, 4);
-            this.LAYOUT_LeftSide.Location = new System.Drawing.Point(36, 40);
-            this.LAYOUT_LeftSide.Name = "LAYOUT_LeftSide";
-            this.LAYOUT_LeftSide.RowCount = 7;
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.157895F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.63158F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.157895F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.63158F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.157895F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.63158F));
-            this.LAYOUT_LeftSide.Size = new System.Drawing.Size(219, 511);
-            this.LAYOUT_LeftSide.TabIndex = 9;
-            // 
-            // bookPIctureBox
-            // 
-            this.bookPIctureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.bookPIctureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookPIctureBox.Location = new System.Drawing.Point(3, 3);
-            this.bookPIctureBox.Name = "bookPIctureBox";
-            this.bookPIctureBox.Size = new System.Drawing.Size(213, 262);
-            this.bookPIctureBox.TabIndex = 0;
-            this.bookPIctureBox.TabStop = false;
-            // 
-            // titleLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(this.titleLabel, 7);
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.titleLabel.Location = new System.Drawing.Point(3, 0);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(624, 42);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "Title";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ISBNLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(this.ISBNLabel, 3);
-            this.ISBNLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ISBNLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ISBNLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ISBNLabel.Location = new System.Drawing.Point(3, 84);
-            this.ISBNLabel.Name = "ISBNLabel";
-            this.ISBNLabel.Size = new System.Drawing.Size(261, 42);
-            this.ISBNLabel.TabIndex = 3;
-            this.ISBNLabel.Text = "ISBN";
-            this.ISBNLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // PublisherLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(this.PublisherLabel, 4);
-            this.PublisherLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PublisherLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PublisherLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.PublisherLabel.Location = new System.Drawing.Point(270, 84);
-            this.PublisherLabel.Name = "PublisherLabel";
-            this.PublisherLabel.Size = new System.Drawing.Size(357, 42);
-            this.PublisherLabel.TabIndex = 5;
-            this.PublisherLabel.Text = "Publisher";
-            this.PublisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // authorLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(this.authorLabel, 7);
-            this.authorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.authorLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorLabel.Location = new System.Drawing.Point(3, 168);
-            this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(624, 42);
-            this.authorLabel.TabIndex = 9;
-            this.authorLabel.Text = "Author";
-            this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // copyrightLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(this.copyrightLabel, 7);
-            this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.copyrightLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.copyrightLabel.Location = new System.Drawing.Point(3, 252);
-            this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(624, 42);
-            this.copyrightLabel.TabIndex = 14;
-            this.copyrightLabel.Text = "Copyright";
-            this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // aisleLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(this.aisleLabel, 7);
-            this.aisleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aisleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aisleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.aisleLabel.Location = new System.Drawing.Point(3, 336);
-            this.aisleLabel.Name = "aisleLabel";
-            this.aisleLabel.Size = new System.Drawing.Size(624, 42);
-            this.aisleLabel.TabIndex = 16;
-            this.aisleLabel.Text = "Aisle";
-            this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // shelfLabel
-            // 
-            this.LAYOUT_RightSide.SetColumnSpan(shelfLabel, 7);
-            shelfLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            shelfLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            shelfLabel.Location = new System.Drawing.Point(3, 420);
-            shelfLabel.Name = "shelfLabel";
-            shelfLabel.Size = new System.Drawing.Size(624, 42);
-            shelfLabel.TabIndex = 18;
-            shelfLabel.Text = "Shelf";
-            shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // shelfTextbox
             // 
             this.shelfTextbox.BackColor = System.Drawing.Color.Transparent;
@@ -279,6 +171,19 @@
             this.aisleTextbox.Text = "1";
             this.aisleTextbox.UseSystemPasswordChar = false;
             // 
+            // aisleLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(this.aisleLabel, 7);
+            this.aisleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aisleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aisleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.aisleLabel.Location = new System.Drawing.Point(3, 336);
+            this.aisleLabel.Name = "aisleLabel";
+            this.aisleLabel.Size = new System.Drawing.Size(624, 42);
+            this.aisleLabel.TabIndex = 16;
+            this.aisleLabel.Text = "Aisle";
+            this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // copyrightTextbox
             // 
             this.copyrightTextbox.BackColor = System.Drawing.Color.Transparent;
@@ -298,6 +203,19 @@
             this.copyrightTextbox.TabIndex = 15;
             this.copyrightTextbox.Text = "<1969>";
             this.copyrightTextbox.UseSystemPasswordChar = false;
+            // 
+            // copyrightLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(this.copyrightLabel, 7);
+            this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.copyrightLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.copyrightLabel.Location = new System.Drawing.Point(3, 252);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(624, 42);
+            this.copyrightLabel.TabIndex = 14;
+            this.copyrightLabel.Text = "Copyright";
+            this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // authorMITextbox
             // 
@@ -358,6 +276,19 @@
             this.authorLNTextbox.Text = "Ayala";
             this.authorLNTextbox.UseSystemPasswordChar = false;
             // 
+            // authorLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(this.authorLabel, 7);
+            this.authorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.authorLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.authorLabel.Location = new System.Drawing.Point(3, 168);
+            this.authorLabel.Name = "authorLabel";
+            this.authorLabel.Size = new System.Drawing.Size(624, 42);
+            this.authorLabel.TabIndex = 9;
+            this.authorLabel.Text = "Author";
+            this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // publisherTextbox
             // 
             this.publisherTextbox.BackColor = System.Drawing.Color.Transparent;
@@ -398,6 +329,32 @@
             this.ISBNTextbox.Text = "1436969143";
             this.ISBNTextbox.UseSystemPasswordChar = false;
             // 
+            // PublisherLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(this.PublisherLabel, 4);
+            this.PublisherLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PublisherLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PublisherLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.PublisherLabel.Location = new System.Drawing.Point(270, 84);
+            this.PublisherLabel.Name = "PublisherLabel";
+            this.PublisherLabel.Size = new System.Drawing.Size(357, 42);
+            this.PublisherLabel.TabIndex = 5;
+            this.PublisherLabel.Text = "Publisher";
+            this.PublisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ISBNLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(this.ISBNLabel, 3);
+            this.ISBNLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ISBNLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ISBNLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.ISBNLabel.Location = new System.Drawing.Point(3, 84);
+            this.ISBNLabel.Name = "ISBNLabel";
+            this.ISBNLabel.Size = new System.Drawing.Size(261, 42);
+            this.ISBNLabel.TabIndex = 3;
+            this.ISBNLabel.Text = "ISBN";
+            this.ISBNLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // titleTextbox
             // 
             this.titleTextbox.BackColor = System.Drawing.Color.Transparent;
@@ -418,6 +375,44 @@
             this.titleTextbox.Text = "Lord of the Rings";
             this.titleTextbox.UseSystemPasswordChar = false;
             // 
+            // titleLabel
+            // 
+            this.LAYOUT_RightSide.SetColumnSpan(this.titleLabel, 7);
+            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.titleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.titleLabel.Location = new System.Drawing.Point(3, 0);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(624, 42);
+            this.titleLabel.TabIndex = 0;
+            this.titleLabel.Text = "Title";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LAYOUT_LeftSide
+            // 
+            this.LAYOUT_LeftSide.ColumnCount = 1;
+            this.LAYOUT_LeftSide.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.LAYOUT_LeftSide.Controls.Add(this.uploadExcelButton, 0, 4);
+            this.LAYOUT_LeftSide.Controls.Add(this.bookPIctureBox, 0, 0);
+            this.LAYOUT_LeftSide.Controls.Add(this.uploadImageButton, 0, 2);
+            this.LAYOUT_LeftSide.Controls.Add(this.genreDropdown, 0, 8);
+            this.LAYOUT_LeftSide.Controls.Add(this.categoryDropdown, 0, 6);
+            this.LAYOUT_LeftSide.Location = new System.Drawing.Point(36, 40);
+            this.LAYOUT_LeftSide.Name = "LAYOUT_LeftSide";
+            this.LAYOUT_LeftSide.RowCount = 9;
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.04768F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.528575F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.710562F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.528575F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.710562F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.528575F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.710562F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.528575F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.706341F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.LAYOUT_LeftSide.Size = new System.Drawing.Size(219, 511);
+            this.LAYOUT_LeftSide.TabIndex = 9;
+            // 
             // genreDropdown
             // 
             this.genreDropdown.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -431,14 +426,24 @@
             this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genreDropdown.ForeColor = System.Drawing.Color.White;
-            this.genreDropdown.Location = new System.Drawing.Point(3, 447);
+            this.genreDropdown.Location = new System.Drawing.Point(3, 462);
             this.genreDropdown.Name = "genreDropdown";
             this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.genreDropdown.Size = new System.Drawing.Size(213, 61);
+            this.genreDropdown.Size = new System.Drawing.Size(213, 46);
             this.genreDropdown.TabIndex = 3;
             this.genreDropdown.Text = "Genre";
             this.genreDropdown.TextColor = System.Drawing.Color.White;
             this.genreDropdown.UseVisualStyleBackColor = false;
+            // 
+            // bookPIctureBox
+            // 
+            this.bookPIctureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.bookPIctureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookPIctureBox.Location = new System.Drawing.Point(3, 3);
+            this.bookPIctureBox.Name = "bookPIctureBox";
+            this.bookPIctureBox.Size = new System.Drawing.Size(213, 234);
+            this.bookPIctureBox.TabIndex = 0;
+            this.bookPIctureBox.TabStop = false;
             // 
             // uploadImageButton
             // 
@@ -452,9 +457,9 @@
             this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadImageButton.ForeColor = System.Drawing.Color.White;
-            this.uploadImageButton.Location = new System.Drawing.Point(3, 287);
+            this.uploadImageButton.Location = new System.Drawing.Point(3, 261);
             this.uploadImageButton.Name = "uploadImageButton";
-            this.uploadImageButton.Size = new System.Drawing.Size(213, 58);
+            this.uploadImageButton.Size = new System.Drawing.Size(213, 43);
             this.uploadImageButton.TabIndex = 1;
             this.uploadImageButton.Text = "Upload Image";
             this.uploadImageButton.TextColor = System.Drawing.Color.White;
@@ -473,10 +478,10 @@
             this.categoryDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryDropdown.ForeColor = System.Drawing.Color.White;
-            this.categoryDropdown.Location = new System.Drawing.Point(3, 367);
+            this.categoryDropdown.Location = new System.Drawing.Point(3, 395);
             this.categoryDropdown.Name = "categoryDropdown";
             this.categoryDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.categoryDropdown.Size = new System.Drawing.Size(213, 58);
+            this.categoryDropdown.Size = new System.Drawing.Size(213, 43);
             this.categoryDropdown.TabIndex = 2;
             this.categoryDropdown.Text = "Category";
             this.categoryDropdown.TextColor = System.Drawing.Color.White;
@@ -521,7 +526,27 @@
             this.saveInfoButton.TextColor = System.Drawing.Color.White;
             this.saveInfoButton.UseVisualStyleBackColor = false;
             // 
-            // FORM_BOOKEDIT
+            // uploadExcelButton
+            // 
+            this.uploadExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.uploadExcelButton.BorderRadius = 20;
+            this.uploadExcelButton.BorderSize = 0;
+            this.uploadExcelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadExcelButton.FlatAppearance.BorderSize = 0;
+            this.uploadExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadExcelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadExcelButton.ForeColor = System.Drawing.Color.White;
+            this.uploadExcelButton.Location = new System.Drawing.Point(3, 328);
+            this.uploadExcelButton.Name = "uploadExcelButton";
+            this.uploadExcelButton.Size = new System.Drawing.Size(213, 43);
+            this.uploadExcelButton.TabIndex = 4;
+            this.uploadExcelButton.Text = "Upload Excel File";
+            this.uploadExcelButton.TextColor = System.Drawing.Color.White;
+            this.uploadExcelButton.UseVisualStyleBackColor = false;
+            // 
+            // FORM_BOOKADD
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -529,7 +554,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_CONTENTS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FORM_BOOKEDIT";
+            this.Name = "FORM_BOOKADD";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -568,5 +593,6 @@
         private System.Windows.Forms.Label aisleLabel;
         private RoundedCorners.RoundedTextBox copyrightTextbox;
         private System.Windows.Forms.Label copyrightLabel;
+        private roundedCorners.roundedButton uploadExcelButton;
     }
 }
