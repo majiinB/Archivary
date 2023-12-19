@@ -27,51 +27,68 @@ namespace Archivary._900X500
             DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(37, 211, 102), 3);
         }
 
+
+        //
+        // CONFIRMATION BUTTONS
+        //
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void oldOpenEyeButton_Click(object sender, EventArgs e)
+        private void continueButton_Click(object sender, EventArgs e)
         {
-            oldPasswordTextBox.UseSystemPasswordChar = true;
-            oldCloseEyeButton.Visible = true;
-            oldOpenEyeButton.Visible = false;
+
         }
 
-        private void oldCloseEyeButton_Click(object sender, EventArgs e)
+        //
+        // TOGGLE EYE BUTTONS
+        //
+        private bool isToggled = false;
+
+        private void oldEyeButton_Click(object sender, EventArgs e)
         {
-            oldPasswordTextBox.UseSystemPasswordChar = false;
-            oldCloseEyeButton.Visible = false;
-            oldOpenEyeButton.Visible = true;
+            isToggled = !isToggled;
+            if (isToggled)
+            {
+                this.oldEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE;
+                oldPasswordTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                this.oldEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+                oldPasswordTextBox.UseSystemPasswordChar = true;
+            }
         }
 
-        private void newCloseEyeButton_Click(object sender, EventArgs e)
+        private void newEyeButton_Click(object sender, EventArgs e)
         {
-            newPasswordTextBox.UseSystemPasswordChar = false;
-            newCloseEyeButton.Visible = false;
-            newOpenEyeButton.Visible = true;
+            isToggled = !isToggled;
+            if (isToggled)
+            {
+                this.newEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE;
+                newPasswordTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                this.newEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+                newPasswordTextBox.UseSystemPasswordChar = true;
+            }
         }
 
-        private void newOpenEyeButton_Click(object sender, EventArgs e)
+        private void confirmEyeButton_Click(object sender, EventArgs e)
         {
-            newPasswordTextBox.UseSystemPasswordChar = true;
-            newCloseEyeButton.Visible = true;
-            newOpenEyeButton.Visible = false;
-        }
-
-        private void confirmCloseEyeButton_Click(object sender, EventArgs e)
-        {
-           confirmNewPasswordTextBox.UseSystemPasswordChar = false;
-           confirmCloseEyeButton.Visible = false;
-           confirmOpenEyeButton.Visible = true;
-        }
-
-        private void confirmOpenEyeButton_Click(object sender, EventArgs e)
-        {
-            confirmNewPasswordTextBox.UseSystemPasswordChar = true;
-            confirmCloseEyeButton.Visible = true;
-            confirmOpenEyeButton.Visible = false;
+            isToggled = !isToggled;
+            if (isToggled)
+            {
+                this.confirmEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE;
+                confirmNewPasswordTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                this.oldEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+                oldPasswordTextBox.UseSystemPasswordChar = true;
+            }
         }
     }
 }

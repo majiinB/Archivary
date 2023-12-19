@@ -32,39 +32,36 @@
             this.instructionLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel_Container = new System.Windows.Forms.TableLayoutPanel();
             this.oldPasswordLabel = new System.Windows.Forms.Label();
+            this.oldPasswordTextBox = new RoundedCorners.RoundedTextBox();
             this.newPasswordLabel = new System.Windows.Forms.Label();
             this.confirmNewPasswordLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.oldButtonContainer = new System.Windows.Forms.Panel();
-            this.oldCloseEyeButton = new sidebarComponents.sidebarButton();
-            this.oldPasswordTextBox = new RoundedCorners.RoundedTextBox();
             this.newPasswordTextBox = new RoundedCorners.RoundedTextBox();
             this.confirmNewPasswordTextBox = new RoundedCorners.RoundedTextBox();
-            this.cancelButton = new roundedCorners.roundedButton();
-            this.continueButton = new roundedCorners.roundedButton();
-            this.oldOpenEyeButton = new sidebarComponents.sidebarButton();
+            this.oldButtonContainer = new System.Windows.Forms.Panel();
+            this.oldEyeButton = new sidebarComponents.sidebarButton();
             this.newButtonContainer = new System.Windows.Forms.Panel();
-            this.newCloseEyeButton = new sidebarComponents.sidebarButton();
-            this.newOpenEyeButton = new sidebarComponents.sidebarButton();
+            this.newEyeButton = new sidebarComponents.sidebarButton();
             this.confirmButtonContainer = new System.Windows.Forms.Panel();
-            this.confirmCloseEyeButton = new sidebarComponents.sidebarButton();
-            this.confirmOpenEyeButton = new sidebarComponents.sidebarButton();
+            this.confirmEyeButton = new sidebarComponents.sidebarButton();
+            this.continueButton = new roundedCorners.roundedButton();
+            this.cancelButton = new roundedCorners.roundedButton();
+            this.buttonTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_Container.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.oldButtonContainer.SuspendLayout();
             this.newButtonContainer.SuspendLayout();
             this.confirmButtonContainer.SuspendLayout();
+            this.buttonTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // changePassLabel
             // 
             this.changePassLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.changePassLabel.Font = new System.Drawing.Font("Montserrat Black", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePassLabel.Font = new System.Drawing.Font("Montserrat Black", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePassLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.changePassLabel.Location = new System.Drawing.Point(3, 3);
             this.changePassLabel.Name = "changePassLabel";
             this.changePassLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.changePassLabel.Size = new System.Drawing.Size(736, 76);
+            this.changePassLabel.Size = new System.Drawing.Size(736, 67);
             this.changePassLabel.TabIndex = 5;
             this.changePassLabel.Text = "CHANGE PASSWORD";
             this.changePassLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -74,41 +71,39 @@
             this.instructionLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.instructionLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.instructionLabel.Location = new System.Drawing.Point(3, 79);
+            this.instructionLabel.Location = new System.Drawing.Point(3, 70);
             this.instructionLabel.Name = "instructionLabel";
             this.instructionLabel.Size = new System.Drawing.Size(736, 22);
             this.instructionLabel.TabIndex = 6;
-            this.instructionLabel.Text = "Please enter your old password and new password.";
+            this.instructionLabel.Text = "Please enter your Old Password and New Password.";
             this.instructionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel_Container
             // 
             this.tableLayoutPanel_Container.ColumnCount = 2;
             this.tableLayoutPanel_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel_Container.Controls.Add(this.oldPasswordLabel, 0, 0);
             this.tableLayoutPanel_Container.Controls.Add(this.oldPasswordTextBox, 0, 1);
             this.tableLayoutPanel_Container.Controls.Add(this.newPasswordLabel, 0, 2);
             this.tableLayoutPanel_Container.Controls.Add(this.confirmNewPasswordLabel, 0, 4);
             this.tableLayoutPanel_Container.Controls.Add(this.newPasswordTextBox, 0, 3);
             this.tableLayoutPanel_Container.Controls.Add(this.confirmNewPasswordTextBox, 0, 5);
-            this.tableLayoutPanel_Container.Controls.Add(this.tableLayoutPanel1, 0, 6);
             this.tableLayoutPanel_Container.Controls.Add(this.oldButtonContainer, 1, 1);
             this.tableLayoutPanel_Container.Controls.Add(this.newButtonContainer, 1, 3);
             this.tableLayoutPanel_Container.Controls.Add(this.confirmButtonContainer, 1, 5);
             this.tableLayoutPanel_Container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_Container.Location = new System.Drawing.Point(3, 101);
+            this.tableLayoutPanel_Container.Location = new System.Drawing.Point(3, 92);
             this.tableLayoutPanel_Container.Name = "tableLayoutPanel_Container";
-            this.tableLayoutPanel_Container.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel_Container.RowCount = 7;
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.83894F));
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.68834F));
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.83894F));
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.68834F));
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.83894F));
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.68834F));
-            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.41816F));
-            this.tableLayoutPanel_Container.Size = new System.Drawing.Size(736, 319);
+            this.tableLayoutPanel_Container.Padding = new System.Windows.Forms.Padding(5);
+            this.tableLayoutPanel_Container.RowCount = 6;
+            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel_Container.Size = new System.Drawing.Size(736, 278);
             this.tableLayoutPanel_Container.TabIndex = 7;
             // 
             // oldPasswordLabel
@@ -117,12 +112,29 @@
             this.oldPasswordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.oldPasswordLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oldPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.oldPasswordLabel.Location = new System.Drawing.Point(13, 10);
+            this.oldPasswordLabel.Location = new System.Drawing.Point(8, 5);
             this.oldPasswordLabel.Name = "oldPasswordLabel";
-            this.oldPasswordLabel.Size = new System.Drawing.Size(635, 38);
+            this.oldPasswordLabel.Size = new System.Drawing.Size(670, 39);
             this.oldPasswordLabel.TabIndex = 5;
             this.oldPasswordLabel.Text = "Old Password";
             this.oldPasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // oldPasswordTextBox
+            // 
+            this.oldPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.oldPasswordTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.oldPasswordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.oldPasswordTextBox.BorderThickness = 0;
+            this.oldPasswordTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.oldPasswordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oldPasswordTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oldPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.oldPasswordTextBox.Location = new System.Drawing.Point(8, 47);
+            this.oldPasswordTextBox.Name = "oldPasswordTextBox";
+            this.oldPasswordTextBox.Radius = 10;
+            this.oldPasswordTextBox.Size = new System.Drawing.Size(670, 44);
+            this.oldPasswordTextBox.TabIndex = 9;
+            this.oldPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // newPasswordLabel
             // 
@@ -130,9 +142,9 @@
             this.newPasswordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newPasswordLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.newPasswordLabel.Location = new System.Drawing.Point(13, 88);
+            this.newPasswordLabel.Location = new System.Drawing.Point(8, 94);
             this.newPasswordLabel.Name = "newPasswordLabel";
-            this.newPasswordLabel.Size = new System.Drawing.Size(635, 38);
+            this.newPasswordLabel.Size = new System.Drawing.Size(670, 39);
             this.newPasswordLabel.TabIndex = 10;
             this.newPasswordLabel.Text = "New Password";
             this.newPasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,132 +155,130 @@
             this.confirmNewPasswordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmNewPasswordLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmNewPasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.confirmNewPasswordLabel.Location = new System.Drawing.Point(13, 166);
+            this.confirmNewPasswordLabel.Location = new System.Drawing.Point(8, 183);
             this.confirmNewPasswordLabel.Name = "confirmNewPasswordLabel";
-            this.confirmNewPasswordLabel.Size = new System.Drawing.Size(635, 38);
+            this.confirmNewPasswordLabel.Size = new System.Drawing.Size(670, 39);
             this.confirmNewPasswordLabel.TabIndex = 11;
             this.confirmNewPasswordLabel.Text = "Confirm New Password";
             this.confirmNewPasswordLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel_Container.SetColumnSpan(this.tableLayoutPanel1, 2);
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.28986F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.15942F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.55072F));
-            this.tableLayoutPanel1.Controls.Add(this.cancelButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.continueButton, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 247);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 10, 0);
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(710, 59);
-            this.tableLayoutPanel1.TabIndex = 14;
-            // 
-            // oldButtonContainer
-            // 
-            this.oldButtonContainer.Controls.Add(this.oldCloseEyeButton);
-            this.oldButtonContainer.Controls.Add(this.oldOpenEyeButton);
-            this.oldButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oldButtonContainer.Location = new System.Drawing.Point(654, 51);
-            this.oldButtonContainer.Name = "oldButtonContainer";
-            this.oldButtonContainer.Size = new System.Drawing.Size(69, 34);
-            this.oldButtonContainer.TabIndex = 16;
-            // 
-            // oldCloseEyeButton
-            // 
-            this.oldCloseEyeButton.BackColor = System.Drawing.Color.Crimson;
-            this.oldCloseEyeButton.BackgroundColor = System.Drawing.Color.Crimson;
-            this.oldCloseEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.oldCloseEyeButton.BorderRadius = 10;
-            this.oldCloseEyeButton.BorderSize = 0;
-            this.oldCloseEyeButton.ButtonImage = null;
-            this.oldCloseEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oldCloseEyeButton.FlatAppearance.BorderSize = 0;
-            this.oldCloseEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.oldCloseEyeButton.ForeColor = System.Drawing.Color.White;
-            this.oldCloseEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.oldCloseEyeButton.Name = "oldCloseEyeButton";
-            this.oldCloseEyeButton.Size = new System.Drawing.Size(69, 34);
-            this.oldCloseEyeButton.TabIndex = 17;
-            this.oldCloseEyeButton.TextColor = System.Drawing.Color.White;
-            this.oldCloseEyeButton.UseVisualStyleBackColor = false;
-            this.oldCloseEyeButton.Click += new System.EventHandler(this.oldCloseEyeButton_Click);
-            // 
-            // oldPasswordTextBox
-            // 
-            this.oldPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.oldPasswordTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.oldPasswordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.oldPasswordTextBox.BorderThickness = 2;
-            this.oldPasswordTextBox.Br = System.Drawing.Color.White;
-            this.oldPasswordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oldPasswordTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oldPasswordTextBox.ForeColor = System.Drawing.Color.Black;
-            this.oldPasswordTextBox.Location = new System.Drawing.Point(13, 51);
-            this.oldPasswordTextBox.Name = "oldPasswordTextBox";
-            this.oldPasswordTextBox.Radius = 10;
-            this.oldPasswordTextBox.Size = new System.Drawing.Size(635, 34);
-            this.oldPasswordTextBox.TabIndex = 9;
-            this.oldPasswordTextBox.UseSystemPasswordChar = true;
-            // 
             // newPasswordTextBox
             // 
             this.newPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.newPasswordTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.newPasswordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.newPasswordTextBox.BorderThickness = 2;
-            this.newPasswordTextBox.Br = System.Drawing.Color.White;
+            this.newPasswordTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.newPasswordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.newPasswordTextBox.BorderThickness = 0;
+            this.newPasswordTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.newPasswordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newPasswordTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newPasswordTextBox.ForeColor = System.Drawing.Color.Black;
-            this.newPasswordTextBox.Location = new System.Drawing.Point(13, 129);
+            this.newPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.newPasswordTextBox.Location = new System.Drawing.Point(8, 136);
             this.newPasswordTextBox.Name = "newPasswordTextBox";
             this.newPasswordTextBox.Radius = 10;
-            this.newPasswordTextBox.Size = new System.Drawing.Size(635, 34);
+            this.newPasswordTextBox.Size = new System.Drawing.Size(670, 44);
             this.newPasswordTextBox.TabIndex = 12;
             this.newPasswordTextBox.UseSystemPasswordChar = true;
             // 
             // confirmNewPasswordTextBox
             // 
             this.confirmNewPasswordTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.confirmNewPasswordTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.confirmNewPasswordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.confirmNewPasswordTextBox.BorderThickness = 2;
-            this.confirmNewPasswordTextBox.Br = System.Drawing.Color.White;
+            this.confirmNewPasswordTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.confirmNewPasswordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.confirmNewPasswordTextBox.BorderThickness = 0;
+            this.confirmNewPasswordTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.confirmNewPasswordTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmNewPasswordTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmNewPasswordTextBox.ForeColor = System.Drawing.Color.Black;
-            this.confirmNewPasswordTextBox.Location = new System.Drawing.Point(13, 207);
+            this.confirmNewPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.confirmNewPasswordTextBox.Location = new System.Drawing.Point(8, 225);
             this.confirmNewPasswordTextBox.Name = "confirmNewPasswordTextBox";
             this.confirmNewPasswordTextBox.Radius = 10;
-            this.confirmNewPasswordTextBox.Size = new System.Drawing.Size(635, 34);
+            this.confirmNewPasswordTextBox.Size = new System.Drawing.Size(670, 45);
             this.confirmNewPasswordTextBox.TabIndex = 13;
             this.confirmNewPasswordTextBox.UseSystemPasswordChar = true;
             // 
-            // cancelButton
+            // oldButtonContainer
             // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cancelButton.BorderRadius = 10;
-            this.cancelButton.BorderSize = 2;
-            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(3, 13);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(346, 43);
-            this.cancelButton.TabIndex = 2;
-            this.cancelButton.Text = "CANCEL";
-            this.cancelButton.TextColor = System.Drawing.Color.White;
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.oldButtonContainer.Controls.Add(this.oldEyeButton);
+            this.oldButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oldButtonContainer.Location = new System.Drawing.Point(684, 47);
+            this.oldButtonContainer.Name = "oldButtonContainer";
+            this.oldButtonContainer.Size = new System.Drawing.Size(44, 44);
+            this.oldButtonContainer.TabIndex = 16;
+            // 
+            // oldEyeButton
+            // 
+            this.oldEyeButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.oldEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.oldEyeButton.BorderRadius = 10;
+            this.oldEyeButton.BorderSize = 0;
+            this.oldEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+            this.oldEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.oldEyeButton.FlatAppearance.BorderSize = 0;
+            this.oldEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.oldEyeButton.ForeColor = System.Drawing.Color.White;
+            this.oldEyeButton.Location = new System.Drawing.Point(0, 0);
+            this.oldEyeButton.Name = "oldEyeButton";
+            this.oldEyeButton.Size = new System.Drawing.Size(44, 44);
+            this.oldEyeButton.TabIndex = 15;
+            this.oldEyeButton.TextColor = System.Drawing.Color.White;
+            this.oldEyeButton.UseVisualStyleBackColor = false;
+            this.oldEyeButton.Click += new System.EventHandler(this.oldEyeButton_Click);
+            // 
+            // newButtonContainer
+            // 
+            this.newButtonContainer.Controls.Add(this.newEyeButton);
+            this.newButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newButtonContainer.Location = new System.Drawing.Point(684, 136);
+            this.newButtonContainer.Name = "newButtonContainer";
+            this.newButtonContainer.Size = new System.Drawing.Size(44, 44);
+            this.newButtonContainer.TabIndex = 17;
+            // 
+            // newEyeButton
+            // 
+            this.newEyeButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.newEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.newEyeButton.BorderRadius = 10;
+            this.newEyeButton.BorderSize = 0;
+            this.newEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+            this.newEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newEyeButton.FlatAppearance.BorderSize = 0;
+            this.newEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newEyeButton.ForeColor = System.Drawing.Color.White;
+            this.newEyeButton.Location = new System.Drawing.Point(0, 0);
+            this.newEyeButton.Name = "newEyeButton";
+            this.newEyeButton.Size = new System.Drawing.Size(44, 44);
+            this.newEyeButton.TabIndex = 15;
+            this.newEyeButton.TextColor = System.Drawing.Color.White;
+            this.newEyeButton.UseVisualStyleBackColor = false;
+            this.newEyeButton.Click += new System.EventHandler(this.newEyeButton_Click);
+            // 
+            // confirmButtonContainer
+            // 
+            this.confirmButtonContainer.Controls.Add(this.confirmEyeButton);
+            this.confirmButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.confirmButtonContainer.Location = new System.Drawing.Point(684, 225);
+            this.confirmButtonContainer.Name = "confirmButtonContainer";
+            this.confirmButtonContainer.Size = new System.Drawing.Size(44, 45);
+            this.confirmButtonContainer.TabIndex = 18;
+            // 
+            // confirmEyeButton
+            // 
+            this.confirmEyeButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.confirmEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.confirmEyeButton.BorderRadius = 10;
+            this.confirmEyeButton.BorderSize = 0;
+            this.confirmEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+            this.confirmEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.confirmEyeButton.FlatAppearance.BorderSize = 0;
+            this.confirmEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmEyeButton.ForeColor = System.Drawing.Color.White;
+            this.confirmEyeButton.Location = new System.Drawing.Point(0, 0);
+            this.confirmEyeButton.Name = "confirmEyeButton";
+            this.confirmEyeButton.Size = new System.Drawing.Size(44, 45);
+            this.confirmEyeButton.TabIndex = 15;
+            this.confirmEyeButton.TextColor = System.Drawing.Color.White;
+            this.confirmEyeButton.UseVisualStyleBackColor = false;
+            this.confirmEyeButton.Click += new System.EventHandler(this.confirmEyeButton_Click);
             // 
             // continueButton
             // 
@@ -282,133 +292,51 @@
             this.continueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.continueButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueButton.ForeColor = System.Drawing.Color.White;
-            this.continueButton.Location = new System.Drawing.Point(363, 13);
+            this.continueButton.Location = new System.Drawing.Point(371, 3);
             this.continueButton.Name = "continueButton";
-            this.continueButton.Size = new System.Drawing.Size(334, 43);
+            this.continueButton.Size = new System.Drawing.Size(362, 44);
             this.continueButton.TabIndex = 3;
-            this.continueButton.Text = "CONTINUE";
+            this.continueButton.Text = "Continue";
             this.continueButton.TextColor = System.Drawing.Color.White;
             this.continueButton.UseVisualStyleBackColor = false;
+            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
             // 
-            // oldOpenEyeButton
+            // cancelButton
             // 
-            this.oldOpenEyeButton.BackColor = System.Drawing.Color.Thistle;
-            this.oldOpenEyeButton.BackgroundColor = System.Drawing.Color.Thistle;
-            this.oldOpenEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.oldOpenEyeButton.BorderRadius = 10;
-            this.oldOpenEyeButton.BorderSize = 0;
-            this.oldOpenEyeButton.ButtonImage = null;
-            this.oldOpenEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.oldOpenEyeButton.FlatAppearance.BorderSize = 0;
-            this.oldOpenEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.oldOpenEyeButton.ForeColor = System.Drawing.Color.White;
-            this.oldOpenEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.oldOpenEyeButton.Name = "oldOpenEyeButton";
-            this.oldOpenEyeButton.Size = new System.Drawing.Size(69, 34);
-            this.oldOpenEyeButton.TabIndex = 15;
-            this.oldOpenEyeButton.TextColor = System.Drawing.Color.White;
-            this.oldOpenEyeButton.UseVisualStyleBackColor = false;
-            this.oldOpenEyeButton.Click += new System.EventHandler(this.oldOpenEyeButton_Click);
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cancelButton.BorderRadius = 10;
+            this.cancelButton.BorderSize = 2;
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(3, 3);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(362, 44);
+            this.cancelButton.TabIndex = 2;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.TextColor = System.Drawing.Color.White;
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // newButtonContainer
+            // buttonTableLayout
             // 
-            this.newButtonContainer.Controls.Add(this.newCloseEyeButton);
-            this.newButtonContainer.Controls.Add(this.newOpenEyeButton);
-            this.newButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.newButtonContainer.Location = new System.Drawing.Point(654, 129);
-            this.newButtonContainer.Name = "newButtonContainer";
-            this.newButtonContainer.Size = new System.Drawing.Size(69, 34);
-            this.newButtonContainer.TabIndex = 17;
-            // 
-            // newCloseEyeButton
-            // 
-            this.newCloseEyeButton.BackColor = System.Drawing.Color.Crimson;
-            this.newCloseEyeButton.BackgroundColor = System.Drawing.Color.Crimson;
-            this.newCloseEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newCloseEyeButton.BorderRadius = 10;
-            this.newCloseEyeButton.BorderSize = 0;
-            this.newCloseEyeButton.ButtonImage = null;
-            this.newCloseEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.newCloseEyeButton.FlatAppearance.BorderSize = 0;
-            this.newCloseEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newCloseEyeButton.ForeColor = System.Drawing.Color.White;
-            this.newCloseEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.newCloseEyeButton.Name = "newCloseEyeButton";
-            this.newCloseEyeButton.Size = new System.Drawing.Size(69, 34);
-            this.newCloseEyeButton.TabIndex = 17;
-            this.newCloseEyeButton.TextColor = System.Drawing.Color.White;
-            this.newCloseEyeButton.UseVisualStyleBackColor = false;
-            this.newCloseEyeButton.Click += new System.EventHandler(this.newCloseEyeButton_Click);
-            // 
-            // newOpenEyeButton
-            // 
-            this.newOpenEyeButton.BackColor = System.Drawing.Color.Thistle;
-            this.newOpenEyeButton.BackgroundColor = System.Drawing.Color.Thistle;
-            this.newOpenEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.newOpenEyeButton.BorderRadius = 10;
-            this.newOpenEyeButton.BorderSize = 0;
-            this.newOpenEyeButton.ButtonImage = null;
-            this.newOpenEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.newOpenEyeButton.FlatAppearance.BorderSize = 0;
-            this.newOpenEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.newOpenEyeButton.ForeColor = System.Drawing.Color.White;
-            this.newOpenEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.newOpenEyeButton.Name = "newOpenEyeButton";
-            this.newOpenEyeButton.Size = new System.Drawing.Size(69, 34);
-            this.newOpenEyeButton.TabIndex = 15;
-            this.newOpenEyeButton.TextColor = System.Drawing.Color.White;
-            this.newOpenEyeButton.UseVisualStyleBackColor = false;
-            this.newOpenEyeButton.Click += new System.EventHandler(this.newOpenEyeButton_Click);
-            // 
-            // confirmButtonContainer
-            // 
-            this.confirmButtonContainer.Controls.Add(this.confirmCloseEyeButton);
-            this.confirmButtonContainer.Controls.Add(this.confirmOpenEyeButton);
-            this.confirmButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.confirmButtonContainer.Location = new System.Drawing.Point(654, 207);
-            this.confirmButtonContainer.Name = "confirmButtonContainer";
-            this.confirmButtonContainer.Size = new System.Drawing.Size(69, 34);
-            this.confirmButtonContainer.TabIndex = 18;
-            // 
-            // confirmCloseEyeButton
-            // 
-            this.confirmCloseEyeButton.BackColor = System.Drawing.Color.Crimson;
-            this.confirmCloseEyeButton.BackgroundColor = System.Drawing.Color.Crimson;
-            this.confirmCloseEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.confirmCloseEyeButton.BorderRadius = 10;
-            this.confirmCloseEyeButton.BorderSize = 0;
-            this.confirmCloseEyeButton.ButtonImage = null;
-            this.confirmCloseEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.confirmCloseEyeButton.FlatAppearance.BorderSize = 0;
-            this.confirmCloseEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmCloseEyeButton.ForeColor = System.Drawing.Color.White;
-            this.confirmCloseEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.confirmCloseEyeButton.Name = "confirmCloseEyeButton";
-            this.confirmCloseEyeButton.Size = new System.Drawing.Size(69, 34);
-            this.confirmCloseEyeButton.TabIndex = 17;
-            this.confirmCloseEyeButton.TextColor = System.Drawing.Color.White;
-            this.confirmCloseEyeButton.UseVisualStyleBackColor = false;
-            this.confirmCloseEyeButton.Click += new System.EventHandler(this.confirmCloseEyeButton_Click);
-            // 
-            // confirmOpenEyeButton
-            // 
-            this.confirmOpenEyeButton.BackColor = System.Drawing.Color.Thistle;
-            this.confirmOpenEyeButton.BackgroundColor = System.Drawing.Color.Thistle;
-            this.confirmOpenEyeButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.confirmOpenEyeButton.BorderRadius = 10;
-            this.confirmOpenEyeButton.BorderSize = 0;
-            this.confirmOpenEyeButton.ButtonImage = null;
-            this.confirmOpenEyeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.confirmOpenEyeButton.FlatAppearance.BorderSize = 0;
-            this.confirmOpenEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmOpenEyeButton.ForeColor = System.Drawing.Color.White;
-            this.confirmOpenEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.confirmOpenEyeButton.Name = "confirmOpenEyeButton";
-            this.confirmOpenEyeButton.Size = new System.Drawing.Size(69, 34);
-            this.confirmOpenEyeButton.TabIndex = 15;
-            this.confirmOpenEyeButton.TextColor = System.Drawing.Color.White;
-            this.confirmOpenEyeButton.UseVisualStyleBackColor = false;
-            this.confirmOpenEyeButton.Click += new System.EventHandler(this.confirmOpenEyeButton_Click);
+            this.buttonTableLayout.ColumnCount = 2;
+            this.buttonTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.buttonTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.buttonTableLayout.Controls.Add(this.cancelButton, 0, 0);
+            this.buttonTableLayout.Controls.Add(this.continueButton, 1, 0);
+            this.buttonTableLayout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonTableLayout.Location = new System.Drawing.Point(3, 370);
+            this.buttonTableLayout.Name = "buttonTableLayout";
+            this.buttonTableLayout.RowCount = 1;
+            this.buttonTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.buttonTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.buttonTableLayout.Size = new System.Drawing.Size(736, 50);
+            this.buttonTableLayout.TabIndex = 8;
             // 
             // FORM_PASSWORD
             // 
@@ -417,6 +345,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(742, 423);
             this.Controls.Add(this.tableLayoutPanel_Container);
+            this.Controls.Add(this.buttonTableLayout);
             this.Controls.Add(this.instructionLabel);
             this.Controls.Add(this.changePassLabel);
             this.ForeColor = System.Drawing.Color.Coral;
@@ -428,10 +357,10 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FORM_PASSWORD_Paint);
             this.tableLayoutPanel_Container.ResumeLayout(false);
             this.tableLayoutPanel_Container.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.oldButtonContainer.ResumeLayout(false);
             this.newButtonContainer.ResumeLayout(false);
             this.confirmButtonContainer.ResumeLayout(false);
+            this.buttonTableLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -447,17 +376,14 @@
         private System.Windows.Forms.Label confirmNewPasswordLabel;
         private RoundedCorners.RoundedTextBox newPasswordTextBox;
         private RoundedCorners.RoundedTextBox confirmNewPasswordTextBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private roundedCorners.roundedButton cancelButton;
-        private roundedCorners.roundedButton continueButton;
-        private sidebarComponents.sidebarButton oldCloseEyeButton;
         private System.Windows.Forms.Panel oldButtonContainer;
-        private sidebarComponents.sidebarButton oldOpenEyeButton;
+        private sidebarComponents.sidebarButton oldEyeButton;
         private System.Windows.Forms.Panel newButtonContainer;
-        private sidebarComponents.sidebarButton newCloseEyeButton;
-        private sidebarComponents.sidebarButton newOpenEyeButton;
+        private sidebarComponents.sidebarButton newEyeButton;
         private System.Windows.Forms.Panel confirmButtonContainer;
-        private sidebarComponents.sidebarButton confirmCloseEyeButton;
-        private sidebarComponents.sidebarButton confirmOpenEyeButton;
+        private sidebarComponents.sidebarButton confirmEyeButton;
+        private roundedCorners.roundedButton continueButton;
+        private roundedCorners.roundedButton cancelButton;
+        private System.Windows.Forms.TableLayoutPanel buttonTableLayout;
     }
 }
