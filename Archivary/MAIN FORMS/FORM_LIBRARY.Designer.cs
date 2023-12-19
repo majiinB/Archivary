@@ -135,7 +135,7 @@
             // 
             this.searchBar.BackColor = System.Drawing.Color.Transparent;
             this.searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.searchBar.BorderThickness = 0;
             this.searchBar.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -235,7 +235,6 @@
         #endregion
 
         private RoundedCorners.RoundedPanel LAYOUT_searchBar;
-        private RoundedCorners.RoundedTextBox searchBar;
         private System.Windows.Forms.Panel PANEL_libraryListContainer;
         private System.Windows.Forms.FlowLayoutPanel libraryList;
         private sidebarComponents.RoundedSidebarButton addBookButton;
@@ -247,5 +246,6 @@
         private System.Windows.Forms.ToolStripMenuItem categoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem genreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ISBNToolStripMenuItem;
+        private RoundedCorners.RoundedTextBox searchBar;
     }
 }

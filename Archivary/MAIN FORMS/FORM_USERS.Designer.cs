@@ -66,7 +66,6 @@
             this.PANEL_userListContainer.Location = new System.Drawing.Point(0, 90);
             this.PANEL_userListContainer.Margin = new System.Windows.Forms.Padding(10);
             this.PANEL_userListContainer.Name = "PANEL_userListContainer";
-            this.PANEL_userListContainer.Padding = new System.Windows.Forms.Padding(5);
             this.PANEL_userListContainer.Radius = 10;
             this.PANEL_userListContainer.Size = new System.Drawing.Size(958, 580);
             this.PANEL_userListContainer.TabIndex = 2;
@@ -79,7 +78,7 @@
             this.userDataGridView.AllowUserToResizeRows = false;
             this.userDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.userDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.userDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.userDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.userDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.userDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
@@ -109,8 +108,8 @@
             this.userDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.userDataGridView.EnableHeadersVisualStyles = false;
-            this.userDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.userDataGridView.Location = new System.Drawing.Point(5, 5);
+            this.userDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.userDataGridView.Location = new System.Drawing.Point(0, 0);
             this.userDataGridView.Margin = new System.Windows.Forms.Padding(10);
             this.userDataGridView.MultiSelect = false;
             this.userDataGridView.Name = "userDataGridView";
@@ -126,7 +125,7 @@
             this.userDataGridView.RowTemplate.Height = 24;
             this.userDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.userDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userDataGridView.Size = new System.Drawing.Size(948, 570);
+            this.userDataGridView.Size = new System.Drawing.Size(958, 580);
             this.userDataGridView.TabIndex = 6;
             this.userDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userDataGridView_CellClick);
             this.userDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.userDataGridView_CellFormatting);

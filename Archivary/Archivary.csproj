@@ -119,6 +119,12 @@
     <Compile Include="900X500\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </Compile>
+    <Compile Include="900X500\FORM_PASSWORD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="900X500\FORM_PASSWORD.designer.cs">
+      <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Archivary Components\bookDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     <Compile Include="MAIN FORMS\FORM_REPORTS.designer.cs">
       <DependentUpon>FORM_REPORTS.cs</DependentUpon>
     </Compile>
+    <Compile Include="MAIN FORMS\FORM_SETTINGS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SETTINGS.designer.cs">
+      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
+    </Compile>
     <Compile Include="MAIN FORMS\FORM_SIDEBAR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,12 +207,6 @@
     </Compile>
     <Compile Include="MAIN FORMS\FORM_LOGIN.Designer.cs">
       <DependentUpon>FORM_LOGIN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_SETTINGS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_SETTINGS.Designer.cs">
-      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
     </Compile>
     <Compile Include="MAIN FORMS\FORM_TITLE.cs">
       <SubType>Form</SubType>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.resx">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="900X500\FORM_PASSWORD.resx">
+      <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivary Components\bookDetails.resx">
       <DependentUpon>bookDetails.cs</DependentUpon>
@@ -412,6 +421,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICON_DROPDOWN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogo9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE_SLASH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE_SLASH_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_LOCK_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND_LOGIN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

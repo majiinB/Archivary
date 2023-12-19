@@ -73,6 +73,16 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ArchivaryLogo9 {
+            get {
+                object obj = ResourceManager.GetObject("ArchivaryLogo9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ArchivaryLogoBannerPNG {
             get {
                 object obj = ResourceManager.GetObject("ArchivaryLogoBannerPNG", resourceCulture);
@@ -106,6 +116,16 @@ namespace Archivary.Properties {
         internal static System.Drawing.Bitmap BACKGROUND {
             get {
                 object obj = ResourceManager.GetObject("BACKGROUND", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BACKGROUND_LOGIN {
+            get {
+                object obj = ResourceManager.GetObject("BACKGROUND_LOGIN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,6 +233,46 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICON_EYE {
+            get {
+                object obj = ResourceManager.GetObject("ICON_EYE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_EYE_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_EYE_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_EYE_SLASH {
+            get {
+                object obj = ResourceManager.GetObject("ICON_EYE_SLASH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_EYE_SLASH_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_EYE_SLASH_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON_LIBRARY {
             get {
                 object obj = ResourceManager.GetObject("ICON_LIBRARY", resourceCulture);
@@ -226,6 +286,16 @@ namespace Archivary.Properties {
         internal static System.Drawing.Bitmap ICON_LIBRARY_GREEN {
             get {
                 object obj = ResourceManager.GetObject("ICON_LIBRARY_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_LOCK_GREEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_LOCK_GREEN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
