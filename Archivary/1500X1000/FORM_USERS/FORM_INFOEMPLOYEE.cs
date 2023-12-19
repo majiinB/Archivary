@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Archivary._1200X800.FORM_USERS;
 
 namespace Archivary._1500X1000.FORM_USERS
 {

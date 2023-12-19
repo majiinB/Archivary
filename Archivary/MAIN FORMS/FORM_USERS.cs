@@ -192,7 +192,6 @@ namespace Archivary.PARENT_FORMS
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
-            //FormsSignup = new FORM_SIGNUP();
             FormsSignup.ShowDialog();
 
         }
