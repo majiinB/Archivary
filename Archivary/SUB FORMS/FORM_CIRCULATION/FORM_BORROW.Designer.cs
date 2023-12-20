@@ -38,14 +38,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MAIN_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.left_TableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.right_TableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.LAYOUT_searchBook = new RoundedCorners.RoundedPanel();
+            this.searchBook = new RoundedCorners.RoundedTextBox();
             this.BooksDataGridView = new System.Windows.Forms.DataGridView();
             this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.right_TableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.LAYOUT_searchID = new RoundedCorners.RoundedPanel();
+            this.searchID = new RoundedCorners.RoundedTextBox();
+            this.borrowButton = new roundedCorners.roundedButton();
+            this.clearButton = new roundedCorners.roundedButton();
             this.IDLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.collegeLabel = new System.Windows.Forms.Label();
+            this.reserveButton = new roundedCorners.roundedButton();
             this.IDInputLabel = new System.Windows.Forms.Label();
             this.nameInputLabel = new System.Windows.Forms.Label();
             this.collegeInputLabel = new System.Windows.Forms.Label();
@@ -53,20 +60,13 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LAYOUT_searchBook = new RoundedCorners.RoundedPanel();
-            this.searchBook = new RoundedCorners.RoundedTextBox();
-            this.LAYOUT_searchID = new RoundedCorners.RoundedPanel();
-            this.searchID = new RoundedCorners.RoundedTextBox();
-            this.borrowButton = new roundedCorners.roundedButton();
-            this.clearButton = new roundedCorners.roundedButton();
-            this.reserveButton = new roundedCorners.roundedButton();
             this.MAIN_TableLayout.SuspendLayout();
             this.left_TableLayout.SuspendLayout();
-            this.right_TableLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.LAYOUT_searchBook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).BeginInit();
+            this.right_TableLayout.SuspendLayout();
             this.LAYOUT_searchID.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // MAIN_TableLayout
@@ -101,39 +101,40 @@
             this.left_TableLayout.Size = new System.Drawing.Size(455, 597);
             this.left_TableLayout.TabIndex = 0;
             // 
-            // right_TableLayout
+            // LAYOUT_searchBook
             // 
-            this.right_TableLayout.ColumnCount = 3;
-            this.right_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.right_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.right_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.right_TableLayout.Controls.Add(this.LAYOUT_searchID, 0, 0);
-            this.right_TableLayout.Controls.Add(this.borrowButton, 0, 7);
-            this.right_TableLayout.Controls.Add(this.clearButton, 0, 9);
-            this.right_TableLayout.Controls.Add(this.IDLabel, 0, 2);
-            this.right_TableLayout.Controls.Add(this.nameLabel, 0, 3);
-            this.right_TableLayout.Controls.Add(this.collegeLabel, 0, 4);
-            this.right_TableLayout.Controls.Add(this.reserveButton, 2, 7);
-            this.right_TableLayout.Controls.Add(this.IDInputLabel, 1, 2);
-            this.right_TableLayout.Controls.Add(this.nameInputLabel, 1, 3);
-            this.right_TableLayout.Controls.Add(this.collegeInputLabel, 1, 4);
-            this.right_TableLayout.Controls.Add(this.dataGridView1, 0, 5);
-            this.right_TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.right_TableLayout.Location = new System.Drawing.Point(464, 3);
-            this.right_TableLayout.Name = "right_TableLayout";
-            this.right_TableLayout.RowCount = 10;
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.right_TableLayout.Size = new System.Drawing.Size(455, 597);
-            this.right_TableLayout.TabIndex = 1;
+            this.LAYOUT_searchBook.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.LAYOUT_searchBook.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.LAYOUT_searchBook.BorderWidth = 1F;
+            this.LAYOUT_searchBook.Controls.Add(this.searchBook);
+            this.LAYOUT_searchBook.Cursor = System.Windows.Forms.Cursors.Default;
+            this.LAYOUT_searchBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LAYOUT_searchBook.Location = new System.Drawing.Point(3, 3);
+            this.LAYOUT_searchBook.Name = "LAYOUT_searchBook";
+            this.LAYOUT_searchBook.Padding = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_searchBook.Radius = 10;
+            this.LAYOUT_searchBook.Size = new System.Drawing.Size(449, 50);
+            this.LAYOUT_searchBook.TabIndex = 0;
+            // 
+            // searchBook
+            // 
+            this.searchBook.BackColor = System.Drawing.Color.Transparent;
+            this.searchBook.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBook.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBook.BorderThickness = 0;
+            this.searchBook.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBook.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBook.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.searchBook.Location = new System.Drawing.Point(2, 2);
+            this.searchBook.Name = "searchBook";
+            this.searchBook.Radius = 9;
+            this.searchBook.Size = new System.Drawing.Size(445, 46);
+            this.searchBook.TabIndex = 0;
+            this.searchBook.Text = "Search by Book";
+            this.searchBook.UseSystemPasswordChar = false;
+            this.searchBook.Enter += new System.EventHandler(this.searchBook_Enter);
+            this.searchBook.Leave += new System.EventHandler(this.searchBook_Leave);
             // 
             // BooksDataGridView
             // 
@@ -215,6 +216,117 @@
             this.ISBNColumn.Name = "ISBNColumn";
             this.ISBNColumn.ReadOnly = true;
             // 
+            // right_TableLayout
+            // 
+            this.right_TableLayout.ColumnCount = 3;
+            this.right_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.right_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.right_TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.right_TableLayout.Controls.Add(this.LAYOUT_searchID, 0, 0);
+            this.right_TableLayout.Controls.Add(this.borrowButton, 0, 7);
+            this.right_TableLayout.Controls.Add(this.clearButton, 0, 9);
+            this.right_TableLayout.Controls.Add(this.IDLabel, 0, 2);
+            this.right_TableLayout.Controls.Add(this.nameLabel, 0, 3);
+            this.right_TableLayout.Controls.Add(this.collegeLabel, 0, 4);
+            this.right_TableLayout.Controls.Add(this.reserveButton, 2, 7);
+            this.right_TableLayout.Controls.Add(this.IDInputLabel, 1, 2);
+            this.right_TableLayout.Controls.Add(this.nameInputLabel, 1, 3);
+            this.right_TableLayout.Controls.Add(this.collegeInputLabel, 1, 4);
+            this.right_TableLayout.Controls.Add(this.dataGridView1, 0, 5);
+            this.right_TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.right_TableLayout.Location = new System.Drawing.Point(464, 3);
+            this.right_TableLayout.Name = "right_TableLayout";
+            this.right_TableLayout.RowCount = 10;
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.right_TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.right_TableLayout.Size = new System.Drawing.Size(455, 597);
+            this.right_TableLayout.TabIndex = 1;
+            // 
+            // LAYOUT_searchID
+            // 
+            this.LAYOUT_searchID.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.LAYOUT_searchID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.LAYOUT_searchID.BorderWidth = 1F;
+            this.right_TableLayout.SetColumnSpan(this.LAYOUT_searchID, 3);
+            this.LAYOUT_searchID.Controls.Add(this.searchID);
+            this.LAYOUT_searchID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LAYOUT_searchID.Location = new System.Drawing.Point(3, 3);
+            this.LAYOUT_searchID.Name = "LAYOUT_searchID";
+            this.LAYOUT_searchID.Padding = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_searchID.Radius = 10;
+            this.LAYOUT_searchID.Size = new System.Drawing.Size(449, 50);
+            this.LAYOUT_searchID.TabIndex = 0;
+            // 
+            // searchID
+            // 
+            this.searchID.BackColor = System.Drawing.Color.Transparent;
+            this.searchID.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchID.BorderThickness = 0;
+            this.searchID.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchID.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.searchID.Location = new System.Drawing.Point(2, 2);
+            this.searchID.Name = "searchID";
+            this.searchID.Radius = 9;
+            this.searchID.Size = new System.Drawing.Size(445, 46);
+            this.searchID.TabIndex = 0;
+            this.searchID.Text = "Search by User ID";
+            this.searchID.UseSystemPasswordChar = false;
+            this.searchID.Enter += new System.EventHandler(this.searchID_Enter);
+            this.searchID.Leave += new System.EventHandler(this.searchID_Leave);
+            // 
+            // borrowButton
+            // 
+            this.borrowButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.borrowButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.borrowButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.borrowButton.BorderRadius = 20;
+            this.borrowButton.BorderSize = 0;
+            this.right_TableLayout.SetColumnSpan(this.borrowButton, 2);
+            this.borrowButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.borrowButton.FlatAppearance.BorderSize = 0;
+            this.borrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.borrowButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowButton.ForeColor = System.Drawing.Color.White;
+            this.borrowButton.Location = new System.Drawing.Point(3, 450);
+            this.borrowButton.Name = "borrowButton";
+            this.borrowButton.Size = new System.Drawing.Size(220, 64);
+            this.borrowButton.TabIndex = 1;
+            this.borrowButton.Text = "Borrow";
+            this.borrowButton.TextColor = System.Drawing.Color.White;
+            this.borrowButton.UseVisualStyleBackColor = false;
+            // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.clearButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.clearButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.clearButton.BorderRadius = 15;
+            this.clearButton.BorderSize = 0;
+            this.right_TableLayout.SetColumnSpan(this.clearButton, 3);
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.clearButton.Location = new System.Drawing.Point(3, 530);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(449, 64);
+            this.clearButton.TabIndex = 3;
+            this.clearButton.Text = "Clear";
+            this.clearButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.clearButton.UseVisualStyleBackColor = false;
+            // 
             // IDLabel
             // 
             this.IDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -252,6 +364,26 @@
             this.collegeLabel.TabIndex = 6;
             this.collegeLabel.Text = "College:";
             this.collegeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // reserveButton
+            // 
+            this.reserveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.reserveButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.reserveButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.reserveButton.BorderRadius = 20;
+            this.reserveButton.BorderSize = 0;
+            this.reserveButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reserveButton.FlatAppearance.BorderSize = 0;
+            this.reserveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reserveButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reserveButton.ForeColor = System.Drawing.Color.White;
+            this.reserveButton.Location = new System.Drawing.Point(229, 450);
+            this.reserveButton.Name = "reserveButton";
+            this.reserveButton.Size = new System.Drawing.Size(223, 64);
+            this.reserveButton.TabIndex = 2;
+            this.reserveButton.Text = "Reserve";
+            this.reserveButton.TextColor = System.Drawing.Color.White;
+            this.reserveButton.UseVisualStyleBackColor = false;
             // 
             // IDInputLabel
             // 
@@ -375,138 +507,6 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // LAYOUT_searchBook
-            // 
-            this.LAYOUT_searchBook.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.LAYOUT_searchBook.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.LAYOUT_searchBook.BorderWidth = 1F;
-            this.LAYOUT_searchBook.Controls.Add(this.searchBook);
-            this.LAYOUT_searchBook.Cursor = System.Windows.Forms.Cursors.Default;
-            this.LAYOUT_searchBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LAYOUT_searchBook.Location = new System.Drawing.Point(3, 3);
-            this.LAYOUT_searchBook.Name = "LAYOUT_searchBook";
-            this.LAYOUT_searchBook.Padding = new System.Windows.Forms.Padding(2);
-            this.LAYOUT_searchBook.Radius = 10;
-            this.LAYOUT_searchBook.Size = new System.Drawing.Size(449, 50);
-            this.LAYOUT_searchBook.TabIndex = 0;
-            // 
-            // searchBook
-            // 
-            this.searchBook.BackColor = System.Drawing.Color.Transparent;
-            this.searchBook.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchBook.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchBook.BorderThickness = 0;
-            this.searchBook.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBook.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBook.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.searchBook.Location = new System.Drawing.Point(2, 2);
-            this.searchBook.Name = "searchBook";
-            this.searchBook.Radius = 9;
-            this.searchBook.Size = new System.Drawing.Size(445, 46);
-            this.searchBook.TabIndex = 0;
-            this.searchBook.Text = "Search by Book";
-            this.searchBook.UseSystemPasswordChar = false;
-            this.searchBook.Enter += new System.EventHandler(this.searchBook_Enter);
-            this.searchBook.Leave += new System.EventHandler(this.searchBook_Leave);
-            // 
-            // LAYOUT_searchID
-            // 
-            this.LAYOUT_searchID.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.LAYOUT_searchID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.LAYOUT_searchID.BorderWidth = 1F;
-            this.right_TableLayout.SetColumnSpan(this.LAYOUT_searchID, 3);
-            this.LAYOUT_searchID.Controls.Add(this.searchID);
-            this.LAYOUT_searchID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LAYOUT_searchID.Location = new System.Drawing.Point(3, 3);
-            this.LAYOUT_searchID.Name = "LAYOUT_searchID";
-            this.LAYOUT_searchID.Padding = new System.Windows.Forms.Padding(2);
-            this.LAYOUT_searchID.Radius = 10;
-            this.LAYOUT_searchID.Size = new System.Drawing.Size(449, 50);
-            this.LAYOUT_searchID.TabIndex = 0;
-            // 
-            // searchID
-            // 
-            this.searchID.BackColor = System.Drawing.Color.Transparent;
-            this.searchID.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchID.BorderThickness = 0;
-            this.searchID.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchID.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.searchID.Location = new System.Drawing.Point(2, 2);
-            this.searchID.Name = "searchID";
-            this.searchID.Radius = 9;
-            this.searchID.Size = new System.Drawing.Size(445, 46);
-            this.searchID.TabIndex = 0;
-            this.searchID.Text = "Search by User ID";
-            this.searchID.UseSystemPasswordChar = false;
-            this.searchID.Enter += new System.EventHandler(this.searchID_Enter);
-            this.searchID.Leave += new System.EventHandler(this.searchID_Leave);
-            // 
-            // borrowButton
-            // 
-            this.borrowButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.borrowButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.borrowButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.borrowButton.BorderRadius = 20;
-            this.borrowButton.BorderSize = 0;
-            this.right_TableLayout.SetColumnSpan(this.borrowButton, 2);
-            this.borrowButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borrowButton.FlatAppearance.BorderSize = 0;
-            this.borrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.borrowButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.borrowButton.ForeColor = System.Drawing.Color.White;
-            this.borrowButton.Location = new System.Drawing.Point(3, 450);
-            this.borrowButton.Name = "borrowButton";
-            this.borrowButton.Size = new System.Drawing.Size(220, 64);
-            this.borrowButton.TabIndex = 1;
-            this.borrowButton.Text = "Borrow";
-            this.borrowButton.TextColor = System.Drawing.Color.White;
-            this.borrowButton.UseVisualStyleBackColor = false;
-            // 
-            // clearButton
-            // 
-            this.clearButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.clearButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.clearButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.clearButton.BorderRadius = 15;
-            this.clearButton.BorderSize = 0;
-            this.right_TableLayout.SetColumnSpan(this.clearButton, 3);
-            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearButton.FlatAppearance.BorderSize = 0;
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.clearButton.Location = new System.Drawing.Point(3, 530);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(449, 64);
-            this.clearButton.TabIndex = 3;
-            this.clearButton.Text = "Clear";
-            this.clearButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.clearButton.UseVisualStyleBackColor = false;
-            // 
-            // reserveButton
-            // 
-            this.reserveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.reserveButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.reserveButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.reserveButton.BorderRadius = 20;
-            this.reserveButton.BorderSize = 0;
-            this.reserveButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reserveButton.FlatAppearance.BorderSize = 0;
-            this.reserveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reserveButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reserveButton.ForeColor = System.Drawing.Color.White;
-            this.reserveButton.Location = new System.Drawing.Point(229, 450);
-            this.reserveButton.Name = "reserveButton";
-            this.reserveButton.Size = new System.Drawing.Size(223, 64);
-            this.reserveButton.TabIndex = 2;
-            this.reserveButton.Text = "Reserve";
-            this.reserveButton.TextColor = System.Drawing.Color.White;
-            this.reserveButton.UseVisualStyleBackColor = false;
-            // 
             // FORM_BORROW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -522,11 +522,11 @@
             this.Text = "FORM_BORROW";
             this.MAIN_TableLayout.ResumeLayout(false);
             this.left_TableLayout.ResumeLayout(false);
-            this.right_TableLayout.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.LAYOUT_searchBook.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).EndInit();
+            this.right_TableLayout.ResumeLayout(false);
             this.LAYOUT_searchID.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -336,7 +336,7 @@
             this.viewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.viewButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.viewButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.viewButton.BorderRadius = 30;
+            this.viewButton.BorderRadius = 20;
             this.viewButton.BorderSize = 0;
             this.viewButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewButton.FlatAppearance.BorderSize = 0;
@@ -361,7 +361,7 @@
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(0, 25);
             this.nameLabel.TabIndex = 1;
-            this.nameLabel.Text = "Hello, Arthur";
+            this.nameLabel.Text = "My Account";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // accountPictureBox
@@ -371,7 +371,7 @@
             this.accountPictureBox.BorderRadius = 50;
             this.accountPictureBox.BorderSize = 0;
             this.accountPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.accountPictureBox.Image = global::Archivary.Properties.Resources.Artugue__Arthur;
+            this.accountPictureBox.Image = global::Archivary.Properties.Resources.PLACEHOLDER_PICTURE;
             this.accountPictureBox.Location = new System.Drawing.Point(0, 0);
             this.accountPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.accountPictureBox.Name = "accountPictureBox";

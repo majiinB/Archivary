@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Archivary._1200X800.FORM_USERS
 {
-    public partial class FORM_EDITEMPLYEE : Form
+    public partial class FORM_EDITEMPLOYEE : Form
     {
-        public FORM_EDITEMPLYEE()
+        public FORM_EDITEMPLOYEE()
         {
             InitializeComponent();
         }

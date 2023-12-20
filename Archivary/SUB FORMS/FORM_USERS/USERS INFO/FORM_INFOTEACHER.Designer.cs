@@ -190,11 +190,13 @@
             this.roundedPictureBox1.BorderRadius = 1;
             this.roundedPictureBox1.BorderSize = 1;
             this.roundedPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPictureBox1.Image = global::Archivary.Properties.Resources.PLACEHOLDER_PICTURE;
             this.roundedPictureBox1.Location = new System.Drawing.Point(700, 18);
             this.roundedPictureBox1.Name = "roundedPictureBox1";
             this.roundedPictureBox1.Padding = new System.Windows.Forms.Padding(1);
             this.LAYOUT_userinfo.SetRowSpan(this.roundedPictureBox1, 5);
             this.roundedPictureBox1.Size = new System.Drawing.Size(236, 235);
+            this.roundedPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.roundedPictureBox1.TabIndex = 10;
             this.roundedPictureBox1.TabStop = false;
             // 

@@ -35,10 +35,10 @@
             this.passwordPicturebox = new System.Windows.Forms.PictureBox();
             this.logoTitlePictureBox = new System.Windows.Forms.PictureBox();
             this.PANEL_TOPBAR = new System.Windows.Forms.Panel();
-            this.PANEL_BACKGROUND = new System.Windows.Forms.Panel();
-            this.LAYOUT_EYE = new System.Windows.Forms.Panel();
             this.backButton = new sidebarComponents.sidebarButton();
             this.closeButton = new sidebarComponents.sidebarButton();
+            this.PANEL_BACKGROUND = new System.Windows.Forms.Panel();
+            this.LAYOUT_EYE = new System.Windows.Forms.Panel();
             this.eyeButton = new sidebarComponents.sidebarButton();
             this.usernameTextbox = new RoundedCorners.RoundedTextBox();
             this.passwordTextbox = new RoundedCorners.RoundedTextBox();
@@ -122,29 +122,6 @@
             this.PANEL_TOPBAR.TabIndex = 7;
             this.PANEL_TOPBAR.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PANEL_TOPBAR_MouseDown);
             // 
-            // PANEL_BACKGROUND
-            // 
-            this.PANEL_BACKGROUND.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PANEL_BACKGROUND.BackgroundImage")));
-            this.PANEL_BACKGROUND.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PANEL_BACKGROUND.Controls.Add(this.LAYOUT_EYE);
-            this.PANEL_BACKGROUND.Controls.Add(this.usernameTextbox);
-            this.PANEL_BACKGROUND.Controls.Add(this.passwordTextbox);
-            this.PANEL_BACKGROUND.Controls.Add(this.loginButton);
-            this.PANEL_BACKGROUND.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_BACKGROUND.Location = new System.Drawing.Point(0, 0);
-            this.PANEL_BACKGROUND.Name = "PANEL_BACKGROUND";
-            this.PANEL_BACKGROUND.Size = new System.Drawing.Size(960, 650);
-            this.PANEL_BACKGROUND.TabIndex = 8;
-            // 
-            // LAYOUT_EYE
-            // 
-            this.LAYOUT_EYE.Controls.Add(this.eyeButton);
-            this.LAYOUT_EYE.Location = new System.Drawing.Point(735, 405);
-            this.LAYOUT_EYE.Name = "LAYOUT_EYE";
-            this.LAYOUT_EYE.Size = new System.Drawing.Size(50, 50);
-            this.LAYOUT_EYE.TabIndex = 4;
-            this.LAYOUT_EYE.Paint += new System.Windows.Forms.PaintEventHandler(this.LAYOUT_EYE_Paint);
-            // 
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -187,6 +164,29 @@
             this.closeButton.TextColor = System.Drawing.Color.White;
             this.closeButton.UseVisualStyleBackColor = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // PANEL_BACKGROUND
+            // 
+            this.PANEL_BACKGROUND.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PANEL_BACKGROUND.BackgroundImage")));
+            this.PANEL_BACKGROUND.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PANEL_BACKGROUND.Controls.Add(this.LAYOUT_EYE);
+            this.PANEL_BACKGROUND.Controls.Add(this.usernameTextbox);
+            this.PANEL_BACKGROUND.Controls.Add(this.passwordTextbox);
+            this.PANEL_BACKGROUND.Controls.Add(this.loginButton);
+            this.PANEL_BACKGROUND.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_BACKGROUND.Location = new System.Drawing.Point(0, 0);
+            this.PANEL_BACKGROUND.Name = "PANEL_BACKGROUND";
+            this.PANEL_BACKGROUND.Size = new System.Drawing.Size(960, 650);
+            this.PANEL_BACKGROUND.TabIndex = 8;
+            // 
+            // LAYOUT_EYE
+            // 
+            this.LAYOUT_EYE.Controls.Add(this.eyeButton);
+            this.LAYOUT_EYE.Location = new System.Drawing.Point(735, 405);
+            this.LAYOUT_EYE.Name = "LAYOUT_EYE";
+            this.LAYOUT_EYE.Size = new System.Drawing.Size(50, 50);
+            this.LAYOUT_EYE.TabIndex = 4;
+            this.LAYOUT_EYE.Paint += new System.Windows.Forms.PaintEventHandler(this.LAYOUT_EYE_Paint);
             // 
             // eyeButton
             // 
@@ -258,13 +258,13 @@
             this.loginButton.FlatAppearance.BorderSize = 0;
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold);
-            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.loginButton.Location = new System.Drawing.Point(237, 480);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(258, 67);
             this.loginButton.TabIndex = 1;
             this.loginButton.Text = "Log In";
-            this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 

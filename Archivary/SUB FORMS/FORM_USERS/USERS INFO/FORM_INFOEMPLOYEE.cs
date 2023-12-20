@@ -13,7 +13,7 @@ namespace Archivary._1500X1000.FORM_USERS
 {
     public partial class FORM_INFOEMPLOYEE : Form
     {
-        private FORM_EDITEMPLYEE editInfo = new FORM_EDITEMPLYEE();
+        private FORM_EDITEMPLOYEE editInfo = new FORM_EDITEMPLOYEE();
 
         private Color archivaryGreen()
         {

@@ -499,5 +499,55 @@ namespace Archivary.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PLACEHOLDER_BOOK1 {
+            get {
+                object obj = ResourceManager.GetObject("PLACEHOLDER_BOOK1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PLACEHOLDER_BOOK2 {
+            get {
+                object obj = ResourceManager.GetObject("PLACEHOLDER_BOOK2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PLACEHOLDER_BOOK3 {
+            get {
+                object obj = ResourceManager.GetObject("PLACEHOLDER_BOOK3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PLACEHOLDER_BOOK4 {
+            get {
+                object obj = ResourceManager.GetObject("PLACEHOLDER_BOOK4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PLACEHOLDER_PICTURE {
+            get {
+                object obj = ResourceManager.GetObject("PLACEHOLDER_PICTURE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

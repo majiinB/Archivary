@@ -47,82 +47,82 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.Designer.cs">
-      <DependentUpon>FORM_EDITEMPLYEE.cs</DependentUpon>
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.Designer.cs">
+      <DependentUpon>FORM_EDITEMPLOYEE.cs</DependentUpon>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITSTUDENT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITSTUDENT.Designer.cs">
       <DependentUpon>FORM_EDITSTUDENT.cs</DependentUpon>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITTEACHER.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITTEACHER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITTEACHER.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITTEACHER.Designer.cs">
       <DependentUpon>FORM_EDITTEACHER.cs</DependentUpon>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_SIGNUP.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\FORM_SIGNUP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_SIGNUP.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\FORM_SIGNUP.Designer.cs">
       <DependentUpon>FORM_SIGNUP.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.cs">
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.designer.cs">
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_POS.designer.cs">
       <DependentUpon>FORM_POS.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKADD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKADD.Designer.cs">
       <DependentUpon>FORM_BOOKADD.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKEDIT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKEDIT.Designer.cs">
       <DependentUpon>FORM_BOOKEDIT.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKINFO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKINFO.Designer.cs">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOEMPLOYEE.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOEMPLOYEE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOEMPLOYEE.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOEMPLOYEE.Designer.cs">
       <DependentUpon>FORM_INFOEMPLOYEE.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOSTUDENT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOSTUDENT.Designer.cs">
       <DependentUpon>FORM_INFOSTUDENT.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOTEACHER.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOTEACHER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOTEACHER.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOTEACHER.Designer.cs">
       <DependentUpon>FORM_INFOTEACHER.cs</DependentUpon>
     </Compile>
-    <Compile Include="900X500\FORM_ALERT.cs">
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_ALERT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="900X500\FORM_ALERT.Designer.cs">
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </Compile>
-    <Compile Include="900X500\FORM_PASSWORD.cs">
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_PASSWORD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="900X500\FORM_PASSWORD.designer.cs">
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_PASSWORD.designer.cs">
       <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
     </Compile>
     <Compile Include="Archivary Components\bookDetails.cs">
@@ -254,34 +254,40 @@
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
       <DependentUpon>FORM_BORROW.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.resx">
-      <DependentUpon>FORM_EDITEMPLYEE.cs</DependentUpon>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.resx">
+      <DependentUpon>FORM_EDITEMPLOYEE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITSTUDENT.resx">
       <DependentUpon>FORM_EDITSTUDENT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1200X800\FORM_USERS\FORM_EDITTEACHER.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITTEACHER.resx">
       <DependentUpon>FORM_EDITTEACHER.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1500X1000\FORM_CIRCULATION\FORM_POS.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_POS.resx">
       <DependentUpon>FORM_POS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKADD.resx">
       <DependentUpon>FORM_BOOKADD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKEDIT.resx">
       <DependentUpon>FORM_BOOKEDIT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKINFO.resx">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOEMPLOYEE.resx">
+      <DependentUpon>FORM_INFOEMPLOYEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOSTUDENT.resx">
       <DependentUpon>FORM_INFOSTUDENT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="900X500\FORM_ALERT.resx">
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOTEACHER.resx">
+      <DependentUpon>FORM_INFOTEACHER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\OTHER FORMS\FORM_ALERT.resx">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="900X500\FORM_PASSWORD.resx">
+    <EmbeddedResource Include="SUB FORMS\OTHER FORMS\FORM_PASSWORD.resx">
       <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivary Components\bookDetails.resx">
@@ -481,6 +487,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BACKGROUND_LOGIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_PICTURE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

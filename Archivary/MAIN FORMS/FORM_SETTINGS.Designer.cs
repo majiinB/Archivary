@@ -112,7 +112,7 @@
             this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Montserrat Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(483, 13);
             this.saveButton.Name = "saveButton";
@@ -124,22 +124,22 @@
             // 
             // editButton
             // 
-            this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.editButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.editButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.editButton.BorderRadius = 20;
             this.editButton.BorderSize = 0;
             this.editButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton.Font = new System.Drawing.Font("Montserrat Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editButton.ForeColor = System.Drawing.Color.White;
+            this.editButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.editButton.Location = new System.Drawing.Point(13, 13);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(464, 74);
             this.editButton.TabIndex = 0;
             this.editButton.Text = "Edit";
-            this.editButton.TextColor = System.Drawing.Color.White;
+            this.editButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -758,7 +758,7 @@
             this.changePassButton.Name = "changePassButton";
             this.changePassButton.Size = new System.Drawing.Size(536, 40);
             this.changePassButton.TabIndex = 17;
-            this.changePassButton.Text = "CHANGE PASSWORD";
+            this.changePassButton.Text = "Change Password";
             this.changePassButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.changePassButton.UseVisualStyleBackColor = false;
             this.changePassButton.Click += new System.EventHandler(this.changePassButton_Click);

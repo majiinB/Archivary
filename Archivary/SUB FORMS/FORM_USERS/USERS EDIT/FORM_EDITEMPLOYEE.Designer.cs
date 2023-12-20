@@ -1,6 +1,6 @@
 ﻿namespace Archivary._1200X800.FORM_USERS
 {
-    partial class FORM_EDITEMPLYEE
+    partial class FORM_EDITEMPLOYEE
     {
         /// <summary>
         /// Required designer variable.
