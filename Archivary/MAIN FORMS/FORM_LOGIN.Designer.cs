@@ -55,7 +55,7 @@
             // 
             this.loginLabel.Font = new System.Drawing.Font("Montserrat Black", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.loginLabel.Location = new System.Drawing.Point(57, 193);
+            this.loginLabel.Location = new System.Drawing.Point(18, 193);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(324, 87);
             this.loginLabel.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             this.loginSubLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginSubLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.loginSubLabel.Location = new System.Drawing.Point(75, 269);
+            this.loginSubLabel.Location = new System.Drawing.Point(36, 269);
             this.loginSubLabel.Name = "loginSubLabel";
             this.loginSubLabel.Size = new System.Drawing.Size(376, 36);
             this.loginSubLabel.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             this.usernamePicturebox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.usernamePicturebox.Image = global::Archivary.Properties.Resources.ICON_USER_GREEN;
-            this.usernamePicturebox.Location = new System.Drawing.Point(73, 332);
+            this.usernamePicturebox.Location = new System.Drawing.Point(17, 332);
             this.usernamePicturebox.Name = "usernamePicturebox";
             this.usernamePicturebox.Size = new System.Drawing.Size(50, 50);
             this.usernamePicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -88,12 +88,13 @@
             // 
             this.passwordPicturebox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.passwordPicturebox.Image = ((System.Drawing.Image)(resources.GetObject("passwordPicturebox.Image")));
-            this.passwordPicturebox.Location = new System.Drawing.Point(73, 405);
+            this.passwordPicturebox.Location = new System.Drawing.Point(17, 405);
             this.passwordPicturebox.Name = "passwordPicturebox";
             this.passwordPicturebox.Size = new System.Drawing.Size(50, 50);
             this.passwordPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.passwordPicturebox.TabIndex = 3;
             this.passwordPicturebox.TabStop = false;
+            this.passwordPicturebox.Click += new System.EventHandler(this.passwordPicturebox_Click);
             // 
             // logoTitlePictureBox
             // 
@@ -138,10 +139,11 @@
             // LAYOUT_EYE
             // 
             this.LAYOUT_EYE.Controls.Add(this.eyeButton);
-            this.LAYOUT_EYE.Location = new System.Drawing.Point(786, 405);
+            this.LAYOUT_EYE.Location = new System.Drawing.Point(735, 405);
             this.LAYOUT_EYE.Name = "LAYOUT_EYE";
             this.LAYOUT_EYE.Size = new System.Drawing.Size(50, 50);
             this.LAYOUT_EYE.TabIndex = 4;
+            this.LAYOUT_EYE.Paint += new System.Windows.Forms.PaintEventHandler(this.LAYOUT_EYE_Paint);
             // 
             // backButton
             // 
@@ -215,13 +217,14 @@
             this.usernameTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.usernameTextbox.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.usernameTextbox.Location = new System.Drawing.Point(129, 332);
+            this.usernameTextbox.Location = new System.Drawing.Point(73, 332);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Radius = 15;
             this.usernameTextbox.Size = new System.Drawing.Size(656, 50);
             this.usernameTextbox.TabIndex = 2;
             this.usernameTextbox.Text = "Enter Username";
             this.usernameTextbox.UseSystemPasswordChar = false;
+            this.usernameTextbox.Click += new System.EventHandler(this.usernameTextbox_Click);
             this.usernameTextbox.Enter += new System.EventHandler(this.usernameTextbox_Enter);
             this.usernameTextbox.Leave += new System.EventHandler(this.usernameTextbox_Leave);
             // 
@@ -234,13 +237,14 @@
             this.passwordTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.passwordTextbox.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.passwordTextbox.Location = new System.Drawing.Point(129, 405);
+            this.passwordTextbox.Location = new System.Drawing.Point(73, 405);
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Radius = 15;
             this.passwordTextbox.Size = new System.Drawing.Size(656, 50);
             this.passwordTextbox.TabIndex = 2;
             this.passwordTextbox.Text = "Enter Password";
             this.passwordTextbox.UseSystemPasswordChar = true;
+            this.passwordTextbox.Click += new System.EventHandler(this.passwordTextbox_Click);
             this.passwordTextbox.Enter += new System.EventHandler(this.passwordTextbox_Enter);
             this.passwordTextbox.Leave += new System.EventHandler(this.passwordTextbox_Leave);
             // 
@@ -255,7 +259,7 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold);
             this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.loginButton.Location = new System.Drawing.Point(293, 480);
+            this.loginButton.Location = new System.Drawing.Point(237, 480);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(258, 67);
             this.loginButton.TabIndex = 1;

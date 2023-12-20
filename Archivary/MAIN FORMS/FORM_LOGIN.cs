@@ -127,5 +127,25 @@ namespace Archivary.PARENT_FORMS
                 passwordTextbox.UseSystemPasswordChar = true;
             }
         }
+
+        private void passwordPicturebox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LAYOUT_EYE_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void usernameTextbox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordTextbox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

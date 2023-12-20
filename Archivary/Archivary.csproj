@@ -74,7 +74,7 @@
     <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.Designer.cs">
+    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.designer.cs">
       <DependentUpon>FORM_POS.cs</DependentUpon>
     </Compile>
     <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.cs">
@@ -142,6 +142,12 @@
     </Compile>
     <Compile Include="Archivary Components\booksReserved.Designer.cs">
       <DependentUpon>booksReserved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\circulationBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\circulationBook.Designer.cs">
+      <DependentUpon>circulationBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Archivary Components\DropdownMenu.cs">
       <SubType>Component</SubType>
@@ -236,18 +242,30 @@
     <Compile Include="Archivary Components\RoundedPictureButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
-      <DependentUpon>FORM_BORROW.cs</DependentUpon>
-    </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
       <DependentUpon>FORM_RETURN.cs</DependentUpon>
     </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
+      <DependentUpon>FORM_BORROW.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.resx">
+      <DependentUpon>FORM_EDITEMPLYEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.resx">
+      <DependentUpon>FORM_EDITSTUDENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1200X800\FORM_USERS\FORM_EDITTEACHER.resx">
+      <DependentUpon>FORM_EDITTEACHER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1500X1000\FORM_CIRCULATION\FORM_POS.resx">
+      <DependentUpon>FORM_POS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.resx">
       <DependentUpon>FORM_BOOKADD.cs</DependentUpon>
     </EmbeddedResource>
@@ -256,6 +274,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.resx">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.resx">
+      <DependentUpon>FORM_INFOSTUDENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="900X500\FORM_ALERT.resx">
+      <DependentUpon>FORM_ALERT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="900X500\FORM_PASSWORD.resx">
       <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
@@ -268,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Archivary Components\booksReserved.resx">
       <DependentUpon>booksReserved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\circulationBook.resx">
+      <DependentUpon>circulationBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivary Components\monthlyOverview.resx">
       <DependentUpon>monthlyOverview.cs</DependentUpon>
@@ -303,6 +330,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.resx">
+      <DependentUpon>FORM_RETURN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.resx">
+      <DependentUpon>FORM_BORROW.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -439,6 +472,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICON_LOCK_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_WARNING.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND_CIRCULATION.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BACKGROUND_LOGIN.png" />

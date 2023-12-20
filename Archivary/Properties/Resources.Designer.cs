@@ -123,6 +123,16 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BACKGROUND_CIRCULATION {
+            get {
+                object obj = ResourceManager.GetObject("BACKGROUND_CIRCULATION", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BACKGROUND_LOGIN {
             get {
                 object obj = ResourceManager.GetObject("BACKGROUND_LOGIN", resourceCulture);
@@ -476,6 +486,16 @@ namespace Archivary.Properties {
         internal static System.Drawing.Bitmap ICON_USER_GREEN {
             get {
                 object obj = ResourceManager.GetObject("ICON_USER_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_WARNING {
+            get {
+                object obj = ResourceManager.GetObject("ICON_WARNING", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

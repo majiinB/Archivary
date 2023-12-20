@@ -661,6 +661,6 @@
         private sidebarComponents.sidebarButton minimizeButton;
         private sidebarComponents.sidebarButton maximizeButton;
         private System.Windows.Forms.Panel PANEL_CONTAINER;
-        private RoundedCorners.RoundedPanel PANEL_CONTENTS;
+        public RoundedCorners.RoundedPanel PANEL_CONTENTS;
     }
 }

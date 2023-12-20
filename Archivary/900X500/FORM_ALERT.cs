@@ -29,7 +29,7 @@ namespace Archivary._900X500
         }
         private void FORM_ALERT_Paint(object sender, PaintEventArgs e)
         {
-            DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(37, 211, 102), 3);
+            DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(244,244,244), 5);
 
         }
 

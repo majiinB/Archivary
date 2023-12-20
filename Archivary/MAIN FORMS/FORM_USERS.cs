@@ -181,13 +181,11 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
-
-        private void userDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void userDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-           teacherInfo.ShowDialog();
-           studentInfo.ShowDialog();
-           employeeInfo.ShowDialog();
-
+            teacherInfo.ShowDialog();
+            studentInfo.ShowDialog();
+            employeeInfo.ShowDialog();
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
@@ -195,5 +193,7 @@ namespace Archivary.PARENT_FORMS
             FormsSignup.ShowDialog();
 
         }
+
+
     }
 }

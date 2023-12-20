@@ -135,7 +135,7 @@ namespace Archivary.Archivary_Components
             // PANEL_categoryCopies
             // 
             this.PANEL_categoryCopies.BackgroundColor = System.Drawing.Color.Transparent;
-            this.PANEL_categoryCopies.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.PANEL_categoryCopies.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.PANEL_categoryCopies.BorderWidth = 3F;
             this.LAYOUT_OVERVIEW.SetColumnSpan(this.PANEL_categoryCopies, 3);
             this.PANEL_categoryCopies.Controls.Add(this.categoryCopiesChart);
@@ -313,7 +313,7 @@ namespace Archivary.Archivary_Components
             // monthlyReturnedTablePanel
             // 
             this.monthlyReturnedTablePanel.AutoSize = true;
-            this.monthlyReturnedTablePanel.BackColor = System.Drawing.Color.Transparent;
+            this.monthlyReturnedTablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.monthlyReturnedTablePanel.ColumnCount = 1;
             this.monthlyReturnedTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.monthlyReturnedTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -494,7 +494,7 @@ namespace Archivary.Archivary_Components
             // monthlyReservedTablePanel
             // 
             this.monthlyReservedTablePanel.AutoSize = true;
-            this.monthlyReservedTablePanel.BackColor = System.Drawing.Color.Transparent;
+            this.monthlyReservedTablePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.monthlyReservedTablePanel.ColumnCount = 1;
             this.monthlyReservedTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.monthlyReservedTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -541,7 +541,7 @@ namespace Archivary.Archivary_Components
             // 
             this.PANEL_genreCopies.AutoScroll = true;
             this.PANEL_genreCopies.BackgroundColor = System.Drawing.Color.Transparent;
-            this.PANEL_genreCopies.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.PANEL_genreCopies.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.PANEL_genreCopies.BorderWidth = 3F;
             this.PANEL_genreCopies.Controls.Add(this.genreCopiesChart);
             this.PANEL_genreCopies.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -649,7 +649,7 @@ namespace Archivary.Archivary_Components
             // PANEL_monthlyComparison
             // 
             this.PANEL_monthlyComparison.BackgroundColor = System.Drawing.Color.Transparent;
-            this.PANEL_monthlyComparison.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.PANEL_monthlyComparison.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.PANEL_monthlyComparison.BorderWidth = 3F;
             this.LAYOUT_OVERVIEW.SetColumnSpan(this.PANEL_monthlyComparison, 3);
             this.PANEL_monthlyComparison.Controls.Add(this.monthlyComparisonChart);
@@ -758,8 +758,8 @@ namespace Archivary.Archivary_Components
             this.monthlyOverviewLabel.AutoSize = true;
             this.LAYOUT_OVERVIEW.SetColumnSpan(this.monthlyOverviewLabel, 5);
             this.monthlyOverviewLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monthlyOverviewLabel.Font = new System.Drawing.Font("Montserrat", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthlyOverviewLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.monthlyOverviewLabel.Font = new System.Drawing.Font("Montserrat Black", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthlyOverviewLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.monthlyOverviewLabel.Location = new System.Drawing.Point(0, 0);
             this.monthlyOverviewLabel.Margin = new System.Windows.Forms.Padding(0);
             this.monthlyOverviewLabel.Name = "monthlyOverviewLabel";

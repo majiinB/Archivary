@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_LIBRARY));
             this.PANEL_libraryListContainer = new System.Windows.Forms.Panel();
             this.libraryList = new System.Windows.Forms.FlowLayoutPanel();
+            this.searchBar = new RoundedCorners.RoundedTextBox();
             this.filterSearchButton = new sidebarComponents.RoundedPictureButtonRight();
             this.addBookButton = new sidebarComponents.RoundedSidebarButton();
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
-            this.searchBar = new RoundedCorners.RoundedTextBox();
             this.filterDropdown = new CustomDropdown.DropdownMenu(this.components);
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +69,26 @@
             this.libraryList.Name = "libraryList";
             this.libraryList.Size = new System.Drawing.Size(958, 580);
             this.libraryList.TabIndex = 0;
+            // 
+            // searchBar
+            // 
+            this.searchBar.BackColor = System.Drawing.Color.Transparent;
+            this.searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.searchBar.BorderThickness = 0;
+            this.searchBar.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBar.Font = new System.Drawing.Font("Montserrat Light", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.searchBar.Location = new System.Drawing.Point(2, 2);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Radius = 9;
+            this.searchBar.Size = new System.Drawing.Size(584, 50);
+            this.searchBar.TabIndex = 1;
+            this.searchBar.Text = "Search Book";
+            this.searchBar.UseSystemPasswordChar = false;
+            this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
+            this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
             // filterSearchButton
             // 
@@ -130,26 +150,6 @@
             this.LAYOUT_searchBar.Radius = 10;
             this.LAYOUT_searchBar.Size = new System.Drawing.Size(588, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
-            // 
-            // searchBar
-            // 
-            this.searchBar.BackColor = System.Drawing.Color.Transparent;
-            this.searchBar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchBar.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.searchBar.BorderThickness = 0;
-            this.searchBar.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar.Font = new System.Drawing.Font("Montserrat Light", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.searchBar.Location = new System.Drawing.Point(2, 2);
-            this.searchBar.Name = "searchBar";
-            this.searchBar.Radius = 9;
-            this.searchBar.Size = new System.Drawing.Size(584, 50);
-            this.searchBar.TabIndex = 1;
-            this.searchBar.Text = "Search Book";
-            this.searchBar.UseSystemPasswordChar = false;
-            this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
-            this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
             // filterDropdown
             // 

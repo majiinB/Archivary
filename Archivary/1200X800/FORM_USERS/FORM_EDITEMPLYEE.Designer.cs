@@ -33,28 +33,28 @@
             this.middleInitialLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
+            this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
+            this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
+            this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.houseNumberLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
             this.contactNumberLabel = new System.Windows.Forms.Label();
-            this.barangayLabel = new System.Windows.Forms.Label();
-            this.streetLabel = new System.Windows.Forms.Label();
-            this.buttons_Container = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.EmployeeRoleLabel = new System.Windows.Forms.Label();
-            this.editInformationLabel = new System.Windows.Forms.Label();
-            this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
-            this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
-            this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
             this.emailTextBox = new RoundedCorners.RoundedTextBox();
             this.contactNumberTextBox = new RoundedCorners.RoundedTextBox();
+            this.barangayLabel = new System.Windows.Forms.Label();
+            this.streetLabel = new System.Windows.Forms.Label();
             this.streetTextBox = new RoundedCorners.RoundedTextBox();
             this.barangayTextBox = new RoundedCorners.RoundedTextBox();
             this.cityTextBox = new RoundedCorners.RoundedTextBox();
             this.houseNumberTextBox = new RoundedCorners.RoundedTextBox();
+            this.buttons_Container = new System.Windows.Forms.TableLayoutPanel();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveButton = new roundedCorners.roundedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
+            this.EmployeeRoleLabel = new System.Windows.Forms.Label();
+            this.editInformationLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.contents_TableLayoutPanel.SuspendLayout();
             this.buttons_Container.SuspendLayout();
@@ -107,8 +107,8 @@
             this.contents_TableLayoutPanel.Controls.Add(this.cityTextBox, 4, 5);
             this.contents_TableLayoutPanel.Controls.Add(this.houseNumberTextBox, 0, 5);
             this.contents_TableLayoutPanel.Controls.Add(this.buttons_Container, 0, 6);
-            this.contents_TableLayoutPanel.Controls.Add(this.pictureBox1, 6, 1);
             this.contents_TableLayoutPanel.Controls.Add(this.uploadImageButton, 6, 5);
+            this.contents_TableLayoutPanel.Controls.Add(this.pictureBox1, 6, 0);
             this.contents_TableLayoutPanel.Location = new System.Drawing.Point(4, 196);
             this.contents_TableLayoutPanel.Name = "contents_TableLayoutPanel";
             this.contents_TableLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
@@ -162,6 +162,61 @@
             this.lastNameLabel.TabIndex = 1;
             this.lastNameLabel.Text = "Last Name";
             this.lastNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.lastNameTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.lastNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.lastNameTextBox.BorderThickness = 0;
+            this.lastNameTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.lastNameTextBox.Location = new System.Drawing.Point(13, 65);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Radius = 10;
+            this.lastNameTextBox.Size = new System.Drawing.Size(182, 41);
+            this.lastNameTextBox.TabIndex = 2;
+            this.lastNameTextBox.Text = "Swift";
+            this.lastNameTextBox.UseSystemPasswordChar = false;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.firstNameTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.firstNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.firstNameTextBox.BorderThickness = 0;
+            this.firstNameTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contents_TableLayoutPanel.SetColumnSpan(this.firstNameTextBox, 3);
+            this.firstNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.firstNameTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.firstNameTextBox.Location = new System.Drawing.Point(201, 65);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Radius = 10;
+            this.firstNameTextBox.Size = new System.Drawing.Size(281, 41);
+            this.firstNameTextBox.TabIndex = 4;
+            this.firstNameTextBox.Text = "Taylor";
+            this.firstNameTextBox.UseSystemPasswordChar = false;
+            // 
+            // middleInitialTextBox
+            // 
+            this.middleInitialTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.middleInitialTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.BorderThickness = 0;
+            this.middleInitialTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleInitialTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.middleInitialTextBox.Location = new System.Drawing.Point(488, 65);
+            this.middleInitialTextBox.Name = "middleInitialTextBox";
+            this.middleInitialTextBox.Radius = 10;
+            this.middleInitialTextBox.Size = new System.Drawing.Size(167, 41);
+            this.middleInitialTextBox.TabIndex = 14;
+            this.middleInitialTextBox.Text = "A.";
+            this.middleInitialTextBox.UseSystemPasswordChar = false;
             // 
             // emailLabel
             // 
@@ -217,6 +272,44 @@
             this.contactNumberLabel.Text = "Contact No.";
             this.contactNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // emailTextBox
+            // 
+            this.emailTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.emailTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.emailTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.emailTextBox.BorderThickness = 0;
+            this.emailTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contents_TableLayoutPanel.SetColumnSpan(this.emailTextBox, 2);
+            this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.emailTextBox.Location = new System.Drawing.Point(13, 164);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Radius = 10;
+            this.emailTextBox.Size = new System.Drawing.Size(315, 41);
+            this.emailTextBox.TabIndex = 30;
+            this.emailTextBox.Text = "someone@example.com";
+            this.emailTextBox.UseSystemPasswordChar = false;
+            // 
+            // contactNumberTextBox
+            // 
+            this.contactNumberTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.contactNumberTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contactNumberTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contactNumberTextBox.BorderThickness = 0;
+            this.contactNumberTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contents_TableLayoutPanel.SetColumnSpan(this.contactNumberTextBox, 3);
+            this.contactNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactNumberTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.contactNumberTextBox.Location = new System.Drawing.Point(334, 164);
+            this.contactNumberTextBox.Name = "contactNumberTextBox";
+            this.contactNumberTextBox.Radius = 10;
+            this.contactNumberTextBox.Size = new System.Drawing.Size(321, 41);
+            this.contactNumberTextBox.TabIndex = 31;
+            this.contactNumberTextBox.Text = "09XXXXXXXXX";
+            this.contactNumberTextBox.UseSystemPasswordChar = false;
+            // 
             // barangayLabel
             // 
             this.barangayLabel.AutoSize = true;
@@ -244,6 +337,79 @@
             this.streetLabel.Text = "Street";
             this.streetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // streetTextBox
+            // 
+            this.streetTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.streetTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.streetTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.streetTextBox.BorderThickness = 0;
+            this.streetTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.streetTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.streetTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.streetTextBox.Location = new System.Drawing.Point(201, 263);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Radius = 10;
+            this.streetTextBox.Size = new System.Drawing.Size(127, 41);
+            this.streetTextBox.TabIndex = 36;
+            this.streetTextBox.Text = "Cornelia";
+            this.streetTextBox.UseSystemPasswordChar = false;
+            // 
+            // barangayTextBox
+            // 
+            this.barangayTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.barangayTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.barangayTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.barangayTextBox.BorderThickness = 0;
+            this.barangayTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contents_TableLayoutPanel.SetColumnSpan(this.barangayTextBox, 2);
+            this.barangayTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.barangayTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barangayTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.barangayTextBox.Location = new System.Drawing.Point(334, 263);
+            this.barangayTextBox.Name = "barangayTextBox";
+            this.barangayTextBox.Radius = 10;
+            this.barangayTextBox.Size = new System.Drawing.Size(148, 41);
+            this.barangayTextBox.TabIndex = 37;
+            this.barangayTextBox.Text = "Camden";
+            this.barangayTextBox.UseSystemPasswordChar = false;
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.cityTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.cityTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.cityTextBox.BorderThickness = 0;
+            this.cityTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.cityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cityTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cityTextBox.Location = new System.Drawing.Point(488, 263);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Radius = 10;
+            this.cityTextBox.Size = new System.Drawing.Size(167, 41);
+            this.cityTextBox.TabIndex = 38;
+            this.cityTextBox.Text = "London";
+            this.cityTextBox.UseSystemPasswordChar = false;
+            // 
+            // houseNumberTextBox
+            // 
+            this.houseNumberTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.houseNumberTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.houseNumberTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.houseNumberTextBox.BorderThickness = 0;
+            this.houseNumberTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.houseNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.houseNumberTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.houseNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.houseNumberTextBox.Location = new System.Drawing.Point(13, 263);
+            this.houseNumberTextBox.Name = "houseNumberTextBox";
+            this.houseNumberTextBox.Radius = 10;
+            this.houseNumberTextBox.Size = new System.Drawing.Size(182, 41);
+            this.houseNumberTextBox.TabIndex = 35;
+            this.houseNumberTextBox.Text = "21st Avenue";
+            this.houseNumberTextBox.UseSystemPasswordChar = false;
+            // 
             // buttons_Container
             // 
             this.buttons_Container.ColumnCount = 3;
@@ -261,17 +427,79 @@
             this.buttons_Container.Size = new System.Drawing.Size(914, 106);
             this.buttons_Container.TabIndex = 40;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cancelButton.BorderRadius = 10;
+            this.cancelButton.BorderSize = 2;
+            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cancelButton.Location = new System.Drawing.Point(3, 45);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(447, 58);
+            this.cancelButton.TabIndex = 0;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // saveButton
+            // 
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.saveButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.saveButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.saveButton.BorderRadius = 10;
+            this.saveButton.BorderSize = 0;
+            this.saveButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.saveButton.Location = new System.Drawing.Point(463, 45);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(448, 58);
+            this.saveButton.TabIndex = 1;
+            this.saveButton.Text = "Save";
+            this.saveButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(683, 65);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(683, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.contents_TableLayoutPanel.SetRowSpan(this.pictureBox1, 4);
-            this.pictureBox1.Size = new System.Drawing.Size(221, 192);
+            this.contents_TableLayoutPanel.SetRowSpan(this.pictureBox1, 5);
+            this.pictureBox1.Size = new System.Drawing.Size(244, 244);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 41;
             this.pictureBox1.TabStop = false;
+            // 
+            // uploadImageButton
+            // 
+            this.uploadImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadImageButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadImageButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.uploadImageButton.BorderRadius = 10;
+            this.uploadImageButton.BorderSize = 0;
+            this.uploadImageButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadImageButton.FlatAppearance.BorderSize = 0;
+            this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadImageButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.uploadImageButton.Location = new System.Drawing.Point(683, 263);
+            this.uploadImageButton.Name = "uploadImageButton";
+            this.uploadImageButton.Size = new System.Drawing.Size(244, 41);
+            this.uploadImageButton.TabIndex = 34;
+            this.uploadImageButton.Text = "Upload Image";
+            this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.uploadImageButton.UseVisualStyleBackColor = false;
             // 
             // EmployeeRoleLabel
             // 
@@ -295,234 +523,6 @@
             this.editInformationLabel.Size = new System.Drawing.Size(668, 83);
             this.editInformationLabel.TabIndex = 3;
             this.editInformationLabel.Text = "EDIT INFORMATION";
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.lastNameTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.lastNameTextBox.BorderColor = System.Drawing.Color.Black;
-            this.lastNameTextBox.BorderThickness = 0;
-            this.lastNameTextBox.Br = System.Drawing.Color.White;
-            this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.lastNameTextBox.Location = new System.Drawing.Point(13, 65);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Radius = 10;
-            this.lastNameTextBox.Size = new System.Drawing.Size(182, 41);
-            this.lastNameTextBox.TabIndex = 2;
-            this.lastNameTextBox.Text = "Swift";
-            this.lastNameTextBox.UseSystemPasswordChar = false;
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.firstNameTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.firstNameTextBox.BorderColor = System.Drawing.Color.Black;
-            this.firstNameTextBox.BorderThickness = 0;
-            this.firstNameTextBox.Br = System.Drawing.Color.White;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.firstNameTextBox, 3);
-            this.firstNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.firstNameTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.firstNameTextBox.Location = new System.Drawing.Point(201, 65);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Radius = 10;
-            this.firstNameTextBox.Size = new System.Drawing.Size(281, 41);
-            this.firstNameTextBox.TabIndex = 4;
-            this.firstNameTextBox.Text = "Taylor";
-            this.firstNameTextBox.UseSystemPasswordChar = false;
-            // 
-            // middleInitialTextBox
-            // 
-            this.middleInitialTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.middleInitialTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.middleInitialTextBox.BorderColor = System.Drawing.Color.Black;
-            this.middleInitialTextBox.BorderThickness = 0;
-            this.middleInitialTextBox.Br = System.Drawing.Color.White;
-            this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middleInitialTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleInitialTextBox.ForeColor = System.Drawing.Color.Black;
-            this.middleInitialTextBox.Location = new System.Drawing.Point(488, 65);
-            this.middleInitialTextBox.Name = "middleInitialTextBox";
-            this.middleInitialTextBox.Radius = 10;
-            this.middleInitialTextBox.Size = new System.Drawing.Size(167, 41);
-            this.middleInitialTextBox.TabIndex = 14;
-            this.middleInitialTextBox.Text = "A.";
-            this.middleInitialTextBox.UseSystemPasswordChar = false;
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.emailTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.emailTextBox.BorderColor = System.Drawing.Color.Black;
-            this.emailTextBox.BorderThickness = 0;
-            this.emailTextBox.Br = System.Drawing.Color.White;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.emailTextBox, 2);
-            this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.ForeColor = System.Drawing.Color.Black;
-            this.emailTextBox.Location = new System.Drawing.Point(13, 164);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Radius = 10;
-            this.emailTextBox.Size = new System.Drawing.Size(315, 41);
-            this.emailTextBox.TabIndex = 30;
-            this.emailTextBox.Text = "someone@example.com";
-            this.emailTextBox.UseSystemPasswordChar = false;
-            // 
-            // contactNumberTextBox
-            // 
-            this.contactNumberTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.contactNumberTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.contactNumberTextBox.BorderColor = System.Drawing.Color.Black;
-            this.contactNumberTextBox.BorderThickness = 0;
-            this.contactNumberTextBox.Br = System.Drawing.Color.White;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.contactNumberTextBox, 3);
-            this.contactNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumberTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNumberTextBox.ForeColor = System.Drawing.Color.Black;
-            this.contactNumberTextBox.Location = new System.Drawing.Point(334, 164);
-            this.contactNumberTextBox.Name = "contactNumberTextBox";
-            this.contactNumberTextBox.Radius = 10;
-            this.contactNumberTextBox.Size = new System.Drawing.Size(321, 41);
-            this.contactNumberTextBox.TabIndex = 31;
-            this.contactNumberTextBox.Text = "09XXXXXXXXX";
-            this.contactNumberTextBox.UseSystemPasswordChar = false;
-            // 
-            // streetTextBox
-            // 
-            this.streetTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.streetTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.streetTextBox.BorderColor = System.Drawing.Color.Black;
-            this.streetTextBox.BorderThickness = 0;
-            this.streetTextBox.Br = System.Drawing.Color.White;
-            this.streetTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.streetTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.streetTextBox.ForeColor = System.Drawing.Color.Black;
-            this.streetTextBox.Location = new System.Drawing.Point(201, 263);
-            this.streetTextBox.Name = "streetTextBox";
-            this.streetTextBox.Radius = 10;
-            this.streetTextBox.Size = new System.Drawing.Size(127, 41);
-            this.streetTextBox.TabIndex = 36;
-            this.streetTextBox.Text = "Cornelia";
-            this.streetTextBox.UseSystemPasswordChar = false;
-            // 
-            // barangayTextBox
-            // 
-            this.barangayTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.barangayTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.barangayTextBox.BorderColor = System.Drawing.Color.Black;
-            this.barangayTextBox.BorderThickness = 0;
-            this.barangayTextBox.Br = System.Drawing.Color.White;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.barangayTextBox, 2);
-            this.barangayTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barangayTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barangayTextBox.ForeColor = System.Drawing.Color.Black;
-            this.barangayTextBox.Location = new System.Drawing.Point(334, 263);
-            this.barangayTextBox.Name = "barangayTextBox";
-            this.barangayTextBox.Radius = 10;
-            this.barangayTextBox.Size = new System.Drawing.Size(148, 41);
-            this.barangayTextBox.TabIndex = 37;
-            this.barangayTextBox.Text = "Camden";
-            this.barangayTextBox.UseSystemPasswordChar = false;
-            // 
-            // cityTextBox
-            // 
-            this.cityTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.cityTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.cityTextBox.BorderColor = System.Drawing.Color.Black;
-            this.cityTextBox.BorderThickness = 0;
-            this.cityTextBox.Br = System.Drawing.Color.White;
-            this.cityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cityTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.ForeColor = System.Drawing.Color.Black;
-            this.cityTextBox.Location = new System.Drawing.Point(488, 263);
-            this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Radius = 10;
-            this.cityTextBox.Size = new System.Drawing.Size(167, 41);
-            this.cityTextBox.TabIndex = 38;
-            this.cityTextBox.Text = "London";
-            this.cityTextBox.UseSystemPasswordChar = false;
-            // 
-            // houseNumberTextBox
-            // 
-            this.houseNumberTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.houseNumberTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.houseNumberTextBox.BorderColor = System.Drawing.Color.Black;
-            this.houseNumberTextBox.BorderThickness = 0;
-            this.houseNumberTextBox.Br = System.Drawing.Color.White;
-            this.houseNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.houseNumberTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.houseNumberTextBox.ForeColor = System.Drawing.Color.Black;
-            this.houseNumberTextBox.Location = new System.Drawing.Point(13, 263);
-            this.houseNumberTextBox.Name = "houseNumberTextBox";
-            this.houseNumberTextBox.Radius = 10;
-            this.houseNumberTextBox.Size = new System.Drawing.Size(182, 41);
-            this.houseNumberTextBox.TabIndex = 35;
-            this.houseNumberTextBox.Text = "21st Avenue";
-            this.houseNumberTextBox.UseSystemPasswordChar = false;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cancelButton.BorderRadius = 10;
-            this.cancelButton.BorderSize = 2;
-            this.cancelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cancelButton.Location = new System.Drawing.Point(3, 45);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(447, 58);
-            this.cancelButton.TabIndex = 0;
-            this.cancelButton.Text = "CANCEL";
-            this.cancelButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // saveButton
-            // 
-            this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.saveButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.saveButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.saveButton.BorderRadius = 10;
-            this.saveButton.BorderSize = 0;
-            this.saveButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.saveButton.FlatAppearance.BorderSize = 0;
-            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.saveButton.Location = new System.Drawing.Point(463, 45);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(448, 58);
-            this.saveButton.TabIndex = 1;
-            this.saveButton.Text = "SAVE";
-            this.saveButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // uploadImageButton
-            // 
-            this.uploadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.uploadImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadImageButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadImageButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.uploadImageButton.BorderRadius = 10;
-            this.uploadImageButton.BorderSize = 0;
-            this.uploadImageButton.FlatAppearance.BorderSize = 0;
-            this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.uploadImageButton.Location = new System.Drawing.Point(683, 271);
-            this.uploadImageButton.Name = "uploadImageButton";
-            this.uploadImageButton.Size = new System.Drawing.Size(221, 33);
-            this.uploadImageButton.TabIndex = 34;
-            this.uploadImageButton.Text = "UPLOAD IMAGE";
-            this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.uploadImageButton.UseVisualStyleBackColor = false;
             // 
             // FORM_EDITEMPLYEE
             // 

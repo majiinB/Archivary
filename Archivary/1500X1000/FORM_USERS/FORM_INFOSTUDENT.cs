@@ -22,7 +22,7 @@ namespace Archivary._1500X1000.FORM_USERS
 
         private Color archivaryRed()
         {
-            return Color.FromArgb(227, 25, 55);
+            return Color.FromArgb(237, 41, 57);
         }
         private Color archivaryWhite()
         {
