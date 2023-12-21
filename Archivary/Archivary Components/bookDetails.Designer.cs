@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.LAYOUT_bookPicture = new System.Windows.Forms.Panel();
+            this.bookPicture = new System.Windows.Forms.PictureBox();
             this.bookTitleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
             this.isbnLabel = new System.Windows.Forms.Label();
             this.authorHolder = new System.Windows.Forms.Label();
             this.isbnHolder = new System.Windows.Forms.Label();
             this.viewButton = new roundedCorners.roundedButton();
-            this.bookPicture = new System.Windows.Forms.PictureBox();
             this.LAYOUT_bookPicture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPicture)).BeginInit();
             this.SuspendLayout();
@@ -50,12 +50,24 @@
             this.LAYOUT_bookPicture.Size = new System.Drawing.Size(170, 200);
             this.LAYOUT_bookPicture.TabIndex = 0;
             // 
+            // bookPicture
+            // 
+            this.bookPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.bookPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookPicture.Image = global::Archivary.Properties.Resources.PLACEHOLDER_BOOK3;
+            this.bookPicture.Location = new System.Drawing.Point(10, 10);
+            this.bookPicture.Name = "bookPicture";
+            this.bookPicture.Size = new System.Drawing.Size(150, 180);
+            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bookPicture.TabIndex = 0;
+            this.bookPicture.TabStop = false;
+            // 
             // bookTitleLabel
             // 
             this.bookTitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bookTitleLabel.Font = new System.Drawing.Font("Montserrat Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.bookTitleLabel.Location = new System.Drawing.Point(166, 10);
             this.bookTitleLabel.Name = "bookTitleLabel";
@@ -63,12 +75,13 @@
             this.bookTitleLabel.TabIndex = 1;
             this.bookTitleLabel.Text = "LORD OF THE RINGS";
             this.bookTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            
             // 
             // authorLabel
             // 
             this.authorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.authorLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.authorLabel.Location = new System.Drawing.Point(241, 81);
             this.authorLabel.Name = "authorLabel";
@@ -81,7 +94,7 @@
             // 
             this.isbnLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.isbnLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isbnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.isbnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.isbnLabel.Location = new System.Drawing.Point(241, 104);
             this.isbnLabel.Name = "isbnLabel";
@@ -92,7 +105,7 @@
             // 
             // authorHolder
             // 
-            this.authorHolder.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorHolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.authorHolder.Location = new System.Drawing.Point(166, 81);
             this.authorHolder.Name = "authorHolder";
@@ -103,7 +116,7 @@
             // 
             // isbnHolder
             // 
-            this.isbnHolder.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isbnHolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.isbnHolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.isbnHolder.Location = new System.Drawing.Point(166, 106);
             this.isbnHolder.Name = "isbnHolder";
@@ -122,7 +135,7 @@
             this.viewButton.BorderSize = 0;
             this.viewButton.FlatAppearance.BorderSize = 0;
             this.viewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.viewButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewButton.ForeColor = System.Drawing.Color.White;
             this.viewButton.Location = new System.Drawing.Point(250, 144);
             this.viewButton.Name = "viewButton";
@@ -132,18 +145,6 @@
             this.viewButton.TextColor = System.Drawing.Color.White;
             this.viewButton.UseVisualStyleBackColor = false;
             this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
-            // 
-            // bookPicture
-            // 
-            this.bookPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.bookPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookPicture.Image = global::Archivary.Properties.Resources.PLACEHOLDER_BOOK3;
-            this.bookPicture.Location = new System.Drawing.Point(10, 10);
-            this.bookPicture.Name = "bookPicture";
-            this.bookPicture.Size = new System.Drawing.Size(150, 180);
-            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bookPicture.TabIndex = 0;
-            this.bookPicture.TabStop = false;
             // 
             // bookDetails
             // 

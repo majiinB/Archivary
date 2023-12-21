@@ -1,4 +1,5 @@
 ﻿using Archivary._1500X1000.FORM_LIBRARY;
+using Archivary.BACKEND.OBJECTS;
 using Archivary.PARENT_FORMS;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,13 @@ namespace Archivary.Archivary_Components
     public partial class bookDetails : UserControl
     {
 
-        public bookDetails()
+        public bookDetails(Book bookAdded)
         {
             InitializeComponent();
+            bookTitleLabel.Text = bookAdded.BookTitle;
+            authorLabel.Text = bookAdded.BookAuthor;
+            isbnLabel.Text = bookAdded.BookISBN;
+            SetPictureBoxImage(bookAdded.BookImage);
         }
 
         #region Properties
@@ -80,13 +85,39 @@ namespace Archivary.Archivary_Components
 
         #endregion
 
-        public void setLabel(string value)
+        private void SetPictureBoxImage(string imagePath)
         {
-            bookTitleLabel.Text = value;
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
+
+                // Set the image to the PictureBox
+                bookPicture.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                bookPicture.SizeMode = PictureBoxSizeMode.Zoom;
+                bookPicture.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                bookPicture.Image = Properties.Resources.ArchivaryLogoGreen;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                bookPicture.SizeMode = PictureBoxSizeMode.Zoom;
+                bookPicture.Size = Properties.Resources.ArchivaryLogoGreen.Size;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void viewButton_Click(object sender, EventArgs e)
         {
             FormsBookInfo.ShowDialog();
         }
+
     }
 }

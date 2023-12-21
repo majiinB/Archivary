@@ -1,5 +1,7 @@
 ﻿using Archivary._1500X1000.FORM_LIBRARY;
 using Archivary.Archivary_Components;
+using Archivary.BACKEND.BOOK_OPERATIONS;
+using Archivary.BACKEND.OBJECTS;
 using CustomDropdown;
 using System;
 using System.Collections.Generic;
@@ -21,11 +23,11 @@ namespace Archivary.PARENT_FORMS
         private bookDetails bookInfo;
         private FORM_BOOKADD FormsBookAdd;
         private int start = 0;
-        private int end = 0;
         private int max = 0;
         private int pagesToAdd = 6;
         private int prev = -1;
-        private int[] ints;
+        private Dictionary<int, Book> booksDictionary;
+        private List<int> keys;
         private bool isDataLoading = false;
 
         //
@@ -54,7 +56,7 @@ namespace Archivary.PARENT_FORMS
             UpdateStyles();
         }
 
-        private void FORM_LIBRARY_Load(object sender, EventArgs e)
+        private async void FORM_LIBRARY_Load(object sender, EventArgs e)
         {
             dropdownProperties();
             //Subscribe to both
@@ -62,24 +64,26 @@ namespace Archivary.PARENT_FORMS
             libraryList.MouseWheel += libraryList_MouseWheel;
 
             //load first list
-            ints = new int[100]; //Sample data to be loaded
-            max = ints.Length;
-            if (!isDataLoading)
+            libraryList.Controls.Clear();
+            booksDictionary = BACKEND.BOOK_OPERATIONS.BookOperation.LoadBooksFromDatabase();
+            keys = booksDictionary.Keys.ToList();
+            max = booksDictionary.Count();
             {
                 isDataLoading = true;
-                LoadListAsync();
+                await LoadListAsync();
             }
         }
 
-        private void FORM_LIBRARY_Resize(object sender, EventArgs e)
-        {  
+        private async void FORM_LIBRARY_Resize(object sender, EventArgs e)
+        {
             start = 0;
+            pagesToAdd = 7;
             libraryList.Controls.Clear();
 
             if (!isDataLoading)
             {
                 isDataLoading = true;
-                LoadListAsync();
+                await LoadListAsync();
             }
         }
 
@@ -92,44 +96,40 @@ namespace Archivary.PARENT_FORMS
                 buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20;
                 buttonWidth1 = (libraryList.ClientSize.Width / 2) - 20;
 
-
                 // Adjust padding to provide space at the bottom
                 libraryList.Padding = new Padding(0, 0, 0, 10);
 
-                if (start < max)
+                if (start <= max)
                 {
-                    if (start == 0) end = 8; // If start is less than the initially loaded books, load 8 books
-                    else if (start > 0) end = start + pagesToAdd; // Otherwise, add the intended pages to be loaded
-
-                    if (end > max) end = max; // Check if the end will be greater than the max number of items
-
-                    for (int i = start; i < end; i++)
+                    var booksAdded = keys.Skip(start).Take(pagesToAdd);
+                    foreach (int key in booksAdded)
                     {
-                        CreateButtonsAsync(i);
+                        Book bookAdded = booksDictionary[key];
+                        if (bookAdded != null) CreateButtonsAsync(bookAdded);
+                        start++;
                     }
-                    start = end;
+
                 }
+
                 isDataLoading = false;
             });
         }
 
-        private void CreateButtonsAsync(int i)
+        private void CreateButtonsAsync(Book bookAdded)
         {
             // Marshal task to go back to the thread that handles the ui
             if (libraryList.InvokeRequired)
             {
-                libraryList.BeginInvoke(new MethodInvoker(() => CreateButtonsAsync(i)));
+                libraryList.BeginInvoke(new MethodInvoker(() => CreateButtonsAsync(bookAdded)));
                 return;
             }
 
-            if (prev != i)
+            if (bookAdded != null)
             {
-                bookInfo = new bookDetails();
-                bookInfo.setLabel("New book " + i);
+                bookInfo = new bookDetails(bookAdded);
                 bookInfo.Height = 200;
                 bookInfo.Margin = new Padding(10);
                 libraryList.Controls.Add(bookInfo);
-                prev = i;
             }
 
             if (max <= 4)

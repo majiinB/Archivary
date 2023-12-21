@@ -99,6 +99,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BACKEND\BOOK_OPERATIONS\BookOperation.cs" />
+    <Compile Include="BACKEND\OBJECTS\Admin.cs" />
+    <Compile Include="BACKEND\OBJECTS\Book.cs" />
+    <Compile Include="BACKEND\OBJECTS\Employee.cs" />
+    <Compile Include="BACKEND\OBJECTS\Setting.cs" />
+    <Compile Include="BACKEND\OBJECTS\Student.cs" />
+    <Compile Include="BACKEND\OBJECTS\Teacher.cs" />
     <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +562,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PLACEHOLDER_BOOK4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BACKEND\USER_OPERATIONS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
