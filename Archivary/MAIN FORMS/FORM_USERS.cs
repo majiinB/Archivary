@@ -174,10 +174,6 @@ namespace Archivary.PARENT_FORMS
  
                 if (status == "deactivated") row.Cells[3].Style.ForeColor = archivaryRed();
                 else if (status == "active") row.Cells[3].Style.ForeColor = archivaryGreen();
-                
-               
-
-
             }
         }
 

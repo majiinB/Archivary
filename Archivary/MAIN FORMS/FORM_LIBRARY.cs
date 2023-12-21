@@ -24,8 +24,7 @@ namespace Archivary.PARENT_FORMS
         private FORM_BOOKADD FormsBookAdd;
         private int start = 0;
         private int max = 0;
-        private int pagesToAdd = 6;
-        private int prev = -1;
+        private int pagesToAdd = 10;
         private Dictionary<int, Book> booksDictionary;
         private List<int> keys;
         private bool isDataLoading = false;
@@ -77,7 +76,7 @@ namespace Archivary.PARENT_FORMS
         private async void FORM_LIBRARY_Resize(object sender, EventArgs e)
         {
             start = 0;
-            pagesToAdd = 7;
+            pagesToAdd = 10;
             libraryList.Controls.Clear();
 
             if (!isDataLoading)
