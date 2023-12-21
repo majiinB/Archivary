@@ -1,12 +1,202 @@
-﻿using System;
+﻿using Archivary.BACKEND.OBJECTS;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Archivary.BACKEND.USER_OPERATIONS
 {
-    internal class UserOperation
+    public class UserOperation
     {
+
+        static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
+
+        #region ENUM
+        public enum UserLevel
+        {
+            Admin = 4,
+            Employee = 3,
+            Teacher = 2,
+            Student = 1
+        }
+        public enum StudentInfo
+        {
+            LastName = 0,
+            FirstName = 1,
+            MiddleName = 2,
+            Email = 3,
+            Address = 4,
+            ContactNum = 5,
+            Department = 6,
+            YearLevel = 7,
+            Section = 8,
+            ImagePath = 9
+        }
+        public enum TeacherInfo
+        {
+            LastName = 0,
+            FirstName = 1,
+            MiddleName = 2,
+            Email = 3,
+            Address = 4,
+            ContactNum = 5,
+            Department = 6,
+            ImagePath = 7
+        }
+        #endregion
+
+        #region OPERATIONS
+        //PASSWORD RELATED METHODS
+        public static string HashPassword(string password)
+        {
+            //Hash the password with a random salt and a work factor of 10
+            return BCrypt.Net.BCrypt.HashPassword(password, BCrypt.Net.BCrypt.GenerateSalt(10));
+        }
+        public static bool VerifyPassword(string enteredPassword, string hashedPassword)
+        {
+            //Verify the entered password against the hashed password
+            return BCrypt.Net.BCrypt.Verify(enteredPassword, hashedPassword);
+        }
+
+        //FOR INPUT VALIDATION
+        public static bool IsValidEmail(string email)
+        {
+            //Define a regular expression pattern for a basic email validation
+            string pattern = @"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+
+            //Use Regex.IsMatch to check if the email matches the pattern
+            return Regex.IsMatch(email, pattern);
+        }
+
+        //FOR EXTRACTING INFORMATION IN THE DATABASE
+        private static string[] GetUserByEmail(string email)
+        {
+            string[] result = new string[10];
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                //Define the SQL query
+                string query = "SELECT Id, FirstName, LastName, MiddleName, Email, Address, Contact_number, " +
+                    "image_path, user_level, status FROM users WHERE email = @Email";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    //Add parameters to the query
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    //Execute the query
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        //Check if a user was found with the given email
+                        if (reader.Read())
+                        {
+                            result[0] = reader.GetInt32(0).ToString();
+                            for (int i = 1; i <= result.Length - 1; i++)
+                            {
+                                if (i == 8) result[8] = reader.GetInt32(8).ToString(); //For User Level
+                                else result[i] = reader.GetString(i); //Other info
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("User not found");
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+        private static string[] GetAdminOrEmployeeByUserid(int id, int userLevel)
+        {
+            string[] result = new string[2];
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                //Define the SQL query
+                string query = "SELECT password, employee_id " +
+                    "FROM employees WHERE user_id = @ID";
+
+                if (userLevel == (int)UserLevel.Admin)
+                {
+                    query = "SELECT password, admin_id " +
+                    "FROM admin WHERE user_id = @ID";
+                }
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    //Add parameters to the query
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    //Execute the query
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        //Check if a user was found with the given email
+                        if (reader.Read())
+                        {
+                            result[0] = reader.GetString(0);
+                            result[1] = reader.GetString(1);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        //USER CREATION IN THE APP - LOGIN
+        public static object Login(string email, string password)
+        {
+            Object user = null;
+
+            //Search User by email to get all info
+            string[] userInfo = GetUserByEmail(email);
+            int userLevel = int.Parse(userInfo[8]);
+
+            //Return immediately if the email does not belong to an employee or admin
+            if (userLevel == (int)UserLevel.Teacher || userLevel == (int)UserLevel.Student)
+            {
+                //Add aditional actions to error if needed
+                return user;
+            }
+
+            //Extract info
+            int userId = int.Parse(userInfo[0]);
+            string userFirstName = userInfo[1];
+            string userLastName = userInfo[2];
+            string userMiddleName = userInfo[3];
+            string userEmail = userInfo[4];
+            string userAddress = userInfo[5];
+            string userContactNum = userInfo[6];
+            string userImage = userInfo[7];
+            string userStatus = userInfo[9];
+
+            //Get password and admin or employee ID
+            string[] additionalInfo = GetAdminOrEmployeeByUserid(userId, userLevel);
+            string hashedPass = additionalInfo[0];
+            string ID = additionalInfo[1];
+
+            //Verify pass
+            bool passVerified = VerifyPassword(password, hashedPass);
+
+            //Create object if pass matches
+            if ((passVerified && (userLevel == (int)UserLevel.Admin)) && userStatus == "ACTIVE")
+            {
+                Console.WriteLine("Admin succesful login");
+                return user = new Admin(ID, userId, userFirstName, userLastName, userMiddleName, userEmail, userAddress, userContactNum, userImage, userStatus);
+
+            }
+            else if ((passVerified && (userLevel == (int)UserLevel.Employee)) && userStatus == "ACTIVE")
+            {
+                Console.WriteLine("Employee succesful login");
+                return user = new Employee(ID, userId, userFirstName, userLastName, userMiddleName, userEmail, userAddress, userContactNum, userImage, userStatus);
+
+            }
+            return user;
+        }
+        #endregion
     }
 }
