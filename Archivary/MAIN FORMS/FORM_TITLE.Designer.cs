@@ -50,9 +50,9 @@
             // 
             this.titlePictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titlePictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoBannerPNG;
-            this.titlePictureBox.Location = new System.Drawing.Point(195, 118);
+            this.titlePictureBox.Location = new System.Drawing.Point(87, 92);
             this.titlePictureBox.Name = "titlePictureBox";
-            this.titlePictureBox.Size = new System.Drawing.Size(560, 224);
+            this.titlePictureBox.Size = new System.Drawing.Size(775, 322);
             this.titlePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.titlePictureBox.TabIndex = 2;
             this.titlePictureBox.TabStop = false;
@@ -86,8 +86,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.ClientSize = new System.Drawing.Size(960, 650);
             this.ControlBox = false;
-            this.Controls.Add(this.titlePictureBox);
             this.Controls.Add(this.goLoginButton);
+            this.Controls.Add(this.titlePictureBox);
             this.Controls.Add(this.backgroundPictureBox);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));

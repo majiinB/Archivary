@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.LAYOUT_bookPicture = new System.Windows.Forms.Panel();
-            this.bookPicture = new System.Windows.Forms.PictureBox();
             this.bookTitleLabel = new System.Windows.Forms.Label();
             this.authorLabel = new System.Windows.Forms.Label();
             this.isbnLabel = new System.Windows.Forms.Label();
             this.authorHolder = new System.Windows.Forms.Label();
             this.isbnHolder = new System.Windows.Forms.Label();
             this.viewButton = new roundedCorners.roundedButton();
+            this.bookPicture = new System.Windows.Forms.PictureBox();
             this.LAYOUT_bookPicture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPicture)).BeginInit();
             this.SuspendLayout();
@@ -47,19 +47,8 @@
             this.LAYOUT_bookPicture.Location = new System.Drawing.Point(0, 0);
             this.LAYOUT_bookPicture.Name = "LAYOUT_bookPicture";
             this.LAYOUT_bookPicture.Padding = new System.Windows.Forms.Padding(10);
-            this.LAYOUT_bookPicture.Size = new System.Drawing.Size(150, 200);
+            this.LAYOUT_bookPicture.Size = new System.Drawing.Size(170, 200);
             this.LAYOUT_bookPicture.TabIndex = 0;
-            // 
-            // bookPicture
-            // 
-            this.bookPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.bookPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookPicture.Location = new System.Drawing.Point(10, 10);
-            this.bookPicture.Name = "bookPicture";
-            this.bookPicture.Size = new System.Drawing.Size(130, 180);
-            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bookPicture.TabIndex = 0;
-            this.bookPicture.TabStop = false;
             // 
             // bookTitleLabel
             // 
@@ -68,9 +57,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bookTitleLabel.Font = new System.Drawing.Font("Montserrat Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.bookTitleLabel.Location = new System.Drawing.Point(152, 10);
+            this.bookTitleLabel.Location = new System.Drawing.Point(166, 10);
             this.bookTitleLabel.Name = "bookTitleLabel";
-            this.bookTitleLabel.Size = new System.Drawing.Size(255, 55);
+            this.bookTitleLabel.Size = new System.Drawing.Size(250, 55);
             this.bookTitleLabel.TabIndex = 1;
             this.bookTitleLabel.Text = "LORD OF THE RINGS";
             this.bookTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -81,9 +70,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.authorLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorLabel.Location = new System.Drawing.Point(228, 81);
+            this.authorLabel.Location = new System.Drawing.Point(241, 81);
             this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(192, 23);
+            this.authorLabel.Size = new System.Drawing.Size(187, 23);
             this.authorLabel.TabIndex = 2;
             this.authorLabel.Text = "<LASTNAME>, <FN> <MI>";
             this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,9 +83,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.isbnLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.isbnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.isbnLabel.Location = new System.Drawing.Point(228, 104);
+            this.isbnLabel.Location = new System.Drawing.Point(241, 104);
             this.isbnLabel.Name = "isbnLabel";
-            this.isbnLabel.Size = new System.Drawing.Size(192, 29);
+            this.isbnLabel.Size = new System.Drawing.Size(187, 29);
             this.isbnLabel.TabIndex = 3;
             this.isbnLabel.Text = "1436969143";
             this.isbnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,7 +94,7 @@
             // 
             this.authorHolder.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorHolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorHolder.Location = new System.Drawing.Point(153, 81);
+            this.authorHolder.Location = new System.Drawing.Point(166, 81);
             this.authorHolder.Name = "authorHolder";
             this.authorHolder.Size = new System.Drawing.Size(74, 23);
             this.authorHolder.TabIndex = 2;
@@ -116,7 +105,7 @@
             // 
             this.isbnHolder.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.isbnHolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.isbnHolder.Location = new System.Drawing.Point(153, 106);
+            this.isbnHolder.Location = new System.Drawing.Point(166, 106);
             this.isbnHolder.Name = "isbnHolder";
             this.isbnHolder.Size = new System.Drawing.Size(74, 29);
             this.isbnHolder.TabIndex = 3;
@@ -135,7 +124,7 @@
             this.viewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.viewButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewButton.ForeColor = System.Drawing.Color.White;
-            this.viewButton.Location = new System.Drawing.Point(249, 144);
+            this.viewButton.Location = new System.Drawing.Point(250, 144);
             this.viewButton.Name = "viewButton";
             this.viewButton.Size = new System.Drawing.Size(150, 40);
             this.viewButton.TabIndex = 4;
@@ -143,6 +132,18 @@
             this.viewButton.TextColor = System.Drawing.Color.White;
             this.viewButton.UseVisualStyleBackColor = false;
             this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            // 
+            // bookPicture
+            // 
+            this.bookPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.bookPicture.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookPicture.Image = global::Archivary.Properties.Resources.PLACEHOLDER_BOOK3;
+            this.bookPicture.Location = new System.Drawing.Point(10, 10);
+            this.bookPicture.Name = "bookPicture";
+            this.bookPicture.Size = new System.Drawing.Size(150, 180);
+            this.bookPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bookPicture.TabIndex = 0;
+            this.bookPicture.TabStop = false;
             // 
             // bookDetails
             // 
@@ -156,7 +157,7 @@
             this.Controls.Add(this.bookTitleLabel);
             this.Controls.Add(this.LAYOUT_bookPicture);
             this.Name = "bookDetails";
-            this.Size = new System.Drawing.Size(420, 200);
+            this.Size = new System.Drawing.Size(415, 200);
             this.LAYOUT_bookPicture.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bookPicture)).EndInit();
             this.ResumeLayout(false);
