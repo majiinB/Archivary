@@ -1,7 +1,9 @@
 ﻿using Archivary.BACKEND.OBJECTS;
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -146,6 +148,161 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             return result;
         }
+        public static ArrayList GetAllEmployees()
+        {
+            ArrayList employeesList = new ArrayList();
+
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, employee_id, " +
+                               "security_question, question_answer " +
+                               "FROM users JOIN employees ON users.id = employees.user_id " +
+                               "ORDER BY LastName";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Employee employee = new Employee(
+                                reader["employee_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                            employeesList.Add(employee);
+                        }
+                    }
+                }
+            }
+
+            return employeesList;
+        }
+        public static ArrayList GetAllStudents()
+        {
+            ArrayList studentsList = new ArrayList();
+
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, " +
+                               "student_id, department, year_level, section " +
+                               "FROM users JOIN students ON users.id = students.user_id " +
+                               "ORDER BY LastName";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Assuming 'student_id' is a varchar field
+                            Student student = new Student(
+                                reader["student_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["department"].ToString(),
+                                Convert.ToInt32(reader["year_level"]),
+                                reader["section"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+
+                            studentsList.Add(student);
+                        }
+                    }
+                }
+            }
+
+            return studentsList;
+        }
+
+        public static ArrayList GetAllTeachers()
+        {
+            ArrayList teachersList = new ArrayList();
+
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, teacher_id, " +
+                               "department " +
+                               "FROM users JOIN teachers ON users.id = teachers.user_id " +
+                               "ORDER BY LastName";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Teacher teacher = new Teacher(
+                                reader["teacher_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["department"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                            teachersList.Add(teacher);
+                        }
+                    }
+                }
+            }
+
+            return teachersList;
+        }
+        public static DataTable GetAllUsersDataTable()
+        {
+            DataTable usersTable = new DataTable();
+
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, " +
+                               "user_level, status, " +
+                               "employee_id, " +
+                               "student_id, " +
+                               "teacher_id " +
+                               "FROM users " +
+                               "LEFT JOIN employees ON users.id = employees.user_id " +
+                               "LEFT JOIN students ON users.id = students.user_id " +
+                               "LEFT JOIN teachers ON users.id = teachers.user_id " +
+                               "ORDER BY LastName";
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                {
+                    adapter.Fill(usersTable);
+                }
+            }
+
+            return usersTable;
+        }
+
 
         //USER CREATION IN THE APP - LOGIN
         public static object Login(string email, string password)

@@ -12,6 +12,11 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using Archivary._1500X1000.FORM_LIBRARY;
 using Archivary._1200X800.FORM_USERS;
+using Archivary.BACKEND.USER_OPERATIONS;
+using System.Collections;
+using Archivary.BACKEND.BOOK_OPERATIONS;
+using static Org.BouncyCastle.Asn1.Cmp.Challenge;
+using Archivary.BACKEND.OBJECTS;
 
 namespace Archivary.PARENT_FORMS
 {
@@ -22,6 +27,10 @@ namespace Archivary.PARENT_FORMS
         private FORM_INFOTEACHER teacherInfo = new FORM_INFOTEACHER();
         private FORM_INFOSTUDENT studentInfo = new FORM_INFOSTUDENT();
         private FORM_SIGNUP FormsSignup = new FORM_SIGNUP();
+        private ArrayList students;
+        private ArrayList teachers;
+        private ArrayList employees;
+        private string filter = "All";
         //
         // COLOR METHODS
         //
@@ -59,22 +68,51 @@ namespace Archivary.PARENT_FORMS
         private void FORM_USERS_Load(object sender, EventArgs e)
         {
             dropdownProperties();
-
-            //sample data lng tohhh
-            string lName = "Last name";
-            string fname = "First name";
-            string mName = "M.I.";
-            Random random = new Random();
-            string[] roles = { "Employee", "Teacher", "Student" };
-            string[] status = { "Active", "Deactivated"};
-            String randomStatus;
-            String randomRole;
-            int n = 100;
-            for (int i = 1; i <= n; i++)
+            LoadToTable();
+        }
+        private void LoadToTable()
+        {
+            userDataGridView.Rows.Clear();
+            if(filter == "All")
             {
-                randomStatus = status[random.Next(status.Length)];
-                randomRole = roles[random.Next(roles.Length)];
-                userDataGridView.Rows.Add(lName + " " + fname +" " + mName, (random.Next(0,999)).ToString("D3"), randomRole, randomStatus);
+                students = UserOperation.GetAllStudents();
+                teachers = UserOperation.GetAllTeachers();
+                employees = UserOperation.GetAllEmployees();
+
+                IterateThroughElements(employees);
+                IterateThroughElements(teachers);               
+                IterateThroughElements(students);
+            }
+            else if(filter == "Student")
+            {
+                students = UserOperation.GetAllStudents();
+                IterateThroughElements(students);
+            }else if(filter == "Teacher")
+            {
+                teachers = UserOperation.GetAllTeachers();
+                IterateThroughElements(teachers);
+            }else if(filter == "Employee")
+            {
+                employees = UserOperation.GetAllEmployees();
+                IterateThroughElements(employees);
+            }
+        }
+        private void IterateThroughElements(ArrayList usersList)
+        {
+            foreach (var user in usersList)
+            {
+                if(user is Student student) 
+                {
+                    userDataGridView.Rows.Add(student.StudentLastName + ", " + student.StudentFirstName + " " + student.StudentMiddleName, student.StudentId, "Student", student.StudentStatus);
+                }
+                else if(user is Employee employee)
+                {
+                    userDataGridView.Rows.Add(employee.EmployeeLastName + ", " + employee.EmployeeFirstName + " " + employee.EmployeeMiddleName, employee.EmployeeId, "Employee", employee.EmployeeStatus);
+                }
+                else if(user is Teacher teacher)
+                {
+                    userDataGridView.Rows.Add(teacher.TeacherLastName + ", " + teacher.TeacherFirstName + " " + teacher.TeacherMiddleName, teacher.TeacherId, "Teacher", teacher.TeacherStatus);
+                }
             }
         }
 
@@ -127,21 +165,29 @@ namespace Archivary.PARENT_FORMS
         private void allToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "All";
+            filter = filterSearchButton.Text;
+            LoadToTable();
         }
 
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Student";
+            filter = filterSearchButton.Text;
+            LoadToTable();
         }
 
         private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Teacher";
+            filter = filterSearchButton.Text;
+            LoadToTable();
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Employee";
+            filter = filterSearchButton.Text;
+            LoadToTable();
         }
 
         //
