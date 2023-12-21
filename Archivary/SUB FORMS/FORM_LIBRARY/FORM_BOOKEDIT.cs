@@ -37,18 +37,26 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             // Split the input string using ',' as the delimiter
             string[] parts = input.Split(',');
 
-            // Extract the Last Name (trimmed to remove leading/trailing spaces)
-            string lastName = parts[0].Trim();
+            // Check if there are at least two parts (Last Name and First Name + Middle Initial)
+            if (parts.Length >= 2)
+            {
+                // Extract the Last Name (trimmed to remove leading/trailing spaces)
+                string lastName = parts[0].Trim();
 
-            // Extract the First Name and Middle Initial
-            string[] firstNameMiddleInitial = parts[1].Trim().Split(' ');
+                // Extract the First Name and Middle Initial
+                string[] firstNameMiddleInitial = parts[1].Trim().Split(' ');
 
-            // If there's no middle initial, set it to "N/A"
-            string middleInitial = firstNameMiddleInitial.Length > 1 ? firstNameMiddleInitial[1] : "N/A";
+                // If there's no middle initial, set it to "N/A"
+                string middleInitial = firstNameMiddleInitial.Length > 1 ? firstNameMiddleInitial[1] : "N/A";
 
-            // Return the result as an array
-            return new string[] { lastName, firstNameMiddleInitial[0], middleInitial };
+                // Return the result as an array
+                return new string[] { lastName, firstNameMiddleInitial[0], middleInitial };
+            }
+
+            // If the input is not in the expected format, return an array with default values
+            return new string[] { "N/A", "N/A", "N/A" };
         }
+
 
         private void SetPictureBoxImage(string imagePath)
         {
