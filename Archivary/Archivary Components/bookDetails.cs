@@ -24,11 +24,12 @@ namespace Archivary.Archivary_Components
             authorLabel.Text = bookAdded.BookAuthor;
             isbnLabel.Text = bookAdded.BookISBN;
             SetPictureBoxImage(bookAdded.BookImage);
+            FormsBookInfo = new FORM_BOOKINFO(bookAdded);
         }
 
         #region Properties
 
-        private FORM_BOOKINFO FormsBookInfo = new FORM_BOOKINFO();
+        private FORM_BOOKINFO FormsBookInfo;
         private string _title;
         private string _author;
         private string _isbn;
