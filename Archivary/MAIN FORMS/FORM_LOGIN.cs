@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.USER_OPERATIONS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,9 +30,9 @@ namespace Archivary.PARENT_FORMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
-            FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Close();
+            //FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot, null));
+            //FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            //this.Close();
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -40,9 +42,27 @@ namespace Archivary.PARENT_FORMS
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot));
-            FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Close();
+            //NOTE: PAPALITAN NG CUSTOM NA MESSAGE BOX YUNG MGA ERROR NA YAN
+            if (!(passwordTextbox.Text == "Enter Password" || usernameTextbox.Text == "Enter Username"))
+            {
+                if (UserOperation.IsValidEmail(usernameTextbox.Text))
+                {
+                    object user = UserOperation.Login(usernameTextbox.Text, passwordTextbox.Text);
+                    if (user != null)
+                    {
+                        if (user is Admin || user is Employee)
+                        {
+                            FormsRoot.loadParentForm(new FORM_SIDEBAR(FormsRoot, user));
+                            FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                            this.Close();
+                        }
+                        else MessageBox.Show("Invalid user type");
+                    }
+                    else MessageBox.Show("Invalid login credentials");
+                }
+                else MessageBox.Show("Invalid email address");
+            }
+            else MessageBox.Show("One of the fields are empty");
         }
 
         private void closeButton_Click(object sender, EventArgs e)

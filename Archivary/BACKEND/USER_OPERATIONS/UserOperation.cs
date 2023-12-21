@@ -150,51 +150,67 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         //USER CREATION IN THE APP - LOGIN
         public static object Login(string email, string password)
         {
+            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) 
+            {
+                return null;
+            }
             Object user = null;
 
-            //Search User by email to get all info
-            string[] userInfo = GetUserByEmail(email);
-            int userLevel = int.Parse(userInfo[8]);
-
-            //Return immediately if the email does not belong to an employee or admin
-            if (userLevel == (int)UserLevel.Teacher || userLevel == (int)UserLevel.Student)
+            try
             {
-                //Add aditional actions to error if needed
-                return user;
+                //Search User by email to get all info
+                string[] userInfo = GetUserByEmail(email);
+                int userLevel = int.Parse(userInfo[8]);
+
+                //Return immediately if the email does not belong to an employee or admin
+                if (userLevel == (int)UserLevel.Teacher || userLevel == (int)UserLevel.Student)
+                {
+                    //Add aditional actions to error if needed
+                    return user;
+                }
+
+                //Extract info
+                int userId = int.Parse(userInfo[0]);
+                string userFirstName = userInfo[1];
+                string userLastName = userInfo[2];
+                string userMiddleName = userInfo[3];
+                string userEmail = userInfo[4];
+                string userAddress = userInfo[5];
+                string userContactNum = userInfo[6];
+                string userImage = userInfo[7];
+                string userStatus = userInfo[9];
+
+                //Get password and admin or employee ID
+                string[] additionalInfo = GetAdminOrEmployeeByUserid(userId, userLevel);
+                string hashedPass = additionalInfo[0];
+                string ID = additionalInfo[1];
+
+                // Verify pass
+                bool passVerified = VerifyPassword(password, hashedPass);
+
+                // Create object if pass matches
+                if (passVerified && userStatus == "ACTIVE")
+                {
+                    if (userLevel == (int)UserLevel.Admin)
+                    {
+                        Console.WriteLine("Admin successful login");
+                        user = new Admin(ID, userId, userFirstName, userLastName, userMiddleName, userEmail, userAddress, userContactNum, userImage, userStatus);
+                    }
+                    else if (userLevel == (int)UserLevel.Employee)
+                    {
+                        Console.WriteLine("Employee successful login");
+                        user = new Employee(ID, userId, userFirstName, userLastName, userMiddleName, userEmail, userAddress, userContactNum, userImage, userStatus);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception using a logging library
+                // Handle the exception as needed
+                Console.WriteLine($"Exception during login: {ex.Message}");
+                return null;
             }
 
-            //Extract info
-            int userId = int.Parse(userInfo[0]);
-            string userFirstName = userInfo[1];
-            string userLastName = userInfo[2];
-            string userMiddleName = userInfo[3];
-            string userEmail = userInfo[4];
-            string userAddress = userInfo[5];
-            string userContactNum = userInfo[6];
-            string userImage = userInfo[7];
-            string userStatus = userInfo[9];
-
-            //Get password and admin or employee ID
-            string[] additionalInfo = GetAdminOrEmployeeByUserid(userId, userLevel);
-            string hashedPass = additionalInfo[0];
-            string ID = additionalInfo[1];
-
-            //Verify pass
-            bool passVerified = VerifyPassword(password, hashedPass);
-
-            //Create object if pass matches
-            if ((passVerified && (userLevel == (int)UserLevel.Admin)) && userStatus == "ACTIVE")
-            {
-                Console.WriteLine("Admin succesful login");
-                return user = new Admin(ID, userId, userFirstName, userLastName, userMiddleName, userEmail, userAddress, userContactNum, userImage, userStatus);
-
-            }
-            else if ((passVerified && (userLevel == (int)UserLevel.Employee)) && userStatus == "ACTIVE")
-            {
-                Console.WriteLine("Employee succesful login");
-                return user = new Employee(ID, userId, userFirstName, userLastName, userMiddleName, userEmail, userAddress, userContactNum, userImage, userStatus);
-
-            }
             return user;
         }
         #endregion

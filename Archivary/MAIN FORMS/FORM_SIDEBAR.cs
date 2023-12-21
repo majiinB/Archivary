@@ -1,4 +1,5 @@
-﻿using Archivary.PARENT_FORMS;
+﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.PARENT_FORMS;
 using Archivary.Properties;
 using Archivary.SUB_FORMS;
 using sidebarComponents;
@@ -32,7 +33,7 @@ namespace Archivary
 
         private readonly Size minimumSize = new Size(960, 650);
 
-        public FORM_SIDEBAR(FORM_ROOT showFormsRoot)
+        public FORM_SIDEBAR(FORM_ROOT showFormsRoot,  object user)
         {
             InitializeComponent();
             FormsRoot = showFormsRoot;
@@ -44,9 +45,49 @@ namespace Archivary
             libraryButton_Click(libraryButton, EventArgs.Empty);
 
             sidebarControlsSize();
+
+            //Check what kind of user
+            if (user is Admin)
+            {
+                Admin admin = (Admin)user;
+                SetPictureBoxImage(admin.AdminImagePath);
+            }
+            else
+            {
+                Employee employee = (Employee)user;
+                SetPictureBoxImage(employee.EmployeeImagePath);
+            }
+        }
+        private void SetPictureBoxImage(string imagePath)
+        {
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
+
+                // Set the image to the PictureBox
+                accountPictureBox.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                accountPictureBox.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                accountPictureBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                //accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                //accountPictureBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        
 
         //
         // SIDEBAR FIXED SIZES FOR OVERRIDE DO NOT TOUCH JEBAL
