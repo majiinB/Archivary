@@ -15,7 +15,6 @@ namespace Archivary.Archivary_Components
 {
     public partial class bookDetails : UserControl
     {
-        private FORM_BOOKINFO formInfo = new FORM_BOOKINFO();
 
         public bookDetails()
         {
@@ -83,7 +82,11 @@ namespace Archivary.Archivary_Components
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            formInfo.ShowDialog();
+            /*using(FormsBookInfo = new FORM_BOOKINFO())
+            {
+                
+            }*/
+            FormsBookInfo.ShowDialog();
         }
     }
 }

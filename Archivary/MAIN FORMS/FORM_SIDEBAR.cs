@@ -1,5 +1,6 @@
 ﻿using Archivary.PARENT_FORMS;
 using Archivary.Properties;
+using Archivary.SUB_FORMS;
 using sidebarComponents;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Archivary.PARENT_FORMS.FORM_CIRCULATION;
 
 namespace Archivary
 {
@@ -19,10 +21,12 @@ namespace Archivary
     {
         private FORM_ROOT FormsRoot;
         private FORM_LIBRARY FormsLibrary = new FORM_LIBRARY();
-        private FORM_CIRCULATION FormsCirculation = new FORM_CIRCULATION();
+        //private FORM_CIRCULATION FormsCirculation;
         private FORM_USERS FormsUsers = new FORM_USERS();
         private FORM_REPORTS FormsReports = new FORM_REPORTS();
         private FORM_SETTINGS FormsSettings = new FORM_SETTINGS();
+        private FORM_BORROW FormsBorrow = new FORM_BORROW();
+        private FORM_RETURN FormsReturn = new FORM_RETURN();
 
         private bool isToggled = false;
 
@@ -41,6 +45,8 @@ namespace Archivary
 
             sidebarControlsSize();
         }
+
+        
 
         //
         // SIDEBAR FIXED SIZES FOR OVERRIDE DO NOT TOUCH JEBAL
@@ -268,10 +274,12 @@ namespace Archivary
         private void libraryButton_Click(object sender, EventArgs e)
         {
             ToggleForm(FormsLibrary, sender);
+            FormsRoot.BringToFront();
         }
 
         private void circulationsButton_Click(object sender, EventArgs e)
         {
+            FORM_CIRCULATION FormsCirculation = new FORM_CIRCULATION(this);
             ToggleForm(FormsCirculation, sender);
         }
 
@@ -378,7 +386,7 @@ namespace Archivary
 
         private Color archivaryRed()
         {
-            return Color.FromArgb(227, 25, 55);
+            return Color.FromArgb(237, 41, 57);
         }
 
 

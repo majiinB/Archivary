@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Archivary._1500X1000.FORM_LIBRARY;
+using Archivary.Archivary_Components;
 
 namespace Archivary
 {

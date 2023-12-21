@@ -33,6 +33,7 @@ namespace Archivary
 
         private void goLoginButton_Click(object sender, EventArgs e)
         {
+            //FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
             FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
             this.Close();
         }
