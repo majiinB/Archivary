@@ -23,7 +23,7 @@ namespace Archivary
         private FORM_ROOT FormsRoot;
         private FORM_LIBRARY FormsLibrary = new FORM_LIBRARY();
         //private FORM_CIRCULATION FormsCirculation;
-        private FORM_USERS FormsUsers = new FORM_USERS();
+        private FORM_USERS FormsUsers;
         private FORM_REPORTS FormsReports = new FORM_REPORTS();
         private FORM_SETTINGS FormsSettings = new FORM_SETTINGS();
         private FORM_BORROW FormsBorrow = new FORM_BORROW();
@@ -37,6 +37,9 @@ namespace Archivary
         {
             InitializeComponent();
             FormsRoot = showFormsRoot;
+
+            //Initialize other components and pass the user object
+            FormsUsers = new FORM_USERS(user);
 
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;

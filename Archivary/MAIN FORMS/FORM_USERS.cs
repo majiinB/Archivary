@@ -31,6 +31,7 @@ namespace Archivary.PARENT_FORMS
         private ArrayList teachers;
         private ArrayList employees;
         private ArrayList users;
+        private object user;
         private string filter = "All";
         //
         // COLOR METHODS
@@ -60,10 +61,18 @@ namespace Archivary.PARENT_FORMS
         }
 
         //MAIN
-        public FORM_USERS()
+        public FORM_USERS(object user)
         {
             InitializeComponent();
 
+            //Assign the one who logged in as user to access info form different methods
+            this.user = user;
+
+            //If user is an employee remove the employee strip menu
+            if(user is Employee)
+            {
+                filterDropdown.Items.Remove(employeeToolStripMenuItem);
+            }
         }
 
         private void FORM_USERS_Load(object sender, EventArgs e)
@@ -141,9 +150,13 @@ namespace Archivary.PARENT_FORMS
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            filterSearchButton.Text = "Employee";
-            filter = filterSearchButton.Text;
-            SearchUsers("");
+            if (user is Admin)
+            {
+                filterSearchButton.Text = "Employee";
+                filter = filterSearchButton.Text;
+                SearchUsers("");
+            }
+            else return; 
         }
 
         //
@@ -265,9 +278,12 @@ namespace Archivary.PARENT_FORMS
             {
                 students = UserOperation.GetAllStudents();
                 teachers = UserOperation.GetAllTeachers();
-                employees = UserOperation.GetAllEmployees();
+                if(user is Admin)
+                {
+                    employees = UserOperation.GetAllEmployees();
+                    AddUsersToList(employees);
+                }
 
-                AddUsersToList(employees);
                 AddUsersToList(teachers);
                 AddUsersToList(students);
             }
@@ -283,8 +299,11 @@ namespace Archivary.PARENT_FORMS
             }
             else if (filter == "Employee")
             {
-                employees = UserOperation.GetAllEmployees();
-                AddUsersToList(employees);
+                if(user is Admin)
+                {
+                    employees = UserOperation.GetAllEmployees();
+                    AddUsersToList(employees);
+                }
             }
         }
         //Loads all  kinds of user to the same list
@@ -307,12 +326,14 @@ namespace Archivary.PARENT_FORMS
                     }
                     else if (diff is Employee employee)
                     {
+                        
                         info[0] = employee.EmployeeLastName;
                         info[1] = employee.EmployeeFirstName;
                         info[2] = employee.EmployeeMiddleName;
                         info[3] = employee.EmployeeId;
                         info[4] = "Employee";
                         info[5] = employee.EmployeeStatus;
+                        
                     }
                     else if (diff is Teacher teacher)
                     {
