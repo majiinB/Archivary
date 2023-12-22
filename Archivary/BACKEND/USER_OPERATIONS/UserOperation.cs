@@ -91,6 +91,18 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             //Verify the entered password against the hashed password
             return BCrypt.Net.BCrypt.Verify(enteredPassword, hashedPassword);
         }
+        public static string GeneratePassword(int length = 12)
+        {
+            // Define characters to use in the password
+            string characters = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ123456789";
+
+            // Generate the password using Linq and Random
+            Random random = new Random();
+            string password = new string(Enumerable.Repeat(characters, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+
+            return password;
+        }
 
         //FOR INPUT VALIDATION
         public static string[] IsUserInputValid(string firstName, string lastName, string middleName, string email, string address, string contactNum,
@@ -173,13 +185,16 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     return errorMessage;
                 }
             }
-            if (!IsValidInteger(yearLevel) && int.TryParse(yearLevel, out int parsedYearLevel) && parsedYearLevel > 0 && parsedYearLevel < 7)
+            if (!IsValidInteger(yearLevel))
             {
-                if (!(yearLevel == "No_yearLevel"))
+                if(!(int.TryParse(yearLevel, out int parsedYearLevel) && parsedYearLevel > 0 && parsedYearLevel < 7))
                 {
-                    errorMessage[0] = "Invalid Year Level";
-                    errorMessage[1] = "Year level must be numeric and ranges form 1-6";
-                    return errorMessage;
+                    if (!(yearLevel == "No_yearLevel"))
+                    {
+                        errorMessage[0] = "Invalid Year Level";
+                        errorMessage[1] = "Year level must be numeric and ranges form 1-6";
+                        return errorMessage;
+                    }
                 }
             }
             if (string.IsNullOrEmpty(password) || password.Length < 7)
@@ -945,9 +960,10 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
 
         //FOR INSERTING NEW USER RECORDS IN THE DATABASE(DONE)
-        private static void AddUser(string firstName, string lastName, string middleName, string email, string address,
+        private static bool AddUser(string firstName, string lastName, string middleName, string email, string address,
             string contactNum, int userLevel, string imagePath = "NO_IMAGE")
         {
+            bool condition = false;
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
                 try
@@ -978,28 +994,36 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         //Check if operation was successful
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine($"Operation successful. {rowsAffected} rows affected.");
+                            condition = true;
                         }
                         else
                         {
-                            Console.WriteLine("No rows affected. Something might be wrong in inserting users.");
+                            condition = false;
                         }
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    condition = false;
                 }
                 finally { connection.Close(); }
             }
+            return condition;
         }
-        public static void AddAdminOrEmployee(string email, string lastName,
-            string firstName, string middleName, string address, string contactNum, int userLevel, string password,
-            string securityQuestion = "NO_SECURITY_QUESTION", string securityAnswer = "NO_SECURITY_ANSWER", string imagePath = "NO_IMAGE")
+        public static bool AddAdminOrEmployee(string email, string lastName,
+            string firstName, string middleName, string address, string contactNum, int userLevel, string password, string imagePath = "NO_IMAGE", 
+            string securityQuestion = "NO_SECURITY_QUESTION", string securityAnswer = "NO_SECURITY_ANSWER")
         {
+            bool condition = false;
+
             //Call method AddUser to insert information in the users table
-            AddUser(firstName, lastName, middleName, email, address, contactNum, userLevel, imagePath);
+            bool flag = AddUser(firstName, lastName, middleName, email, address, contactNum, userLevel, imagePath);
+
+            if (!flag)
+            {
+                return condition;
+            }
 
             //Condition to know what table will be used
             string tableName = "";
@@ -1028,8 +1052,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                     if (userID == -1)
                     {
-                        Console.WriteLine("user not found");
-                        return;
+                        return condition;
                     }
 
                     //hash password
@@ -1049,28 +1072,35 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         //Check if operation was successful
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine($"Operation successful. {rowsAffected} rows affected.");
+                            condition = true;
                         }
                         else
                         {
-                            Console.WriteLine("No rows affected. Something might be wrong in inserting employees.");
+                            condition = false;
                         }
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    condition = false;
                 }
                 finally { connection.Close(); }
             }
-
+            return condition;
         }
-        public static void AddStudent(string firstName, string lastName, string middleName, string email, string address,
+        public static bool AddStudent(string firstName, string lastName, string middleName, string email, string address,
             string contactNum, string department, int yearLevel, string section, string imagePath = "NO_IMAGE")
         {
+            bool condition = false;
             //Call method AddUser to insert information in the users table
-            AddUser(firstName, lastName, middleName, email, address, contactNum, (int)UserLevel.Student, imagePath);
+            bool flag = AddUser(firstName, lastName, middleName, email, address, contactNum, (int)UserLevel.Student, imagePath);
+
+            //Checks if adduser is successful
+            if (!flag)
+            {
+                return condition;
+            }
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
@@ -1088,9 +1118,8 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     int userID = GetUserIdByEmailAndLastName(email, lastName);
 
                     if (userID == -1)
-                    {
-                        Console.WriteLine("user not found");
-                        return;
+                    {                 
+                        return condition;
                     }
 
                     using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
@@ -1107,27 +1136,35 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         //Check if operation was successful
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine($"Operation successful. {rowsAffected} rows affected.");
+                            condition = true;
                         }
                         else
                         {
-                            Console.WriteLine("No rows affected. Something might be wrong in inserting employees.");
+                           condition = false;
                         }
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    condition = false;
                 }
                 finally { connection.Close(); }
             }
+            return condition;
         }
-        public static void AddTeacher(string firstName, string lastName, string middleName, string email, string address,
+        public static bool AddTeacher(string firstName, string lastName, string middleName, string email, string address,
             string contactNum, string department, string imagePath = "NO_IMAGE")
         {
+            bool condition = false;
             //Call method AddUser to insert information in the users table
-            AddUser(firstName, lastName, middleName, email, address, contactNum, (int)UserLevel.Teacher, imagePath);
+            bool flag = AddUser(firstName, lastName, middleName, email, address, contactNum, (int)UserLevel.Teacher, imagePath);
+
+            //Checks if add User is successful
+            if (!flag)
+            {
+                return condition;
+            }
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
@@ -1146,8 +1183,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                     if (userID == -1)
                     {
-                        Console.WriteLine("user not found");
-                        return;
+                        return condition;
                     }
 
                     using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
@@ -1162,21 +1198,22 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         //Check if operation was successful
                         if (rowsAffected > 0)
                         {
-                            Console.WriteLine($"Operation successful. {rowsAffected} rows affected.");
+                            condition = true;
                         }
                         else
                         {
-                            Console.WriteLine("No rows affected. Something might be wrong in inserting employees.");
+                            condition = false;
                         }
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    condition |= false;
                 }
                 finally { connection.Close(); }
             }
+            return condition;
         }
         public static void AddStudentByExcel(string fileLocation, string workSheetLocation, int startRow)
         {

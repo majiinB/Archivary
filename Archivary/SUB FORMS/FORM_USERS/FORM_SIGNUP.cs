@@ -1,4 +1,5 @@
-﻿using custom;
+﻿using Archivary.BACKEND.USER_OPERATIONS;
+using custom;
 using roundedCorners;
 using RoundedCorners;
 using System;
@@ -17,6 +18,7 @@ namespace Archivary._1200X800.FORM_USERS
     {
         private roundedButton currentBtn;
         private int conditionForAdd = 0;
+        private string selectedFilePath = "";
 
         private enum UserAdd
         {
@@ -140,7 +142,7 @@ namespace Archivary._1200X800.FORM_USERS
 
             if (openFolderDialog.ShowDialog(this) == DialogResult.OK)
             { 
-                string selectedFilePath = openFolderDialog.FileName;
+                selectedFilePath = openFolderDialog.FileName;
                 SetPictureBoxImage(selectedFilePath);
             }
         }
@@ -172,6 +174,222 @@ namespace Archivary._1200X800.FORM_USERS
             {
                 MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //Concat address
+            string address = (houseNumberTextBox.Text + ", " + streetTextBox.Text + ", " + barangayTextBox.Text +
+                ", " + cityTextBox.Text);
+
+            string imageCon = "";
+            if (string.IsNullOrEmpty(selectedFilePath))
+            {
+                imageCon = "No_image";
+            }
+            else
+            {
+                imageCon = selectedFilePath;
+            }
+
+            if (conditionForAdd == (int)UserAdd.Student)
+            {
+                //Check for errors
+                string[] errorMessage = UserOperation.IsUserInputValid(
+                    firstNameTextBox.Text,
+                    lastNameTextBox.Text,
+                    middleInitialTextBox.Text,
+                    emailTextBox.Text,
+                    address,
+                    contactNumberTextBox.Text,
+                    imageCon,
+                    collegeTextBox.Text,
+                    yearTextBox.Text,
+                    sectionTextBox.Text
+                    );
+
+                //Execute operation if error message length is 0
+                if (errorMessage.Length == 0)
+                {
+                    if (string.IsNullOrEmpty(selectedFilePath))
+                    {
+                        if (UserOperation.AddStudent(
+                        firstNameTextBox.Text,
+                        lastNameTextBox.Text,
+                        middleInitialTextBox.Text,
+                        emailTextBox.Text,
+                        address,
+                        contactNumberTextBox.Text,
+                        collegeTextBox.Text,
+                        int.Parse(yearTextBox.Text),
+                        sectionTextBox.Text
+                        ))
+                        {
+                            MessageBox.Show("Student: " + lastNameTextBox.Text + " Successfully added!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                        }
+                    }
+                    else
+                    {
+                        if (UserOperation.AddStudent(
+                        firstNameTextBox.Text,
+                        lastNameTextBox.Text,
+                        middleInitialTextBox.Text,
+                        emailTextBox.Text,
+                        address,
+                        contactNumberTextBox.Text,
+                        collegeTextBox.Text,
+                        int.Parse(yearTextBox.Text),
+                        sectionTextBox.Text,
+                        selectedFilePath
+                        ))
+                        {
+                            MessageBox.Show("Student: " + lastNameTextBox.Text + " Successfully added!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                }
+            }
+            else if (conditionForAdd == (int)UserAdd.Teacher)
+            {
+                //Check for errors
+                string[] errorMessage = UserOperation.IsUserInputValid(
+                    firstNameTextBox.Text,
+                    lastNameTextBox.Text,
+                    middleInitialTextBox.Text,
+                    emailTextBox.Text,
+                    address,
+                    contactNumberTextBox.Text,
+                    imageCon,
+                    collegeTextBox.Text
+                    );
+
+                //Execute operation if error message length is 0
+                if (errorMessage.Length == 0)
+                {
+                    if (string.IsNullOrEmpty(selectedFilePath))
+                    {
+                        if (UserOperation.AddTeacher(
+                            firstNameTextBox.Text,
+                            lastNameTextBox.Text,
+                            middleInitialTextBox.Text,
+                            emailTextBox.Text,
+                            address,
+                            contactNumberTextBox.Text,
+                            collegeTextBox.Text
+                            ))
+                        {
+                            MessageBox.Show("Teacher: " + lastNameTextBox.Text  + " Successfully added!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                        }
+                    }
+                    else
+                    {
+                        if (UserOperation.AddTeacher(
+                            firstNameTextBox.Text,
+                            lastNameTextBox.Text,
+                            middleInitialTextBox.Text,
+                            emailTextBox.Text,
+                            address,
+                            contactNumberTextBox.Text,
+                            collegeTextBox.Text,
+                            selectedFilePath
+                        ))
+                        {
+                            MessageBox.Show("Teacher: " + lastNameTextBox.Text + " Successfully added!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                }
+            }
+            else if (conditionForAdd == (int)UserAdd.Employee)
+            {
+                //Check for errors
+                string[] errorMessage = UserOperation.IsUserInputValid(
+                    firstNameTextBox.Text,
+                    lastNameTextBox.Text,
+                    middleInitialTextBox.Text,
+                    emailTextBox.Text,
+                    address,
+                    contactNumberTextBox.Text,
+                    imageCon
+                    );
+
+                //Execute operation if error message length is 0
+                if (errorMessage.Length == 0)
+                {
+                    string password = UserOperation.GeneratePassword(); //generate random pass 
+
+                    if (string.IsNullOrEmpty(selectedFilePath))
+                    {
+                        if (UserOperation.AddAdminOrEmployee(
+                                emailTextBox.Text,
+                                lastNameTextBox.Text,
+                                firstNameTextBox.Text,                 
+                                middleInitialTextBox.Text,             
+                                address,
+                                contactNumberTextBox.Text,
+                                (int)UserOperation.UserLevel.Employee,
+                                password
+                            ))
+                        {
+                            MessageBox.Show("Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                                "Employee Password is: " + password);
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                        }
+                    }
+                    else
+                    {
+                        if (UserOperation.AddAdminOrEmployee(
+                                emailTextBox.Text,
+                                lastNameTextBox.Text,
+                                firstNameTextBox.Text,
+                                middleInitialTextBox.Text,
+                                address,
+                                contactNumberTextBox.Text,
+                                (int)UserOperation.UserLevel.Employee,
+                                password,
+                                selectedFilePath
+                            ))
+                        {
+                            MessageBox.Show("Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                                "Employee Password is: " + password);
+                        }
+                        else
+                        {
+                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                }
+            }
+            ClearAllTextBoxes(this);
         }
     }
 }

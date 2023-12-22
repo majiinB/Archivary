@@ -72,8 +72,8 @@ namespace Archivary
                 accountPictureBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                accountPictureBox.Size = image.Size;
+                //accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                //accountPictureBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
             {
