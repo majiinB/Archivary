@@ -233,7 +233,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return studentsList;
         }
-
         public static ArrayList GetAllTeachers()
         {
             ArrayList teachersList = new ArrayList();
@@ -275,32 +274,132 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return teachersList;
         }
-        public static DataTable GetAllUsersDataTable()
+        public static Employee GetEmployeeByEmployeeId(string employee_id)
         {
-            DataTable usersTable = new DataTable();
+            Employee employee = null;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
-                string query = "SELECT users.id, FirstName, LastName, MiddleName, " +
-                               "user_level, status, " +
-                               "employee_id, " +
-                               "student_id, " +
-                               "teacher_id " +
-                               "FROM users " +
-                               "LEFT JOIN employees ON users.id = employees.user_id " +
-                               "LEFT JOIN students ON users.id = students.user_id " +
-                               "LEFT JOIN teachers ON users.id = teachers.user_id " +
-                               "ORDER BY LastName";
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, employee_id, " +
+                               "security_question, question_answer " +
+                               "FROM users JOIN employees ON users.id = employees.user_id " +
+                               "WHERE employee_id = @EmployeeId";
 
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    adapter.Fill(usersTable);
+                    command.Parameters.AddWithValue("@EmployeeId", employee_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            employee = new Employee(
+                                reader["employee_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                        }
+                    }
                 }
             }
 
-            return usersTable;
+            return employee;
+        }
+        public static Student GetStudentById(string student_id)
+        {
+            Student student = null;
+
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, " +
+                               "student_id, department, year_level, section " +
+                               "FROM users JOIN students ON users.id = students.user_id " +
+                               "WHERE student_id = @StudentId";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StudentId", student_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            student = new Student(
+                                reader["student_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["department"].ToString(),
+                                Convert.ToInt32(reader["year_level"]),
+                                reader["section"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                        }
+                    }
+                }
+            }
+
+            return student;
+        }
+        public static Teacher GetTeacherById(string teacher_id)
+        {
+            Teacher teacher = null;
+
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, teacher_id, " +
+                               "department " +
+                               "FROM users JOIN teachers ON users.id = teachers.user_id " +
+                               "WHERE teacher_id = @TeacherId";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeacherId", teacher_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            teacher = new Teacher(
+                                reader["teacher_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["department"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                        }
+                    }
+                }
+            }
+
+            return teacher;
         }
 
 

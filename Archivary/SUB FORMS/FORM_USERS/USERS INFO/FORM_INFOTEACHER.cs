@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
+using Archivary.BACKEND.OBJECTS;
 
 namespace Archivary._1500X1000.FORM_USERS
 {
@@ -33,21 +34,24 @@ namespace Archivary._1500X1000.FORM_USERS
             return Color.FromArgb(20, 18, 18);
         }
 
-        public FORM_INFOTEACHER()
+        public FORM_INFOTEACHER(Teacher teacher)
         {
             InitializeComponent();
+            userIDLabel.Text = teacher.TeacherId;
+            lastNameLabel.Text = teacher.TeacherLastName;
+            firstNameLabel.Text = teacher.TeacherFirstName;
+            middleNameLabel.Text = teacher.TeacherMiddleName;
+            collegeLabel.Text = teacher.TeacherDepartment;
+            emailLabel.Text = teacher.TeacherEmail;
+            contactNumLabel.Text = teacher.TeacherContactNum;
+            addressLabel.Text = teacher.TeacherAddress;
+            statusColor(teacher.TeacherStatus);
+            SetPictureBoxImage(teacher.TeacherImagePath);
+
         }
 
         private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
         {
-            String status = "Deactivated";
-            statusColor(status);
-
-            //sample data, pwede toh burahin mga pre
-            collegeLabel.Text = "College of ememeehahfdakjdfhdjk";
-            emailLabel.Text = "sampleemail@email.com";
-            contactNumLabel.Text = "00000000000";
-            addressLabel.Text = "Bldg No, Street, Brgy., City";
             Random random = new Random();
             string[] returnStatus = { "Overdue", "Not Overdue" };
             String randomStatus;
@@ -82,7 +86,7 @@ namespace Archivary._1500X1000.FORM_USERS
         }
         private void statusColor(String status)
         {
-            if (status == "Active")
+            if (status == "ACITIVE")
             {
                 editInfoButton.BackColor = archivaryGreen();
                 editInfoButton.ForeColor = archivaryBlack();
@@ -93,7 +97,7 @@ namespace Archivary._1500X1000.FORM_USERS
                 BackColor = archivaryGreen();
                 userIDLabel.ForeColor = archivaryGreen();
             }
-            else if (status == "Deactivated")
+            else if (status == "INACTIVE")
             {
                 editInfoButton.BackColor = archivaryRed();
                 editInfoButton.ForeColor = archivaryWhite();
@@ -103,6 +107,35 @@ namespace Archivary._1500X1000.FORM_USERS
                 PANEL_role.BackgroundColor = archivaryRed();
                 BackColor = archivaryRed();
                 userIDLabel.ForeColor = archivaryRed();
+            }
+        }
+        private void SetPictureBoxImage(string imagePath)
+        {
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
+
+                // Set the image to the PictureBox
+                roundedPictureBox1.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                roundedPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                roundedPictureBox1.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                roundedPictureBox1.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                //accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                //accountPictureBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

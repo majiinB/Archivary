@@ -23,9 +23,9 @@ namespace Archivary.PARENT_FORMS
     public partial class FORM_USERS : Form
     {
 
-        private FORM_INFOEMPLOYEE employeeInfo= new FORM_INFOEMPLOYEE();
-        private FORM_INFOTEACHER teacherInfo = new FORM_INFOTEACHER();
-        private FORM_INFOSTUDENT studentInfo = new FORM_INFOSTUDENT();
+        private FORM_INFOEMPLOYEE employeeInfo;
+        private FORM_INFOTEACHER teacherInfo;
+        private FORM_INFOSTUDENT studentInfo;
         private FORM_SIGNUP FormsSignup = new FORM_SIGNUP();
         private ArrayList students;
         private ArrayList teachers;
@@ -197,6 +197,8 @@ namespace Archivary.PARENT_FORMS
             // Ensure the double-click is on a valid cell (not a header or empty space)
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
+                int i = 0;
+                string[] cellInfo = new string[4];
                 // Get the data from the clicked row
                 DataGridViewRow clickedRow = userDataGridView.Rows[e.RowIndex];
 
@@ -204,13 +206,41 @@ namespace Archivary.PARENT_FORMS
                 foreach (DataGridViewCell cell in clickedRow.Cells)
                 {
                     object cellValue = cell.Value;
-                    // Do something with the cellValue, for example, display it in a MessageBox
-                    MessageBox.Show($"Cell value: {cellValue}");
+                    if (cellValue is string stringVal)
+                    {
+                        cellInfo[i] = stringVal;
+                    }
+                    i++;
+                }
+
+                if (cellInfo[2] == "Employee")
+                {
+                    Employee employee = UserOperation.GetEmployeeByEmployeeId(cellInfo[1]);
+                    if(employee != null)
+                    {
+                        employeeInfo = new FORM_INFOEMPLOYEE(employee);
+                        employeeInfo.ShowDialog();
+                    }
+                }
+                else if (cellInfo[2] == "Teacher")
+                {
+                    Teacher teacher = UserOperation.GetTeacherById(cellInfo[1]);
+                    if(teacher != null)
+                    {
+                        teacherInfo = new FORM_INFOTEACHER(teacher);
+                        teacherInfo.ShowDialog();
+                    }
+                }
+                else if (cellInfo[2] == "Student")
+                {
+                    Student student = UserOperation.GetStudentById(cellInfo[1]);
+                    if(student != null)
+                    {
+                        studentInfo = new FORM_INFOSTUDENT(student);
+                        studentInfo.ShowDialog();
+                    }
                 }
             }
-            //teacherInfo.ShowDialog();
-            // studentInfo.ShowDialog();
-            //employeeInfo.ShowDialog();
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
@@ -226,7 +256,6 @@ namespace Archivary.PARENT_FORMS
             string searchKey = searchBar.Text;
             SearchUsers(searchKey);
         }
-
         //Search method
         public ArrayList SearchUsers(string searchString)
         {
@@ -255,7 +284,6 @@ namespace Archivary.PARENT_FORMS
             }
             return searchResults;
         }
-
         // Helper function to check if an array contains a substring (case-insensitive)
         public bool ContainsIgnoreCase(string[] array, string searchString)
         {
