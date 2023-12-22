@@ -30,6 +30,7 @@ namespace Archivary.PARENT_FORMS
         private ArrayList students;
         private ArrayList teachers;
         private ArrayList employees;
+        private ArrayList users;
         private string filter = "All";
         //
         // COLOR METHODS
@@ -68,53 +69,8 @@ namespace Archivary.PARENT_FORMS
         private void FORM_USERS_Load(object sender, EventArgs e)
         {
             dropdownProperties();
-            LoadToTable();
-        }
-        private void LoadToTable()
-        {
-            userDataGridView.Rows.Clear();
-            if(filter == "All")
-            {
-                students = UserOperation.GetAllStudents();
-                teachers = UserOperation.GetAllTeachers();
-                employees = UserOperation.GetAllEmployees();
-
-                IterateThroughElements(employees);
-                IterateThroughElements(teachers);               
-                IterateThroughElements(students);
-            }
-            else if(filter == "Student")
-            {
-                students = UserOperation.GetAllStudents();
-                IterateThroughElements(students);
-            }else if(filter == "Teacher")
-            {
-                teachers = UserOperation.GetAllTeachers();
-                IterateThroughElements(teachers);
-            }else if(filter == "Employee")
-            {
-                employees = UserOperation.GetAllEmployees();
-                IterateThroughElements(employees);
-            }
-        }
-        private void IterateThroughElements(ArrayList usersList)
-        {
-            foreach (var user in usersList)
-            {
-                if(user is Student student) 
-                {
-                    userDataGridView.Rows.Add(student.StudentLastName + ", " + student.StudentFirstName + " " + student.StudentMiddleName, student.StudentId, "Student", student.StudentStatus);
-                }
-                else if(user is Employee employee)
-                {
-                    userDataGridView.Rows.Add(employee.EmployeeLastName + ", " + employee.EmployeeFirstName + " " + employee.EmployeeMiddleName, employee.EmployeeId, "Employee", employee.EmployeeStatus);
-                }
-                else if(user is Teacher teacher)
-                {
-                    userDataGridView.Rows.Add(teacher.TeacherLastName + ", " + teacher.TeacherFirstName + " " + teacher.TeacherMiddleName, teacher.TeacherId, "Teacher", teacher.TeacherStatus);
-                }
-            }
-        }
+            SearchUsers("");
+        }   
 
         private void FORM_USERS_Resize(object sender, EventArgs e)
         {
@@ -166,28 +122,28 @@ namespace Archivary.PARENT_FORMS
         {
             filterSearchButton.Text = "All";
             filter = filterSearchButton.Text;
-            LoadToTable();
+            SearchUsers("");
         }
 
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Student";
             filter = filterSearchButton.Text;
-            LoadToTable();
+            SearchUsers("");
         }
 
         private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Teacher";
             filter = filterSearchButton.Text;
-            LoadToTable();
+            SearchUsers("");
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Employee";
             filter = filterSearchButton.Text;
-            LoadToTable();
+            SearchUsers("");
         }
 
         //
@@ -214,20 +170,34 @@ namespace Archivary.PARENT_FORMS
             for (int i = e.RowIndex; i <= e.RowIndex + e.RowCount - 1; i++)
             {
                 var row = userDataGridView.Rows[i];
-                string status = Convert.ToString(row.Cells[3].Value).ToLower();
+                string status = Convert.ToString(row.Cells[3].Value).ToUpper();
 
                 if (status == null) continue;
  
-                if (status == "deactivated") row.Cells[3].Style.ForeColor = archivaryRed();
-                else if (status == "active") row.Cells[3].Style.ForeColor = archivaryGreen();
+                if (status == "INACTIVE") row.Cells[3].Style.ForeColor = archivaryRed();
+                else if (status == "ACTIVE") row.Cells[3].Style.ForeColor = archivaryGreen();
             }
         }
 
         private void userDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            teacherInfo.ShowDialog();
-            studentInfo.ShowDialog();
-            employeeInfo.ShowDialog();
+            // Ensure the double-click is on a valid cell (not a header or empty space)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Get the data from the clicked row
+                DataGridViewRow clickedRow = userDataGridView.Rows[e.RowIndex];
+
+                // Access the data in each cell of the clicked row
+                foreach (DataGridViewCell cell in clickedRow.Cells)
+                {
+                    object cellValue = cell.Value;
+                    // Do something with the cellValue, for example, display it in a MessageBox
+                    MessageBox.Show($"Cell value: {cellValue}");
+                }
+            }
+            //teacherInfo.ShowDialog();
+            // studentInfo.ShowDialog();
+            //employeeInfo.ShowDialog();
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
@@ -236,6 +206,127 @@ namespace Archivary.PARENT_FORMS
 
         }
 
+        #region SEARCH FUNCTION
+        //TEXT CHANGED ACTION LISTENER
+        private void Search(object sender, EventArgs e)
+        {
+            string searchKey = searchBar.Text;
+            SearchUsers(searchKey);
+        }
 
+        //Search method
+        public ArrayList SearchUsers(string searchString)
+        {
+            userDataGridView.Rows.Clear();
+            LoadUsersToList();
+            ArrayList searchResults = new ArrayList();
+            if (users.Count > 0)
+            {
+                foreach (string[] user in users)
+                {
+                    if (string.IsNullOrEmpty(searchString) || searchString == "Search User")
+                    {
+                        string[] nextUser = (string[])user;
+                        userDataGridView.Rows.Add(nextUser[0] + ", " + nextUser[1] + " " + nextUser[2], nextUser[3], nextUser[4], nextUser[5]);
+                    }
+                    else if (!string.IsNullOrEmpty(searchString))
+                    {
+                        // Perform case-insensitive search
+                        if (ContainsIgnoreCase(user, searchString))
+                        {
+                            string[] nextUser = (string[])user;
+                            userDataGridView.Rows.Add(nextUser[0] + ", " + nextUser[1] + " " + nextUser[2], nextUser[3], nextUser[4], nextUser[5]);
+                        }
+                    }
+                }
+            }
+            return searchResults;
+        }
+
+        // Helper function to check if an array contains a substring (case-insensitive)
+        public bool ContainsIgnoreCase(string[] array, string searchString)
+        {
+            foreach (string item in array)
+            {
+                if (item.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        //Method that chooses which users will be loaded
+        private void LoadUsersToList()
+        {
+            users = new ArrayList();
+            userDataGridView.Rows.Clear();
+            if (filter == "All")
+            {
+                students = UserOperation.GetAllStudents();
+                teachers = UserOperation.GetAllTeachers();
+                employees = UserOperation.GetAllEmployees();
+
+                AddUsersToList(employees);
+                AddUsersToList(teachers);
+                AddUsersToList(students);
+            }
+            else if (filter == "Student")
+            {
+                students = UserOperation.GetAllStudents();
+                AddUsersToList(students);
+            }
+            else if (filter == "Teacher")
+            {
+                teachers = UserOperation.GetAllTeachers();
+                AddUsersToList(teachers);
+            }
+            else if (filter == "Employee")
+            {
+                employees = UserOperation.GetAllEmployees();
+                AddUsersToList(employees);
+            }
+        }
+        //Loads all  kinds of user to the same list
+        private void AddUsersToList(ArrayList diffUsers)
+        {
+            if (diffUsers != null || diffUsers.Count > 0)
+            {
+                foreach (var diff in diffUsers)
+                {
+                    string[] info = new string[6];
+
+                    if (diff is Student student)
+                    {
+                        info[0] = student.StudentLastName;
+                        info[1] = student.StudentFirstName;
+                        info[2] = student.StudentMiddleName;
+                        info[3] = student.StudentId;
+                        info[4] = "Student";
+                        info[5] = student.StudentStatus;
+                    }
+                    else if (diff is Employee employee)
+                    {
+                        info[0] = employee.EmployeeLastName;
+                        info[1] = employee.EmployeeFirstName;
+                        info[2] = employee.EmployeeMiddleName;
+                        info[3] = employee.EmployeeId;
+                        info[4] = "Employee";
+                        info[5] = employee.EmployeeStatus;
+                    }
+                    else if (diff is Teacher teacher)
+                    {
+                        info[0] = teacher.TeacherLastName;
+                        info[1] = teacher.TeacherFirstName;
+                        info[2] = teacher.TeacherMiddleName;
+                        info[3] = teacher.TeacherId;
+                        info[4] = "Teacher";
+                        info[5] = teacher.TeacherStatus;
+                    }
+                    users.Add(info);
+                }
+            }
+        }
+        #endregion
     }
 }
