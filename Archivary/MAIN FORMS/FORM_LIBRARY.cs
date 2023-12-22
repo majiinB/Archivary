@@ -64,9 +64,7 @@ namespace Archivary.PARENT_FORMS
 
             //load first list
             libraryList.Controls.Clear();
-            booksDictionary = BACKEND.BOOK_OPERATIONS.BookOperation.LoadBooksFromDatabase();
-            keys = booksDictionary.Keys.ToList();
-            max = booksDictionary.Count();
+            
             {
                 isDataLoading = true;
                 await LoadListAsync();
@@ -88,7 +86,9 @@ namespace Archivary.PARENT_FORMS
 
         private async Task LoadListAsync()
         {
-
+            booksDictionary = BACKEND.BOOK_OPERATIONS.BookOperation.LoadBooksFromDatabase();
+            keys = booksDictionary.Keys.ToList();
+            max = booksDictionary.Count();
             await Task.Run(() =>
             {
                 if (start == 0) Task.Delay(500).Wait();
