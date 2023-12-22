@@ -1,4 +1,5 @@
-﻿using roundedCorners;
+﻿using custom;
+using roundedCorners;
 using RoundedCorners;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,20 @@ namespace Archivary._1200X800.FORM_USERS
     public partial class FORM_SIGNUP : Form
     {
         private roundedButton currentBtn;
+        private int conditionForAdd = 0;
+
+        private enum UserAdd
+        {
+            Student = 0,
+            Teacher = 1,
+            Employee = 2,
+        }
 
         public FORM_SIGNUP()
         {
             InitializeComponent();
             ActivateButton(studentButton);
+            SetPictureBoxImage("No_image");
         }
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
@@ -32,13 +42,9 @@ namespace Archivary._1200X800.FORM_USERS
             DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(37, 211, 102), 3);//3 represents the border width
         }
 
-        private void lastNameTextBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            ClearAllTextBoxes(this);
             this.Close();
         }
         private void ActivateButton(object senderBtn)
@@ -65,8 +71,8 @@ namespace Archivary._1200X800.FORM_USERS
         {
             ActivateButton(sender);
             ClearAllTextBoxes(this);
-            profilePictureImageBox.Image = null; //to clear ImageBox when the button is clicked
-
+            SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
+            conditionForAdd = (int)UserAdd.Student;
             //visibility of textboxes and labels 
             collegeLabel.Visible = true;
             collegeTextBox.Visible = true;
@@ -82,7 +88,8 @@ namespace Archivary._1200X800.FORM_USERS
         {
             ActivateButton(sender);
             ClearAllTextBoxes(this);
-            profilePictureImageBox.Image = null; //to clear ImageBox when the button is clicked
+            SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
+            conditionForAdd = (int)UserAdd.Teacher;
 
             //visibility of textboxes and labels 
             collegeLabel.Visible = true;
@@ -100,7 +107,8 @@ namespace Archivary._1200X800.FORM_USERS
         {
             ActivateButton(sender);
             ClearAllTextBoxes(this);
-            profilePictureImageBox.Image = null; //to clear ImageBox when the button is clicked
+            SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
+            conditionForAdd = (int)UserAdd.Employee;
 
             //visibility of textboxes and labels 
             collegeLabel.Visible = false;
@@ -122,6 +130,47 @@ namespace Archivary._1200X800.FORM_USERS
                 {
                     ClearAllTextBoxes(textBoxes);
                 }
+            }
+            SetPictureBoxImage("No_image");
+        }
+
+        private void uploadImageButton_Click(object sender, EventArgs e)
+        {
+            openFolderDialog.Filter = "JPEG Files|*.jpeg;*.jpg|PNG Files|*.png";
+
+            if (openFolderDialog.ShowDialog(this) == DialogResult.OK)
+            { 
+                string selectedFilePath = openFolderDialog.FileName;
+                SetPictureBoxImage(selectedFilePath);
+            }
+        }
+        private void SetPictureBoxImage(string imagePath)
+        {
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
+
+                // Set the image to the PictureBox
+                profilePictureImageBox.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
