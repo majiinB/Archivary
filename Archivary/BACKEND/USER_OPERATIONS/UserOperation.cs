@@ -1594,11 +1594,11 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                    SET department = @NewDepartment,
                                        year_level = @NewYearLevel,
                                        section = @NewSection
-                                   WHERE id = @StudentId";
+                                   WHERE user_id = @StudentId";
 
                 using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
                 {
-                    if(UpdateUserInformation(studentUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
+                    if (UpdateUserInformation(studentUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
                     {
                         cmd.Parameters.AddWithValue("@StudentId", studentUserId);
                         cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
@@ -1609,7 +1609,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
-                        {
+                        { 
                             condition = true;
                         }
                         else
