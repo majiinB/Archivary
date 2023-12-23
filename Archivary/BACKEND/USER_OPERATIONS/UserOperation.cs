@@ -1583,8 +1583,9 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 }
             }
         }
-        public static void UpdateStudentInformation(int studentUserId, string newDepartment, int newYearLevel, string newSection, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
+        public static bool UpdateStudentInformation(int studentUserId, string newDepartment, int newYearLevel, string newSection, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
+            bool condition = false;
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
@@ -1597,53 +1598,62 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                 using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
                 {
-                    cmd.Parameters.AddWithValue("@StudentId", studentUserId);
-                    cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
-                    cmd.Parameters.AddWithValue("@NewYearLevel", newYearLevel);
-                    cmd.Parameters.AddWithValue("@NewSection", newSection);
-
-                    UpdateUserInformation(studentUserId, firstName, lastName, middleName, address, contactNumber, imagePath);
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
+                    if(UpdateUserInformation(studentUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
                     {
-                        Console.WriteLine("Student information updated successfully!");
+                        cmd.Parameters.AddWithValue("@StudentId", studentUserId);
+                        cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
+                        cmd.Parameters.AddWithValue("@NewYearLevel", newYearLevel);
+                        cmd.Parameters.AddWithValue("@NewSection", newSection);
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            condition = true;
+                        }
+                        else
+                        {
+                            condition = false;
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("No rows were affected. Student with the specified ID not found.");
-                    }
+                    
                 }
             }
+            return condition;
         }
-        public static void UpdateTeacherInformation(int teacherUserId, string newDepartment, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
+        public static bool UpdateTeacherInformation(int teacherUserId, string newDepartment, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
+            bool condition = false;
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
-                string updateQuery = @"UPDATE Teacher
+                string updateQuery = @"UPDATE teachers
                                    SET department = @NewDepartment
                                    WHERE user_id = @user_Id";
 
                 using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
                 {
-                    cmd.Parameters.AddWithValue("@user_Id", teacherUserId);
-                    cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    UpdateUserInformation(teacherUserId, firstName, lastName, middleName, address, contactNumber, imagePath);
-                    if (rowsAffected > 0)
+                    if(UpdateUserInformation(teacherUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
                     {
-                        Console.WriteLine("Student information updated successfully!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No rows were affected. Student with the specified ID not found.");
+                        cmd.Parameters.AddWithValue("@user_Id", teacherUserId);
+                        cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            condition = true;
+                        }
+                        else
+                        {
+                            condition = false;
+                        }
                     }
                 }
             }
+            return condition;
         }
         public static bool UpdateUserInformation(int userId, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
@@ -1685,6 +1695,24 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             return condition;
         }
+        public static void UpdateUserStatus(int userId, string newStatus)
+        {
+            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            {
+                connection.Open();
+
+                string query = "UPDATE users SET status = @newStatus WHERE id = @userId";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@newStatus", newStatus);
+                    command.Parameters.AddWithValue("@userId", userId);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         #endregion
     }
 }

@@ -20,6 +20,7 @@ namespace Archivary._1200X800.FORM_USERS
         public FORM_EDITEMPLOYEE(Employee employee)
         {
             InitializeComponent();
+            ShowInTaskbar = false;
             this.userEmployee = employee;
             lastNameTextBox.Text = employee.EmployeeLastName;
             firstNameTextBox.Text = employee.EmployeeFirstName;
@@ -93,6 +94,14 @@ namespace Archivary._1200X800.FORM_USERS
                     contactNumberTextBox.Text,
                     conditionImage
                     );
+
+                //Check address one by one kingina di pala to iisang texbox
+                if(string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
+                    string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
+                {
+                    MessageBox.Show("Invalid Input For Address\nOne of the textbox for address is empty");
+                    return;
+                }
 
                 //If the errormessage array length is 0 continue to Update
                 if (errorMessage.Length == 0)

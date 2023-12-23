@@ -14,7 +14,8 @@ namespace Archivary._1500X1000.FORM_USERS
 {
     public partial class FORM_INFOTEACHER : Form
     {
-        private FORM_EDITTEACHER editInfo = new FORM_EDITTEACHER();
+        private FORM_EDITTEACHER editInfo;
+        private Teacher userTeacher;
 
         private Color archivaryGreen()
         {
@@ -37,17 +38,22 @@ namespace Archivary._1500X1000.FORM_USERS
         public FORM_INFOTEACHER(Teacher teacher)
         {
             InitializeComponent();
-            userIDLabel.Text = teacher.TeacherId;
-            lastNameLabel.Text = teacher.TeacherLastName;
-            firstNameLabel.Text = teacher.TeacherFirstName;
-            middleNameLabel.Text = teacher.TeacherMiddleName;
-            collegeLabel.Text = teacher.TeacherDepartment;
-            emailLabel.Text = teacher.TeacherEmail;
-            contactNumLabel.Text = teacher.TeacherContactNum;
-            addressLabel.Text = teacher.TeacherAddress;
-            statusColor(teacher.TeacherStatus);
-            SetPictureBoxImage(teacher.TeacherImagePath);
-
+            this.userTeacher = teacher;
+            InitializeTeacherInfo();
+            editInfo = new FORM_EDITTEACHER(teacher);
+        }
+        private void InitializeTeacherInfo()
+        {
+            userIDLabel.Text = userTeacher.TeacherId;
+            lastNameLabel.Text = userTeacher.TeacherLastName;
+            firstNameLabel.Text = userTeacher.TeacherFirstName;
+            middleNameLabel.Text = userTeacher.TeacherMiddleName;
+            collegeLabel.Text = userTeacher.TeacherDepartment;
+            emailLabel.Text = userTeacher.TeacherEmail;
+            contactNumLabel.Text = userTeacher.TeacherContactNum;
+            addressLabel.Text = userTeacher.TeacherAddress;
+            statusColor(userTeacher.TeacherStatus);
+            SetPictureBoxImage(userTeacher.TeacherImagePath);
         }
 
         private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
@@ -78,7 +84,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private void editInfoButton_Click(object sender, EventArgs e)
         {
             editInfo.ShowDialog();
-
+            InitializeTeacherInfo();
         }
         private void backButton_Click(object sender, EventArgs e)
         {

@@ -15,7 +15,8 @@ namespace Archivary._1500X1000.FORM_USERS
 {
     public partial class FORM_INFOSTUDENT : Form
     {
-        private FORM_EDITSTUDENT editInfo = new FORM_EDITSTUDENT();
+        private FORM_EDITSTUDENT editInfo;
+        private Student userStudent;
         private Color archivaryGreen()
         {
             return Color.FromArgb(37, 211, 102);
@@ -36,17 +37,24 @@ namespace Archivary._1500X1000.FORM_USERS
         public FORM_INFOSTUDENT(Student student)
         {
             InitializeComponent();
-            userIDLabel.Text = student.StudentId;
-            lastNameLabel.Text = student.StudentLastName;
-            firstNameLabel.Text = student.StudentFirstName;
-            middleNameLabel.Text = student.StudentMiddleName;
-            emailLabel.Text = student.StudentEmail;
-            contactNumLabel.Text = student.StudentContactNum;
-            addressLabel.Text = student.StudentAddress;
-            statusColor(student.StudentStatus);
-            collegeLabel.Text = student.StudentDepartment;
-            sectionLabel.Text = student.StudentSection;
-            SetPictureBoxImage(student.StudentImagePath);
+            this.userStudent = student;
+            IntializeStudentInfo();
+            editInfo = new FORM_EDITSTUDENT(student);
+        }
+
+        private void IntializeStudentInfo()
+        {
+            userIDLabel.Text = userStudent.StudentId;
+            lastNameLabel.Text = userStudent.StudentLastName;
+            firstNameLabel.Text = userStudent.StudentFirstName;
+            middleNameLabel.Text = userStudent.StudentMiddleName;
+            emailLabel.Text = userStudent.StudentEmail;
+            contactNumLabel.Text = userStudent.StudentContactNum;
+            addressLabel.Text = userStudent.StudentAddress;
+            statusColor(userStudent.StudentStatus);
+            collegeLabel.Text = userStudent.StudentDepartment;
+            sectionLabel.Text = userStudent.StudentSection;
+            SetPictureBoxImage(userStudent.StudentImagePath);
         }
 
         private void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
@@ -68,6 +76,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private void editInfoButton_Click(object sender, EventArgs e)
         {
             editInfo.ShowDialog();
+            IntializeStudentInfo();
         }
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
