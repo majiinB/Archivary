@@ -16,7 +16,7 @@ namespace Archivary.PARENT_FORMS
     {
         private int panelWidth;
 
-        public FORM_SETTINGS()
+        public FORM_SETTINGS(object user)
         {
             InitializeComponent();
         }
