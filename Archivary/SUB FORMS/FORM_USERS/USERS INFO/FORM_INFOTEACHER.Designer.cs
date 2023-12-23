@@ -184,6 +184,7 @@
             this.changeStatusButton.Text = "DEACTIVATE";
             this.changeStatusButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.changeStatusButton.UseVisualStyleBackColor = false;
+            this.changeStatusButton.Click += new System.EventHandler(this.changeStatusButton_Click);
             // 
             // roundedPictureBox1
             // 

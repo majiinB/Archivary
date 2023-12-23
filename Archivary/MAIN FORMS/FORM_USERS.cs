@@ -33,6 +33,7 @@ namespace Archivary.PARENT_FORMS
         private ArrayList users;
         private object user;
         private string filter = "All";
+        private string searchKey = "";
         //
         // COLOR METHODS
         //
@@ -78,7 +79,7 @@ namespace Archivary.PARENT_FORMS
         private void FORM_USERS_Load(object sender, EventArgs e)
         {
             dropdownProperties();
-            SearchUsers("");
+            SearchUsers(searchKey);
         }   
 
         private void FORM_USERS_Resize(object sender, EventArgs e)
@@ -131,21 +132,21 @@ namespace Archivary.PARENT_FORMS
         {
             filterSearchButton.Text = "All";
             filter = filterSearchButton.Text;
-            SearchUsers("");
+            SearchUsers(searchKey);
         }
 
         private void studentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Student";
             filter = filterSearchButton.Text;
-            SearchUsers("");
+            SearchUsers(searchKey);
         }
 
         private void teacherToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filterSearchButton.Text = "Teacher";
             filter = filterSearchButton.Text;
-            SearchUsers("");
+            SearchUsers(searchKey);
         }
 
         private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -154,7 +155,7 @@ namespace Archivary.PARENT_FORMS
             {
                 filterSearchButton.Text = "Employee";
                 filter = filterSearchButton.Text;
-                SearchUsers("");
+                SearchUsers(searchKey);
             }
             else return; 
         }
@@ -220,6 +221,7 @@ namespace Archivary.PARENT_FORMS
                     {
                         employeeInfo = new FORM_INFOEMPLOYEE(employee);
                         employeeInfo.ShowDialog();
+                        SearchUsers(searchKey);
                     }
                 }
                 else if (cellInfo[2] == "Teacher")
@@ -229,6 +231,7 @@ namespace Archivary.PARENT_FORMS
                     {
                         teacherInfo = new FORM_INFOTEACHER(teacher);
                         teacherInfo.ShowDialog();
+                        SearchUsers(searchKey);
                     }
                 }
                 else if (cellInfo[2] == "Student")
@@ -238,6 +241,7 @@ namespace Archivary.PARENT_FORMS
                     {
                         studentInfo = new FORM_INFOSTUDENT(student);
                         studentInfo.ShowDialog();
+                        SearchUsers(searchKey);
                     }
                 }
             }
@@ -246,13 +250,14 @@ namespace Archivary.PARENT_FORMS
         private void addUserButton_Click(object sender, EventArgs e)
         {
             FormsSignup.ShowDialog();
+            SearchUsers(searchKey);
         }
 
         #region SEARCH FUNCTION
         //TEXT CHANGED ACTION LISTENER
         private void Search(object sender, EventArgs e)
         {
-            string searchKey = searchBar.Text;
+            searchKey = searchBar.Text;
             SearchUsers(searchKey);
         }
         //Search method

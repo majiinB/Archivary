@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.USER_OPERATIONS;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Archivary._1500X1000.FORM_USERS
@@ -145,5 +146,20 @@ namespace Archivary._1500X1000.FORM_USERS
             }
         }
 
+        private void changeStatusButton_Click(object sender, EventArgs e)
+        {
+            if (userStudent.StudentStatus == "ACTIVE")
+            {
+                UserOperation.UpdateUserStatus(userStudent.StudentUserId, "INACTIVE");
+                statusColor("INACTIVE");
+                userStudent.StudentStatus = "INACTIVE";
+            }
+            else
+            {
+                UserOperation.UpdateUserStatus(userStudent.StudentUserId, "ACTIVE");
+                statusColor("ACTIVE");
+                userStudent.StudentStatus = "ACTIVE";
+            }
+        }
     }
 }

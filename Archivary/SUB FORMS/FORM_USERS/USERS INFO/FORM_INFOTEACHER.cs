@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.USER_OPERATIONS;
 
 namespace Archivary._1500X1000.FORM_USERS
 {
@@ -92,7 +93,7 @@ namespace Archivary._1500X1000.FORM_USERS
         }
         private void statusColor(String status)
         {
-            if (status == "ACITIVE")
+            if (status == "ACTIVE")
             {
                 editInfoButton.BackColor = archivaryGreen();
                 editInfoButton.ForeColor = archivaryBlack();
@@ -145,5 +146,20 @@ namespace Archivary._1500X1000.FORM_USERS
             }
         }
 
+        private void changeStatusButton_Click(object sender, EventArgs e)
+        {
+            if (userTeacher.TeacherStatus == "ACTIVE")
+            {
+                UserOperation.UpdateUserStatus(userTeacher.TeacherUserId, "INACTIVE");
+                statusColor("INACTIVE");
+                userTeacher.TeacherStatus = "INACTIVE";
+            }
+            else
+            {
+                UserOperation.UpdateUserStatus(userTeacher.TeacherUserId, "ACTIVE");
+                statusColor("ACTIVE");
+                userTeacher.TeacherStatus = "ACTIVE";
+            }
+        }
     }
 }

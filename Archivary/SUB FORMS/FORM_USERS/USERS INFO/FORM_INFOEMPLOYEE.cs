@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Archivary._1500X1000.FORM_USERS
 {
@@ -148,5 +149,20 @@ namespace Archivary._1500X1000.FORM_USERS
             }
         }
 
+        private void changeStatusButton_Click(object sender, EventArgs e)
+        {
+            if(userEmployee.EmployeeStatus == "ACTIVE")
+            {
+                UserOperation.UpdateUserStatus(userEmployee.EmployeeUserId, "INACTIVE");
+                statusColor("INACTIVE");
+                userEmployee.EmployeeStatus = "INACTIVE";
+            }
+            else
+            {
+                UserOperation.UpdateUserStatus(userEmployee.EmployeeUserId, "ACTIVE");
+                statusColor("ACTIVE");
+                userEmployee.EmployeeStatus = "ACTIVE";
+            }
+        }
     }
 }
