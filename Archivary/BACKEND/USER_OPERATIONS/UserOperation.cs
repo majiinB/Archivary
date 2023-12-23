@@ -104,6 +104,28 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             return password;
         }
 
+        //STRING MANIPULATION
+        public static string[] SplitAddress(string address)
+        {
+            // Split the address using the comma as a delimiter
+            string[] components = address.Split(',');
+
+            // Trim each component to remove leading and trailing whitespaces
+            for (int i = 0; i < components.Length; i++)
+            {
+                components[i] = components[i].Trim();
+            }
+
+            // Check if the array has the expected number of components
+            if (components.Length != 4)
+            {
+                // Return a default value (e.g., "N/A") in case of an error
+                return new string[] { "N/A", "N/A", "N/A", "N/A" };
+            }
+
+            return components;
+        }
+
         //FOR INPUT VALIDATION
         public static string[] IsUserInputValid(string firstName, string lastName, string middleName, string email, string address, string contactNum,
             string imagePath = "No_image", string department = "No_department", string yearLevel = "No_yearLevel", string section = "No_section", string password = "No_password",
@@ -1623,8 +1645,9 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 }
             }
         }
-        private static void UpdateUserInformation(int userId, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
+        public static bool UpdateUserInformation(int userId, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
+            bool condition = false;
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
                 connection.Open();
@@ -1652,14 +1675,15 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                     if (rowsAffected > 0)
                     {
-                        Console.WriteLine("User information updated successfully!");
+                        condition = true;
                     }
                     else
                     {
-                        Console.WriteLine("No rows were affected. User with the specified ID not found.");
+                        condition = false;
                     }
                 }
             }
+            return condition;
         }
         #endregion
     }

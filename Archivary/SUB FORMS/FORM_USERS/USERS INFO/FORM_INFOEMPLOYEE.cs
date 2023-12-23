@@ -15,7 +15,8 @@ namespace Archivary._1500X1000.FORM_USERS
 {
     public partial class FORM_INFOEMPLOYEE : Form
     {
-        private FORM_EDITEMPLOYEE editInfo = new FORM_EDITEMPLOYEE();
+        private FORM_EDITEMPLOYEE editInfo;
+        private Employee userEmployee;
 
         private Color archivaryGreen()
         {
@@ -38,6 +39,12 @@ namespace Archivary._1500X1000.FORM_USERS
         public FORM_INFOEMPLOYEE(Employee employee)
         {
             InitializeComponent();
+            InitializeEmployeeInfo(employee);
+            userEmployee = employee;
+            editInfo = new FORM_EDITEMPLOYEE(employee);
+        }
+        private void InitializeEmployeeInfo(Employee employee)
+        {
             userIDLabel.Text = employee.EmployeeId;
             emailLabel.Text = employee.EmployeeEmail;
             lastNameLabel.Text = employee.EmployeeLastName;
@@ -64,12 +71,12 @@ namespace Archivary._1500X1000.FORM_USERS
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void editInfoButton_Click(object sender, EventArgs e)
         {
             editInfo.ShowDialog();
+            InitializeEmployeeInfo(userEmployee);
         }
         
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

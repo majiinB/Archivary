@@ -284,7 +284,7 @@ namespace Archivary.PARENT_FORMS
             }
             return searchResults;
         }
-        // Helper function to check if an array contains a substring (case-insensitive)
+        //Helper function to check if an array contains a substring (case-insensitive)
         public bool ContainsIgnoreCase(string[] array, string searchString)
         {
             foreach (string item in array)
