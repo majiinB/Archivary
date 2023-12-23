@@ -28,6 +28,7 @@ namespace Archivary
         private FORM_SETTINGS FormsSettings;
         private FORM_BORROW FormsBorrow = new FORM_BORROW();
         private FORM_RETURN FormsReturn = new FORM_RETURN();
+        private object user;
 
         private bool isToggled = false;
 
@@ -37,7 +38,7 @@ namespace Archivary
         {
             InitializeComponent();
             FormsRoot = showFormsRoot;
-
+            this.user = user;
             //Initialize other components and pass the user object
             FormsUsers = new FORM_USERS(user);
             FormsSettings = new FORM_SETTINGS(user);
@@ -340,7 +341,15 @@ namespace Archivary
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            ToggleForm(FormsSettings, sender);
+            ToggleForm(FormsSettings, sender); 
+            //if(user is Employee employee)
+            //{
+            //    SetPictureBoxImage(employee.EmployeeImagePath);
+            //}else if(user is Admin admin)
+            //{
+            //    SetPictureBoxImage(admin.AdminImagePath);
+            //}
+            
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
