@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.USER_OPERATIONS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,11 @@ namespace Archivary._900X500
 {
     public partial class FORM_PASSWORD : Form
     {
-        public FORM_PASSWORD()
+        private object user;
+        public FORM_PASSWORD(object user)
         {
             InitializeComponent();
+            this.user = user;
         }
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
@@ -38,7 +42,77 @@ namespace Archivary._900X500
 
         private void continueButton_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(oldPasswordTextBox.Text) &&
+                !string.IsNullOrEmpty(newPasswordTextBox.Text) &&
+                !string.IsNullOrEmpty(confirmNewPasswordTextBox.Text) &&
+                oldPasswordTextBox.Text != "Enter Old Password  " &&
+                newPasswordTextBox.Text != "Enter Old Password  " &&
+                confirmNewPasswordTextBox.Text != "Enter Old Password  ")
+            {
+                if (user is Admin admin)
+                {
+                    string adminHashedPass = UserOperation.GetPassword(admin.AdminId);
 
+                    if (UserOperation.VerifyPassword(oldPasswordTextBox.Text, adminHashedPass))
+                    {
+                        if (newPasswordTextBox.Text == confirmNewPasswordTextBox.Text)
+                        {
+                            if(newPasswordTextBox.Text != oldPasswordTextBox.Text)
+                            {
+                                if (UserOperation.UpdatePassword(admin.AdminId, UserOperation.HashPassword(newPasswordTextBox.Text)))
+                                {
+                                    MessageBox.Show("Admin Password Change Successful");
+                                    this.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please enter a different password");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("New pass and confimation pass are not the same please try again");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect old password");
+                    }
+                }
+                else if (user is Employee employee)
+                {
+                    string employeeHashedPass = UserOperation.GetPassword(employee.EmployeeId);
+
+                    if (UserOperation.VerifyPassword(oldPasswordTextBox.Text, employeeHashedPass))
+                    {
+                        if (newPasswordTextBox.Text == confirmNewPasswordTextBox.Text)
+                        {
+                            if (newPasswordTextBox.Text != oldPasswordTextBox.Text)
+                            {
+                                if (UserOperation.UpdatePassword(employee.EmployeeId, UserOperation.HashPassword(newPasswordTextBox.Text)))
+                                {
+                                    MessageBox.Show("Employee Password Change Successful");
+                                    this.Close();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please enter a different password");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("New pass and confimation pass are not the same please try again");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect old password");
+                    }
+                }
+            }
+            else MessageBox.Show("One of the textbox are blank");
         }
 
         //
@@ -88,8 +162,8 @@ namespace Archivary._900X500
             }
             else
             {
-                this.oldEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
-                oldPasswordTextBox.UseSystemPasswordChar = true;
+                this.confirmEyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
+                confirmNewPasswordTextBox.UseSystemPasswordChar = true;
             }
         }
 

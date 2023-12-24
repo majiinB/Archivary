@@ -980,6 +980,37 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return teacher;
         }
+        public static string GetPassword(string userId)
+        {
+            bool isAdmin = userId.StartsWith("AA", StringComparison.OrdinalIgnoreCase);
+            bool isEmployee = userId.StartsWith("AE", StringComparison.OrdinalIgnoreCase);
+
+            if (isAdmin || isEmployee)
+            {
+                string tableName = isAdmin ? "admin" : "employee";
+                string idColumnName = isAdmin ? "admin_id" : "employee_id";
+
+                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                {
+                    connection.Open();
+
+                    string query = $"SELECT password FROM {tableName} WHERE {idColumnName} = @userId";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userId", userId);
+
+                        object result = command.ExecuteScalar();
+
+                        // Assuming result is not null; adjust error handling accordingly
+                        return result.ToString();
+                    }
+                }
+            }
+
+            return null; // Or throw an exception, depending on your requirements
+        }
+
 
         //FOR INSERTING NEW USER RECORDS IN THE DATABASE(DONE)
         private static bool AddUser(string firstName, string lastName, string middleName, string email, string address,
@@ -1712,6 +1743,37 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 }
             }
         }
+        public static bool UpdatePassword(string userId, string newPassword)
+        {
+            bool isAdmin = userId.StartsWith("AA", StringComparison.OrdinalIgnoreCase);
+            bool isEmployee = userId.StartsWith("AE", StringComparison.OrdinalIgnoreCase);
+
+            if (isAdmin || isEmployee)
+            {
+                string tableName = isAdmin ? "admin" : "employee";
+                string idColumnName = isAdmin ? "admin_id" : "employee_id";
+
+                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                {
+                    connection.Open();
+
+                    string query = $"UPDATE {tableName} SET password = @newPassword WHERE {idColumnName} = @userId";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@newPassword", newPassword);
+                        command.Parameters.AddWithValue("@userId", userId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0; // Returns true if the password was updated
+                    }
+                }
+            }
+
+            return false; // Or throw an exception, depending on your requirements
+        }
+
 
         #endregion
     }

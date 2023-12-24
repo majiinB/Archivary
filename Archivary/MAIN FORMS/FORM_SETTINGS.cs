@@ -23,6 +23,7 @@ namespace Archivary.PARENT_FORMS
         private string selectedFilePath;
         private bool allowSave = false;
         private Setting setting;
+        FORM_PASSWORD pass;
         public FORM_SETTINGS(object user)
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace Archivary.PARENT_FORMS
 
         private void changePassButton_Click(object sender, EventArgs e)
         {
-            using (FORM_PASSWORD pass = new FORM_PASSWORD())
+            using (pass = new FORM_PASSWORD(user))
             {
                 pass.ShowInTaskbar = false;
                 DialogResult result = pass.ShowDialog();
