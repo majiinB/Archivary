@@ -46,8 +46,8 @@ namespace Archivary._900X500
                 !string.IsNullOrEmpty(newPasswordTextBox.Text) &&
                 !string.IsNullOrEmpty(confirmNewPasswordTextBox.Text) &&
                 oldPasswordTextBox.Text != "Enter Old Password  " &&
-                newPasswordTextBox.Text != "Enter Old Password  " &&
-                confirmNewPasswordTextBox.Text != "Enter Old Password  ")
+                newPasswordTextBox.Text != "Enter New Password  " &&
+                confirmNewPasswordTextBox.Text != "Enter New Password  ")
             {
                 if (user is Admin admin)
                 {
@@ -190,14 +190,14 @@ namespace Archivary._900X500
         private void newPasswordTextBox_Enter(object sender, EventArgs e)
         {
             passwordInput2 = newPasswordTextBox.Text;
-            if (passwordInput2 == "Enter Old Password  ") newPasswordTextBox.Text = "";
+            if (passwordInput2 == "Enter New Password  ") newPasswordTextBox.Text = "";
             else newPasswordTextBox.Text = passwordInput2;
         }
 
         private void newPasswordTextBox_Leave(object sender, EventArgs e)
         {
             passwordInput2 = newPasswordTextBox.Text;
-            if (string.IsNullOrWhiteSpace(passwordInput2)) newPasswordTextBox.Text = "Enter Old Password  ";
+            if (string.IsNullOrWhiteSpace(passwordInput2)) newPasswordTextBox.Text = "Enter New Password  ";
         }
 
         //
@@ -206,14 +206,14 @@ namespace Archivary._900X500
         private void confirmNewPasswordTextBox_Enter(object sender, EventArgs e)
         {
             passwordInput3 = confirmNewPasswordTextBox.Text;
-            if (passwordInput3 == "Enter Old Password  ") confirmNewPasswordTextBox.Text = "";
+            if (passwordInput3 == "Enter New Password  ") confirmNewPasswordTextBox.Text = "";
             else confirmNewPasswordTextBox.Text = passwordInput3;
         }
 
         private void confirmNewPasswordTextBox_Leave(object sender, EventArgs e)
         {
             passwordInput3 = confirmNewPasswordTextBox.Text;
-            if (string.IsNullOrWhiteSpace(passwordInput3)) confirmNewPasswordTextBox.Text = "Enter Old Password  ";
+            if (string.IsNullOrWhiteSpace(passwordInput3)) confirmNewPasswordTextBox.Text = "Enter New Password  ";
         }
     }
 }

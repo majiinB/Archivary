@@ -37,11 +37,13 @@ namespace Archivary
         public FORM_SIDEBAR(FORM_ROOT showFormsRoot,  object user)
         {
             InitializeComponent();
+           
             FormsRoot = showFormsRoot;
             this.user = user;
             //Initialize other components and pass the user object
             FormsUsers = new FORM_USERS(user);
             FormsSettings = new FORM_SETTINGS(user);
+            FormsSettings.SaveButtonClicked += FormSetting_SaveButtonClicked;
 
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;
@@ -468,7 +470,18 @@ namespace Archivary
             }
         }
 
-
+        //Subscribe to form setting event
+        private void FormSetting_SaveButtonClicked(object sender, EventArgs e)
+        {
+            if(user is Admin admin)
+            {
+                SetPictureBoxImage(admin.AdminImagePath);
+            }
+            else if(user is Employee employee)
+            {
+                SetPictureBoxImage(employee.EmployeeImagePath);
+            }
+        }
 
     }
 }

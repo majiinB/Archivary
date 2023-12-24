@@ -24,6 +24,10 @@ namespace Archivary.PARENT_FORMS
         private bool allowSave = false;
         private Setting setting;
         FORM_PASSWORD pass;
+
+        //Define an event for the Save button click
+        public event EventHandler SaveButtonClicked;
+
         public FORM_SETTINGS(object user)
         {
             InitializeComponent();
@@ -234,6 +238,7 @@ namespace Archivary.PARENT_FORMS
                             UpdateUserObject(concatAddress); // Update the object referenced
                             MessageBox.Show("Employee Info Update Successful");
                             InitializeUserInfo(user);
+                            SaveButtonClicked?.Invoke(this, EventArgs.Empty);
                         }
                         else
                         {
@@ -297,6 +302,7 @@ namespace Archivary.PARENT_FORMS
                             UpdateUserObject(concatAddress); // Update the object referenced
                             MessageBox.Show("Admin Info Update Successful");
                             InitializeUserInfo(user);
+                            SaveButtonClicked?.Invoke(this, EventArgs.Empty);
                         }
                         else
                         {

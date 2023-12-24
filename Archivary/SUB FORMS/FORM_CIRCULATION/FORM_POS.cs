@@ -81,12 +81,12 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
-            FORM_ALERT FormsAlert = new FORM_ALERT();
+            //FORM_ALERT FormsAlert = new FORM_ALERT();
 
             using (FORM_ROOT FormsReturn = new FORM_ROOT())
             {
                 //MessageBox.Show("This is a simple alert!", "Alert Box", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormsAlert.ShowDialog();
+                //FormsAlert.ShowDialog();
             }
         }
     }
