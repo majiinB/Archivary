@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
+using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -18,6 +19,7 @@ namespace Archivary._1500X1000.FORM_USERS
     {
         private FORM_EDITSTUDENT editInfo;
         private Student userStudent;
+        private FORM_ALERT alert;
         private Color archivaryGreen()
         {
             return Color.FromArgb(37, 211, 102);
@@ -142,7 +144,8 @@ namespace Archivary._1500X1000.FORM_USERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alert = new FORM_ALERT(1, "LOAD IMAGE ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
             }
         }
 

@@ -1,5 +1,7 @@
-﻿using Archivary.BACKEND.OBJECTS;
+﻿using Archivary._900X500;
+using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
+using OfficeOpenXml.Packaging.Ionic.Zlib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +18,8 @@ namespace Archivary._1200X800.FORM_USERS
     {
         private string selectedFilePath;
         private Student userStudent;
+        private FORM_ALERT alert;
+
         public FORM_EDITSTUDENT(Student student)
         {
             InitializeComponent();
@@ -84,7 +88,8 @@ namespace Archivary._1200X800.FORM_USERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alert = new FORM_ALERT(1, "IMAGE LOAD ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
             }
         }
 
@@ -135,7 +140,8 @@ namespace Archivary._1200X800.FORM_USERS
                 if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                     string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                 {
-                    MessageBox.Show("Invalid Input For Address\nOne of the textbox for address is empty");
+                    alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
+                    alert.ShowDialog();
                     return;
                 }
 
@@ -157,19 +163,22 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                     {
                         UpdateStudentObject(concatAddress);
-                        MessageBox.Show("Student Info Update Successful");
+                        alert = new FORM_ALERT(3, "STUDENT INFO UPDATE SUCCESS", "");
+                        alert.ShowDialog();
                         this.Close();
                     }
                     else
                     {
                         //Error message for update
-                        MessageBox.Show("Update failed");
+                        alert = new FORM_ALERT(1, "STUDENT INFO UPDATE FAILED", "An error has occured during the update process");
+                        alert.ShowDialog();
                     }
                 }
                 else
                 {
                     //Error message for input validation
-                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
                 }
             }
 

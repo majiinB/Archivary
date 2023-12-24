@@ -1,4 +1,5 @@
-﻿using Archivary.BACKEND.OBJECTS;
+﻿using Archivary._900X500;
+using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Archivary._1200X800.FORM_USERS
     {
         private string selectedFilePath;
         private Teacher userTeacher;
+        private FORM_ALERT alert;
+
         public FORM_EDITTEACHER(Teacher teacher)
         {
             InitializeComponent();
@@ -76,7 +79,8 @@ namespace Archivary._1200X800.FORM_USERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alert = new FORM_ALERT(1, "IMAGE LOAD ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
             }
         }
 
@@ -112,7 +116,8 @@ namespace Archivary._1200X800.FORM_USERS
                 if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                     string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                 {
-                    MessageBox.Show("Invalid Input For Address\nOne of the textbox for address is empty");
+                    alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
+                    alert.ShowDialog();
                     return;
                 }
 
@@ -132,14 +137,16 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                     {
                         UpdateTeacherObject(concatAddress); // Update the object referenced
-                        MessageBox.Show("Employee Info Update Successful");
+                        alert = new FORM_ALERT(3, "TEACHER INFO UPDATE SUCCESS", "");
+                        alert.ShowDialog();
                         this.Close();
                     }
                 }
                 else
                 {
                     //Error message for input validation
-                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                    alert = new FORM_ALERT(1, "TEACHER INFO UPDATE FAILED", "An error has occured during the update process");
+                    alert.ShowDialog();
                 }
 
             }

@@ -1,4 +1,5 @@
 ﻿using Archivary._1200X800.FORM_USERS;
+using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
@@ -18,6 +19,7 @@ namespace Archivary._1500X1000.FORM_USERS
     {
         private FORM_EDITEMPLOYEE editInfo;
         private Employee userEmployee;
+        private FORM_ALERT alert;
 
         private Color archivaryGreen()
         {
@@ -145,7 +147,8 @@ namespace Archivary._1500X1000.FORM_USERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alert = new FORM_ALERT(1, "LOAD IMAGE ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
             }
         }
 

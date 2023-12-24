@@ -40,9 +40,12 @@ namespace Archivary
            
             FormsRoot = showFormsRoot;
             this.user = user;
+
             //Initialize other components and pass the user object
             FormsUsers = new FORM_USERS(user);
             FormsSettings = new FORM_SETTINGS(user);
+
+            //Subscribe to form_settings save event
             FormsSettings.SaveButtonClicked += FormSetting_SaveButtonClicked;
 
             this.Size = new Size(960, 650);

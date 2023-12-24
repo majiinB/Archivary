@@ -24,6 +24,7 @@ namespace Archivary.PARENT_FORMS
         private bool allowSave = false;
         private Setting setting;
         FORM_PASSWORD pass;
+        FORM_ALERT alert;
 
         //Define an event for the Save button click
         public event EventHandler SaveButtonClicked;
@@ -165,7 +166,8 @@ namespace Archivary.PARENT_FORMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alert = new FORM_ALERT(1, "IMAGE ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
             }
         }
         private void uploadImageButton_Click(object sender, EventArgs e)
@@ -182,7 +184,8 @@ namespace Archivary.PARENT_FORMS
         {
             if (!allowSave)
             {
-                MessageBox.Show("Press Edit Button First");
+                alert = new FORM_ALERT(1, "ACTION ERROR", "Press Edit Button First");
+                alert.ShowDialog();
                 return;
             }
             //Concat the each textbox for adress
@@ -217,7 +220,8 @@ namespace Archivary.PARENT_FORMS
                     if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                         string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                     {
-                        MessageBox.Show("Invalid Input For Address\nOne of the textbox for address is empty");
+                        alert = new FORM_ALERT(1, "INVALID ADRESS", "One of the textbox for address is empty");
+                        alert.ShowDialog();
                         return;
                     }
 
@@ -236,20 +240,22 @@ namespace Archivary.PARENT_FORMS
                             ))
                         {
                             UpdateUserObject(concatAddress); // Update the object referenced
-                            MessageBox.Show("Employee Info Update Successful");
+                            alert = new FORM_ALERT(3, "INFORMATIONS UPDATE SUCCESSFUL", "Employee Info Update Successful");
+                            alert.ShowDialog();
                             InitializeUserInfo(user);
                             SaveButtonClicked?.Invoke(this, EventArgs.Empty);
                         }
                         else
                         {
                             //Error message for update
-                            MessageBox.Show("Update failed");
+                            alert = new FORM_ALERT(1, "INFORMATIONS UPDATE FAILURE", "An error has occured during the update");
+                            alert.ShowDialog();
                         }
                     }
                     else
                     {
-                        //Error message for input validation
-                        MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                        alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                        alert.ShowDialog();
                     }
                 }
            }
@@ -281,7 +287,8 @@ namespace Archivary.PARENT_FORMS
                     if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                         string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                     {
-                        MessageBox.Show("Invalid Input For Address\nOne of the textbox for address is empty");
+                        alert = new FORM_ALERT(1, "INVALID ADRESS", "One of the textbox for address is empty");
+                        alert.ShowDialog();
                         return;
                     }
 
@@ -300,20 +307,23 @@ namespace Archivary.PARENT_FORMS
                             ))
                         {
                             UpdateUserObject(concatAddress); // Update the object referenced
-                            MessageBox.Show("Admin Info Update Successful");
+                            alert = new FORM_ALERT(3, "INFORMATIONS UPDATE SUCCESSFUL", "Admin Info Update Successful");
+                            alert.ShowDialog();
                             InitializeUserInfo(user);
                             SaveButtonClicked?.Invoke(this, EventArgs.Empty);
                         }
                         else
                         {
                             //Error message for update
-                            MessageBox.Show("Update failed");
+                            alert = new FORM_ALERT(1, "INFORMATIONS UPDATE FAILURE", "An error has occured during the update");
+                            alert.ShowDialog();
                         }
                     }
                     else
                     {
                         //Error message for input validation
-                        MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                        alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                        alert.ShowDialog();
                     }
                 }
                 if(borrowingCapacityLabel.Text != setting.borrowingCapacity.ToString() || reserveLimitTextBox.Text != setting.reserveLimit.ToString()
@@ -321,17 +331,20 @@ namespace Archivary.PARENT_FORMS
                 {
                     if (!UserOperation.IsValidInteger(borrowingCapacityLabel.Text))
                     {
-                        MessageBox.Show("Borrowing Capacity Input is Not a Valid Integer");
+                        alert = new FORM_ALERT(1, "BORROWING CAPACITY INPUT ERROR", "Borrowing Capacity Input is Not a Valid Integer");
+                        alert.ShowDialog();
                         return;
                     }
                     if (!UserOperation.IsValidInteger(reserveLimitTextBox.Text))
                     {
-                        MessageBox.Show("Reserve Limit Input is Not a Valid Integer");
+                        alert = new FORM_ALERT(1, "RESERVATON LIMIT INPUT ERROR", "Reserve Limit Input is Not a Valid Integer");
+                        alert.ShowDialog();
                         return;
                     }
                     if (!UserOperation.IsValidInteger(borrowingDurationTextBox.Text))
                     {
-                        MessageBox.Show("Borrowing Duration Input is Not a Valid Integer");
+                        alert = new FORM_ALERT(1, "BORROW DURATION INPUT ERROR", "Borrowing Duration Input is Not a Valid Integer");
+                        alert.ShowDialog();
                         return;
                     }
 
@@ -341,10 +354,15 @@ namespace Archivary.PARENT_FORMS
                         int.Parse(borrowingDurationTextBox.Text)
                         ))
                     {
-                        MessageBox.Show("Settings Update successful");
+                        alert = new FORM_ALERT(3, "SETTING UPDATE SUCCESSFUL", "Settings is now updated and will be applied to future transactions");
+                        alert.ShowDialog();
                         InitializeSettingInfo();
                     }
-                    else MessageBox.Show("Settings Update Unsuccessful");
+                    else
+                    {
+                        alert = new FORM_ALERT(3, "SETTING UPDATE UNSUCCESSFUL", "An error occured during the update process");
+                        alert.ShowDialog();
+                    }
                 }
            }
         }

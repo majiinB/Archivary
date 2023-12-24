@@ -1,5 +1,7 @@
-﻿using Archivary.BACKEND.USER_OPERATIONS;
+﻿using Archivary._900X500;
+using Archivary.BACKEND.USER_OPERATIONS;
 using custom;
+using OfficeOpenXml.Packaging.Ionic.Zlib;
 using roundedCorners;
 using RoundedCorners;
 using System;
@@ -19,6 +21,7 @@ namespace Archivary._1200X800.FORM_USERS
         private roundedButton currentBtn;
         private int conditionForAdd = 0;
         private string selectedFilePath = "";
+        private FORM_ALERT alert;
 
         private enum UserAdd
         {
@@ -172,7 +175,8 @@ namespace Archivary._1200X800.FORM_USERS
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                alert = new FORM_ALERT(1, "IMAGE LOAD ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
             }
         }
 
@@ -225,11 +229,13 @@ namespace Archivary._1200X800.FORM_USERS
                         sectionTextBox.Text
                         ))
                         {
-                            MessageBox.Show("Student: " + lastNameTextBox.Text + " Successfully added!");
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Student: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();    
                         }
                         else
                         {
-                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
                         }
                     }
                     else
@@ -247,17 +253,20 @@ namespace Archivary._1200X800.FORM_USERS
                         selectedFilePath
                         ))
                         {
-                            MessageBox.Show("Student: " + lastNameTextBox.Text + " Successfully added!");
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Student: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();
                         }
                         else
                         {
-                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
                 }
             }
             else if (conditionForAdd == (int)UserAdd.Teacher)
@@ -289,11 +298,13 @@ namespace Archivary._1200X800.FORM_USERS
                             collegeTextBox.Text
                             ))
                         {
-                            MessageBox.Show("Teacher: " + lastNameTextBox.Text  + " Successfully added!");
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Teacher: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();
                         }
                         else
                         {
-                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
                         }
                     }
                     else
@@ -309,17 +320,20 @@ namespace Archivary._1200X800.FORM_USERS
                             selectedFilePath
                         ))
                         {
-                            MessageBox.Show("Teacher: " + lastNameTextBox.Text + " Successfully added!");
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Teacher: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();
                         }
                         else
                         {
-                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
                 }
             }
             else if (conditionForAdd == (int)UserAdd.Employee)
@@ -353,12 +367,14 @@ namespace Archivary._1200X800.FORM_USERS
                                 password
                             ))
                         {
-                            MessageBox.Show("Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
-                                "Employee Password is: " + password);
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                                "Employee password is : " + password);
+                            alert.ShowDialog();
                         }
                         else
                         {
-                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
                         }
                     }
                     else
@@ -375,18 +391,21 @@ namespace Archivary._1200X800.FORM_USERS
                                 selectedFilePath
                             ))
                         {
-                            MessageBox.Show("Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
-                                "Employee Password is: " + password);
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                                "Employee password is : " + password);
+                            alert.ShowDialog();
                         }
                         else
                         {
-                            MessageBox.Show("An error has occured\nunsuccessful transaction");
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
                 }
             }
             ClearAllTextBoxes(this);

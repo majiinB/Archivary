@@ -14,6 +14,7 @@ namespace Archivary._900X500
 {
     public partial class FORM_PASSWORD : Form
     {
+        private FORM_ALERT formAlert;
         private object user;
         public FORM_PASSWORD(object user)
         {
@@ -57,27 +58,31 @@ namespace Archivary._900X500
                     {
                         if (newPasswordTextBox.Text == confirmNewPasswordTextBox.Text)
                         {
-                            if(newPasswordTextBox.Text != oldPasswordTextBox.Text)
+                            if (newPasswordTextBox.Text != oldPasswordTextBox.Text)
                             {
                                 if (UserOperation.UpdatePassword(admin.AdminId, UserOperation.HashPassword(newPasswordTextBox.Text)))
                                 {
-                                    MessageBox.Show("Admin Password Change Successful");
+                                    formAlert = new FORM_ALERT(3, "Password Change Success", "Admin " + admin.AdminFirstName + " has successfully changed his/her password");
+                                    formAlert.ShowDialog();
                                     this.Close();
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Please enter a different password");
+                                formAlert = new FORM_ALERT(1, "Password Change Error", "Please enter a different password");
+                                formAlert.ShowDialog();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("New pass and confimation pass are not the same please try again");
+                            formAlert = new FORM_ALERT(1, "Password Change Error", "New pass and confimation pass are not the same please try again");
+                            formAlert.ShowDialog();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect old password");
+                        formAlert = new FORM_ALERT(1, "Password Change Error", "Incorrect old password");
+                        formAlert.ShowDialog();
                     }
                 }
                 else if (user is Employee employee)
@@ -92,27 +97,35 @@ namespace Archivary._900X500
                             {
                                 if (UserOperation.UpdatePassword(employee.EmployeeId, UserOperation.HashPassword(newPasswordTextBox.Text)))
                                 {
-                                    MessageBox.Show("Employee Password Change Successful");
+                                    formAlert = new FORM_ALERT(33, "Password Change Success", "Employee " + employee.EmployeeFirstName + " has successfully changed his/her password");
+                                    formAlert.ShowDialog();
                                     this.Close();
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Please enter a different password");
+                                formAlert = new FORM_ALERT(1, "Password Change Error", "Please enter a different password");
+                                formAlert.ShowDialog();
                             }
                         }
                         else
                         {
-                            MessageBox.Show("New pass and confimation pass are not the same please try again");
+                            formAlert = new FORM_ALERT(1, "Password Change Error", "New pass and confimation pass are not the same please try again");
+                            formAlert.ShowDialog();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Incorrect old password");
+                        formAlert = new FORM_ALERT(1, "Password Change Error", "Incorrect old password");
+                        formAlert.ShowDialog();
                     }
                 }
             }
-            else MessageBox.Show("One of the textbox are blank");
+            else
+            {
+                formAlert = new FORM_ALERT(1, "Password Change Error", "One of the textbox are blank");
+                formAlert.ShowDialog();
+            }
         }
 
         //
