@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Archivary.BACKEND.OBJECTS
 {
-    internal class Setting
+    public class Setting
     {
-        private int settingId;
-        private int borrowingCapacity;
-        private int reserveLimit;
-        private int borrowingDuration;
+        public int settingId { get; set; }
+        public int borrowingCapacity { get; set; }
+        public int reserveLimit { get; set; }
+        public int borrowingDuration { get; set; }
         public Setting(int settingId, int borrowingCapacity, int reserveLimit, int borrowingDuration) 
         {
             this.settingId = settingId;

@@ -1,4 +1,6 @@
 ﻿using Archivary._900X500;
+using Archivary.BACKEND.BOOK_OPERATIONS;
+using Archivary.BACKEND.COMMON_OPERATIONS;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using RoundedCorners;
@@ -20,11 +22,13 @@ namespace Archivary.PARENT_FORMS
         private object user;
         private string selectedFilePath;
         private bool allowSave = false;
+        private Setting setting;
         public FORM_SETTINGS(object user)
         {
             InitializeComponent();
             this.user = user;
             InitializeUserInfo(user);
+            InitializeSettingInfo();
         }
 
         private void FORM_SETTINGS_Load(object sender, EventArgs e)
@@ -90,6 +94,7 @@ namespace Archivary.PARENT_FORMS
         {
             if(user is Admin admin)
             {
+                userId.Text = "ADMIN ID";
                 userIDLabel.Text = admin.AdminId;
                 lastNameTextBox.Text = admin.AdminLastName;
                 firstNameTextBox.Text = admin.AdminFirstName;
@@ -105,6 +110,7 @@ namespace Archivary.PARENT_FORMS
                 SetPictureBoxImage(admin.AdminImagePath);
             }else if(user is Employee employee)
             {
+                userId.Text = "EMPLOYEE ID";
                 userIDLabel.Text = employee.EmployeeId;
                 lastNameTextBox.Text = employee.EmployeeLastName;
                 firstNameTextBox.Text = employee.EmployeeFirstName;
@@ -119,6 +125,14 @@ namespace Archivary.PARENT_FORMS
                 selectedFilePath = employee.EmployeeImagePath;
                 SetPictureBoxImage(employee.EmployeeImagePath);
             }
+        }
+        private void InitializeSettingInfo()
+        {
+            //Extract info for settings
+            setting = CommonOperation.GetSettingsFromDatabase();
+            borrowingCapacityLabel.Text = setting.borrowingCapacity.ToString();
+            reserveLimitTextBox.Text = setting.reserveLimit.ToString();
+            borrowingDurationTextBox.Text = setting.borrowingDuration.ToString();
         }
         private void SetPictureBoxImage(string imagePath)
         {
@@ -174,7 +188,7 @@ namespace Archivary.PARENT_FORMS
            {
                 //Check if any info has changed
                 if (firstNameTextBox.Text != userEmployee.EmployeeFirstName || lastNameTextBox.Text != userEmployee.EmployeeLastName ||
-                    middleInitialTextBox.Text != userEmployee.EmployeeMiddleName || emailAddressLabel.Text != userEmployee.EmployeeEmail ||
+                    middleInitialTextBox.Text != userEmployee.EmployeeMiddleName || emailAddressTextBox.Text != userEmployee.EmployeeEmail ||
                     concatAddress != userEmployee.EmployeeAddress || contactNumberTextBox.Text != userEmployee.EmployeeContactNum ||
                     selectedFilePath != userEmployee.EmployeeImagePath
                     )
@@ -237,7 +251,7 @@ namespace Archivary.PARENT_FORMS
            {
                 //Check if any info has changed
                 if (firstNameTextBox.Text != userAdmin.AdminFirstName || lastNameTextBox.Text != userAdmin.AdminLastName ||
-                    middleInitialTextBox.Text != userAdmin.AdminMiddleName || emailAddressLabel.Text != userAdmin.AdminEmail ||
+                    middleInitialTextBox.Text != userAdmin.AdminMiddleName || emailAddressTextBox.Text != userAdmin.AdminEmail ||
                     concatAddress != userAdmin.AdminAddress || contactNumberTextBox.Text != userAdmin.AdminContacNum ||
                     selectedFilePath != userAdmin.AdminImagePath
                     )
@@ -294,6 +308,36 @@ namespace Archivary.PARENT_FORMS
                         //Error message for input validation
                         MessageBox.Show(errorMessage[0] + "\n" + errorMessage[1]);
                     }
+                }
+                if(borrowingCapacityLabel.Text != setting.borrowingCapacity.ToString() || reserveLimitTextBox.Text != setting.reserveLimit.ToString()
+                    || borrowingDurationTextBox.Text != setting.borrowingDuration.ToString())
+                {
+                    if (!UserOperation.IsValidInteger(borrowingCapacityLabel.Text))
+                    {
+                        MessageBox.Show("Borrowing Capacity Input is Not a Valid Integer");
+                        return;
+                    }
+                    if (!UserOperation.IsValidInteger(reserveLimitTextBox.Text))
+                    {
+                        MessageBox.Show("Reserve Limit Input is Not a Valid Integer");
+                        return;
+                    }
+                    if (!UserOperation.IsValidInteger(borrowingDurationTextBox.Text))
+                    {
+                        MessageBox.Show("Borrowing Duration Input is Not a Valid Integer");
+                        return;
+                    }
+
+                    if (CommonOperation.UpdateSettings(
+                        int.Parse(borrowingCapacityLabel.Text),
+                        int.Parse(reserveLimitTextBox.Text),
+                        int.Parse(borrowingDurationTextBox.Text)
+                        ))
+                    {
+                        MessageBox.Show("Settings Update successful");
+                        InitializeSettingInfo();
+                    }
+                    else MessageBox.Show("Settings Update Unsuccessful");
                 }
            }
         }
