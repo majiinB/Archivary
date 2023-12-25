@@ -70,6 +70,7 @@
             this.changePassButton = new roundedCorners.roundedButton();
             this.userIDLabel = new System.Windows.Forms.Label();
             this.userId = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.LAYOUT_buttons.SuspendLayout();
             this.PANEL_CONTAINER.SuspendLayout();
             this.settings_Container.SuspendLayout();
@@ -112,7 +113,7 @@
             this.saveButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(483, 13);
             this.saveButton.Name = "saveButton";
@@ -121,6 +122,7 @@
             this.saveButton.Text = "Save";
             this.saveButton.TextColor = System.Drawing.Color.White;
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // editButton
             // 
@@ -132,7 +134,7 @@
             this.editButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.editButton.Location = new System.Drawing.Point(13, 13);
             this.editButton.Name = "editButton";
@@ -227,7 +229,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.borrowingCapacityLabel, 3);
             this.borrowingCapacityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.borrowingCapacityLabel.Enabled = false;
-            this.borrowingCapacityLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowingCapacityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.borrowingCapacityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.borrowingCapacityLabel.Location = new System.Drawing.Point(13, 36);
             this.borrowingCapacityLabel.Name = "borrowingCapacityLabel";
@@ -242,7 +244,7 @@
             this.label1.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
@@ -256,7 +258,7 @@
             this.reserveLimitLabel.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.reserveLimitLabel, 3);
             this.reserveLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reserveLimitLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reserveLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reserveLimitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.reserveLimitLabel.Location = new System.Drawing.Point(13, 64);
             this.reserveLimitLabel.Name = "reserveLimitLabel";
@@ -275,7 +277,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.reserveLimitTextBox, 3);
             this.reserveLimitTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reserveLimitTextBox.Enabled = false;
-            this.reserveLimitTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reserveLimitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reserveLimitTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.reserveLimitTextBox.Location = new System.Drawing.Point(13, 91);
             this.reserveLimitTextBox.Name = "reserveLimitTextBox";
@@ -290,7 +292,7 @@
             this.borrowingDurationLabel.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.borrowingDurationLabel, 3);
             this.borrowingDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borrowingDurationLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowingDurationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.borrowingDurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.borrowingDurationLabel.Location = new System.Drawing.Point(13, 119);
             this.borrowingDurationLabel.Name = "borrowingDurationLabel";
@@ -309,7 +311,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.borrowingDurationTextBox, 3);
             this.borrowingDurationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.borrowingDurationTextBox.Enabled = false;
-            this.borrowingDurationTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowingDurationTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.borrowingDurationTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.borrowingDurationTextBox.Location = new System.Drawing.Point(13, 147);
             this.borrowingDurationTextBox.Name = "borrowingDurationTextBox";
@@ -323,7 +325,7 @@
             // 
             this.systemSettingsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.systemSettingsLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.systemSettingsLabel.Font = new System.Drawing.Font("Montserrat Black", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.systemSettingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemSettingsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.systemSettingsLabel.Location = new System.Drawing.Point(0, 0);
             this.systemSettingsLabel.Name = "systemSettingsLabel";
@@ -382,7 +384,7 @@
             this.textBoxesContainer.Controls.Add(this.profilePic_Container, 2, 2);
             this.textBoxesContainer.Controls.Add(this.changePassButton, 0, 11);
             this.textBoxesContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxesContainer.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxesContainer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxesContainer.Location = new System.Drawing.Point(10, 87);
             this.textBoxesContainer.Name = "textBoxesContainer";
             this.textBoxesContainer.Padding = new System.Windows.Forms.Padding(10);
@@ -407,7 +409,7 @@
             this.securityLabel.AutoSize = true;
             this.textBoxesContainer.SetColumnSpan(this.securityLabel, 3);
             this.securityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.securityLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.securityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.securityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.securityLabel.Location = new System.Drawing.Point(13, 342);
             this.securityLabel.Name = "securityLabel";
@@ -421,7 +423,7 @@
             this.lastNameLabel.AutoSize = true;
             this.textBoxesContainer.SetColumnSpan(this.lastNameLabel, 3);
             this.lastNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.lastNameLabel.Location = new System.Drawing.Point(13, 10);
             this.lastNameLabel.Name = "lastNameLabel";
@@ -440,7 +442,7 @@
             this.textBoxesContainer.SetColumnSpan(this.lastNameTextBox, 3);
             this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lastNameTextBox.Enabled = false;
-            this.lastNameTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.lastNameTextBox.Location = new System.Drawing.Point(13, 45);
             this.lastNameTextBox.Name = "lastNameTextBox";
@@ -454,7 +456,7 @@
             // 
             this.firstNameLabel.AutoSize = true;
             this.firstNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.firstNameLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.firstNameLabel.Location = new System.Drawing.Point(13, 72);
             this.firstNameLabel.Name = "firstNameLabel";
@@ -472,7 +474,7 @@
             this.firstNameTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.firstNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.firstNameTextBox.Enabled = false;
-            this.firstNameTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.firstNameTextBox.Location = new System.Drawing.Point(13, 114);
             this.firstNameTextBox.Name = "firstNameTextBox";
@@ -486,7 +488,7 @@
             // 
             this.middleInitialLabel.AutoSize = true;
             this.middleInitialLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middleInitialLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleInitialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.middleInitialLabel.Location = new System.Drawing.Point(208, 72);
             this.middleInitialLabel.Name = "middleInitialLabel";
@@ -504,7 +506,7 @@
             this.middleInitialTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middleInitialTextBox.Enabled = false;
-            this.middleInitialTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleInitialTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.middleInitialTextBox.Location = new System.Drawing.Point(208, 114);
             this.middleInitialTextBox.Name = "middleInitialTextBox";
@@ -523,7 +525,7 @@
             this.emailAddressTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.emailAddressTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailAddressTextBox.Enabled = false;
-            this.emailAddressTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailAddressTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.emailAddressTextBox.Location = new System.Drawing.Point(13, 185);
             this.emailAddressTextBox.Name = "emailAddressTextBox";
@@ -537,7 +539,7 @@
             // 
             this.emailAddressLabel.AutoSize = true;
             this.emailAddressLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailAddressLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailAddressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.emailAddressLabel.Location = new System.Drawing.Point(13, 143);
             this.emailAddressLabel.Name = "emailAddressLabel";
@@ -550,7 +552,7 @@
             // 
             this.contactNumberLabel.AutoSize = true;
             this.contactNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumberLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.contactNumberLabel.Location = new System.Drawing.Point(208, 143);
             this.contactNumberLabel.Name = "contactNumberLabel";
@@ -568,7 +570,7 @@
             this.contactNumberTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.contactNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contactNumberTextBox.Enabled = false;
-            this.contactNumberTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.contactNumberTextBox.Location = new System.Drawing.Point(208, 185);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
@@ -583,7 +585,7 @@
             this.homeAddressLabel.AutoSize = true;
             this.textBoxesContainer.SetColumnSpan(this.homeAddressLabel, 2);
             this.homeAddressLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.homeAddressLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homeAddressLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.homeAddressLabel.Location = new System.Drawing.Point(13, 214);
             this.homeAddressLabel.Name = "homeAddressLabel";
@@ -601,7 +603,7 @@
             this.cityTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.cityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cityTextBox.Enabled = false;
-            this.cityTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cityTextBox.Location = new System.Drawing.Point(13, 256);
             this.cityTextBox.Name = "cityTextBox";
@@ -620,7 +622,7 @@
             this.barangayTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.barangayTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.barangayTextBox.Enabled = false;
-            this.barangayTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barangayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barangayTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.barangayTextBox.Location = new System.Drawing.Point(208, 256);
             this.barangayTextBox.Name = "barangayTextBox";
@@ -639,7 +641,7 @@
             this.streetTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.streetTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.streetTextBox.Enabled = false;
-            this.streetTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.streetTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.streetTextBox.Location = new System.Drawing.Point(13, 313);
             this.streetTextBox.Name = "streetTextBox";
@@ -659,7 +661,7 @@
             this.textBoxesContainer.SetColumnSpan(this.houseNumberTextBox, 2);
             this.houseNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.houseNumberTextBox.Enabled = false;
-            this.houseNumberTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.houseNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.houseNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.houseNumberTextBox.Location = new System.Drawing.Point(208, 313);
             this.houseNumberTextBox.Name = "houseNumberTextBox";
@@ -729,7 +731,7 @@
             this.uploadImageButton.Enabled = false;
             this.uploadImageButton.FlatAppearance.BorderSize = 0;
             this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadImageButton.Location = new System.Drawing.Point(0, 0);
             this.uploadImageButton.Name = "uploadImageButton";
@@ -738,6 +740,7 @@
             this.uploadImageButton.Text = "Upload Image";
             this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadImageButton.UseVisualStyleBackColor = false;
+            this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
             // 
             // changePassButton
             // 
@@ -752,7 +755,7 @@
             this.changePassButton.Enabled = false;
             this.changePassButton.FlatAppearance.BorderSize = 0;
             this.changePassButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changePassButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePassButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changePassButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.changePassButton.Location = new System.Drawing.Point(13, 384);
             this.changePassButton.Name = "changePassButton";
@@ -767,7 +770,7 @@
             // 
             this.userIDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.userIDLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userIDLabel.Font = new System.Drawing.Font("Montserrat Black", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userIDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.userIDLabel.Location = new System.Drawing.Point(10, 32);
             this.userIDLabel.Name = "userIDLabel";
@@ -778,7 +781,7 @@
             // userId
             // 
             this.userId.Dock = System.Windows.Forms.DockStyle.Top;
-            this.userId.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.userId.Location = new System.Drawing.Point(10, 10);
             this.userId.Name = "userId";
@@ -786,6 +789,10 @@
             this.userId.TabIndex = 2;
             this.userId.Text = "USER ID";
             this.userId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // FORM_SETTINGS
             // 
@@ -864,5 +871,6 @@
         private System.Windows.Forms.Label borrowingDurationLabel;
         private RoundedCorners.RoundedTextBox borrowingDurationTextBox;
         private System.Windows.Forms.Panel button_Container;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

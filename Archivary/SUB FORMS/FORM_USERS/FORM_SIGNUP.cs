@@ -1,4 +1,8 @@
-﻿using roundedCorners;
+﻿using Archivary._900X500;
+using Archivary.BACKEND.USER_OPERATIONS;
+using custom;
+using OfficeOpenXml.Packaging.Ionic.Zlib;
+using roundedCorners;
 using RoundedCorners;
 using System;
 using System.Collections.Generic;
@@ -15,11 +19,22 @@ namespace Archivary._1200X800.FORM_USERS
     public partial class FORM_SIGNUP : Form
     {
         private roundedButton currentBtn;
+        private int conditionForAdd = 0;
+        private string selectedFilePath = "";
+        private FORM_ALERT alert;
+
+        private enum UserAdd
+        {
+            Student = 0,
+            Teacher = 1,
+            Employee = 2,
+        }
 
         public FORM_SIGNUP()
         {
             InitializeComponent();
             ActivateButton(studentButton);
+            SetPictureBoxImage("No_image");
         }
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
@@ -32,13 +47,9 @@ namespace Archivary._1200X800.FORM_USERS
             DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(37, 211, 102), 3);//3 represents the border width
         }
 
-        private void lastNameTextBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            ClearAllTextBoxes(this);
             this.Close();
         }
         private void ActivateButton(object senderBtn)
@@ -65,8 +76,8 @@ namespace Archivary._1200X800.FORM_USERS
         {
             ActivateButton(sender);
             ClearAllTextBoxes(this);
-            profilePictureImageBox.Image = null; //to clear ImageBox when the button is clicked
-
+            SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
+            conditionForAdd = (int)UserAdd.Student;
             //visibility of textboxes and labels 
             collegeLabel.Visible = true;
             collegeTextBox.Visible = true;
@@ -82,7 +93,8 @@ namespace Archivary._1200X800.FORM_USERS
         {
             ActivateButton(sender);
             ClearAllTextBoxes(this);
-            profilePictureImageBox.Image = null; //to clear ImageBox when the button is clicked
+            SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
+            conditionForAdd = (int)UserAdd.Teacher;
 
             //visibility of textboxes and labels 
             collegeLabel.Visible = true;
@@ -100,7 +112,8 @@ namespace Archivary._1200X800.FORM_USERS
         {
             ActivateButton(sender);
             ClearAllTextBoxes(this);
-            profilePictureImageBox.Image = null; //to clear ImageBox when the button is clicked
+            SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
+            conditionForAdd = (int)UserAdd.Employee;
 
             //visibility of textboxes and labels 
             collegeLabel.Visible = false;
@@ -123,6 +136,279 @@ namespace Archivary._1200X800.FORM_USERS
                     ClearAllTextBoxes(textBoxes);
                 }
             }
+            SetPictureBoxImage("No_image");
+        }
+
+        private void uploadImageButton_Click(object sender, EventArgs e)
+        {
+            openFolderDialog.Filter = "JPEG Files|*.jpeg;*.jpg|PNG Files|*.png";
+
+            if (openFolderDialog.ShowDialog(this) == DialogResult.OK)
+            { 
+                selectedFilePath = openFolderDialog.FileName;
+                SetPictureBoxImage(selectedFilePath);
+            }
+        }
+        private void SetPictureBoxImage(string imagePath)
+        {
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
+
+                // Set the image to the PictureBox
+                profilePictureImageBox.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+            }
+            catch (Exception ex)
+            {
+                alert = new FORM_ALERT(1, "IMAGE LOAD ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //Concat address
+            string address = (houseNumberTextBox.Text + ", " + streetTextBox.Text + ", " + barangayTextBox.Text +
+                ", " + cityTextBox.Text);
+
+            string imageCon = "";
+            if (string.IsNullOrEmpty(selectedFilePath))
+            {
+                imageCon = "No_image";
+            }
+            else
+            {
+                imageCon = selectedFilePath;
+            }
+
+            if (conditionForAdd == (int)UserAdd.Student)
+            {
+                //Check for errors
+                string[] errorMessage = UserOperation.IsUserInputValid(
+                    firstNameTextBox.Text,
+                    lastNameTextBox.Text,
+                    middleInitialTextBox.Text,
+                    emailTextBox.Text,
+                    address,
+                    contactNumberTextBox.Text,
+                    imageCon,
+                    collegeTextBox.Text,
+                    yearTextBox.Text,
+                    sectionTextBox.Text
+                    );
+
+                //Execute operation if error message length is 0
+                if (errorMessage.Length == 0)
+                {
+                    if (string.IsNullOrEmpty(selectedFilePath))
+                    {
+                        if (UserOperation.AddStudent(
+                        firstNameTextBox.Text,
+                        lastNameTextBox.Text,
+                        middleInitialTextBox.Text,
+                        emailTextBox.Text,
+                        address,
+                        contactNumberTextBox.Text,
+                        collegeTextBox.Text,
+                        int.Parse(yearTextBox.Text),
+                        sectionTextBox.Text
+                        ))
+                        {
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Student: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();    
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        if (UserOperation.AddStudent(
+                        firstNameTextBox.Text,
+                        lastNameTextBox.Text,
+                        middleInitialTextBox.Text,
+                        emailTextBox.Text,
+                        address,
+                        contactNumberTextBox.Text,
+                        collegeTextBox.Text,
+                        int.Parse(yearTextBox.Text),
+                        sectionTextBox.Text,
+                        selectedFilePath
+                        ))
+                        {
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Student: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
+                }
+            }
+            else if (conditionForAdd == (int)UserAdd.Teacher)
+            {
+                //Check for errors
+                string[] errorMessage = UserOperation.IsUserInputValid(
+                    firstNameTextBox.Text,
+                    lastNameTextBox.Text,
+                    middleInitialTextBox.Text,
+                    emailTextBox.Text,
+                    address,
+                    contactNumberTextBox.Text,
+                    imageCon,
+                    collegeTextBox.Text
+                    );
+
+                //Execute operation if error message length is 0
+                if (errorMessage.Length == 0)
+                {
+                    if (string.IsNullOrEmpty(selectedFilePath))
+                    {
+                        if (UserOperation.AddTeacher(
+                            firstNameTextBox.Text,
+                            lastNameTextBox.Text,
+                            middleInitialTextBox.Text,
+                            emailTextBox.Text,
+                            address,
+                            contactNumberTextBox.Text,
+                            collegeTextBox.Text
+                            ))
+                        {
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Teacher: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        if (UserOperation.AddTeacher(
+                            firstNameTextBox.Text,
+                            lastNameTextBox.Text,
+                            middleInitialTextBox.Text,
+                            emailTextBox.Text,
+                            address,
+                            contactNumberTextBox.Text,
+                            collegeTextBox.Text,
+                            selectedFilePath
+                        ))
+                        {
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Teacher: " + lastNameTextBox.Text + " Successfully added!");
+                            alert.ShowDialog();
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
+                }
+            }
+            else if (conditionForAdd == (int)UserAdd.Employee)
+            {
+                //Check for errors
+                string[] errorMessage = UserOperation.IsUserInputValid(
+                    firstNameTextBox.Text,
+                    lastNameTextBox.Text,
+                    middleInitialTextBox.Text,
+                    emailTextBox.Text,
+                    address,
+                    contactNumberTextBox.Text,
+                    imageCon
+                    );
+
+                //Execute operation if error message length is 0
+                if (errorMessage.Length == 0)
+                {
+                    string password = UserOperation.GeneratePassword(); //generate random pass 
+
+                    if (string.IsNullOrEmpty(selectedFilePath))
+                    {
+                        if (UserOperation.AddAdminOrEmployee(
+                                emailTextBox.Text,
+                                lastNameTextBox.Text,
+                                firstNameTextBox.Text,                 
+                                middleInitialTextBox.Text,             
+                                address,
+                                contactNumberTextBox.Text,
+                                (int)UserOperation.UserLevel.Employee,
+                                password
+                            ))
+                        {
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                                "Employee password is : " + password);
+                            alert.ShowDialog();
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        if (UserOperation.AddAdminOrEmployee(
+                                emailTextBox.Text,
+                                lastNameTextBox.Text,
+                                firstNameTextBox.Text,
+                                middleInitialTextBox.Text,
+                                address,
+                                contactNumberTextBox.Text,
+                                (int)UserOperation.UserLevel.Employee,
+                                password,
+                                selectedFilePath
+                            ))
+                        {
+                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                                "Employee password is : " + password);
+                            alert.ShowDialog();
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
+                            alert.ShowDialog();
+                        }
+                    }
+                }
+                else
+                {
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
+                    alert.ShowDialog();
+                }
+            }
+            ClearAllTextBoxes(this);
         }
     }
 }

@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
+using Archivary._900X500;
+using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.USER_OPERATIONS;
 
 namespace Archivary._1500X1000.FORM_USERS
 {
     public partial class FORM_INFOTEACHER : Form
     {
-        private FORM_EDITTEACHER editInfo = new FORM_EDITTEACHER();
+        private FORM_EDITTEACHER editInfo;
+        private Teacher userTeacher;
+        private FORM_ALERT alert;
 
         private Color archivaryGreen()
         {
@@ -33,21 +38,29 @@ namespace Archivary._1500X1000.FORM_USERS
             return Color.FromArgb(20, 18, 18);
         }
 
-        public FORM_INFOTEACHER()
+        public FORM_INFOTEACHER(Teacher teacher)
         {
             InitializeComponent();
+            this.userTeacher = teacher;
+            InitializeTeacherInfo();
+            editInfo = new FORM_EDITTEACHER(teacher);
+        }
+        private void InitializeTeacherInfo()
+        {
+            userIDLabel.Text = userTeacher.TeacherId;
+            lastNameLabel.Text = userTeacher.TeacherLastName;
+            firstNameLabel.Text = userTeacher.TeacherFirstName;
+            middleNameLabel.Text = userTeacher.TeacherMiddleName;
+            collegeLabel.Text = userTeacher.TeacherDepartment;
+            emailLabel.Text = userTeacher.TeacherEmail;
+            contactNumLabel.Text = userTeacher.TeacherContactNum;
+            addressLabel.Text = userTeacher.TeacherAddress;
+            statusColor(userTeacher.TeacherStatus);
+            SetPictureBoxImage(userTeacher.TeacherImagePath);
         }
 
         private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
         {
-            String status = "Deactivated";
-            statusColor(status);
-
-            //sample data, pwede toh burahin mga pre
-            collegeLabel.Text = "College of ememeehahfdakjdfhdjk";
-            emailLabel.Text = "sampleemail@email.com";
-            contactNumLabel.Text = "00000000000";
-            addressLabel.Text = "Bldg No, Street, Brgy., City";
             Random random = new Random();
             string[] returnStatus = { "Overdue", "Not Overdue" };
             String randomStatus;
@@ -74,7 +87,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private void editInfoButton_Click(object sender, EventArgs e)
         {
             editInfo.ShowDialog();
-
+            InitializeTeacherInfo();
         }
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -82,7 +95,7 @@ namespace Archivary._1500X1000.FORM_USERS
         }
         private void statusColor(String status)
         {
-            if (status == "Active")
+            if (status == "ACTIVE")
             {
                 editInfoButton.BackColor = archivaryGreen();
                 editInfoButton.ForeColor = archivaryBlack();
@@ -93,7 +106,7 @@ namespace Archivary._1500X1000.FORM_USERS
                 BackColor = archivaryGreen();
                 userIDLabel.ForeColor = archivaryGreen();
             }
-            else if (status == "Deactivated")
+            else if (status == "INACTIVE")
             {
                 editInfoButton.BackColor = archivaryRed();
                 editInfoButton.ForeColor = archivaryWhite();
@@ -105,6 +118,51 @@ namespace Archivary._1500X1000.FORM_USERS
                 userIDLabel.ForeColor = archivaryRed();
             }
         }
+        private void SetPictureBoxImage(string imagePath)
+        {
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
 
+                // Set the image to the PictureBox
+                roundedPictureBox1.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                roundedPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                roundedPictureBox1.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                roundedPictureBox1.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                //accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                //accountPictureBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+            }
+            catch (Exception ex)
+            {
+                alert = new FORM_ALERT(1, "LOAD IMAGE ERROR", $"Error loading image: {ex.Message}");
+                alert.ShowDialog();
+            }
+        }
+
+        private void changeStatusButton_Click(object sender, EventArgs e)
+        {
+            if (userTeacher.TeacherStatus == "ACTIVE")
+            {
+                UserOperation.UpdateUserStatus(userTeacher.TeacherUserId, "INACTIVE");
+                statusColor("INACTIVE");
+                userTeacher.TeacherStatus = "INACTIVE";
+            }
+            else
+            {
+                UserOperation.UpdateUserStatus(userTeacher.TeacherUserId, "ACTIVE");
+                statusColor("ACTIVE");
+                userTeacher.TeacherStatus = "ACTIVE";
+            }
+        }
     }
 }

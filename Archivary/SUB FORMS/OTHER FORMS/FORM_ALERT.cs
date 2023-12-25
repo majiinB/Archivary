@@ -12,9 +12,35 @@ namespace Archivary._900X500
 {
     public partial class FORM_ALERT : Form
     {
-        public FORM_ALERT()
+        public enum KIND_OF_ALERT
+        {
+            Error = 1,
+            Confirmation = 2,
+            Success = 3
+        }
+        public FORM_ALERT(int condition, string errorTitle, string errorMessage)
         {
             InitializeComponent();
+
+            //initialize message
+            alertTitleLabel.Text = errorTitle;
+            alertMessageLabel.Text = errorMessage;
+
+            //Condition
+            if(condition == (int)KIND_OF_ALERT.Error)
+            {
+                //Apply logic kung ano gusto niyo baguhin dito kung error
+                cancelButton.Visible = false;
+            }
+            else if (condition == (int)KIND_OF_ALERT.Success)
+            {
+                //Apply logic kung ano gusto niyo baguhin dito kung success
+                cancelButton.Visible = false;
+            }
+            else if (condition == (int)KIND_OF_ALERT.Confirmation)
+            {
+                //Apply logic kung ano gusto niyo baguhin dito kung confirmation
+            }
         }
 
         private void FORM_ALERT_Load(object sender, EventArgs e)
@@ -34,6 +60,11 @@ namespace Archivary._900X500
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void continueButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

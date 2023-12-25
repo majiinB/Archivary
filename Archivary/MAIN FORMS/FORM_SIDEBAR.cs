@@ -1,4 +1,5 @@
-﻿using Archivary.PARENT_FORMS;
+﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.PARENT_FORMS;
 using Archivary.Properties;
 using Archivary.SUB_FORMS;
 using sidebarComponents;
@@ -22,20 +23,30 @@ namespace Archivary
         private FORM_ROOT FormsRoot;
         private FORM_LIBRARY FormsLibrary = new FORM_LIBRARY();
         //private FORM_CIRCULATION FormsCirculation;
-        private FORM_USERS FormsUsers = new FORM_USERS();
+        private FORM_USERS FormsUsers;
         private FORM_REPORTS FormsReports = new FORM_REPORTS();
-        private FORM_SETTINGS FormsSettings = new FORM_SETTINGS();
+        private FORM_SETTINGS FormsSettings;
         private FORM_BORROW FormsBorrow = new FORM_BORROW();
         private FORM_RETURN FormsReturn = new FORM_RETURN();
+        private object user;
 
         private bool isToggled = false;
 
         private readonly Size minimumSize = new Size(960, 650);
 
-        public FORM_SIDEBAR(FORM_ROOT showFormsRoot)
+        public FORM_SIDEBAR(FORM_ROOT showFormsRoot,  object user)
         {
             InitializeComponent();
+           
             FormsRoot = showFormsRoot;
+            this.user = user;
+
+            //Initialize other components and pass the user object
+            FormsUsers = new FORM_USERS(user);
+            FormsSettings = new FORM_SETTINGS(user);
+
+            //Subscribe to form_settings save event
+            FormsSettings.SaveButtonClicked += FormSetting_SaveButtonClicked;
 
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;
@@ -44,9 +55,49 @@ namespace Archivary
             libraryButton_Click(libraryButton, EventArgs.Empty);
 
             sidebarControlsSize();
+
+            //Check what kind of user
+            if (user is Admin)
+            {
+                Admin admin = (Admin)user;
+                SetPictureBoxImage(admin.AdminImagePath);
+            }
+            else
+            {
+                Employee employee = (Employee)user;
+                SetPictureBoxImage(employee.EmployeeImagePath);
+            }
+        }
+        private void SetPictureBoxImage(string imagePath)
+        {
+            try
+            {
+                // Load the image from the file
+                var image = Image.FromFile(imagePath);
+
+                // Set the image to the PictureBox
+                accountPictureBox.Image = image;
+
+                // Optionally, adjust the PictureBox size to fit the image
+                //accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                //accountPictureBox.Size = image.Size;
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                // Load a default image from resources and set it to the PictureBox
+                accountPictureBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+
+                // Optionally, adjust the PictureBox size to fit the default image
+                //accountPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                //accountPictureBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        
 
         //
         // SIDEBAR FIXED SIZES FOR OVERRIDE DO NOT TOUCH JEBAL
@@ -295,7 +346,15 @@ namespace Archivary
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            ToggleForm(FormsSettings, sender);
+            ToggleForm(FormsSettings, sender); 
+            //if(user is Employee employee)
+            //{
+            //    SetPictureBoxImage(employee.EmployeeImagePath);
+            //}else if(user is Admin admin)
+            //{
+            //    SetPictureBoxImage(admin.AdminImagePath);
+            //}
+            
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
@@ -414,7 +473,18 @@ namespace Archivary
             }
         }
 
-
+        //Subscribe to form setting event
+        private void FormSetting_SaveButtonClicked(object sender, EventArgs e)
+        {
+            if(user is Admin admin)
+            {
+                SetPictureBoxImage(admin.AdminImagePath);
+            }
+            else if(user is Employee employee)
+            {
+                SetPictureBoxImage(employee.EmployeeImagePath);
+            }
+        }
 
     }
 }
