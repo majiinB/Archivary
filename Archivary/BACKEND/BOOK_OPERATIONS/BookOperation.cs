@@ -31,7 +31,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    if (categoryFilter.ToUpper() != "ALL")
+                    if (categoryFilter.ToUpper() != "All")
                     {
                         command.Parameters.AddWithValue("@category", categoryFilter);
                     }
@@ -63,6 +63,36 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
             return booksList;
         }
+
+        public static List<Book> SearchBooks(List<Book> books, string searchTerm)
+        {
+            // If the search term is empty, return all books
+            if (string.IsNullOrWhiteSpace(searchTerm) || searchTerm == "Search Book")
+            {
+                return books;
+            }
+
+            // Convert the search term to lowercase for case-insensitive search
+            string searchTermLower = searchTerm.ToLower();
+
+            // Use LINQ to perform the search
+            List<Book> searchResults = books
+                .Where(book =>
+                    book.BookTitle.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookAuthor.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookGenre.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookISBN.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookCategory.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookPublisher.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookStatus.ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookAisle.ToString().ToLower().Contains(searchTermLower.ToLower()) ||
+                    book.BookShelf.ToString().ToLower().Contains(searchTermLower.ToLower())
+                )
+                .ToList();
+
+            return searchResults;
+        }
+
 
 
     }
