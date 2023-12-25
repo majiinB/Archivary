@@ -23,9 +23,10 @@ namespace Archivary.PARENT_FORMS
         private bookDetails bookInfo;
         private FORM_BOOKADD FormsBookAdd;
         private int start = 0;
+        private int end = 0;
         private int max = 0;
         private int pagesToAdd = 10;
-        private Dictionary<int, Book> booksDictionary;
+        private List<Book> booksDictionary;
         private List<int> keys;
         private bool isDataLoading = false;
 
@@ -86,8 +87,7 @@ namespace Archivary.PARENT_FORMS
 
         private async Task LoadListAsync()
         {
-            booksDictionary = BACKEND.BOOK_OPERATIONS.BookOperation.LoadBooksFromDatabase();
-            keys = booksDictionary.Keys.ToList();
+            booksDictionary = BACKEND.BOOK_OPERATIONS.BookOperation.LoadBooksFromDatabase("ALL");
             max = booksDictionary.Count();
             await Task.Run(() =>
             {
@@ -98,16 +98,19 @@ namespace Archivary.PARENT_FORMS
                 // Adjust padding to provide space at the bottom
                 libraryList.Padding = new Padding(0, 0, 0, 10);
 
-                if (start <= max)
+                if (start < max)
                 {
-                    var booksAdded = keys.Skip(start).Take(pagesToAdd);
-                    foreach (int key in booksAdded)
-                    {
-                        Book bookAdded = booksDictionary[key];
-                        if (bookAdded != null) CreateButtonsAsync(bookAdded);
-                        start++;
-                    }
+                    if (start == 0) end = 10;
+                    else if (start > 0)end = start + pagesToAdd;
 
+                    if (end > max) end = max;
+
+                    for(int i = start; i < end; i++)
+                    {
+                        Book bookAdded = booksDictionary[i];
+                        if (bookAdded != null) CreateButtonsAsync(bookAdded);
+                    }
+                    start = end;
                 }
 
                 isDataLoading = false;
@@ -192,31 +195,22 @@ namespace Archivary.PARENT_FORMS
         {
             filterSearchButton.Text = "All";
         }
-
-        private void bookNameToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FictionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            filterSearchButton.Text = "Book Name";
+
         }
 
-        private void authorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NonFictionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            filterSearchButton.Text = "Author";
+
         }
 
-        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AcademicToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            filterSearchButton.Text = "Category";
+
         }
 
-        private void genreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            filterSearchButton.Text = "Genre";
-        }
 
-        private void ISBNToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            filterSearchButton.Text = "ISBN";
-        }
 
         //Scroll events to load other data
         private void libraryList_Scroll(object sender, ScrollEventArgs e)
@@ -244,5 +238,7 @@ namespace Archivary.PARENT_FORMS
             }
 
         }
+
+       
     }
 }
