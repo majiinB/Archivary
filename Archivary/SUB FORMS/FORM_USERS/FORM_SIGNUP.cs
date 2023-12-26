@@ -87,6 +87,8 @@ namespace Archivary._1200X800.FORM_USERS
             sectionLabel.Visible = true;
             sectionTextBox.Visible = true;
             collegeTextBox.Size = new System.Drawing.Size(398, 38);
+            uploadExcelFIleButton.Visible = true;
+
         }
 
         private void teacherButton_Click(object sender, EventArgs e)
@@ -105,6 +107,7 @@ namespace Archivary._1200X800.FORM_USERS
             sectionLabel.Visible = false;
             sectionTextBox.Visible = false;
             collegeTextBox.Size = new System.Drawing.Size(651, 38);
+            uploadExcelFIleButton.Visible = true;
 
         }
 
@@ -122,6 +125,7 @@ namespace Archivary._1200X800.FORM_USERS
             yearTextBox.Visible = false;
             sectionLabel.Visible = false;
             sectionTextBox.Visible = false;
+            uploadExcelFIleButton.Visible = false;
         }
         private void ClearAllTextBoxes(Control control)
         {
