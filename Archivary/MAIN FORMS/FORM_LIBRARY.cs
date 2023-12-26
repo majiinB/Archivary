@@ -139,8 +139,8 @@ namespace Archivary.PARENT_FORMS
 
         private async void NonFictionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            filterSearchButton.Text = "Non Fiction";
-            filter = "Non Fiction";
+            filterSearchButton.Text = "Nonfiction";
+            filter = "Nonfiction";
             await FilterBooks();
         }
 

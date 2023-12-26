@@ -164,33 +164,33 @@
             this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
             this.filterDropdown.Name = "dropdownMenu1";
             this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Size = new System.Drawing.Size(137, 92);
+            this.filterDropdown.Size = new System.Drawing.Size(132, 92);
             // 
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.allToolStripMenuItem.Text = "All";
             this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
             // FictionToolStripMenuItem
             // 
             this.FictionToolStripMenuItem.Name = "FictionToolStripMenuItem";
-            this.FictionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.FictionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.FictionToolStripMenuItem.Text = "Fiction";
             this.FictionToolStripMenuItem.Click += new System.EventHandler(this.FictionToolStripMenuItem_Click);
             // 
             // NonFictionToolStripMenuItem
             // 
             this.NonFictionToolStripMenuItem.Name = "NonFictionToolStripMenuItem";
-            this.NonFictionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.NonFictionToolStripMenuItem.Text = "Non Fiction";
+            this.NonFictionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.NonFictionToolStripMenuItem.Text = "Nonfiction";
             this.NonFictionToolStripMenuItem.Click += new System.EventHandler(this.NonFictionToolStripMenuItem_Click);
             // 
             // AcademicToolStripMenuItem
             // 
             this.AcademicToolStripMenuItem.Name = "AcademicToolStripMenuItem";
-            this.AcademicToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.AcademicToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.AcademicToolStripMenuItem.Text = "Academic";
             this.AcademicToolStripMenuItem.Click += new System.EventHandler(this.AcademicToolStripMenuItem_Click);
             // 
