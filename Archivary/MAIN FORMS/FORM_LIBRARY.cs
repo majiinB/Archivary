@@ -31,6 +31,7 @@ namespace Archivary.PARENT_FORMS
         private List<Book> booksDictionary;
         private List<Book> booksSearched;
         private bool isDataLoading = false; 
+        private bool startSearch = false;
         private Timer searchTimer;
 
         //
@@ -99,6 +100,7 @@ namespace Archivary.PARENT_FORMS
                 searchBar.Text = "";
                 searchBar.Font = new Font("Montserrat", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
                 searchBar.ForeColor = archivaryWhite();
+                startSearch = true;
             }
         }
 
@@ -106,6 +108,7 @@ namespace Archivary.PARENT_FORMS
         {
             if (searchBar.Text == "")
             {
+                startSearch = false;
                 searchBar.Text = "Search Book";
                 searchBar.ForeColor = archivaryHoverGray();
                 searchBar.Font = new Font("Montserrat Light", 10.2F, FontStyle.Italic, GraphicsUnit.Point, 0);
@@ -323,7 +326,7 @@ namespace Archivary.PARENT_FORMS
          */
         private async void searchBar_TextChanged(object sender, EventArgs e)
         {
-            if(searchBar!= null && searchTimer != null) //Check muna kung may text box talaga pati timer
+            if(searchBar!= null && searchTimer != null && startSearch) //Check muna kung may text box talaga pati timer
             {
                 // Restart the timer on each text change
                 searchTimer.Stop();//Pag nag type ka stop yung timer para di umabot sa 500ms
