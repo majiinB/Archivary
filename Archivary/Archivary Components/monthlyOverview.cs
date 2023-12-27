@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archivary.BACKEND.COMMON_OPERATIONS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +17,14 @@ namespace Archivary.Archivary_Components
         public monthlyOverview()
         {
             InitializeComponent();
-
         }
-
         private void monthlyOverview_Load(object sender, EventArgs e)
         {
-
+            monthlyUserCountLabel.Text = CommonOperation.GetUserCount().ToString();
+            monthlyReservedCountLabel.Text = CommonOperation.GetReservedBooksCountForCurrentMonth().ToString();
+            monthlyLoanedCountLabel.Text = CommonOperation.GetBorrowedBooksCountForCurrentMonth().ToString();
+            monthlyReturnedCountLabel.Text = CommonOperation.GetReturnedBooksCountForCurrentMonth().ToString();
+            monthlyCopiesCountLabel.Text = CommonOperation.GetBookCount().ToString();
         }
 
         #region Properties
