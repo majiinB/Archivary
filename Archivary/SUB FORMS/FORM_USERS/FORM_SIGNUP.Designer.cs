@@ -372,6 +372,7 @@
             this.profilePictureImageBox.Name = "profilePictureImageBox";
             this.PANEL_CONTENTS.SetRowSpan(this.profilePictureImageBox, 5);
             this.profilePictureImageBox.Size = new System.Drawing.Size(246, 203);
+            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePictureImageBox.TabIndex = 42;
             this.profilePictureImageBox.TabStop = false;
             // 

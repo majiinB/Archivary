@@ -148,21 +148,21 @@ namespace Archivary._1200X800.FORM_USERS
                 var image = Image.FromFile(imagePath);
 
                 // Set the image to the PictureBox
-                pictureBox1.Image = image;
+                profilePictureImageBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.Size = image.Size;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
             {
                 // Handle the case when the file is not found
                 // Load a default image from resources and set it to the PictureBox
-                pictureBox1.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+                profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
 
                 // Optionally, adjust the PictureBox size to fit the default image
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
             }
             catch (Exception ex)
             {

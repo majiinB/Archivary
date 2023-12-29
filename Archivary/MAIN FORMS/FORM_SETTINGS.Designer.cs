@@ -28,6 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Fantasy"}, -1, System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244))))), System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Mystery"}, -1, System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244))))), System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Thriller"}, -1, System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244))))), System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Romance"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Horror"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Children\'s Literature"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Science Fiction"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Historical Fiction"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Young Adult"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Action"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Adventure"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Supernatural"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Comedy/Satire"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem44 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Psychological Fiction"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
+            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Apocalyptic/Post-Apocalyptic"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             this.LAYOUT_buttons = new System.Windows.Forms.TableLayoutPanel();
             this.saveButton = new roundedCorners.roundedButton();
             this.editButton = new roundedCorners.roundedButton();
@@ -42,6 +72,14 @@
             this.reserveLimitTextBox = new RoundedCorners.RoundedTextBox();
             this.borrowingDurationLabel = new System.Windows.Forms.Label();
             this.borrowingDurationTextBox = new RoundedCorners.RoundedTextBox();
+            this.categAndGenreContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.acadButton = new roundedCorners.roundedButton();
+            this.nonFicButton = new roundedCorners.roundedButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fictionButton = new roundedCorners.roundedButton();
+            this.listViewContainer = new System.Windows.Forms.Panel();
+            this.genreListView = new System.Windows.Forms.ListView();
+            this.genreHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.systemSettingsLabel = new System.Windows.Forms.Label();
             this.userSettings_Container = new RoundedCorners.RoundedPanel();
             this.user_Container = new System.Windows.Forms.Panel();
@@ -77,6 +115,8 @@
             this.systemSettings_Container.SuspendLayout();
             this.system_Container.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.categAndGenreContainer.SuspendLayout();
+            this.listViewContainer.SuspendLayout();
             this.userSettings_Container.SuspendLayout();
             this.user_Container.SuspendLayout();
             this.textBoxesContainer.SuspendLayout();
@@ -204,6 +244,7 @@
             this.tableLayoutPanel1.Controls.Add(this.reserveLimitTextBox, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.borrowingDurationLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.borrowingDurationTextBox, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.categAndGenreContainer, 0, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 129);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -320,6 +361,158 @@
             this.borrowingDurationTextBox.TabIndex = 7;
             this.borrowingDurationTextBox.Text = "002";
             this.borrowingDurationTextBox.UseSystemPasswordChar = false;
+            // 
+            // categAndGenreContainer
+            // 
+            this.categAndGenreContainer.ColumnCount = 3;
+            this.categAndGenreContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.43851F));
+            this.categAndGenreContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.11749F));
+            this.categAndGenreContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.444F));
+            this.categAndGenreContainer.Controls.Add(this.acadButton, 2, 1);
+            this.categAndGenreContainer.Controls.Add(this.nonFicButton, 1, 1);
+            this.categAndGenreContainer.Controls.Add(this.label2, 0, 0);
+            this.categAndGenreContainer.Controls.Add(this.fictionButton, 0, 1);
+            this.categAndGenreContainer.Controls.Add(this.listViewContainer, 0, 3);
+            this.categAndGenreContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categAndGenreContainer.Location = new System.Drawing.Point(13, 178);
+            this.categAndGenreContainer.Name = "categAndGenreContainer";
+            this.categAndGenreContainer.RowCount = 4;
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.64425F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.95327F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.201345F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.02804F));
+            this.categAndGenreContainer.Size = new System.Drawing.Size(300, 214);
+            this.categAndGenreContainer.TabIndex = 8;
+            // 
+            // acadButton
+            // 
+            this.acadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.acadButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.acadButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.acadButton.BorderRadius = 20;
+            this.acadButton.BorderSize = 2;
+            this.acadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.acadButton.FlatAppearance.BorderSize = 0;
+            this.acadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.acadButton.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.acadButton.Location = new System.Drawing.Point(202, 27);
+            this.acadButton.Name = "acadButton";
+            this.acadButton.Size = new System.Drawing.Size(95, 25);
+            this.acadButton.TabIndex = 3;
+            this.acadButton.Text = "Academic";
+            this.acadButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.acadButton.UseVisualStyleBackColor = false;
+            this.acadButton.Click += new System.EventHandler(this.acadButton_Click);
+            // 
+            // nonFicButton
+            // 
+            this.nonFicButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.nonFicButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.nonFicButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.nonFicButton.BorderRadius = 20;
+            this.nonFicButton.BorderSize = 2;
+            this.nonFicButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nonFicButton.FlatAppearance.BorderSize = 0;
+            this.nonFicButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nonFicButton.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nonFicButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.nonFicButton.Location = new System.Drawing.Point(97, 27);
+            this.nonFicButton.Name = "nonFicButton";
+            this.nonFicButton.Size = new System.Drawing.Size(99, 25);
+            this.nonFicButton.TabIndex = 2;
+            this.nonFicButton.Text = "Nonfiction";
+            this.nonFicButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.nonFicButton.UseVisualStyleBackColor = false;
+            this.nonFicButton.Click += new System.EventHandler(this.nonFicButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.categAndGenreContainer.SetColumnSpan(this.label2, 3);
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(294, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "CATEGORY";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // fictionButton
+            // 
+            this.fictionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.fictionButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.fictionButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.fictionButton.BorderRadius = 20;
+            this.fictionButton.BorderSize = 2;
+            this.fictionButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fictionButton.FlatAppearance.BorderSize = 0;
+            this.fictionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fictionButton.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fictionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.fictionButton.Location = new System.Drawing.Point(3, 27);
+            this.fictionButton.Name = "fictionButton";
+            this.fictionButton.Size = new System.Drawing.Size(88, 25);
+            this.fictionButton.TabIndex = 1;
+            this.fictionButton.Text = "Fiction";
+            this.fictionButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.fictionButton.UseVisualStyleBackColor = false;
+            this.fictionButton.Click += new System.EventHandler(this.fictionButton_Click);
+            // 
+            // listViewContainer
+            // 
+            this.listViewContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.categAndGenreContainer.SetColumnSpan(this.listViewContainer, 3);
+            this.listViewContainer.Controls.Add(this.genreListView);
+            this.listViewContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewContainer.Location = new System.Drawing.Point(3, 64);
+            this.listViewContainer.Name = "listViewContainer";
+            this.listViewContainer.Padding = new System.Windows.Forms.Padding(1);
+            this.listViewContainer.Size = new System.Drawing.Size(294, 147);
+            this.listViewContainer.TabIndex = 4;
+            // 
+            // genreListView
+            // 
+            this.genreListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.genreListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.genreListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.genreHeader});
+            this.genreListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreListView.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genreListView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.genreListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.genreListView.HideSelection = false;
+            this.genreListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem31,
+            listViewItem32,
+            listViewItem33,
+            listViewItem34,
+            listViewItem35,
+            listViewItem36,
+            listViewItem37,
+            listViewItem38,
+            listViewItem39,
+            listViewItem40,
+            listViewItem41,
+            listViewItem42,
+            listViewItem43,
+            listViewItem44,
+            listViewItem45});
+            this.genreListView.Location = new System.Drawing.Point(1, 1);
+            this.genreListView.Name = "genreListView";
+            this.genreListView.Size = new System.Drawing.Size(292, 145);
+            this.genreListView.TabIndex = 0;
+            this.genreListView.UseCompatibleStateImageBehavior = false;
+            this.genreListView.View = System.Windows.Forms.View.Details;
+            this.genreListView.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.genreListView_DrawColumnHeader);
+            this.genreListView.SizeChanged += new System.EventHandler(this.genreListView_SizeChanged);
+            // 
+            // genreHeader
+            // 
+            this.genreHeader.Text = "GENRE";
+            this.genreHeader.Width = 100;
             // 
             // systemSettingsLabel
             // 
@@ -816,6 +1009,9 @@
             this.system_Container.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.categAndGenreContainer.ResumeLayout(false);
+            this.categAndGenreContainer.PerformLayout();
+            this.listViewContainer.ResumeLayout(false);
             this.userSettings_Container.ResumeLayout(false);
             this.user_Container.ResumeLayout(false);
             this.textBoxesContainer.ResumeLayout(false);
@@ -872,5 +1068,13 @@
         private RoundedCorners.RoundedTextBox borrowingDurationTextBox;
         private System.Windows.Forms.Panel button_Container;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.TableLayoutPanel categAndGenreContainer;
+        private System.Windows.Forms.Label label2;
+        private roundedCorners.roundedButton fictionButton;
+        private roundedCorners.roundedButton acadButton;
+        private roundedCorners.roundedButton nonFicButton;
+        private System.Windows.Forms.Panel listViewContainer;
+        private System.Windows.Forms.ListView genreListView;
+        private System.Windows.Forms.ColumnHeader genreHeader;
     }
 }
