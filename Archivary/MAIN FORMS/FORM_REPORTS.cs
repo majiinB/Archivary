@@ -53,54 +53,78 @@ namespace Archivary.PARENT_FORMS
 
         private async Task LoadReports()
         {
-            await Task.Run(async () =>
+            await Task.Run(async() =>
             {
-                Task.Delay(100).Wait();
-                await loadMonthlyOverview();
-                await BooksBorrowed();
+                try
+                {
+                    Task.Delay(500).Wait();
+                    await LoadMonthlyOverview();
+                    await BooksBorrowed();
+                }
+                catch (Exception ex)
+                {
+                    // Handle or log the exception
+                    MessageBox.Show($"An error occurred: {ex.Message}");
+                }
             });
         }
-        private async Task loadMonthlyOverview()
+        private async Task LoadMonthlyOverview()
         {
-            if(LAYOUT_REPORT.InvokeRequired)
+            try
             {
-                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(() => loadMonthlyOverview()));
-                return;
-            }
-
-            monthlyOverview = new monthlyOverview();
-            LAYOUT_REPORT.Controls.Add(monthlyOverview);
-            monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-            monthlyOverview.Height = LAYOUT_REPORT.ClientSize.Width /2;
-
-            //load monthly overview charts
-            for (int y = 0; y < CommonOperation.GENRES.Length; y++)
-            {
-                if (y < CommonOperation.CATEGORIES.Length)
+                if (LAYOUT_REPORT.InvokeRequired)
                 {
-                    string category = CommonOperation.CATEGORIES[y];
-                    monthlyOverview.CategoryCopies.Points.AddXY(category, CommonOperation.CountBooksByCategory(category));
+                    LAYOUT_REPORT.BeginInvoke(new MethodInvoker(async () => await LoadMonthlyOverview()));
+                    return;
                 }
-                string genre = CommonOperation.GENRES[y];
-                monthlyOverview.GenreCopies.Points.AddXY(genre, CommonOperation.CountBooksByGenre(genre));
-            }
-            //load monthly overview book circulation info
-            for (int i = 0; i < CommonOperation.MONTHS.Length; i++)
-            {
-                //Circulation chart info
-                string month = CommonOperation.MONTHS[i];
-                monthlyOverview.BooksLoaned.Points.AddXY(month, CommonOperation.GetBorrowedBooksCountForMonth(i + 1));
-                monthlyOverview.BooksReserved.Points.AddXY(month, CommonOperation.GetReservedBooksCountForMonth(i + 1));
-                monthlyOverview.BooksReturned.Points.AddXY(month, CommonOperation.GetReturnedBooksCountForMonth(i + 1));
-            }
 
-            isDataLoading = false;
+                monthlyOverview = new monthlyOverview();
+                LAYOUT_REPORT.Controls.Add(monthlyOverview);
+                monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 30;
+                monthlyOverview.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+
+                //load monthly overview charts
+                for (int y = 0; y < CommonOperation.GENRES.Length; y++)
+                {
+                    if (y < CommonOperation.CATEGORIES.Length)
+                    {
+                        //Get category in the CATEGORIES array in CommonOperations class
+                        string category = CommonOperation.CATEGORIES[y];
+                        //Get Book Count asynchronously in the CommonOperations class
+                        int categoryCount = await CommonOperation.CountBooksByCategoryAsync(category);
+                        //Add the information as a point in the monthly overview category copies chart
+                        monthlyOverview.CategoryCopies.Points.AddXY(category, categoryCount);
+                    }
+                    string genre = CommonOperation.GENRES[y];
+                    int genreCount = await CommonOperation.CountBooksByGenreAsync(genre);
+                    monthlyOverview.GenreCopies.Points.AddXY(genre, genreCount);
+                }
+                //load monthly overview book circulation info
+                for (int i = 0; i < CommonOperation.MONTHS.Length; i++)
+                {
+                    //Circulation chart info
+                    string month = CommonOperation.MONTHS[i]; //Get months in commonoperations class MONTHS array
+                                                              //Get info from database
+                    int borroweBooksCount = await CommonOperation.GetBorrowedBooksCountForMonthAsync(i + 1);
+                    int reservedBooksCount = await CommonOperation.GetReservedBooksCountForMonthAsync(i + 1);
+                    int returnedBooksCount = await CommonOperation.GetReturnedBooksCountForMonthAsync(i + 1);
+                    //Insert info to make a point in the monthly overview chart
+                    monthlyOverview.BooksLoaned.Points.AddXY(month, borroweBooksCount);
+                    monthlyOverview.BooksReserved.Points.AddXY(month, reservedBooksCount);
+                    monthlyOverview.BooksReturned.Points.AddXY(month, returnedBooksCount);
+                }
+                isDataLoading = false;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"An Error Has Occured in LoadMonthlyOverview {ex.Message}");
+            }
         }
         private async Task BooksBorrowed()
         {
             if (LAYOUT_REPORT.InvokeRequired)
             {
-                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(() => BooksBorrowed()));
+                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(async () => await BooksBorrowed()));
                 return;
             }
 
@@ -122,7 +146,7 @@ namespace Archivary.PARENT_FORMS
         {
             if (LAYOUT_REPORT.InvokeRequired)
             {
-                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(() => BooksBorrowed()));
+                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(async() => await BooksReserved()));
                 return;
             }
 

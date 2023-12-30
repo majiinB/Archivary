@@ -86,19 +86,19 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         #endregion
 
         #region Reports
-        public static int GetUserCount()
+        public static async Task<int> GetUserCountAsync()
         {
             int userCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 string query = "SELECT COUNT(*) as userCount FROM users WHERE status = 'ACTIVE' AND (user_level = 1 OR user_level = 2);";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -106,22 +106,21 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     }
                 }
             }
-
             return userCount;
         }
-        public static int GetBookCount()
+        public static async Task<int> GetBookCountAsync()
         {
             int bookCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 string query = "SELECT COUNT(*) as bookCount FROM books;";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -134,15 +133,15 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         }
 
         //Methods to retrieve counts for books borrowed, reserved, returned for the current month
-        public static int GetBorrowedBooksCountForCurrentMonth()
+        public static async Task<int> GetBorrowedBooksCountForCurrentMonthAsync()
         {
-            int reservedBooksCount = 0;
+            int borrowedBooksCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                //Get the current month and year
+                // Get the current month and year
                 DateTime currentDate = DateTime.Now;
                 int currentMonth = currentDate.Month;
                 int currentYear = currentDate.Year;
@@ -156,26 +155,26 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     command.Parameters.AddWithValue("@currentMonth", currentMonth);
                     command.Parameters.AddWithValue("@currentYear", currentYear);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
-                        reservedBooksCount = Convert.ToInt32(result);
+                        borrowedBooksCount = Convert.ToInt32(result);
                     }
                 }
             }
 
-            return reservedBooksCount;
+            return borrowedBooksCount;
         }
-        public static int GetReservedBooksCountForCurrentMonth()
+        public static async Task<int> GetReservedBooksCountForCurrentMonthAsync()
         {
             int reservedBooksCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                //Get the current month and year
+                // Get the current month and year
                 DateTime currentDate = DateTime.Now;
                 int currentMonth = currentDate.Month;
                 int currentYear = currentDate.Year;
@@ -189,7 +188,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     command.Parameters.AddWithValue("@currentMonth", currentMonth);
                     command.Parameters.AddWithValue("@currentYear", currentYear);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -200,15 +199,15 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
             return reservedBooksCount;
         }
-        public static int GetReturnedBooksCountForCurrentMonth()
+        public static async Task<int> GetReturnedBooksCountForCurrentMonthAsync()
         {
             int returnedBooksCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                //Get the current month and year
+                // Get the current month and year
                 DateTime currentDate = DateTime.Now;
                 int currentMonth = currentDate.Month;
                 int currentYear = currentDate.Year;
@@ -222,7 +221,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     command.Parameters.AddWithValue("@currentMonth", currentMonth);
                     command.Parameters.AddWithValue("@currentYear", currentYear);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -233,15 +232,15 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
             return returnedBooksCount;
         }
-        public static int GetBorrowedBooksCountForMonth(int targetMonth)
+
+        public static async Task<int> GetBorrowedBooksCountForMonthAsync(int targetMonth)
         {
             int borrowedBooksCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                //Get the current month and year
                 DateTime currentDate = DateTime.Now;
                 int currentYear = currentDate.Year;
 
@@ -254,7 +253,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     command.Parameters.AddWithValue("@targetMonth", targetMonth);
                     command.Parameters.AddWithValue("@targetYear", currentYear);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -265,28 +264,27 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
             return borrowedBooksCount;
         }
-        public static int GetReservedBooksCountForMonth(int targetMonth)
+        public static async Task<int> GetReservedBooksCountForMonthAsync(int targetMonth)
         {
             int reservedBooksCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                //Get the current month and year
                 DateTime currentDate = DateTime.Now;
                 int currentYear = currentDate.Year;
 
                 string query = "SELECT COUNT(*) as reservedBooksCount " +
                                "FROM reserved_books " +
-                               "WHERE MONTH(reserved_at) = @currentMonth AND YEAR(reserved_at) = @currentYear";
+                               "WHERE MONTH(reserved_at) = @targetMonth AND YEAR(reserved_at) = @targetYear";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@targetMonth", targetMonth);
                     command.Parameters.AddWithValue("@targetYear", currentYear);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -297,28 +295,27 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
             return reservedBooksCount;
         }
-        public static int GetReturnedBooksCountForMonth(int targetMonth)
+        public static async Task<int> GetReturnedBooksCountForMonthAsync(int targetMonth)
         {
             int returnedBooksCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
-                //Get the current month and year
                 DateTime currentDate = DateTime.Now;
                 int currentYear = currentDate.Year;
 
                 string query = "SELECT COUNT(*) as returnedBooksCount " +
                                "FROM returned_books " +
-                               "WHERE MONTH(return_at) = @currentMonth AND YEAR(return_at) = @currentYear";
+                               "WHERE MONTH(return_at) = @targetMonth AND YEAR(return_at) = @targetYear";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@currentMonth", targetMonth);
-                    command.Parameters.AddWithValue("@currentYear", currentYear);
+                    command.Parameters.AddWithValue("@targetMonth", targetMonth);
+                    command.Parameters.AddWithValue("@targetYear", currentYear);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -326,16 +323,16 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     }
                 }
             }
+
             return returnedBooksCount;
         }
-
-        public static int CountBooksByCategory(string category)
+        public static async Task<int> CountBooksByCategoryAsync(string category)
         {
             int bookCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 string query = "SELECT COUNT(*) FROM books WHERE category = @category";
 
@@ -343,7 +340,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                 {
                     command.Parameters.AddWithValue("@category", category);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -354,13 +351,13 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
             return bookCount;
         }
-        public static int CountBooksByGenre(string genre)
+        public static async Task<int> CountBooksByGenreAsync(string genre)
         {
             int bookCount = 0;
 
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
-                connection.Open();
+                await connection.OpenAsync();
 
                 string query = "SELECT COUNT(*) FROM books WHERE genre = @genre";
 
@@ -368,7 +365,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                 {
                     command.Parameters.AddWithValue("@genre", genre);
 
-                    object result = command.ExecuteScalar();
+                    object result = await command.ExecuteScalarAsync();
 
                     if (result != null)
                     {
@@ -379,6 +376,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
             return bookCount;
         }
+
 
         #endregion
 
