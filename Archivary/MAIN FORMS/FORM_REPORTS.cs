@@ -57,7 +57,6 @@ namespace Archivary.PARENT_FORMS
             {
                 try
                 {
-                    Task.Delay(1000).Wait();
                     //NOTE: Mas gusto ko naka await to pero ayaw niya gumana sa laptop ko pag naka await 
                     //Pero try niyo kung naka await
                     LoadMonthlyOverview();
@@ -82,7 +81,7 @@ namespace Archivary.PARENT_FORMS
 
                 monthlyOverview = new monthlyOverview();
                 LAYOUT_REPORT.Controls.Add(monthlyOverview);
-                monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 30;
+                monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 40;
                 monthlyOverview.Height = LAYOUT_REPORT.ClientSize.Width / 2;
 
                 //load monthly overview charts
