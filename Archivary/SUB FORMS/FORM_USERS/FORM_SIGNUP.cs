@@ -414,5 +414,11 @@ namespace Archivary._1200X800.FORM_USERS
             }
             ClearAllTextBoxes(this);
         }
+
+        private void uploadExcelFIleButton_Click(object sender, EventArgs e)
+        {
+            FORM_UPLOAD upload = new FORM_UPLOAD(2);
+            upload.ShowDialog();
+        }
     }
 }

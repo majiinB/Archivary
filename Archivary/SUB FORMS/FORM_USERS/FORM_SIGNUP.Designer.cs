@@ -31,41 +31,41 @@
             this.accoutRegLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS = new System.Windows.Forms.TableLayoutPanel();
             this.buttons_Container2 = new System.Windows.Forms.TableLayoutPanel();
-            this.roleNameLabel = new System.Windows.Forms.Label();
-            this.buttonContainers = new System.Windows.Forms.TableLayoutPanel();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.contactNumberLabel = new System.Windows.Forms.Label();
-            this.houseNumberLabel = new System.Windows.Forms.Label();
-            this.streetLabel = new System.Windows.Forms.Label();
-            this.BarangayLabel = new System.Windows.Forms.Label();
-            this.cityLabel = new System.Windows.Forms.Label();
-            this.yearLabel = new System.Windows.Forms.Label();
-            this.sectionLabel = new System.Windows.Forms.Label();
-            this.lastNameLabel = new System.Windows.Forms.Label();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.middleInitialLabel = new System.Windows.Forms.Label();
-            this.collegeLabel = new System.Windows.Forms.Label();
-            this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
-            this.openFolderDialog = new System.Windows.Forms.OpenFileDialog();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveButton = new roundedCorners.roundedButton();
+            this.roleNameLabel = new System.Windows.Forms.Label();
+            this.buttonContainers = new System.Windows.Forms.TableLayoutPanel();
             this.studentButton = new roundedCorners.roundedButton();
             this.teacherButton = new roundedCorners.roundedButton();
             this.employeeButton = new roundedCorners.roundedButton();
             this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
             this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
             this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.contactNumberLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new RoundedCorners.RoundedTextBox();
             this.contactNumberTextBox = new RoundedCorners.RoundedTextBox();
+            this.houseNumberLabel = new System.Windows.Forms.Label();
+            this.streetLabel = new System.Windows.Forms.Label();
+            this.BarangayLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
             this.houseNumberTextBox = new RoundedCorners.RoundedTextBox();
             this.streetTextBox = new RoundedCorners.RoundedTextBox();
             this.barangayTextBox = new RoundedCorners.RoundedTextBox();
             this.cityTextBox = new RoundedCorners.RoundedTextBox();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.sectionLabel = new System.Windows.Forms.Label();
             this.collegeTextBox = new RoundedCorners.RoundedTextBox();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.middleInitialLabel = new System.Windows.Forms.Label();
+            this.collegeLabel = new System.Windows.Forms.Label();
             this.yearTextBox = new RoundedCorners.RoundedTextBox();
             this.sectionTextBox = new RoundedCorners.RoundedTextBox();
+            this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
             this.uploadExcelFIleButton = new roundedCorners.roundedButton();
+            this.openFolderDialog = new System.Windows.Forms.OpenFileDialog();
             this.PANEL_CONTENTS.SuspendLayout();
             this.buttons_Container2.SuspendLayout();
             this.buttonContainers.SuspendLayout();
@@ -77,10 +77,11 @@
             this.accoutRegLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.accoutRegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accoutRegLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.accoutRegLabel.Location = new System.Drawing.Point(3, 2);
+            this.accoutRegLabel.Location = new System.Drawing.Point(2, 2);
+            this.accoutRegLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.accoutRegLabel.Name = "accoutRegLabel";
-            this.accoutRegLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.accoutRegLabel.Size = new System.Drawing.Size(954, 112);
+            this.accoutRegLabel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.accoutRegLabel.Size = new System.Drawing.Size(716, 91);
             this.accoutRegLabel.TabIndex = 4;
             this.accoutRegLabel.Text = "ACCOUNT REGISTRATION";
             this.accoutRegLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -126,10 +127,10 @@
             this.PANEL_CONTENTS.Controls.Add(this.uploadImageButton, 6, 7);
             this.PANEL_CONTENTS.Controls.Add(this.uploadExcelFIleButton, 6, 8);
             this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 119);
-            this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PANEL_CONTENTS.Location = new System.Drawing.Point(2, 96);
+            this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
-            this.PANEL_CONTENTS.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.PANEL_CONTENTS.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.PANEL_CONTENTS.RowCount = 11;
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.797239F));
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.884688F));
@@ -142,11 +143,11 @@
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.855825F));
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.384583F));
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.02847F));
-            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PANEL_CONTENTS.Size = new System.Drawing.Size(954, 549);
+            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(716, 446);
             this.PANEL_CONTENTS.TabIndex = 5;
             // 
             // buttons_Container2
@@ -159,226 +160,13 @@
             this.buttons_Container2.Controls.Add(this.cancelButton, 0, 0);
             this.buttons_Container2.Controls.Add(this.saveButton, 2, 0);
             this.buttons_Container2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttons_Container2.Location = new System.Drawing.Point(14, 441);
-            this.buttons_Container2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttons_Container2.Location = new System.Drawing.Point(10, 358);
+            this.buttons_Container2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttons_Container2.Name = "buttons_Container2";
             this.buttons_Container2.RowCount = 1;
             this.buttons_Container2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.buttons_Container2.Size = new System.Drawing.Size(926, 96);
+            this.buttons_Container2.Size = new System.Drawing.Size(696, 78);
             this.buttons_Container2.TabIndex = 41;
-            // 
-            // roleNameLabel
-            // 
-            this.roleNameLabel.AutoSize = true;
-            this.PANEL_CONTENTS.SetColumnSpan(this.roleNameLabel, 7);
-            this.roleNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.roleNameLabel.Location = new System.Drawing.Point(14, 10);
-            this.roleNameLabel.Name = "roleNameLabel";
-            this.roleNameLabel.Size = new System.Drawing.Size(926, 46);
-            this.roleNameLabel.TabIndex = 2;
-            this.roleNameLabel.Text = "Role";
-            this.roleNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonContainers
-            // 
-            this.buttonContainers.ColumnCount = 5;
-            this.PANEL_CONTENTS.SetColumnSpan(this.buttonContainers, 5);
-            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.53502F));
-            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.195035F));
-            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.538F));
-            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.193946F));
-            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.538F));
-            this.buttonContainers.Controls.Add(this.studentButton, 0, 0);
-            this.buttonContainers.Controls.Add(this.teacherButton, 2, 0);
-            this.buttonContainers.Controls.Add(this.employeeButton, 4, 0);
-            this.buttonContainers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonContainers.Location = new System.Drawing.Point(14, 58);
-            this.buttonContainers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonContainers.Name = "buttonContainers";
-            this.buttonContainers.RowCount = 1;
-            this.buttonContainers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.buttonContainers.Size = new System.Drawing.Size(651, 43);
-            this.buttonContainers.TabIndex = 3;
-            // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.PANEL_CONTENTS.SetColumnSpan(this.emailLabel, 2);
-            this.emailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.emailLabel.Location = new System.Drawing.Point(14, 184);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(320, 41);
-            this.emailLabel.TabIndex = 10;
-            this.emailLabel.Text = "Email";
-            this.emailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // contactNumberLabel
-            // 
-            this.contactNumberLabel.AutoSize = true;
-            this.PANEL_CONTENTS.SetColumnSpan(this.contactNumberLabel, 3);
-            this.contactNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.contactNumberLabel.Location = new System.Drawing.Point(340, 184);
-            this.contactNumberLabel.Name = "contactNumberLabel";
-            this.contactNumberLabel.Size = new System.Drawing.Size(325, 41);
-            this.contactNumberLabel.TabIndex = 11;
-            this.contactNumberLabel.Text = "Contact No.";
-            this.contactNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // houseNumberLabel
-            // 
-            this.houseNumberLabel.AutoSize = true;
-            this.houseNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.houseNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.houseNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.houseNumberLabel.Location = new System.Drawing.Point(14, 269);
-            this.houseNumberLabel.Name = "houseNumberLabel";
-            this.houseNumberLabel.Size = new System.Drawing.Size(185, 41);
-            this.houseNumberLabel.TabIndex = 14;
-            this.houseNumberLabel.Text = "House No.";
-            this.houseNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // streetLabel
-            // 
-            this.streetLabel.AutoSize = true;
-            this.streetLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.streetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.streetLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.streetLabel.Location = new System.Drawing.Point(205, 269);
-            this.streetLabel.Name = "streetLabel";
-            this.streetLabel.Size = new System.Drawing.Size(129, 41);
-            this.streetLabel.TabIndex = 15;
-            this.streetLabel.Text = "Street";
-            this.streetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BarangayLabel
-            // 
-            this.BarangayLabel.AutoSize = true;
-            this.PANEL_CONTENTS.SetColumnSpan(this.BarangayLabel, 2);
-            this.BarangayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarangayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BarangayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.BarangayLabel.Location = new System.Drawing.Point(340, 269);
-            this.BarangayLabel.Name = "BarangayLabel";
-            this.BarangayLabel.Size = new System.Drawing.Size(150, 41);
-            this.BarangayLabel.TabIndex = 16;
-            this.BarangayLabel.Text = "Barangay";
-            this.BarangayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cityLabel
-            // 
-            this.cityLabel.AutoSize = true;
-            this.cityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cityLabel.Location = new System.Drawing.Point(496, 269);
-            this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(169, 41);
-            this.cityLabel.TabIndex = 17;
-            this.cityLabel.Text = "City";
-            this.cityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // yearLabel
-            // 
-            this.yearLabel.AutoSize = true;
-            this.yearLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.yearLabel.Location = new System.Drawing.Point(418, 354);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(72, 41);
-            this.yearLabel.TabIndex = 23;
-            this.yearLabel.Text = "Year";
-            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // sectionLabel
-            // 
-            this.sectionLabel.AutoSize = true;
-            this.sectionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sectionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.sectionLabel.Location = new System.Drawing.Point(496, 354);
-            this.sectionLabel.Name = "sectionLabel";
-            this.sectionLabel.Size = new System.Drawing.Size(169, 41);
-            this.sectionLabel.TabIndex = 24;
-            this.sectionLabel.Text = "Section";
-            this.sectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lastNameLabel
-            // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.lastNameLabel.Location = new System.Drawing.Point(14, 103);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(185, 37);
-            this.lastNameLabel.TabIndex = 4;
-            this.lastNameLabel.Text = "Last Name";
-            this.lastNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // firstNameLabel
-            // 
-            this.firstNameLabel.AutoSize = true;
-            this.PANEL_CONTENTS.SetColumnSpan(this.firstNameLabel, 3);
-            this.firstNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.firstNameLabel.Location = new System.Drawing.Point(205, 103);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(285, 37);
-            this.firstNameLabel.TabIndex = 5;
-            this.firstNameLabel.Text = "First Name";
-            this.firstNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // middleInitialLabel
-            // 
-            this.middleInitialLabel.AutoSize = true;
-            this.middleInitialLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middleInitialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleInitialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.middleInitialLabel.Location = new System.Drawing.Point(496, 103);
-            this.middleInitialLabel.Name = "middleInitialLabel";
-            this.middleInitialLabel.Size = new System.Drawing.Size(169, 37);
-            this.middleInitialLabel.TabIndex = 6;
-            this.middleInitialLabel.Text = "M.I.";
-            this.middleInitialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // collegeLabel
-            // 
-            this.collegeLabel.AutoSize = true;
-            this.PANEL_CONTENTS.SetColumnSpan(this.collegeLabel, 3);
-            this.collegeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.collegeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collegeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.collegeLabel.Location = new System.Drawing.Point(14, 354);
-            this.collegeLabel.Name = "collegeLabel";
-            this.collegeLabel.Size = new System.Drawing.Size(398, 41);
-            this.collegeLabel.TabIndex = 44;
-            this.collegeLabel.Text = "College";
-            this.collegeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // profilePictureImageBox
-            // 
-            this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.profilePictureImageBox.Location = new System.Drawing.Point(694, 105);
-            this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.profilePictureImageBox.Name = "profilePictureImageBox";
-            this.PANEL_CONTENTS.SetRowSpan(this.profilePictureImageBox, 5);
-            this.profilePictureImageBox.Size = new System.Drawing.Size(246, 203);
-            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePictureImageBox.TabIndex = 42;
-            this.profilePictureImageBox.TabStop = false;
-            // 
-            // openFolderDialog
-            // 
-            this.openFolderDialog.FileName = "openFileDialog1";
             // 
             // cancelButton
             // 
@@ -392,10 +180,10 @@
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cancelButton.Location = new System.Drawing.Point(3, 40);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cancelButton.Location = new System.Drawing.Point(2, 32);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(452, 54);
+            this.cancelButton.Size = new System.Drawing.Size(340, 44);
             this.cancelButton.TabIndex = 0;
             this.cancelButton.Text = "CANCEL";
             this.cancelButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -414,15 +202,51 @@
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.saveButton.Location = new System.Drawing.Point(469, 40);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.saveButton.Location = new System.Drawing.Point(352, 32);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(454, 54);
+            this.saveButton.Size = new System.Drawing.Size(342, 44);
             this.saveButton.TabIndex = 1;
             this.saveButton.Text = "SAVE";
             this.saveButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // roleNameLabel
+            // 
+            this.roleNameLabel.AutoSize = true;
+            this.PANEL_CONTENTS.SetColumnSpan(this.roleNameLabel, 7);
+            this.roleNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.roleNameLabel.Location = new System.Drawing.Point(10, 8);
+            this.roleNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.roleNameLabel.Name = "roleNameLabel";
+            this.roleNameLabel.Size = new System.Drawing.Size(696, 37);
+            this.roleNameLabel.TabIndex = 2;
+            this.roleNameLabel.Text = "Role";
+            this.roleNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // buttonContainers
+            // 
+            this.buttonContainers.ColumnCount = 5;
+            this.PANEL_CONTENTS.SetColumnSpan(this.buttonContainers, 5);
+            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.53502F));
+            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.195035F));
+            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.538F));
+            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.193946F));
+            this.buttonContainers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.538F));
+            this.buttonContainers.Controls.Add(this.studentButton, 0, 0);
+            this.buttonContainers.Controls.Add(this.teacherButton, 2, 0);
+            this.buttonContainers.Controls.Add(this.employeeButton, 4, 0);
+            this.buttonContainers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonContainers.Location = new System.Drawing.Point(10, 47);
+            this.buttonContainers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonContainers.Name = "buttonContainers";
+            this.buttonContainers.RowCount = 1;
+            this.buttonContainers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.buttonContainers.Size = new System.Drawing.Size(489, 34);
+            this.buttonContainers.TabIndex = 3;
             // 
             // studentButton
             // 
@@ -436,10 +260,10 @@
             this.studentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.studentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.studentButton.Location = new System.Drawing.Point(3, 2);
-            this.studentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.studentButton.Location = new System.Drawing.Point(2, 2);
+            this.studentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.studentButton.Name = "studentButton";
-            this.studentButton.Size = new System.Drawing.Size(205, 39);
+            this.studentButton.Size = new System.Drawing.Size(155, 30);
             this.studentButton.TabIndex = 0;
             this.studentButton.Text = "STUDENT";
             this.studentButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -458,10 +282,10 @@
             this.teacherButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.teacherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.teacherButton.Location = new System.Drawing.Point(221, 2);
-            this.teacherButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.teacherButton.Location = new System.Drawing.Point(166, 2);
+            this.teacherButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.teacherButton.Name = "teacherButton";
-            this.teacherButton.Size = new System.Drawing.Size(205, 39);
+            this.teacherButton.Size = new System.Drawing.Size(155, 30);
             this.teacherButton.TabIndex = 1;
             this.teacherButton.Text = "TEACHER";
             this.teacherButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -480,10 +304,10 @@
             this.employeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.employeeButton.Location = new System.Drawing.Point(439, 2);
-            this.employeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.employeeButton.Location = new System.Drawing.Point(330, 2);
+            this.employeeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.employeeButton.Name = "employeeButton";
-            this.employeeButton.Size = new System.Drawing.Size(209, 39);
+            this.employeeButton.Size = new System.Drawing.Size(157, 30);
             this.employeeButton.TabIndex = 2;
             this.employeeButton.Text = "EMPLOYEE";
             this.employeeButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -500,11 +324,11 @@
             this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.lastNameTextBox.Location = new System.Drawing.Point(14, 142);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lastNameTextBox.Location = new System.Drawing.Point(10, 115);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Radius = 10;
-            this.lastNameTextBox.Size = new System.Drawing.Size(185, 40);
+            this.lastNameTextBox.Size = new System.Drawing.Size(139, 32);
             this.lastNameTextBox.TabIndex = 7;
             this.lastNameTextBox.UseSystemPasswordChar = false;
             // 
@@ -519,11 +343,11 @@
             this.firstNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.firstNameTextBox.Location = new System.Drawing.Point(205, 142);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.firstNameTextBox.Location = new System.Drawing.Point(153, 115);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Radius = 10;
-            this.firstNameTextBox.Size = new System.Drawing.Size(285, 40);
+            this.firstNameTextBox.Size = new System.Drawing.Size(215, 32);
             this.firstNameTextBox.TabIndex = 8;
             this.firstNameTextBox.UseSystemPasswordChar = false;
             // 
@@ -537,13 +361,43 @@
             this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.middleInitialTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleInitialTextBox.ForeColor = System.Drawing.Color.Black;
-            this.middleInitialTextBox.Location = new System.Drawing.Point(496, 142);
-            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.middleInitialTextBox.Location = new System.Drawing.Point(372, 115);
+            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.middleInitialTextBox.Name = "middleInitialTextBox";
             this.middleInitialTextBox.Radius = 10;
-            this.middleInitialTextBox.Size = new System.Drawing.Size(169, 40);
+            this.middleInitialTextBox.Size = new System.Drawing.Size(127, 32);
             this.middleInitialTextBox.TabIndex = 9;
             this.middleInitialTextBox.UseSystemPasswordChar = false;
+            // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.PANEL_CONTENTS.SetColumnSpan(this.emailLabel, 2);
+            this.emailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.emailLabel.Location = new System.Drawing.Point(10, 149);
+            this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(240, 33);
+            this.emailLabel.TabIndex = 10;
+            this.emailLabel.Text = "Email";
+            this.emailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // contactNumberLabel
+            // 
+            this.contactNumberLabel.AutoSize = true;
+            this.PANEL_CONTENTS.SetColumnSpan(this.contactNumberLabel, 3);
+            this.contactNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.contactNumberLabel.Location = new System.Drawing.Point(254, 149);
+            this.contactNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.contactNumberLabel.Name = "contactNumberLabel";
+            this.contactNumberLabel.Size = new System.Drawing.Size(245, 33);
+            this.contactNumberLabel.TabIndex = 11;
+            this.contactNumberLabel.Text = "Contact No.";
+            this.contactNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // emailTextBox
             // 
@@ -556,11 +410,11 @@
             this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.ForeColor = System.Drawing.Color.Black;
-            this.emailTextBox.Location = new System.Drawing.Point(14, 227);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.emailTextBox.Location = new System.Drawing.Point(10, 184);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Radius = 10;
-            this.emailTextBox.Size = new System.Drawing.Size(320, 40);
+            this.emailTextBox.Size = new System.Drawing.Size(240, 32);
             this.emailTextBox.TabIndex = 12;
             this.emailTextBox.UseSystemPasswordChar = false;
             // 
@@ -575,13 +429,70 @@
             this.contactNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contactNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNumberTextBox.ForeColor = System.Drawing.Color.Black;
-            this.contactNumberTextBox.Location = new System.Drawing.Point(340, 227);
-            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.contactNumberTextBox.Location = new System.Drawing.Point(254, 184);
+            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
             this.contactNumberTextBox.Radius = 10;
-            this.contactNumberTextBox.Size = new System.Drawing.Size(325, 40);
+            this.contactNumberTextBox.Size = new System.Drawing.Size(245, 32);
             this.contactNumberTextBox.TabIndex = 13;
             this.contactNumberTextBox.UseSystemPasswordChar = false;
+            // 
+            // houseNumberLabel
+            // 
+            this.houseNumberLabel.AutoSize = true;
+            this.houseNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.houseNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.houseNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.houseNumberLabel.Location = new System.Drawing.Point(10, 218);
+            this.houseNumberLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.houseNumberLabel.Name = "houseNumberLabel";
+            this.houseNumberLabel.Size = new System.Drawing.Size(139, 33);
+            this.houseNumberLabel.TabIndex = 14;
+            this.houseNumberLabel.Text = "House No.";
+            this.houseNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // streetLabel
+            // 
+            this.streetLabel.AutoSize = true;
+            this.streetLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.streetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.streetLabel.Location = new System.Drawing.Point(153, 218);
+            this.streetLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.streetLabel.Name = "streetLabel";
+            this.streetLabel.Size = new System.Drawing.Size(97, 33);
+            this.streetLabel.TabIndex = 15;
+            this.streetLabel.Text = "Street";
+            this.streetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BarangayLabel
+            // 
+            this.BarangayLabel.AutoSize = true;
+            this.PANEL_CONTENTS.SetColumnSpan(this.BarangayLabel, 2);
+            this.BarangayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BarangayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarangayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.BarangayLabel.Location = new System.Drawing.Point(254, 218);
+            this.BarangayLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BarangayLabel.Name = "BarangayLabel";
+            this.BarangayLabel.Size = new System.Drawing.Size(114, 33);
+            this.BarangayLabel.TabIndex = 16;
+            this.BarangayLabel.Text = "Barangay";
+            this.BarangayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cityLabel.Location = new System.Drawing.Point(372, 218);
+            this.cityLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(127, 33);
+            this.cityLabel.TabIndex = 17;
+            this.cityLabel.Text = "City";
+            this.cityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // houseNumberTextBox
             // 
@@ -593,11 +504,11 @@
             this.houseNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.houseNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.houseNumberTextBox.ForeColor = System.Drawing.Color.Black;
-            this.houseNumberTextBox.Location = new System.Drawing.Point(14, 312);
-            this.houseNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.houseNumberTextBox.Location = new System.Drawing.Point(10, 253);
+            this.houseNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.houseNumberTextBox.Name = "houseNumberTextBox";
             this.houseNumberTextBox.Radius = 10;
-            this.houseNumberTextBox.Size = new System.Drawing.Size(185, 40);
+            this.houseNumberTextBox.Size = new System.Drawing.Size(139, 32);
             this.houseNumberTextBox.TabIndex = 18;
             this.houseNumberTextBox.UseSystemPasswordChar = false;
             // 
@@ -611,11 +522,11 @@
             this.streetTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.streetTextBox.ForeColor = System.Drawing.Color.Black;
-            this.streetTextBox.Location = new System.Drawing.Point(205, 312);
-            this.streetTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.streetTextBox.Location = new System.Drawing.Point(153, 253);
+            this.streetTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Radius = 10;
-            this.streetTextBox.Size = new System.Drawing.Size(129, 40);
+            this.streetTextBox.Size = new System.Drawing.Size(97, 32);
             this.streetTextBox.TabIndex = 19;
             this.streetTextBox.UseSystemPasswordChar = false;
             // 
@@ -630,11 +541,11 @@
             this.barangayTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.barangayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barangayTextBox.ForeColor = System.Drawing.Color.Black;
-            this.barangayTextBox.Location = new System.Drawing.Point(340, 312);
-            this.barangayTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.barangayTextBox.Location = new System.Drawing.Point(254, 253);
+            this.barangayTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.barangayTextBox.Name = "barangayTextBox";
             this.barangayTextBox.Radius = 10;
-            this.barangayTextBox.Size = new System.Drawing.Size(150, 40);
+            this.barangayTextBox.Size = new System.Drawing.Size(114, 32);
             this.barangayTextBox.TabIndex = 20;
             this.barangayTextBox.UseSystemPasswordChar = false;
             // 
@@ -648,13 +559,41 @@
             this.cityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityTextBox.ForeColor = System.Drawing.Color.Black;
-            this.cityTextBox.Location = new System.Drawing.Point(496, 312);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cityTextBox.Location = new System.Drawing.Point(372, 253);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Radius = 10;
-            this.cityTextBox.Size = new System.Drawing.Size(169, 40);
+            this.cityTextBox.Size = new System.Drawing.Size(127, 32);
             this.cityTextBox.TabIndex = 21;
             this.cityTextBox.UseSystemPasswordChar = false;
+            // 
+            // yearLabel
+            // 
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.yearLabel.Location = new System.Drawing.Point(313, 287);
+            this.yearLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(55, 33);
+            this.yearLabel.TabIndex = 23;
+            this.yearLabel.Text = "Year";
+            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // sectionLabel
+            // 
+            this.sectionLabel.AutoSize = true;
+            this.sectionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.sectionLabel.Location = new System.Drawing.Point(372, 287);
+            this.sectionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.sectionLabel.Name = "sectionLabel";
+            this.sectionLabel.Size = new System.Drawing.Size(127, 33);
+            this.sectionLabel.TabIndex = 24;
+            this.sectionLabel.Text = "Section";
+            this.sectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // collegeTextBox
             // 
@@ -667,13 +606,71 @@
             this.collegeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.collegeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.collegeTextBox.ForeColor = System.Drawing.Color.Black;
-            this.collegeTextBox.Location = new System.Drawing.Point(14, 397);
-            this.collegeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.collegeTextBox.Location = new System.Drawing.Point(10, 322);
+            this.collegeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.collegeTextBox.Name = "collegeTextBox";
             this.collegeTextBox.Radius = 10;
-            this.collegeTextBox.Size = new System.Drawing.Size(398, 40);
+            this.collegeTextBox.Size = new System.Drawing.Size(299, 32);
             this.collegeTextBox.TabIndex = 25;
             this.collegeTextBox.UseSystemPasswordChar = false;
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.lastNameLabel.Location = new System.Drawing.Point(10, 83);
+            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(139, 30);
+            this.lastNameLabel.TabIndex = 4;
+            this.lastNameLabel.Text = "Last Name";
+            this.lastNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.PANEL_CONTENTS.SetColumnSpan(this.firstNameLabel, 3);
+            this.firstNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.firstNameLabel.Location = new System.Drawing.Point(153, 83);
+            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(215, 30);
+            this.firstNameLabel.TabIndex = 5;
+            this.firstNameLabel.Text = "First Name";
+            this.firstNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // middleInitialLabel
+            // 
+            this.middleInitialLabel.AutoSize = true;
+            this.middleInitialLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleInitialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.middleInitialLabel.Location = new System.Drawing.Point(372, 83);
+            this.middleInitialLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.middleInitialLabel.Name = "middleInitialLabel";
+            this.middleInitialLabel.Size = new System.Drawing.Size(127, 30);
+            this.middleInitialLabel.TabIndex = 6;
+            this.middleInitialLabel.Text = "M.I.";
+            this.middleInitialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // collegeLabel
+            // 
+            this.collegeLabel.AutoSize = true;
+            this.PANEL_CONTENTS.SetColumnSpan(this.collegeLabel, 3);
+            this.collegeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.collegeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collegeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.collegeLabel.Location = new System.Drawing.Point(10, 287);
+            this.collegeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.collegeLabel.Name = "collegeLabel";
+            this.collegeLabel.Size = new System.Drawing.Size(299, 33);
+            this.collegeLabel.TabIndex = 44;
+            this.collegeLabel.Text = "College";
+            this.collegeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // yearTextBox
             // 
@@ -685,11 +682,11 @@
             this.yearTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearTextBox.ForeColor = System.Drawing.Color.Black;
-            this.yearTextBox.Location = new System.Drawing.Point(418, 397);
-            this.yearTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yearTextBox.Location = new System.Drawing.Point(313, 322);
+            this.yearTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Radius = 10;
-            this.yearTextBox.Size = new System.Drawing.Size(72, 40);
+            this.yearTextBox.Size = new System.Drawing.Size(55, 32);
             this.yearTextBox.TabIndex = 26;
             this.yearTextBox.UseSystemPasswordChar = false;
             // 
@@ -703,13 +700,26 @@
             this.sectionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sectionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sectionTextBox.ForeColor = System.Drawing.Color.Black;
-            this.sectionTextBox.Location = new System.Drawing.Point(496, 397);
-            this.sectionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.sectionTextBox.Location = new System.Drawing.Point(372, 322);
+            this.sectionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sectionTextBox.Name = "sectionTextBox";
             this.sectionTextBox.Radius = 10;
-            this.sectionTextBox.Size = new System.Drawing.Size(169, 40);
+            this.sectionTextBox.Size = new System.Drawing.Size(127, 32);
             this.sectionTextBox.TabIndex = 27;
             this.sectionTextBox.UseSystemPasswordChar = false;
+            // 
+            // profilePictureImageBox
+            // 
+            this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profilePictureImageBox.Location = new System.Drawing.Point(520, 85);
+            this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.profilePictureImageBox.Name = "profilePictureImageBox";
+            this.PANEL_CONTENTS.SetRowSpan(this.profilePictureImageBox, 5);
+            this.profilePictureImageBox.Size = new System.Drawing.Size(186, 164);
+            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePictureImageBox.TabIndex = 42;
+            this.profilePictureImageBox.TabStop = false;
             // 
             // uploadImageButton
             // 
@@ -724,10 +734,10 @@
             this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.uploadImageButton.Location = new System.Drawing.Point(694, 317);
-            this.uploadImageButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uploadImageButton.Location = new System.Drawing.Point(520, 257);
+            this.uploadImageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uploadImageButton.Name = "uploadImageButton";
-            this.uploadImageButton.Size = new System.Drawing.Size(246, 35);
+            this.uploadImageButton.Size = new System.Drawing.Size(186, 28);
             this.uploadImageButton.TabIndex = 43;
             this.uploadImageButton.Text = "UPLOAD IMAGE";
             this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -746,27 +756,33 @@
             this.uploadExcelFIleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadExcelFIleButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadExcelFIleButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.uploadExcelFIleButton.Location = new System.Drawing.Point(694, 357);
+            this.uploadExcelFIleButton.Location = new System.Drawing.Point(520, 289);
+            this.uploadExcelFIleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uploadExcelFIleButton.Name = "uploadExcelFIleButton";
-            this.uploadExcelFIleButton.Size = new System.Drawing.Size(246, 35);
+            this.uploadExcelFIleButton.Size = new System.Drawing.Size(186, 29);
             this.uploadExcelFIleButton.TabIndex = 45;
             this.uploadExcelFIleButton.Text = "UPLOAD EXCEL FILE";
             this.uploadExcelFIleButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadExcelFIleButton.UseVisualStyleBackColor = false;
+            this.uploadExcelFIleButton.Click += new System.EventHandler(this.uploadExcelFIleButton_Click);
+            // 
+            // openFolderDialog
+            // 
+            this.openFolderDialog.FileName = "openFileDialog1";
             // 
             // FORM_SIGNUP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(960, 670);
+            this.ClientSize = new System.Drawing.Size(720, 544);
             this.Controls.Add(this.PANEL_CONTENTS);
             this.Controls.Add(this.accoutRegLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FORM_SIGNUP";
-            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_SIGNUP";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FORM_SIGNUP_Paint);

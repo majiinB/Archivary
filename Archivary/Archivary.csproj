@@ -121,6 +121,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Archivary Components\excelBookFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\excelBookFormat.designer.cs">
+      <DependentUpon>excelBookFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\excelStudentFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\excelStudentFormat.designer.cs">
+      <DependentUpon>excelStudentFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\excelTeacherFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\excelTeacherFormat.designer.cs">
+      <DependentUpon>excelTeacherFormat.cs</DependentUpon>
+    </Compile>
     <Compile Include="BACKEND\BOOK_OPERATIONS\BookOperation.cs" />
     <Compile Include="BACKEND\COMMON_OPERATIONS\CommonOperation.cs" />
     <Compile Include="BACKEND\OBJECTS\Admin.cs" />
@@ -337,6 +355,21 @@
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
       <DependentUpon>FORM_BORROW.cs</DependentUpon>
     </Compile>
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_UPLOAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_UPLOAD.designer.cs">
+      <DependentUpon>FORM_UPLOAD.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archivary Components\excelBookFormat.resx">
+      <DependentUpon>excelBookFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\excelStudentFormat.resx">
+      <DependentUpon>excelStudentFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\excelTeacherFormat.resx">
+      <DependentUpon>excelTeacherFormat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SUB FORMS\FORM_USERS\FORM_SIGNUP.resx">
       <DependentUpon>FORM_SIGNUP.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.resx">
       <DependentUpon>FORM_BORROW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\OTHER FORMS\FORM_UPLOAD.resx">
+      <DependentUpon>FORM_UPLOAD.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -590,6 +626,20 @@
   <ItemGroup>
     <None Include="Resources\PLACEHOLDER_BOOK4.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\FORMAT_BOOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORMAT_STUDENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORMAT_TEACHER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_TOGGLE_CLOSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_TOGGLE_OPEN.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
