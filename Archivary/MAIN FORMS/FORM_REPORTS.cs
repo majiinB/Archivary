@@ -57,9 +57,11 @@ namespace Archivary.PARENT_FORMS
             {
                 try
                 {
-                    Task.Delay(500).Wait();
-                    await LoadMonthlyOverview();
-                    await BooksBorrowed();
+                    Task.Delay(1000).Wait();
+                    //NOTE: Mas gusto ko naka await to pero ayaw niya gumana sa laptop ko pag naka await 
+                    //Pero try niyo kung naka await
+                    LoadMonthlyOverview();
+                    BooksBorrowed();
                 }
                 catch (Exception ex)
                 {
