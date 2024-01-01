@@ -59,9 +59,10 @@
             this.excelStudentFormat = new Archivary.Archivary_Components.excelStudentFormat();
             this.excelBookFormat = new Archivary.Archivary_Components.excelBookFormat();
             this.PANEL_TOGGLE_FORMAT = new System.Windows.Forms.Panel();
+            this.formatLabel = new System.Windows.Forms.Label();
             this.PANEL_FORMATBUTTON = new System.Windows.Forms.Panel();
             this.formatButton = new roundedCorners.roundedButton();
-            this.formatLabel = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.LAYOUT_UPLOAD.SuspendLayout();
             this.LAYOUT_INPUT.SuspendLayout();
             this.LAYOUT_BUTTON.SuspendLayout();
@@ -86,30 +87,33 @@
             this.LAYOUT_UPLOAD.Controls.Add(this.layout1);
             this.LAYOUT_UPLOAD.Controls.Add(this.LAYOUT_FORMAT);
             this.LAYOUT_UPLOAD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LAYOUT_UPLOAD.Location = new System.Drawing.Point(3, 3);
+            this.LAYOUT_UPLOAD.Location = new System.Drawing.Point(2, 2);
+            this.LAYOUT_UPLOAD.Margin = new System.Windows.Forms.Padding(2);
             this.LAYOUT_UPLOAD.Name = "LAYOUT_UPLOAD";
-            this.LAYOUT_UPLOAD.Padding = new System.Windows.Forms.Padding(15);
-            this.LAYOUT_UPLOAD.Size = new System.Drawing.Size(784, 463);
+            this.LAYOUT_UPLOAD.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
+            this.LAYOUT_UPLOAD.Size = new System.Drawing.Size(588, 377);
             this.LAYOUT_UPLOAD.TabIndex = 0;
             // 
             // layout4
             // 
             this.layout4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layout4.Location = new System.Drawing.Point(15, 376);
-            this.layout4.MaximumSize = new System.Drawing.Size(0, 22);
-            this.layout4.MinimumSize = new System.Drawing.Size(730, 22);
+            this.layout4.Location = new System.Drawing.Point(11, 306);
+            this.layout4.Margin = new System.Windows.Forms.Padding(2);
+            this.layout4.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout4.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout4.Name = "layout4";
-            this.layout4.Size = new System.Drawing.Size(754, 22);
+            this.layout4.Size = new System.Drawing.Size(566, 18);
             this.layout4.TabIndex = 21;
             // 
             // layout3
             // 
             this.layout3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layout3.Location = new System.Drawing.Point(15, 359);
-            this.layout3.MaximumSize = new System.Drawing.Size(0, 22);
-            this.layout3.MinimumSize = new System.Drawing.Size(730, 22);
+            this.layout3.Location = new System.Drawing.Point(11, 292);
+            this.layout3.Margin = new System.Windows.Forms.Padding(2);
+            this.layout3.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout3.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout3.Name = "layout3";
-            this.layout3.Size = new System.Drawing.Size(754, 22);
+            this.layout3.Size = new System.Drawing.Size(566, 18);
             this.layout3.TabIndex = 18;
             // 
             // LAYOUT_INPUT
@@ -124,19 +128,20 @@
             this.LAYOUT_INPUT.Controls.Add(this.selectButton, 0, 0);
             this.LAYOUT_INPUT.Controls.Add(this.worksheetLabel, 0, 2);
             this.LAYOUT_INPUT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LAYOUT_INPUT.Location = new System.Drawing.Point(15, 159);
-            this.LAYOUT_INPUT.MaximumSize = new System.Drawing.Size(0, 200);
-            this.LAYOUT_INPUT.MinimumSize = new System.Drawing.Size(730, 140);
+            this.LAYOUT_INPUT.Location = new System.Drawing.Point(11, 130);
+            this.LAYOUT_INPUT.Margin = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_INPUT.MaximumSize = new System.Drawing.Size(0, 162);
+            this.LAYOUT_INPUT.MinimumSize = new System.Drawing.Size(548, 114);
             this.LAYOUT_INPUT.Name = "LAYOUT_INPUT";
             this.LAYOUT_INPUT.RowCount = 7;
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.LAYOUT_INPUT.Size = new System.Drawing.Size(754, 200);
+            this.LAYOUT_INPUT.Size = new System.Drawing.Size(566, 162);
             this.LAYOUT_INPUT.TabIndex = 19;
             // 
             // startingRowLabel
@@ -146,9 +151,10 @@
             this.startingRowLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.startingRowLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startingRowLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.startingRowLabel.Location = new System.Drawing.Point(3, 128);
+            this.startingRowLabel.Location = new System.Drawing.Point(2, 103);
+            this.startingRowLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.startingRowLabel.Name = "startingRowLabel";
-            this.startingRowLabel.Size = new System.Drawing.Size(748, 36);
+            this.startingRowLabel.Size = new System.Drawing.Size(562, 29);
             this.startingRowLabel.TabIndex = 10;
             this.startingRowLabel.Text = "Starting Row";
             this.startingRowLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -164,11 +170,11 @@
             this.startingRowTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.startingRowTextbox.Font = new System.Drawing.Font("Montserrat", 9F);
             this.startingRowTextbox.ForeColor = System.Drawing.Color.Black;
-            this.startingRowTextbox.Location = new System.Drawing.Point(0, 164);
+            this.startingRowTextbox.Location = new System.Drawing.Point(0, 132);
             this.startingRowTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.startingRowTextbox.Name = "startingRowTextbox";
             this.startingRowTextbox.Radius = 15;
-            this.startingRowTextbox.Size = new System.Drawing.Size(754, 36);
+            this.startingRowTextbox.Size = new System.Drawing.Size(566, 30);
             this.startingRowTextbox.TabIndex = 4;
             this.startingRowTextbox.Text = "2";
             this.startingRowTextbox.UseSystemPasswordChar = false;
@@ -183,11 +189,11 @@
             this.fileTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileTextbox.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileTextbox.ForeColor = System.Drawing.Color.Black;
-            this.fileTextbox.Location = new System.Drawing.Point(167, 0);
+            this.fileTextbox.Location = new System.Drawing.Point(125, 0);
             this.fileTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.fileTextbox.Name = "fileTextbox";
             this.fileTextbox.Radius = 15;
-            this.fileTextbox.Size = new System.Drawing.Size(587, 36);
+            this.fileTextbox.Size = new System.Drawing.Size(441, 29);
             this.fileTextbox.TabIndex = 1;
             this.fileTextbox.Text = "fileName.xlsx";
             this.fileTextbox.UseSystemPasswordChar = false;
@@ -203,11 +209,11 @@
             this.worksheetTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.worksheetTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.worksheetTextbox.ForeColor = System.Drawing.Color.Black;
-            this.worksheetTextbox.Location = new System.Drawing.Point(0, 82);
+            this.worksheetTextbox.Location = new System.Drawing.Point(0, 66);
             this.worksheetTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.worksheetTextbox.Name = "worksheetTextbox";
             this.worksheetTextbox.Radius = 15;
-            this.worksheetTextbox.Size = new System.Drawing.Size(754, 36);
+            this.worksheetTextbox.Size = new System.Drawing.Size(566, 29);
             this.worksheetTextbox.TabIndex = 0;
             this.worksheetTextbox.Text = "WorkSheet1";
             this.worksheetTextbox.UseSystemPasswordChar = false;
@@ -225,13 +231,14 @@
             this.selectButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
             this.selectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.selectButton.Location = new System.Drawing.Point(0, 0);
-            this.selectButton.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.selectButton.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.selectButton.Name = "selectButton";
-            this.selectButton.Size = new System.Drawing.Size(162, 36);
+            this.selectButton.Size = new System.Drawing.Size(121, 29);
             this.selectButton.TabIndex = 5;
             this.selectButton.Text = "SELECT FILE";
             this.selectButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.selectButton.UseVisualStyleBackColor = false;
+            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
             // worksheetLabel
             // 
@@ -240,9 +247,10 @@
             this.worksheetLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.worksheetLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.worksheetLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.worksheetLabel.Location = new System.Drawing.Point(3, 46);
+            this.worksheetLabel.Location = new System.Drawing.Point(2, 37);
+            this.worksheetLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.worksheetLabel.Name = "worksheetLabel";
-            this.worksheetLabel.Size = new System.Drawing.Size(748, 36);
+            this.worksheetLabel.Size = new System.Drawing.Size(562, 29);
             this.worksheetLabel.TabIndex = 6;
             this.worksheetLabel.Text = "Worksheet Name";
             this.worksheetLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -251,18 +259,19 @@
             // 
             this.LAYOUT_BUTTON.ColumnCount = 3;
             this.LAYOUT_BUTTON.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.LAYOUT_BUTTON.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.LAYOUT_BUTTON.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.LAYOUT_BUTTON.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.LAYOUT_BUTTON.Controls.Add(this.uploadButton, 2, 0);
             this.LAYOUT_BUTTON.Controls.Add(this.backButton, 0, 0);
             this.LAYOUT_BUTTON.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT_BUTTON.Location = new System.Drawing.Point(15, 398);
-            this.LAYOUT_BUTTON.MaximumSize = new System.Drawing.Size(0, 50);
-            this.LAYOUT_BUTTON.MinimumSize = new System.Drawing.Size(730, 22);
+            this.LAYOUT_BUTTON.Location = new System.Drawing.Point(11, 324);
+            this.LAYOUT_BUTTON.Margin = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_BUTTON.MaximumSize = new System.Drawing.Size(0, 41);
+            this.LAYOUT_BUTTON.MinimumSize = new System.Drawing.Size(548, 18);
             this.LAYOUT_BUTTON.Name = "LAYOUT_BUTTON";
             this.LAYOUT_BUTTON.RowCount = 1;
             this.LAYOUT_BUTTON.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LAYOUT_BUTTON.Size = new System.Drawing.Size(754, 50);
+            this.LAYOUT_BUTTON.Size = new System.Drawing.Size(566, 41);
             this.LAYOUT_BUTTON.TabIndex = 17;
             // 
             // uploadButton
@@ -277,13 +286,15 @@
             this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.uploadButton.Location = new System.Drawing.Point(390, 3);
+            this.uploadButton.Location = new System.Drawing.Point(292, 2);
+            this.uploadButton.Margin = new System.Windows.Forms.Padding(2);
             this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(361, 44);
+            this.uploadButton.Size = new System.Drawing.Size(272, 37);
             this.uploadButton.TabIndex = 8;
             this.uploadButton.Text = "UPLOAD FILE";
             this.uploadButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.uploadButton.UseVisualStyleBackColor = false;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
             // 
             // backButton
             // 
@@ -297,9 +308,10 @@
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.Location = new System.Drawing.Point(3, 3);
+            this.backButton.Location = new System.Drawing.Point(2, 2);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(361, 44);
+            this.backButton.Size = new System.Drawing.Size(271, 37);
             this.backButton.TabIndex = 6;
             this.backButton.Text = "BACK";
             this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
@@ -309,11 +321,12 @@
             // layout2
             // 
             this.layout2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layout2.Location = new System.Drawing.Point(15, 137);
-            this.layout2.MaximumSize = new System.Drawing.Size(0, 22);
-            this.layout2.MinimumSize = new System.Drawing.Size(730, 22);
+            this.layout2.Location = new System.Drawing.Point(11, 112);
+            this.layout2.Margin = new System.Windows.Forms.Padding(2);
+            this.layout2.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout2.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout2.Name = "layout2";
-            this.layout2.Size = new System.Drawing.Size(754, 22);
+            this.layout2.Size = new System.Drawing.Size(566, 18);
             this.layout2.TabIndex = 20;
             // 
             // LAYOUT_INSTRUCTIONS
@@ -326,11 +339,12 @@
             this.LAYOUT_INSTRUCTIONS.Controls.Add(this.instructionsNum1Label);
             this.LAYOUT_INSTRUCTIONS.Controls.Add(this.PANEL_TOGGLE_INSTRUCTIONS);
             this.LAYOUT_INSTRUCTIONS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LAYOUT_INSTRUCTIONS.Location = new System.Drawing.Point(15, 87);
-            this.LAYOUT_INSTRUCTIONS.MaximumSize = new System.Drawing.Size(0, 191);
-            this.LAYOUT_INSTRUCTIONS.MinimumSize = new System.Drawing.Size(730, 50);
+            this.LAYOUT_INSTRUCTIONS.Location = new System.Drawing.Point(11, 71);
+            this.LAYOUT_INSTRUCTIONS.Margin = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_INSTRUCTIONS.MaximumSize = new System.Drawing.Size(0, 155);
+            this.LAYOUT_INSTRUCTIONS.MinimumSize = new System.Drawing.Size(548, 41);
             this.LAYOUT_INSTRUCTIONS.Name = "LAYOUT_INSTRUCTIONS";
-            this.LAYOUT_INSTRUCTIONS.Size = new System.Drawing.Size(754, 50);
+            this.LAYOUT_INSTRUCTIONS.Size = new System.Drawing.Size(566, 41);
             this.LAYOUT_INSTRUCTIONS.TabIndex = 16;
             // 
             // instructionsNum3Label
@@ -340,12 +354,12 @@
             this.instructionsNum3Label.Dock = System.Windows.Forms.DockStyle.Top;
             this.instructionsNum3Label.Font = new System.Drawing.Font("Montserrat", 9F);
             this.instructionsNum3Label.ForeColor = System.Drawing.SystemColors.Control;
-            this.instructionsNum3Label.Location = new System.Drawing.Point(0, 136);
-            this.instructionsNum3Label.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.instructionsNum3Label.MaximumSize = new System.Drawing.Size(730, 0);
-            this.instructionsNum3Label.MinimumSize = new System.Drawing.Size(730, 0);
+            this.instructionsNum3Label.Location = new System.Drawing.Point(0, 109);
+            this.instructionsNum3Label.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.instructionsNum3Label.MaximumSize = new System.Drawing.Size(548, 0);
+            this.instructionsNum3Label.MinimumSize = new System.Drawing.Size(548, 0);
             this.instructionsNum3Label.Name = "instructionsNum3Label";
-            this.instructionsNum3Label.Size = new System.Drawing.Size(730, 42);
+            this.instructionsNum3Label.Size = new System.Drawing.Size(548, 32);
             this.instructionsNum3Label.TabIndex = 29;
             this.instructionsNum3Label.Text = "3. Specify the row number where the data starts — it is typically the row under t" +
     "he column headers.";
@@ -354,11 +368,12 @@
             // layout6
             // 
             this.layout6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layout6.Location = new System.Drawing.Point(0, 114);
-            this.layout6.MaximumSize = new System.Drawing.Size(0, 22);
-            this.layout6.MinimumSize = new System.Drawing.Size(730, 22);
+            this.layout6.Location = new System.Drawing.Point(0, 91);
+            this.layout6.Margin = new System.Windows.Forms.Padding(2);
+            this.layout6.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout6.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout6.Name = "layout6";
-            this.layout6.Size = new System.Drawing.Size(754, 22);
+            this.layout6.Size = new System.Drawing.Size(566, 18);
             this.layout6.TabIndex = 28;
             // 
             // instructionsNum2Label
@@ -368,12 +383,12 @@
             this.instructionsNum2Label.Dock = System.Windows.Forms.DockStyle.Top;
             this.instructionsNum2Label.Font = new System.Drawing.Font("Montserrat", 9F);
             this.instructionsNum2Label.ForeColor = System.Drawing.SystemColors.Control;
-            this.instructionsNum2Label.Location = new System.Drawing.Point(0, 93);
-            this.instructionsNum2Label.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.instructionsNum2Label.MaximumSize = new System.Drawing.Size(730, 0);
-            this.instructionsNum2Label.MinimumSize = new System.Drawing.Size(730, 0);
+            this.instructionsNum2Label.Location = new System.Drawing.Point(0, 75);
+            this.instructionsNum2Label.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.instructionsNum2Label.MaximumSize = new System.Drawing.Size(548, 0);
+            this.instructionsNum2Label.MinimumSize = new System.Drawing.Size(548, 0);
             this.instructionsNum2Label.Name = "instructionsNum2Label";
-            this.instructionsNum2Label.Size = new System.Drawing.Size(730, 21);
+            this.instructionsNum2Label.Size = new System.Drawing.Size(548, 16);
             this.instructionsNum2Label.TabIndex = 27;
             this.instructionsNum2Label.Text = "2. Input the name of the worksheet that contains the data.";
             this.instructionsNum2Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -381,11 +396,12 @@
             // layout5
             // 
             this.layout5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layout5.Location = new System.Drawing.Point(0, 71);
-            this.layout5.MaximumSize = new System.Drawing.Size(0, 22);
-            this.layout5.MinimumSize = new System.Drawing.Size(730, 22);
+            this.layout5.Location = new System.Drawing.Point(0, 57);
+            this.layout5.Margin = new System.Windows.Forms.Padding(2);
+            this.layout5.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout5.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout5.Name = "layout5";
-            this.layout5.Size = new System.Drawing.Size(754, 22);
+            this.layout5.Size = new System.Drawing.Size(566, 18);
             this.layout5.TabIndex = 26;
             // 
             // instructionsNum1Label
@@ -395,12 +411,12 @@
             this.instructionsNum1Label.Dock = System.Windows.Forms.DockStyle.Top;
             this.instructionsNum1Label.Font = new System.Drawing.Font("Montserrat", 9F);
             this.instructionsNum1Label.ForeColor = System.Drawing.SystemColors.Control;
-            this.instructionsNum1Label.Location = new System.Drawing.Point(0, 50);
-            this.instructionsNum1Label.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.instructionsNum1Label.MaximumSize = new System.Drawing.Size(730, 0);
-            this.instructionsNum1Label.MinimumSize = new System.Drawing.Size(730, 0);
+            this.instructionsNum1Label.Location = new System.Drawing.Point(0, 41);
+            this.instructionsNum1Label.Margin = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.instructionsNum1Label.MaximumSize = new System.Drawing.Size(548, 0);
+            this.instructionsNum1Label.MinimumSize = new System.Drawing.Size(548, 0);
             this.instructionsNum1Label.Name = "instructionsNum1Label";
-            this.instructionsNum1Label.Size = new System.Drawing.Size(730, 21);
+            this.instructionsNum1Label.Size = new System.Drawing.Size(548, 16);
             this.instructionsNum1Label.TabIndex = 21;
             this.instructionsNum1Label.Text = "1. Begin by uploading your Excel file. Ensure it follows the specified format.";
             this.instructionsNum1Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -411,20 +427,21 @@
             this.PANEL_TOGGLE_INSTRUCTIONS.Controls.Add(this.instructionsLabel);
             this.PANEL_TOGGLE_INSTRUCTIONS.Dock = System.Windows.Forms.DockStyle.Top;
             this.PANEL_TOGGLE_INSTRUCTIONS.Location = new System.Drawing.Point(0, 0);
-            this.PANEL_TOGGLE_INSTRUCTIONS.MinimumSize = new System.Drawing.Size(730, 50);
+            this.PANEL_TOGGLE_INSTRUCTIONS.Margin = new System.Windows.Forms.Padding(2);
+            this.PANEL_TOGGLE_INSTRUCTIONS.MinimumSize = new System.Drawing.Size(548, 41);
             this.PANEL_TOGGLE_INSTRUCTIONS.Name = "PANEL_TOGGLE_INSTRUCTIONS";
-            this.PANEL_TOGGLE_INSTRUCTIONS.Size = new System.Drawing.Size(754, 50);
+            this.PANEL_TOGGLE_INSTRUCTIONS.Size = new System.Drawing.Size(566, 41);
             this.PANEL_TOGGLE_INSTRUCTIONS.TabIndex = 0;
             // 
             // PANEL_INSTRUCTIONSBUTTON
             // 
             this.PANEL_INSTRUCTIONSBUTTON.Controls.Add(this.instructionsButton);
             this.PANEL_INSTRUCTIONSBUTTON.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PANEL_INSTRUCTIONSBUTTON.Location = new System.Drawing.Point(714, 0);
+            this.PANEL_INSTRUCTIONSBUTTON.Location = new System.Drawing.Point(536, 0);
             this.PANEL_INSTRUCTIONSBUTTON.Margin = new System.Windows.Forms.Padding(0);
             this.PANEL_INSTRUCTIONSBUTTON.Name = "PANEL_INSTRUCTIONSBUTTON";
-            this.PANEL_INSTRUCTIONSBUTTON.Padding = new System.Windows.Forms.Padding(5);
-            this.PANEL_INSTRUCTIONSBUTTON.Size = new System.Drawing.Size(40, 50);
+            this.PANEL_INSTRUCTIONSBUTTON.Padding = new System.Windows.Forms.Padding(4);
+            this.PANEL_INSTRUCTIONSBUTTON.Size = new System.Drawing.Size(30, 41);
             this.PANEL_INSTRUCTIONSBUTTON.TabIndex = 1;
             // 
             // instructionsButton
@@ -440,10 +457,10 @@
             this.instructionsButton.FlatAppearance.BorderSize = 0;
             this.instructionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.instructionsButton.ForeColor = System.Drawing.Color.Transparent;
-            this.instructionsButton.Location = new System.Drawing.Point(5, 5);
+            this.instructionsButton.Location = new System.Drawing.Point(4, 4);
             this.instructionsButton.Margin = new System.Windows.Forms.Padding(0);
             this.instructionsButton.Name = "instructionsButton";
-            this.instructionsButton.Size = new System.Drawing.Size(30, 40);
+            this.instructionsButton.Size = new System.Drawing.Size(22, 33);
             this.instructionsButton.TabIndex = 2;
             this.instructionsButton.TextColor = System.Drawing.Color.Transparent;
             this.instructionsButton.UseVisualStyleBackColor = false;
@@ -458,7 +475,7 @@
             this.instructionsLabel.Location = new System.Drawing.Point(0, 0);
             this.instructionsLabel.Margin = new System.Windows.Forms.Padding(0);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(754, 50);
+            this.instructionsLabel.Size = new System.Drawing.Size(566, 41);
             this.instructionsLabel.TabIndex = 0;
             this.instructionsLabel.Text = "Instructions for Uploading Excel File:";
             this.instructionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -466,11 +483,12 @@
             // layout1
             // 
             this.layout1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layout1.Location = new System.Drawing.Point(15, 65);
-            this.layout1.MaximumSize = new System.Drawing.Size(0, 22);
-            this.layout1.MinimumSize = new System.Drawing.Size(730, 22);
+            this.layout1.Location = new System.Drawing.Point(11, 53);
+            this.layout1.Margin = new System.Windows.Forms.Padding(2);
+            this.layout1.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout1.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout1.Name = "layout1";
-            this.layout1.Size = new System.Drawing.Size(754, 22);
+            this.layout1.Size = new System.Drawing.Size(566, 18);
             this.layout1.TabIndex = 15;
             // 
             // LAYOUT_FORMAT
@@ -482,31 +500,34 @@
             this.LAYOUT_FORMAT.Controls.Add(this.excelBookFormat);
             this.LAYOUT_FORMAT.Controls.Add(this.PANEL_TOGGLE_FORMAT);
             this.LAYOUT_FORMAT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LAYOUT_FORMAT.Location = new System.Drawing.Point(15, 15);
-            this.LAYOUT_FORMAT.MinimumSize = new System.Drawing.Size(730, 50);
+            this.LAYOUT_FORMAT.Location = new System.Drawing.Point(11, 12);
+            this.LAYOUT_FORMAT.Margin = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_FORMAT.MinimumSize = new System.Drawing.Size(548, 41);
             this.LAYOUT_FORMAT.Name = "LAYOUT_FORMAT";
-            this.LAYOUT_FORMAT.Size = new System.Drawing.Size(754, 50);
+            this.LAYOUT_FORMAT.Size = new System.Drawing.Size(566, 41);
             this.LAYOUT_FORMAT.TabIndex = 14;
             // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 1503);
-            this.panel1.MaximumSize = new System.Drawing.Size(0, 22);
-            this.panel1.MinimumSize = new System.Drawing.Size(730, 22);
+            this.panel1.Location = new System.Drawing.Point(0, 1221);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.MaximumSize = new System.Drawing.Size(0, 18);
+            this.panel1.MinimumSize = new System.Drawing.Size(548, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 22);
+            this.panel1.Size = new System.Drawing.Size(566, 18);
             this.panel1.TabIndex = 16;
             // 
             // excelTeacherFormat
             // 
             this.excelTeacherFormat.BackColor = System.Drawing.Color.Transparent;
             this.excelTeacherFormat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.excelTeacherFormat.Location = new System.Drawing.Point(0, 1076);
-            this.excelTeacherFormat.MaximumSize = new System.Drawing.Size(733, 427);
-            this.excelTeacherFormat.MinimumSize = new System.Drawing.Size(733, 427);
+            this.excelTeacherFormat.Location = new System.Drawing.Point(0, 874);
+            this.excelTeacherFormat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.excelTeacherFormat.MaximumSize = new System.Drawing.Size(550, 347);
+            this.excelTeacherFormat.MinimumSize = new System.Drawing.Size(550, 347);
             this.excelTeacherFormat.Name = "excelTeacherFormat";
-            this.excelTeacherFormat.Size = new System.Drawing.Size(733, 427);
+            this.excelTeacherFormat.Size = new System.Drawing.Size(550, 347);
             this.excelTeacherFormat.TabIndex = 3;
             this.excelTeacherFormat.Visible = false;
             // 
@@ -514,11 +535,12 @@
             // 
             this.excelStudentFormat.BackColor = System.Drawing.Color.Transparent;
             this.excelStudentFormat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.excelStudentFormat.Location = new System.Drawing.Point(0, 634);
-            this.excelStudentFormat.MaximumSize = new System.Drawing.Size(733, 442);
-            this.excelStudentFormat.MinimumSize = new System.Drawing.Size(733, 442);
+            this.excelStudentFormat.Location = new System.Drawing.Point(0, 515);
+            this.excelStudentFormat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.excelStudentFormat.MaximumSize = new System.Drawing.Size(550, 359);
+            this.excelStudentFormat.MinimumSize = new System.Drawing.Size(550, 359);
             this.excelStudentFormat.Name = "excelStudentFormat";
-            this.excelStudentFormat.Size = new System.Drawing.Size(733, 442);
+            this.excelStudentFormat.Size = new System.Drawing.Size(550, 359);
             this.excelStudentFormat.TabIndex = 2;
             this.excelStudentFormat.Visible = false;
             // 
@@ -526,11 +548,12 @@
             // 
             this.excelBookFormat.BackColor = System.Drawing.Color.Transparent;
             this.excelBookFormat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.excelBookFormat.Location = new System.Drawing.Point(0, 50);
-            this.excelBookFormat.MaximumSize = new System.Drawing.Size(733, 584);
-            this.excelBookFormat.MinimumSize = new System.Drawing.Size(733, 584);
+            this.excelBookFormat.Location = new System.Drawing.Point(0, 41);
+            this.excelBookFormat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.excelBookFormat.MaximumSize = new System.Drawing.Size(550, 474);
+            this.excelBookFormat.MinimumSize = new System.Drawing.Size(550, 474);
             this.excelBookFormat.Name = "excelBookFormat";
-            this.excelBookFormat.Size = new System.Drawing.Size(733, 584);
+            this.excelBookFormat.Size = new System.Drawing.Size(550, 474);
             this.excelBookFormat.TabIndex = 1;
             this.excelBookFormat.Visible = false;
             // 
@@ -540,20 +563,35 @@
             this.PANEL_TOGGLE_FORMAT.Controls.Add(this.PANEL_FORMATBUTTON);
             this.PANEL_TOGGLE_FORMAT.Dock = System.Windows.Forms.DockStyle.Top;
             this.PANEL_TOGGLE_FORMAT.Location = new System.Drawing.Point(0, 0);
-            this.PANEL_TOGGLE_FORMAT.MinimumSize = new System.Drawing.Size(730, 50);
+            this.PANEL_TOGGLE_FORMAT.Margin = new System.Windows.Forms.Padding(2);
+            this.PANEL_TOGGLE_FORMAT.MinimumSize = new System.Drawing.Size(548, 41);
             this.PANEL_TOGGLE_FORMAT.Name = "PANEL_TOGGLE_FORMAT";
-            this.PANEL_TOGGLE_FORMAT.Size = new System.Drawing.Size(754, 50);
+            this.PANEL_TOGGLE_FORMAT.Size = new System.Drawing.Size(566, 41);
             this.PANEL_TOGGLE_FORMAT.TabIndex = 0;
+            // 
+            // formatLabel
+            // 
+            this.formatLabel.BackColor = System.Drawing.Color.Transparent;
+            this.formatLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formatLabel.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.formatLabel.Location = new System.Drawing.Point(0, 0);
+            this.formatLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.formatLabel.Name = "formatLabel";
+            this.formatLabel.Size = new System.Drawing.Size(536, 41);
+            this.formatLabel.TabIndex = 0;
+            this.formatLabel.Text = "Format of Excel File:";
+            this.formatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PANEL_FORMATBUTTON
             // 
             this.PANEL_FORMATBUTTON.Controls.Add(this.formatButton);
             this.PANEL_FORMATBUTTON.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PANEL_FORMATBUTTON.Location = new System.Drawing.Point(714, 0);
+            this.PANEL_FORMATBUTTON.Location = new System.Drawing.Point(536, 0);
             this.PANEL_FORMATBUTTON.Margin = new System.Windows.Forms.Padding(0);
             this.PANEL_FORMATBUTTON.Name = "PANEL_FORMATBUTTON";
-            this.PANEL_FORMATBUTTON.Padding = new System.Windows.Forms.Padding(5);
-            this.PANEL_FORMATBUTTON.Size = new System.Drawing.Size(40, 50);
+            this.PANEL_FORMATBUTTON.Padding = new System.Windows.Forms.Padding(4);
+            this.PANEL_FORMATBUTTON.Size = new System.Drawing.Size(30, 41);
             this.PANEL_FORMATBUTTON.TabIndex = 1;
             // 
             // formatButton
@@ -569,42 +607,33 @@
             this.formatButton.FlatAppearance.BorderSize = 0;
             this.formatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.formatButton.ForeColor = System.Drawing.Color.White;
-            this.formatButton.Location = new System.Drawing.Point(5, 5);
+            this.formatButton.Location = new System.Drawing.Point(4, 4);
             this.formatButton.Margin = new System.Windows.Forms.Padding(0);
             this.formatButton.Name = "formatButton";
-            this.formatButton.Size = new System.Drawing.Size(30, 40);
+            this.formatButton.Size = new System.Drawing.Size(22, 33);
             this.formatButton.TabIndex = 2;
             this.formatButton.TextColor = System.Drawing.Color.White;
             this.formatButton.UseVisualStyleBackColor = false;
             this.formatButton.Click += new System.EventHandler(this.formatButton_Click);
             // 
-            // formatLabel
+            // openFileDialog
             // 
-            this.formatLabel.BackColor = System.Drawing.Color.Transparent;
-            this.formatLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formatLabel.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.formatLabel.Location = new System.Drawing.Point(0, 0);
-            this.formatLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.formatLabel.Name = "formatLabel";
-            this.formatLabel.Size = new System.Drawing.Size(714, 50);
-            this.formatLabel.TabIndex = 0;
-            this.formatLabel.Text = "Format of Excel File:";
-            this.formatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // FORM_UPLOAD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(790, 469);
+            this.ClientSize = new System.Drawing.Size(592, 381);
             this.Controls.Add(this.LAYOUT_UPLOAD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(790, 500);
-            this.MinimumSize = new System.Drawing.Size(790, 469);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(592, 406);
+            this.MinimumSize = new System.Drawing.Size(592, 381);
             this.Name = "FORM_UPLOAD";
-            this.Padding = new System.Windows.Forms.Padding(3);
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UPLOAD EXCEL FILE";
             this.Load += new System.EventHandler(this.FORM_UPLOAD_Load);
@@ -660,5 +689,6 @@
         private System.Windows.Forms.Panel panel1;
         private Archivary_Components.excelTeacherFormat excelTeacherFormat;
         private Archivary_Components.excelStudentFormat excelStudentFormat;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

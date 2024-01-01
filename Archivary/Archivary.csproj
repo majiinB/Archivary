@@ -144,6 +144,7 @@
     <Compile Include="BACKEND\OBJECTS\Admin.cs" />
     <Compile Include="BACKEND\OBJECTS\Book.cs" />
     <Compile Include="BACKEND\OBJECTS\Employee.cs" />
+    <Compile Include="BACKEND\OBJECTS\IdentificationResult.cs" />
     <Compile Include="BACKEND\OBJECTS\Setting.cs" />
     <Compile Include="BACKEND\OBJECTS\Student.cs" />
     <Compile Include="BACKEND\OBJECTS\Teacher.cs" />

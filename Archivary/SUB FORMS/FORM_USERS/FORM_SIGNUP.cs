@@ -19,7 +19,8 @@ namespace Archivary._1200X800.FORM_USERS
     public partial class FORM_SIGNUP : Form
     {
         private roundedButton currentBtn;
-        private int conditionForAdd = 0;
+        private int conditionForAdd = (int)UserAdd.Student;
+        private int conditionForAddExcell = (int)UserAddExcell.Student;
         private string selectedFilePath = "";
         private FORM_ALERT alert;
 
@@ -28,6 +29,11 @@ namespace Archivary._1200X800.FORM_USERS
             Student = 0,
             Teacher = 1,
             Employee = 2,
+        }
+        private enum UserAddExcell
+        {
+            Student = 3,
+            Teacher = 2
         }
 
         public FORM_SIGNUP()
@@ -78,6 +84,7 @@ namespace Archivary._1200X800.FORM_USERS
             ClearAllTextBoxes(this);
             SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
             conditionForAdd = (int)UserAdd.Student;
+            conditionForAddExcell = (int)UserAddExcell.Student;
             //visibility of textboxes and labels 
             collegeLabel.Visible = true;
             collegeTextBox.Visible = true;
@@ -97,7 +104,7 @@ namespace Archivary._1200X800.FORM_USERS
             ClearAllTextBoxes(this);
             SetPictureBoxImage("No_image"); //to clear ImageBox when the button is clicked
             conditionForAdd = (int)UserAdd.Teacher;
-
+            conditionForAddExcell = (int)UserAddExcell.Teacher;
             //visibility of textboxes and labels 
             collegeLabel.Visible = true;
             collegeTextBox.Visible = true;
@@ -417,7 +424,7 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void uploadExcelFIleButton_Click(object sender, EventArgs e)
         {
-            FORM_UPLOAD upload = new FORM_UPLOAD(2);
+            FORM_UPLOAD upload = new FORM_UPLOAD(conditionForAddExcell);
             upload.ShowDialog();
         }
     }

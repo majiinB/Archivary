@@ -377,7 +377,18 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
             return bookCount;
         }
 
+        //Other operations
+        public static string ConcatenateList(List<string> inputList)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
 
+            foreach (string element in inputList)
+            {
+                stringBuilder.AppendLine(element);
+            }
+
+            return stringBuilder.ToString();
+        }
         #endregion
 
     }
