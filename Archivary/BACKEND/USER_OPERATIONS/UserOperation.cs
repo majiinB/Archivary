@@ -137,7 +137,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
 
         //FOR INPUT VALIDATION
-        public static string[] IsUserInputValid(string firstName, string lastName, string middleName, string email, string address, string contactNum,
+        public static string[] IsUserInputValid(string firstName, string lastName, string middleInitial, string email, string address, string contactNum,
             string imagePath = "No_image", string department = "No_department", string yearLevel = "No_yearLevel", string section = "No_section", string password = "No_password",
             string securityQuestion = "No_security_quesion", string securityAnswer = "No_security_question")
         {
@@ -154,10 +154,17 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 errorMessage[1] = "Last name can't be empty";
                 return errorMessage;
             }
-            if (string.IsNullOrEmpty(middleName))
+            if (string.IsNullOrEmpty(middleInitial))
             {
                 errorMessage[0] = "Invalid Middle Name";
                 errorMessage[1] = "Middle name can't be empty";
+                return errorMessage;
+            }
+            MessageBox.Show((!IsOnlyCharacterOrNA(middleInitial)).ToString());
+            if (!IsOnlyCharacterOrNA(middleInitial))
+            {
+                errorMessage[0] = "Invalid Middle Name";
+                errorMessage[1] = "Middle can only be a character";
                 return errorMessage;
             }
             if (string.IsNullOrEmpty(email))
@@ -332,7 +339,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             input = input.TrimEnd('.');
 
             // Check if the input is a single character or "N/A"
-            return (input.Length >= 1 && char.IsLetter(input[0])) || input.ToUpper() == "N/A";
+            return (input.Length == 1 && char.IsLetter(input[0])) || input.ToUpper() == "N/A";
         }
         public static bool DoesFileExistAndIsImage(string filePath)
         {

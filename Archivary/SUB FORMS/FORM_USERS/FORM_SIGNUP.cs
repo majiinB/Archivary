@@ -39,6 +39,7 @@ namespace Archivary._1200X800.FORM_USERS
         public FORM_SIGNUP()
         {
             InitializeComponent();
+            ShowInTaskbar = false;
             ActivateButton(studentButton);
             SetPictureBoxImage("No_image");
         }
@@ -213,7 +214,7 @@ namespace Archivary._1200X800.FORM_USERS
                 string[] errorMessage = UserOperation.IsUserInputValid(
                     firstNameTextBox.Text,
                     lastNameTextBox.Text,
-                    middleInitialTextBox.Text,
+                    middleInitialTextBox.Text.ToUpper().Trim(','),
                     emailTextBox.Text,
                     address,
                     contactNumberTextBox.Text,
@@ -231,7 +232,7 @@ namespace Archivary._1200X800.FORM_USERS
                         if (UserOperation.AddStudent(
                         firstNameTextBox.Text,
                         lastNameTextBox.Text,
-                        middleInitialTextBox.Text,
+                        middleInitialTextBox.Text.ToUpper().Trim(','),
                         emailTextBox.Text,
                         address,
                         contactNumberTextBox.Text,
