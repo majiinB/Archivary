@@ -204,7 +204,28 @@ namespace Archivary._900X500
                         }
                         else
                         {
-                            alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Upload completed and but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
+                            alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Student info upload completed but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
+                            alert.ShowDialog();
+                        }
+                        isDataLoading = false;
+                    });
+                }
+            }else if(condition == (int)EXCEL_FORMAT.Teacher)
+            {
+                if (!isDataLoading)
+                {
+                    isDataLoading = true;
+                    await Task.Run(() =>
+                    {
+                        List<string> confirmation = UserOperation.AddTeacherByExcel(selectedFilePath, worksheetTextbox.Text, int.Parse(startingRowTextbox.Text));
+                        if (confirmation.Count == 0)
+                        {
+                            alert = new FORM_ALERT(3, "UPLOAD SUCCESSFUL", "Upload success and did not encounter any errors");
+                            alert.ShowDialog();
+                        }
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Teacher info upload completed but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
                             alert.ShowDialog();
                         }
                         isDataLoading = false;

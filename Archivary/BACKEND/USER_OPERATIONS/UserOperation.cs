@@ -54,7 +54,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             LastName = 0,
             FirstName = 1,
-            MiddleName = 2,
+            MiddleInitial = 2,
             Email = 3,
             BlockNo = 4,
             Street = 5,
@@ -496,111 +496,123 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             return IdentificationResult.CreateSuccess(sequence);
         }
-        private static int[] IdentifyTeacherColumnInfoSequence(ExcelWorksheet worksheet, int startRow)
+        private static IdentificationResult IdentifyTeacherColumnInfoSequence(ExcelWorksheet worksheet, int startRow)
         {
             //Check if the start row is greater than 1
             //if start row is equal to 1 it means that there are no header because worksheet is 1 indexed
-            if (startRow < 2)
-            {
-                Console.WriteLine("start row is less than 2");
-                return new int[0];
-            }
+            if (startRow < 2) return IdentificationResult.CreateError("Start Row is Less Than 2");
 
             int headerLocation = startRow - 1; //move one cell up assuming that the header is directly above the first row
 
             //Initialize array
             int[] sequence = new int[11];
 
-            //Loop to fill the array
-            for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
+            // Track encountered headers
+            HashSet<string> encounteredHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            for (int row = headerLocation; row == headerLocation; row++)
             {
-                //Take cell value
-                var cellValue = worksheet.Cells[headerLocation, col].Value;
-
-                //Check first if cell is null
-                if (cellValue != null)
+                //Loop to fill the array
+                for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
                 {
-                    // Check if the cells are all string
-                    if (cellValue is double doubleValue) return new int[0];
-                    else if (cellValue is int intValue) return new int[0];
-                    else if (cellValue is float floatValue) return new int[0];
+                    //Take cell value
+                    var cellValue = worksheet.Cells[headerLocation, col].Value;
 
-                    //Fill the array with values based from cell header name
-                    if (cellValue.ToString().Trim().ToUpper() == "LASTNAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST-NAME")
+                    //Check first if cell is null
+                    if (cellValue != null)
                     {
-                        sequence[col - 1] = (int)TeacherInfo.LastName;
+                        // Check if the cells are all string
+                        if (cellValue is double doubleValue || cellValue is int intValue || cellValue is float floatValue)
+                        {
+                            return IdentificationResult.CreateError("Cell Value is a type of number or decimal");
+                        }
+
+                        // Check if the header is unique
+                        string headerName = cellValue.ToString().Trim().ToUpper();
+                        if (!encounteredHeaders.Add(headerName))
+                        {
+                            return IdentificationResult.CreateError($"Duplicate header found '{headerName}' in column {col}");
+                        }
+
+                        //Fill the array with values based from cell header name
+                        if (cellValue.ToString().Trim().ToUpper() == "LASTNAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST_NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST-NAME")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.LastName;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "FIRSTNAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST_NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST-NAME")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.FirstName;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "MIDDLEINTIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE INITIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE_INITIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE-INITIAL")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.MiddleInitial;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "EMAIL" ||
+                            cellValue.ToString().Trim().ToUpper() == "EMAIL ADDRESS")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Email;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "BLOCK NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOUSE NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOUSE NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOME NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "HOME NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.BlockNo;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "STREET")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Street;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "BARANGAY")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Barangay;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "CITY")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.City;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "CONTACTNUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT_NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT-NUMBER")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.ContactNum;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "DEPARTMENT" ||
+                            cellValue.ToString().Trim().ToUpper() == "COLLEGE DEPARTMENT")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Department;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "IMAGE PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGE_PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGE-PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGEPATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "PROFILE PICTURE" ||
+                            cellValue.ToString().Trim().ToUpper() == "PROFILE_PICTURE")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.ImagePath;
+                        }
+                        else return IdentificationResult.CreateError($"Column {headerName} in your header is not in the right format or does not correctly identify the column");
                     }
-                    else if (cellValue.ToString().Trim().ToUpper() == "FIRSTNAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST-NAME")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.FirstName;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "MIDDLENAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE-NAME")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.MiddleName;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "EMAIL")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Email;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "BLOCK NO." ||
-                        cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
-                        cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "BLOCK" ||
-                        cellValue.ToString().Trim().ToUpper() == "HOUSE NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "HOUSE NO." ||
-                        cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
-                        cellValue.ToString().Trim().ToUpper() == "HOME NO." ||
-                        cellValue.ToString().Trim().ToUpper() == "HOME NO" ||
-                        cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.BlockNo;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "STREET")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Street;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "BARANGAY")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Barangay;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "CITY")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.City;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "CONTACTNUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT_NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT-NUMBER")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.ContactNum;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "DEPARTMENT")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Department;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "IMAGE PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGE_PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGE-PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGEPATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "PROFILE PICTURE" ||
-                        cellValue.ToString().Trim().ToUpper() == "PROFILE_PICTURE")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.ImagePath;
-                    }
-                    else return new int[0];
+                    else return IdentificationResult.CreateError($"Column {col} in your header is empty");
                 }
-                else return new int[0]; //Return imediately if the cell is empty
             }
-            return sequence;
+            return IdentificationResult.CreateSuccess(sequence);
         }
         public static (bool isValid, string errorMessage) CheckStudentInfoFromExcel(string[] studentInfos)
         {
@@ -663,27 +675,28 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     return (false, $"Entered student info is null in column {headerNames[i]}");
                 }
             }
-
             return (true, null); // No errors
         }
-        public static bool CheckTeacherInfoFromExcel(string[] teacherInfos)
+        public static (bool isValid, string errorMessage) CheckTeacherInfoFromExcel(string[] teacherInfos)
         {
+            // Checks middle initial
+            if (!IsOnlyCharacterOrNA(teacherInfos[(int)TeacherInfo.MiddleInitial]))
+            {
+                return (false, "Invalid middle initial");
+            }
             //Checks email
             if (IsEmailExisting(teacherInfos[(int)TeacherInfo.Email]))
             {
-                Console.WriteLine("Entered email check 1");
-                return false;
+                return (false, "Email already exists");
             }
             if (!IsValidEmail(teacherInfos[(int)TeacherInfo.Email]))
             {
-                Console.WriteLine("Entered email check 2");
-                return false;
+                return (false, "Invalid email format");
             }
             //Checks contact number
             if (!IsValidContactNumber(teacherInfos[(int)TeacherInfo.ContactNum]))
             {
-                Console.WriteLine("Entered contact number check");
-                return false;
+                return (false, "Invalid contact number");
             }
 
             //Checks file location
@@ -696,23 +709,23 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             {
                 if (!DoesFileExistAndIsImage(teacherInfos[(int)TeacherInfo.ImagePath]))
                 {
-                    Console.WriteLine("Entered image check");
-                    Console.WriteLine(teacherInfos[(int)TeacherInfo.ImagePath].ToUpper().Trim());
-                    return false;
+                    return (false, "Invalid image file or file does not exist");
                 }
             }
+            string[] headerNames = { "Last Name", "First Name", "Middle Initial", "Email Address",
+                "Block No.", "Street", "Barangay", "City", "Contact Number", "College Department", "Image Path" };
             for (int i = 0; i < teacherInfos.Length; i++)
             {
                 //skip iteration
-                if (i == (int)TeacherInfo.Email || i == (int)TeacherInfo.ContactNum || i == (int)TeacherInfo.ImagePath) continue;
+                if (i == (int)TeacherInfo.Email || i == (int)TeacherInfo.ContactNum || i == (int)TeacherInfo.ImagePath ||
+                    i == (int)StudentInfo.MiddleInitial) continue;
                 //Checks other infos
                 if (string.IsNullOrEmpty(teacherInfos[i]))
                 {
-                    Console.WriteLine("Entered Teacher info is null check");
-                    return false;
+                    return (false, $"Entered student info is null in column {headerNames[i]}");
                 }
             }
-            return true;
+            return (true, null); // No errors
         }
 
         //FOR EXTRACTING INFORMATION IN THE DATABASE
@@ -1428,7 +1441,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                         // Adjust actualRowCount based on the presence of header
                         //Iterate through the rows and columns
-                        for (int row = 1; row <= (startRow-2) + actualRowCount; row++)
+                        for (int row = 1; row <= (startRow - 2) + actualRowCount; row++)
                         {
                             if (row < startRow) continue; //skips the rows above the header
                             string[] colValues = new string[13]; //Store info here
@@ -1538,30 +1551,69 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             return errors;
         }
-        public static void AddTeacherByExcel(string fileLocation, string workSheetLocation, int startRow)
+        public static List<string> AddTeacherByExcel(string fileLocation, string workSheetLocation, int startRow)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial; //Indicates to the dependency that this is for non-commercial use
+
+            List<string> errors = new List<string>();
 
             using (var package = new ExcelPackage(new FileInfo(fileLocation)))
             {
                 if (package != null)
                 {
-                    //.WriteLine(package.Workbook.Worksheets.Count); Just for debug
                     var worksheet = package.Workbook.Worksheets[workSheetLocation];
-                    //if (worksheet == null) Console.WriteLine("is null"); Just for debug
 
                     //Check if the worksheet exists
                     if (worksheet != null)
                     {
-                        //Iterate through the rows and columns
-                        Console.WriteLine(worksheet.Dimension.End.Row.ToString() + " Rows");
-
-                        for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
+                        // Get the actual row count with data
+                        int actualRowCount = 0;
+                        for (int row = startRow - 1; row <= worksheet.Dimension.End.Row; row++)
                         {
-                            string[] colValues = new string[11];
+                            var rowHasData = worksheet.Cells[row, worksheet.Dimension.Start.Column, row, worksheet.Dimension.End.Column]
+                                .Any(cell => cell.Value != null);
+
+                            if (rowHasData)
+                            {
+                                actualRowCount++;
+                            }
+                        }
+
+                        if (actualRowCount == 0 || actualRowCount == 1)
+                        {
+                            errors.Add("There are no information inside the excell file");
+                            return errors;
+                        }
+
+                        int actualColumnCount = 0;
+                        for (int col = worksheet.Dimension.Start.Column; col <= worksheet.Dimension.End.Column; col++)
+                        {
+                            var columnHasData = worksheet.Cells
+                                .Skip(startRow)  // Skip header rows
+                                .Any(cell => cell.Start.Column == col && cell.Value != null);
+
+                            if (columnHasData)
+                            {
+                                actualColumnCount++;
+                            }
+                        }
+
+                        // Check if the number of columns is as expected
+                        if (actualColumnCount != 11)
+                        {
+                            errors.Add($"Expected {11} columns, but found {actualColumnCount} columns.");
+                            return errors;
+                        }
+
+                        // Adjust actualRowCount based on the presence of header
+                        //Iterate through the rows and columns
+                        for (int row = startRow; row <= (startRow - 2) + actualRowCount; row++)
+                        {
+                            if (row < startRow) continue; //skips the rows above the header
+                            string[] colValues = new string[11]; //Store info here
+                            //Iterate through columns
                             for (int col = worksheet.Dimension.Start.Column; col <= colValues.Length; col++)
                             {
-
                                 //Take cell info of value
                                 var cellValue = worksheet.Cells[row, col].Value;
 
@@ -1591,22 +1643,27 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                             //If start row is equal to 1 it will identify the information by default order
                             if (startRow > 1)
                             {
-                                //Array to identify each column that has corresponding values
-                                int[] sequence = IdentifyTeacherColumnInfoSequence(worksheet, startRow);
-
+                                // Check the header
+                                IdentificationResult result = IdentifyTeacherColumnInfoSequence(worksheet, startRow);
+                                if (!result.Success)
+                                {
+                                    errors.Add(result.ErrorMessage);
+                                    return errors;
+                                }
                                 //Check if header is appropriate and describes the required book info
-                                if (sequence.Length != 0)
+                                if (result.Success)
                                 {
                                     //Sort info
-                                    SortInfoBaseOnSequence(sequence, colValues);
+                                    SortInfoBaseOnSequence(result.Sequence, colValues);
                                 }
-                                else return; //Return immediately to avoid insertion of incorrect information
                             }
                             //Check if all infos provided is valid
-                            if (CheckTeacherInfoFromExcel(colValues))
+                            var validateResult = CheckTeacherInfoFromExcel(colValues);
+                            if (validateResult.isValid)
                             {
                                 string address = colValues[(int)TeacherInfo.BlockNo] + ", " + colValues[(int)TeacherInfo.Street] + ", " +
                                     colValues[(int)TeacherInfo.Barangay] + ", " + colValues[(int)TeacherInfo.City];
+
                                 if (string.IsNullOrEmpty(colValues[(int)TeacherInfo.ImagePath]) ||
                                     colValues[(int)TeacherInfo.ImagePath].ToUpper().Trim() == "NO_IMAGE" ||
                                     colValues[(int)TeacherInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
@@ -1617,7 +1674,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddTeacher(
                                             colValues[(int)TeacherInfo.FirstName],
                                             colValues[(int)TeacherInfo.LastName],
-                                            colValues[(int)TeacherInfo.MiddleName],
+                                            colValues[(int)TeacherInfo.MiddleInitial],
                                             colValues[(int)TeacherInfo.Email],
                                             address,
                                             colValues[(int)TeacherInfo.ContactNum],
@@ -1629,7 +1686,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddTeacher(
                                             colValues[(int)TeacherInfo.FirstName],
                                             colValues[(int)TeacherInfo.LastName],
-                                            colValues[(int)TeacherInfo.MiddleName],
+                                            colValues[(int)TeacherInfo.MiddleInitial],
                                             colValues[(int)TeacherInfo.Email],
                                             address,
                                             colValues[(int)TeacherInfo.ContactNum],
@@ -1639,11 +1696,23 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                 }
 
                             }
+                            else
+                            {
+                                errors.Add($"Row Number: {row} {validateResult.errorMessage}");
+                            }
                         }
-                        Console.Write("Student insert from excel finished");
+                    }
+                    else
+                    {
+                        errors.Add($"Worksheet {workSheetLocation} does not exist");
                     }
                 }
+                else
+                {
+                    errors.Add($"File: {fileLocation} does not exist");
+                }
             }
+            return errors;
         }
         //USER CREATION IN THE APP - LOGIN
         public static object Login(string email, string password)

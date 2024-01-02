@@ -33,14 +33,8 @@
             this.layout3 = new System.Windows.Forms.Panel();
             this.LAYOUT_INPUT = new System.Windows.Forms.TableLayoutPanel();
             this.startingRowLabel = new System.Windows.Forms.Label();
-            this.startingRowTextbox = new RoundedCorners.RoundedTextBox();
-            this.fileTextbox = new RoundedCorners.RoundedTextBox();
-            this.worksheetTextbox = new RoundedCorners.RoundedTextBox();
-            this.selectButton = new roundedCorners.roundedButton();
             this.worksheetLabel = new System.Windows.Forms.Label();
             this.LAYOUT_BUTTON = new System.Windows.Forms.TableLayoutPanel();
-            this.uploadButton = new roundedCorners.roundedButton();
-            this.backButton = new roundedCorners.roundedButton();
             this.layout2 = new System.Windows.Forms.Panel();
             this.LAYOUT_INSTRUCTIONS = new System.Windows.Forms.Panel();
             this.instructionsNum3Label = new System.Windows.Forms.Label();
@@ -50,19 +44,25 @@
             this.instructionsNum1Label = new System.Windows.Forms.Label();
             this.PANEL_TOGGLE_INSTRUCTIONS = new System.Windows.Forms.Panel();
             this.PANEL_INSTRUCTIONSBUTTON = new System.Windows.Forms.Panel();
-            this.instructionsButton = new roundedCorners.roundedButton();
             this.instructionsLabel = new System.Windows.Forms.Label();
             this.layout1 = new System.Windows.Forms.Panel();
             this.LAYOUT_FORMAT = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.excelTeacherFormat = new Archivary.Archivary_Components.excelTeacherFormat();
-            this.excelStudentFormat = new Archivary.Archivary_Components.excelStudentFormat();
-            this.excelBookFormat = new Archivary.Archivary_Components.excelBookFormat();
             this.PANEL_TOGGLE_FORMAT = new System.Windows.Forms.Panel();
             this.formatLabel = new System.Windows.Forms.Label();
             this.PANEL_FORMATBUTTON = new System.Windows.Forms.Panel();
-            this.formatButton = new roundedCorners.roundedButton();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.startingRowTextbox = new RoundedCorners.RoundedTextBox();
+            this.fileTextbox = new RoundedCorners.RoundedTextBox();
+            this.worksheetTextbox = new RoundedCorners.RoundedTextBox();
+            this.selectButton = new roundedCorners.roundedButton();
+            this.uploadButton = new roundedCorners.roundedButton();
+            this.backButton = new roundedCorners.roundedButton();
+            this.instructionsButton = new roundedCorners.roundedButton();
+            this.excelTeacherFormat = new Archivary.Archivary_Components.excelTeacherFormat();
+            this.excelStudentFormat = new Archivary.Archivary_Components.excelStudentFormat();
+            this.excelBookFormat = new Archivary.Archivary_Components.excelBookFormat();
+            this.formatButton = new roundedCorners.roundedButton();
             this.LAYOUT_UPLOAD.SuspendLayout();
             this.LAYOUT_INPUT.SuspendLayout();
             this.LAYOUT_BUTTON.SuspendLayout();
@@ -97,12 +97,12 @@
             // layout4
             // 
             this.layout4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.layout4.Location = new System.Drawing.Point(11, 306);
+            this.layout4.Location = new System.Drawing.Point(11, 310);
             this.layout4.Margin = new System.Windows.Forms.Padding(2);
             this.layout4.MaximumSize = new System.Drawing.Size(0, 18);
             this.layout4.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout4.Name = "layout4";
-            this.layout4.Size = new System.Drawing.Size(566, 18);
+            this.layout4.Size = new System.Drawing.Size(548, 18);
             this.layout4.TabIndex = 21;
             // 
             // layout3
@@ -113,7 +113,7 @@
             this.layout3.MaximumSize = new System.Drawing.Size(0, 18);
             this.layout3.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout3.Name = "layout3";
-            this.layout3.Size = new System.Drawing.Size(566, 18);
+            this.layout3.Size = new System.Drawing.Size(548, 18);
             this.layout3.TabIndex = 18;
             // 
             // LAYOUT_INPUT
@@ -141,7 +141,7 @@
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.LAYOUT_INPUT.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.LAYOUT_INPUT.Size = new System.Drawing.Size(566, 162);
+            this.LAYOUT_INPUT.Size = new System.Drawing.Size(548, 162);
             this.LAYOUT_INPUT.TabIndex = 19;
             // 
             // startingRowLabel
@@ -154,91 +154,10 @@
             this.startingRowLabel.Location = new System.Drawing.Point(2, 103);
             this.startingRowLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.startingRowLabel.Name = "startingRowLabel";
-            this.startingRowLabel.Size = new System.Drawing.Size(562, 29);
+            this.startingRowLabel.Size = new System.Drawing.Size(544, 29);
             this.startingRowLabel.TabIndex = 10;
             this.startingRowLabel.Text = "Starting Row";
             this.startingRowLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // startingRowTextbox
-            // 
-            this.startingRowTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.startingRowTextbox.BackgroundColor = System.Drawing.Color.White;
-            this.startingRowTextbox.BorderColor = System.Drawing.Color.Transparent;
-            this.startingRowTextbox.BorderThickness = 3;
-            this.startingRowTextbox.Br = System.Drawing.Color.White;
-            this.LAYOUT_INPUT.SetColumnSpan(this.startingRowTextbox, 2);
-            this.startingRowTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startingRowTextbox.Font = new System.Drawing.Font("Montserrat", 9F);
-            this.startingRowTextbox.ForeColor = System.Drawing.Color.Black;
-            this.startingRowTextbox.Location = new System.Drawing.Point(0, 132);
-            this.startingRowTextbox.Margin = new System.Windows.Forms.Padding(0);
-            this.startingRowTextbox.Name = "startingRowTextbox";
-            this.startingRowTextbox.Radius = 15;
-            this.startingRowTextbox.Size = new System.Drawing.Size(566, 30);
-            this.startingRowTextbox.TabIndex = 4;
-            this.startingRowTextbox.Text = "2";
-            this.startingRowTextbox.UseSystemPasswordChar = false;
-            // 
-            // fileTextbox
-            // 
-            this.fileTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.fileTextbox.BackgroundColor = System.Drawing.Color.White;
-            this.fileTextbox.BorderColor = System.Drawing.Color.Transparent;
-            this.fileTextbox.BorderThickness = 3;
-            this.fileTextbox.Br = System.Drawing.Color.White;
-            this.fileTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileTextbox.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fileTextbox.ForeColor = System.Drawing.Color.Black;
-            this.fileTextbox.Location = new System.Drawing.Point(125, 0);
-            this.fileTextbox.Margin = new System.Windows.Forms.Padding(0);
-            this.fileTextbox.Name = "fileTextbox";
-            this.fileTextbox.Radius = 15;
-            this.fileTextbox.Size = new System.Drawing.Size(441, 29);
-            this.fileTextbox.TabIndex = 1;
-            this.fileTextbox.Text = "fileName.xlsx";
-            this.fileTextbox.UseSystemPasswordChar = false;
-            // 
-            // worksheetTextbox
-            // 
-            this.worksheetTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.worksheetTextbox.BackgroundColor = System.Drawing.Color.White;
-            this.worksheetTextbox.BorderColor = System.Drawing.Color.Transparent;
-            this.worksheetTextbox.BorderThickness = 3;
-            this.worksheetTextbox.Br = System.Drawing.Color.White;
-            this.LAYOUT_INPUT.SetColumnSpan(this.worksheetTextbox, 2);
-            this.worksheetTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.worksheetTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.worksheetTextbox.ForeColor = System.Drawing.Color.Black;
-            this.worksheetTextbox.Location = new System.Drawing.Point(0, 66);
-            this.worksheetTextbox.Margin = new System.Windows.Forms.Padding(0);
-            this.worksheetTextbox.Name = "worksheetTextbox";
-            this.worksheetTextbox.Radius = 15;
-            this.worksheetTextbox.Size = new System.Drawing.Size(566, 29);
-            this.worksheetTextbox.TabIndex = 0;
-            this.worksheetTextbox.Text = "WorkSheet1";
-            this.worksheetTextbox.UseSystemPasswordChar = false;
-            // 
-            // selectButton
-            // 
-            this.selectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.selectButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.selectButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.selectButton.BorderRadius = 15;
-            this.selectButton.BorderSize = 3;
-            this.selectButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.selectButton.FlatAppearance.BorderSize = 0;
-            this.selectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
-            this.selectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.selectButton.Location = new System.Drawing.Point(0, 0);
-            this.selectButton.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
-            this.selectButton.Name = "selectButton";
-            this.selectButton.Size = new System.Drawing.Size(121, 29);
-            this.selectButton.TabIndex = 5;
-            this.selectButton.Text = "SELECT FILE";
-            this.selectButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.selectButton.UseVisualStyleBackColor = false;
-            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
             // worksheetLabel
             // 
@@ -250,7 +169,7 @@
             this.worksheetLabel.Location = new System.Drawing.Point(2, 37);
             this.worksheetLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.worksheetLabel.Name = "worksheetLabel";
-            this.worksheetLabel.Size = new System.Drawing.Size(562, 29);
+            this.worksheetLabel.Size = new System.Drawing.Size(544, 29);
             this.worksheetLabel.TabIndex = 6;
             this.worksheetLabel.Text = "Worksheet Name";
             this.worksheetLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -264,59 +183,15 @@
             this.LAYOUT_BUTTON.Controls.Add(this.uploadButton, 2, 0);
             this.LAYOUT_BUTTON.Controls.Add(this.backButton, 0, 0);
             this.LAYOUT_BUTTON.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LAYOUT_BUTTON.Location = new System.Drawing.Point(11, 324);
+            this.LAYOUT_BUTTON.Location = new System.Drawing.Point(11, 328);
             this.LAYOUT_BUTTON.Margin = new System.Windows.Forms.Padding(2);
             this.LAYOUT_BUTTON.MaximumSize = new System.Drawing.Size(0, 41);
             this.LAYOUT_BUTTON.MinimumSize = new System.Drawing.Size(548, 18);
             this.LAYOUT_BUTTON.Name = "LAYOUT_BUTTON";
             this.LAYOUT_BUTTON.RowCount = 1;
             this.LAYOUT_BUTTON.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LAYOUT_BUTTON.Size = new System.Drawing.Size(566, 41);
+            this.LAYOUT_BUTTON.Size = new System.Drawing.Size(548, 41);
             this.LAYOUT_BUTTON.TabIndex = 17;
-            // 
-            // uploadButton
-            // 
-            this.uploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadButton.BorderColor = System.Drawing.Color.Transparent;
-            this.uploadButton.BorderRadius = 15;
-            this.uploadButton.BorderSize = 5;
-            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadButton.FlatAppearance.BorderSize = 0;
-            this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.uploadButton.Location = new System.Drawing.Point(292, 2);
-            this.uploadButton.Margin = new System.Windows.Forms.Padding(2);
-            this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(272, 37);
-            this.uploadButton.TabIndex = 8;
-            this.uploadButton.Text = "UPLOAD FILE";
-            this.uploadButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.uploadButton.UseVisualStyleBackColor = false;
-            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.backButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.backButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.BorderRadius = 15;
-            this.backButton.BorderSize = 3;
-            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.Location = new System.Drawing.Point(2, 2);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(271, 37);
-            this.backButton.TabIndex = 6;
-            this.backButton.Text = "BACK";
-            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // layout2
             // 
@@ -326,7 +201,7 @@
             this.layout2.MaximumSize = new System.Drawing.Size(0, 18);
             this.layout2.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout2.Name = "layout2";
-            this.layout2.Size = new System.Drawing.Size(566, 18);
+            this.layout2.Size = new System.Drawing.Size(548, 18);
             this.layout2.TabIndex = 20;
             // 
             // LAYOUT_INSTRUCTIONS
@@ -344,7 +219,7 @@
             this.LAYOUT_INSTRUCTIONS.MaximumSize = new System.Drawing.Size(0, 155);
             this.LAYOUT_INSTRUCTIONS.MinimumSize = new System.Drawing.Size(548, 41);
             this.LAYOUT_INSTRUCTIONS.Name = "LAYOUT_INSTRUCTIONS";
-            this.LAYOUT_INSTRUCTIONS.Size = new System.Drawing.Size(566, 41);
+            this.LAYOUT_INSTRUCTIONS.Size = new System.Drawing.Size(548, 41);
             this.LAYOUT_INSTRUCTIONS.TabIndex = 16;
             // 
             // instructionsNum3Label
@@ -373,7 +248,7 @@
             this.layout6.MaximumSize = new System.Drawing.Size(0, 18);
             this.layout6.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout6.Name = "layout6";
-            this.layout6.Size = new System.Drawing.Size(566, 18);
+            this.layout6.Size = new System.Drawing.Size(548, 18);
             this.layout6.TabIndex = 28;
             // 
             // instructionsNum2Label
@@ -401,7 +276,7 @@
             this.layout5.MaximumSize = new System.Drawing.Size(0, 18);
             this.layout5.MinimumSize = new System.Drawing.Size(548, 18);
             this.layout5.Name = "layout5";
-            this.layout5.Size = new System.Drawing.Size(566, 18);
+            this.layout5.Size = new System.Drawing.Size(548, 18);
             this.layout5.TabIndex = 26;
             // 
             // instructionsNum1Label
@@ -430,19 +305,237 @@
             this.PANEL_TOGGLE_INSTRUCTIONS.Margin = new System.Windows.Forms.Padding(2);
             this.PANEL_TOGGLE_INSTRUCTIONS.MinimumSize = new System.Drawing.Size(548, 41);
             this.PANEL_TOGGLE_INSTRUCTIONS.Name = "PANEL_TOGGLE_INSTRUCTIONS";
-            this.PANEL_TOGGLE_INSTRUCTIONS.Size = new System.Drawing.Size(566, 41);
+            this.PANEL_TOGGLE_INSTRUCTIONS.Size = new System.Drawing.Size(549, 41);
             this.PANEL_TOGGLE_INSTRUCTIONS.TabIndex = 0;
             // 
             // PANEL_INSTRUCTIONSBUTTON
             // 
             this.PANEL_INSTRUCTIONSBUTTON.Controls.Add(this.instructionsButton);
             this.PANEL_INSTRUCTIONSBUTTON.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PANEL_INSTRUCTIONSBUTTON.Location = new System.Drawing.Point(536, 0);
+            this.PANEL_INSTRUCTIONSBUTTON.Location = new System.Drawing.Point(519, 0);
             this.PANEL_INSTRUCTIONSBUTTON.Margin = new System.Windows.Forms.Padding(0);
             this.PANEL_INSTRUCTIONSBUTTON.Name = "PANEL_INSTRUCTIONSBUTTON";
             this.PANEL_INSTRUCTIONSBUTTON.Padding = new System.Windows.Forms.Padding(4);
             this.PANEL_INSTRUCTIONSBUTTON.Size = new System.Drawing.Size(30, 41);
             this.PANEL_INSTRUCTIONSBUTTON.TabIndex = 1;
+            // 
+            // instructionsLabel
+            // 
+            this.instructionsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.instructionsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.instructionsLabel.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.instructionsLabel.Location = new System.Drawing.Point(0, 0);
+            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.instructionsLabel.Name = "instructionsLabel";
+            this.instructionsLabel.Size = new System.Drawing.Size(549, 41);
+            this.instructionsLabel.TabIndex = 0;
+            this.instructionsLabel.Text = "Instructions for Uploading Excel File:";
+            this.instructionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // layout1
+            // 
+            this.layout1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.layout1.Location = new System.Drawing.Point(11, 53);
+            this.layout1.Margin = new System.Windows.Forms.Padding(2);
+            this.layout1.MaximumSize = new System.Drawing.Size(0, 18);
+            this.layout1.MinimumSize = new System.Drawing.Size(548, 18);
+            this.layout1.Name = "layout1";
+            this.layout1.Size = new System.Drawing.Size(548, 18);
+            this.layout1.TabIndex = 15;
+            // 
+            // LAYOUT_FORMAT
+            // 
+            this.LAYOUT_FORMAT.BackColor = System.Drawing.Color.Transparent;
+            this.LAYOUT_FORMAT.Controls.Add(this.panel1);
+            this.LAYOUT_FORMAT.Controls.Add(this.excelTeacherFormat);
+            this.LAYOUT_FORMAT.Controls.Add(this.excelStudentFormat);
+            this.LAYOUT_FORMAT.Controls.Add(this.excelBookFormat);
+            this.LAYOUT_FORMAT.Controls.Add(this.PANEL_TOGGLE_FORMAT);
+            this.LAYOUT_FORMAT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LAYOUT_FORMAT.Location = new System.Drawing.Point(11, 12);
+            this.LAYOUT_FORMAT.Margin = new System.Windows.Forms.Padding(2);
+            this.LAYOUT_FORMAT.MinimumSize = new System.Drawing.Size(548, 41);
+            this.LAYOUT_FORMAT.Name = "LAYOUT_FORMAT";
+            this.LAYOUT_FORMAT.Size = new System.Drawing.Size(549, 41);
+            this.LAYOUT_FORMAT.TabIndex = 14;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 1221);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.MaximumSize = new System.Drawing.Size(0, 18);
+            this.panel1.MinimumSize = new System.Drawing.Size(548, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(548, 18);
+            this.panel1.TabIndex = 16;
+            // 
+            // PANEL_TOGGLE_FORMAT
+            // 
+            this.PANEL_TOGGLE_FORMAT.Controls.Add(this.formatLabel);
+            this.PANEL_TOGGLE_FORMAT.Controls.Add(this.PANEL_FORMATBUTTON);
+            this.PANEL_TOGGLE_FORMAT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PANEL_TOGGLE_FORMAT.Location = new System.Drawing.Point(0, 0);
+            this.PANEL_TOGGLE_FORMAT.Margin = new System.Windows.Forms.Padding(2);
+            this.PANEL_TOGGLE_FORMAT.MinimumSize = new System.Drawing.Size(548, 41);
+            this.PANEL_TOGGLE_FORMAT.Name = "PANEL_TOGGLE_FORMAT";
+            this.PANEL_TOGGLE_FORMAT.Size = new System.Drawing.Size(549, 41);
+            this.PANEL_TOGGLE_FORMAT.TabIndex = 0;
+            // 
+            // formatLabel
+            // 
+            this.formatLabel.BackColor = System.Drawing.Color.Transparent;
+            this.formatLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.formatLabel.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.formatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.formatLabel.Location = new System.Drawing.Point(0, 0);
+            this.formatLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.formatLabel.Name = "formatLabel";
+            this.formatLabel.Size = new System.Drawing.Size(519, 41);
+            this.formatLabel.TabIndex = 0;
+            this.formatLabel.Text = "Format of Excel File:";
+            this.formatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PANEL_FORMATBUTTON
+            // 
+            this.PANEL_FORMATBUTTON.Controls.Add(this.formatButton);
+            this.PANEL_FORMATBUTTON.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PANEL_FORMATBUTTON.Location = new System.Drawing.Point(519, 0);
+            this.PANEL_FORMATBUTTON.Margin = new System.Windows.Forms.Padding(0);
+            this.PANEL_FORMATBUTTON.Name = "PANEL_FORMATBUTTON";
+            this.PANEL_FORMATBUTTON.Padding = new System.Windows.Forms.Padding(4);
+            this.PANEL_FORMATBUTTON.Size = new System.Drawing.Size(30, 41);
+            this.PANEL_FORMATBUTTON.TabIndex = 1;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
+            // startingRowTextbox
+            // 
+            this.startingRowTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.startingRowTextbox.BackgroundColor = System.Drawing.Color.White;
+            this.startingRowTextbox.BorderColor = System.Drawing.Color.Transparent;
+            this.startingRowTextbox.BorderThickness = 3;
+            this.startingRowTextbox.Br = System.Drawing.Color.White;
+            this.LAYOUT_INPUT.SetColumnSpan(this.startingRowTextbox, 2);
+            this.startingRowTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startingRowTextbox.Font = new System.Drawing.Font("Montserrat", 9F);
+            this.startingRowTextbox.ForeColor = System.Drawing.Color.Black;
+            this.startingRowTextbox.Location = new System.Drawing.Point(0, 132);
+            this.startingRowTextbox.Margin = new System.Windows.Forms.Padding(0);
+            this.startingRowTextbox.Name = "startingRowTextbox";
+            this.startingRowTextbox.Radius = 15;
+            this.startingRowTextbox.Size = new System.Drawing.Size(548, 30);
+            this.startingRowTextbox.TabIndex = 4;
+            this.startingRowTextbox.Text = "2";
+            this.startingRowTextbox.UseSystemPasswordChar = false;
+            // 
+            // fileTextbox
+            // 
+            this.fileTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.fileTextbox.BackgroundColor = System.Drawing.Color.White;
+            this.fileTextbox.BorderColor = System.Drawing.Color.Transparent;
+            this.fileTextbox.BorderThickness = 3;
+            this.fileTextbox.Br = System.Drawing.Color.White;
+            this.fileTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileTextbox.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fileTextbox.ForeColor = System.Drawing.Color.Black;
+            this.fileTextbox.Location = new System.Drawing.Point(121, 0);
+            this.fileTextbox.Margin = new System.Windows.Forms.Padding(0);
+            this.fileTextbox.Name = "fileTextbox";
+            this.fileTextbox.Radius = 15;
+            this.fileTextbox.Size = new System.Drawing.Size(427, 29);
+            this.fileTextbox.TabIndex = 1;
+            this.fileTextbox.Text = "fileName.xlsx";
+            this.fileTextbox.UseSystemPasswordChar = false;
+            // 
+            // worksheetTextbox
+            // 
+            this.worksheetTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.worksheetTextbox.BackgroundColor = System.Drawing.Color.White;
+            this.worksheetTextbox.BorderColor = System.Drawing.Color.Transparent;
+            this.worksheetTextbox.BorderThickness = 3;
+            this.worksheetTextbox.Br = System.Drawing.Color.White;
+            this.LAYOUT_INPUT.SetColumnSpan(this.worksheetTextbox, 2);
+            this.worksheetTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.worksheetTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.worksheetTextbox.ForeColor = System.Drawing.Color.Black;
+            this.worksheetTextbox.Location = new System.Drawing.Point(0, 66);
+            this.worksheetTextbox.Margin = new System.Windows.Forms.Padding(0);
+            this.worksheetTextbox.Name = "worksheetTextbox";
+            this.worksheetTextbox.Radius = 15;
+            this.worksheetTextbox.Size = new System.Drawing.Size(548, 29);
+            this.worksheetTextbox.TabIndex = 0;
+            this.worksheetTextbox.Text = "WorkSheet1";
+            this.worksheetTextbox.UseSystemPasswordChar = false;
+            // 
+            // selectButton
+            // 
+            this.selectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.selectButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.selectButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.selectButton.BorderRadius = 15;
+            this.selectButton.BorderSize = 3;
+            this.selectButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.selectButton.FlatAppearance.BorderSize = 0;
+            this.selectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
+            this.selectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.selectButton.Location = new System.Drawing.Point(0, 0);
+            this.selectButton.Margin = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.selectButton.Name = "selectButton";
+            this.selectButton.Size = new System.Drawing.Size(117, 29);
+            this.selectButton.TabIndex = 5;
+            this.selectButton.Text = "SELECT FILE";
+            this.selectButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.selectButton.UseVisualStyleBackColor = false;
+            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
+            // 
+            // uploadButton
+            // 
+            this.uploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadButton.BorderColor = System.Drawing.Color.Transparent;
+            this.uploadButton.BorderRadius = 15;
+            this.uploadButton.BorderSize = 5;
+            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadButton.FlatAppearance.BorderSize = 0;
+            this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.uploadButton.Location = new System.Drawing.Point(283, 2);
+            this.uploadButton.Margin = new System.Windows.Forms.Padding(2);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(263, 37);
+            this.uploadButton.TabIndex = 8;
+            this.uploadButton.Text = "UPLOAD FILE";
+            this.uploadButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.uploadButton.UseVisualStyleBackColor = false;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.backButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.backButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.BorderRadius = 15;
+            this.backButton.BorderSize = 3;
+            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.Location = new System.Drawing.Point(2, 2);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(262, 37);
+            this.backButton.TabIndex = 6;
+            this.backButton.Text = "BACK";
+            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // instructionsButton
             // 
@@ -465,58 +558,6 @@
             this.instructionsButton.TextColor = System.Drawing.Color.Transparent;
             this.instructionsButton.UseVisualStyleBackColor = false;
             this.instructionsButton.Click += new System.EventHandler(this.instructionsButton_Click);
-            // 
-            // instructionsLabel
-            // 
-            this.instructionsLabel.BackColor = System.Drawing.Color.Transparent;
-            this.instructionsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.instructionsLabel.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.instructionsLabel.Location = new System.Drawing.Point(0, 0);
-            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(566, 41);
-            this.instructionsLabel.TabIndex = 0;
-            this.instructionsLabel.Text = "Instructions for Uploading Excel File:";
-            this.instructionsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // layout1
-            // 
-            this.layout1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.layout1.Location = new System.Drawing.Point(11, 53);
-            this.layout1.Margin = new System.Windows.Forms.Padding(2);
-            this.layout1.MaximumSize = new System.Drawing.Size(0, 18);
-            this.layout1.MinimumSize = new System.Drawing.Size(548, 18);
-            this.layout1.Name = "layout1";
-            this.layout1.Size = new System.Drawing.Size(566, 18);
-            this.layout1.TabIndex = 15;
-            // 
-            // LAYOUT_FORMAT
-            // 
-            this.LAYOUT_FORMAT.BackColor = System.Drawing.Color.Transparent;
-            this.LAYOUT_FORMAT.Controls.Add(this.panel1);
-            this.LAYOUT_FORMAT.Controls.Add(this.excelTeacherFormat);
-            this.LAYOUT_FORMAT.Controls.Add(this.excelStudentFormat);
-            this.LAYOUT_FORMAT.Controls.Add(this.excelBookFormat);
-            this.LAYOUT_FORMAT.Controls.Add(this.PANEL_TOGGLE_FORMAT);
-            this.LAYOUT_FORMAT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LAYOUT_FORMAT.Location = new System.Drawing.Point(11, 12);
-            this.LAYOUT_FORMAT.Margin = new System.Windows.Forms.Padding(2);
-            this.LAYOUT_FORMAT.MinimumSize = new System.Drawing.Size(548, 41);
-            this.LAYOUT_FORMAT.Name = "LAYOUT_FORMAT";
-            this.LAYOUT_FORMAT.Size = new System.Drawing.Size(566, 41);
-            this.LAYOUT_FORMAT.TabIndex = 14;
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 1221);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.MaximumSize = new System.Drawing.Size(0, 18);
-            this.panel1.MinimumSize = new System.Drawing.Size(548, 18);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 18);
-            this.panel1.TabIndex = 16;
             // 
             // excelTeacherFormat
             // 
@@ -557,43 +598,6 @@
             this.excelBookFormat.TabIndex = 1;
             this.excelBookFormat.Visible = false;
             // 
-            // PANEL_TOGGLE_FORMAT
-            // 
-            this.PANEL_TOGGLE_FORMAT.Controls.Add(this.formatLabel);
-            this.PANEL_TOGGLE_FORMAT.Controls.Add(this.PANEL_FORMATBUTTON);
-            this.PANEL_TOGGLE_FORMAT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PANEL_TOGGLE_FORMAT.Location = new System.Drawing.Point(0, 0);
-            this.PANEL_TOGGLE_FORMAT.Margin = new System.Windows.Forms.Padding(2);
-            this.PANEL_TOGGLE_FORMAT.MinimumSize = new System.Drawing.Size(548, 41);
-            this.PANEL_TOGGLE_FORMAT.Name = "PANEL_TOGGLE_FORMAT";
-            this.PANEL_TOGGLE_FORMAT.Size = new System.Drawing.Size(566, 41);
-            this.PANEL_TOGGLE_FORMAT.TabIndex = 0;
-            // 
-            // formatLabel
-            // 
-            this.formatLabel.BackColor = System.Drawing.Color.Transparent;
-            this.formatLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.formatLabel.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formatLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.formatLabel.Location = new System.Drawing.Point(0, 0);
-            this.formatLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.formatLabel.Name = "formatLabel";
-            this.formatLabel.Size = new System.Drawing.Size(536, 41);
-            this.formatLabel.TabIndex = 0;
-            this.formatLabel.Text = "Format of Excel File:";
-            this.formatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // PANEL_FORMATBUTTON
-            // 
-            this.PANEL_FORMATBUTTON.Controls.Add(this.formatButton);
-            this.PANEL_FORMATBUTTON.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PANEL_FORMATBUTTON.Location = new System.Drawing.Point(536, 0);
-            this.PANEL_FORMATBUTTON.Margin = new System.Windows.Forms.Padding(0);
-            this.PANEL_FORMATBUTTON.Name = "PANEL_FORMATBUTTON";
-            this.PANEL_FORMATBUTTON.Padding = new System.Windows.Forms.Padding(4);
-            this.PANEL_FORMATBUTTON.Size = new System.Drawing.Size(30, 41);
-            this.PANEL_FORMATBUTTON.TabIndex = 1;
-            // 
             // formatButton
             // 
             this.formatButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -615,10 +619,6 @@
             this.formatButton.TextColor = System.Drawing.Color.White;
             this.formatButton.UseVisualStyleBackColor = false;
             this.formatButton.Click += new System.EventHandler(this.formatButton_Click);
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // FORM_UPLOAD
             // 
