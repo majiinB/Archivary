@@ -1,4 +1,5 @@
-﻿using Archivary.Archivary_Components;
+﻿using Archivary._900X500;
+using Archivary.Archivary_Components;
 using Archivary.BACKEND.COMMON_OPERATIONS;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Archivary.PARENT_FORMS
         private bool isDataLoading = false;
         private bool needMoreData = true;
         private int whatPage = 0;
+        private FORM_ALERT alert;
 
         public FORM_REPORTS()
         {
@@ -51,9 +53,10 @@ namespace Archivary.PARENT_FORMS
             }  
         }
 
+        #region BACKEND
         private async Task LoadReports()
         {
-            await Task.Run(async() =>
+            await Task.Run(() =>
             {
                 try
                 {
@@ -65,7 +68,8 @@ namespace Archivary.PARENT_FORMS
                 catch (Exception ex)
                 {
                     // Handle or log the exception
-                    MessageBox.Show($"An error occurred: {ex.Message}");
+                    alert = new FORM_ALERT(1, "REPORT FORM ERROR", $"An error occurred: {ex.Message}");
+                    alert.ShowDialog();
                 }
             });
         }
@@ -118,7 +122,8 @@ namespace Archivary.PARENT_FORMS
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"An Error Has Occured in LoadMonthlyOverview {ex.Message}");
+                alert = new FORM_ALERT(1, "REPORT FORM ERROR", $"An Error Has Occured in LoadMonthlyOverview {ex.Message}");
+                alert.ShowDialog();
             }
         }
         private async Task BooksBorrowed()
@@ -192,5 +197,6 @@ namespace Archivary.PARENT_FORMS
                 }
             }
         }
+        #endregion
     }
 }

@@ -2012,8 +2012,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return false; // Or throw an exception, depending on your requirements
         }
-
-
         #endregion
     }
 }

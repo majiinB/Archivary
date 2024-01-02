@@ -42,21 +42,30 @@ namespace Archivary._1500X1000.FORM_USERS
         public FORM_INFOEMPLOYEE(Employee employee)
         {
             InitializeComponent();
-            InitializeEmployeeInfo(employee);
-            userEmployee = employee;
+            this.userEmployee = employee;
+            InitializeEmployeeInfo();
             editInfo = new FORM_EDITEMPLOYEE(employee);
         }
-        private void InitializeEmployeeInfo(Employee employee)
+        private void InitializeEmployeeInfo()
         {
-            userIDLabel.Text = employee.EmployeeId;
-            emailLabel.Text = employee.EmployeeEmail;
-            lastNameLabel.Text = employee.EmployeeLastName;
-            firstNameLabel.Text = employee.EmployeeFirstName;
-            middleNameLabel.Text = employee.EmployeeMiddleName;
-            contactNumLabel.Text = employee.EmployeeContactNum;
-            addressLabel.Text = employee.EmployeeAddress;
-            SetPictureBoxImage(employee.EmployeeImagePath);
-            statusColor(employee.EmployeeStatus);
+            userIDLabel.Text = userEmployee.EmployeeId;
+            emailLabel.Text = userEmployee.EmployeeEmail;
+            lastNameLabel.Text = userEmployee.EmployeeLastName;
+            firstNameLabel.Text = userEmployee.EmployeeFirstName;
+            //Set the middle intial to blank if N/A
+            string middleInitial = (userEmployee.EmployeeMiddleName == "N/A") ? "" : userEmployee.EmployeeMiddleName;
+            middleNameLabel.Text = middleInitial;
+            contactNumLabel.Text = userEmployee.EmployeeContactNum;
+            //Trim the start of the address if N/A
+            string originalAddress = userEmployee.EmployeeAddress;
+            string substringToRemove = "N/A,";
+            string trimmedAddress = originalAddress.StartsWith(substringToRemove)
+                ? originalAddress.Substring(substringToRemove.Length).TrimStart()
+                : originalAddress;
+            addressLabel.Text = trimmedAddress;
+            addressLabel.Text = userEmployee.EmployeeAddress;
+            SetPictureBoxImage(userEmployee.EmployeeImagePath);
+            statusColor(userEmployee.EmployeeStatus);
         }
 
         private void FORM_INFOEMPLOYEE_Load(object sender, EventArgs e)
@@ -79,7 +88,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private void editInfoButton_Click(object sender, EventArgs e)
         {
             editInfo.ShowDialog();
-            InitializeEmployeeInfo(userEmployee);
+            InitializeEmployeeInfo();
         }
         
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

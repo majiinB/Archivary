@@ -45,19 +45,7 @@ namespace Archivary._1500X1000.FORM_USERS
             InitializeTeacherInfo();
             editInfo = new FORM_EDITTEACHER(teacher);
         }
-        private void InitializeTeacherInfo()
-        {
-            userIDLabel.Text = userTeacher.TeacherId;
-            lastNameLabel.Text = userTeacher.TeacherLastName;
-            firstNameLabel.Text = userTeacher.TeacherFirstName;
-            middleNameLabel.Text = userTeacher.TeacherMiddleName;
-            collegeLabel.Text = userTeacher.TeacherDepartment;
-            emailLabel.Text = userTeacher.TeacherEmail;
-            contactNumLabel.Text = userTeacher.TeacherContactNum;
-            addressLabel.Text = userTeacher.TeacherAddress;
-            statusColor(userTeacher.TeacherStatus);
-            SetPictureBoxImage(userTeacher.TeacherImagePath);
-        }
+        
 
         private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
         {
@@ -118,6 +106,30 @@ namespace Archivary._1500X1000.FORM_USERS
                 userIDLabel.ForeColor = archivaryRed();
             }
         }
+
+        #region BACKEND
+        private void InitializeTeacherInfo()
+        {
+            userIDLabel.Text = userTeacher.TeacherId;
+            lastNameLabel.Text = userTeacher.TeacherLastName;
+            firstNameLabel.Text = userTeacher.TeacherFirstName;
+            //Set the middle initial to blank if N/A
+            string middleInitial = (userTeacher.TeacherMiddleName == "N/A") ? "" : userTeacher.TeacherMiddleName;
+            middleNameLabel.Text = middleInitial;
+            collegeLabel.Text = userTeacher.TeacherDepartment;
+            emailLabel.Text = userTeacher.TeacherEmail;
+            contactNumLabel.Text = userTeacher.TeacherContactNum;
+            //Trim the start of the address if N/A
+            string originalAddress = userTeacher.TeacherAddress;
+            string substringToRemove = "N/A,";
+            string trimmedAddress = originalAddress.StartsWith(substringToRemove)
+                ? originalAddress.Substring(substringToRemove.Length).TrimStart()
+                : originalAddress;
+            addressLabel.Text = trimmedAddress;
+            statusColor(userTeacher.TeacherStatus);
+            SetPictureBoxImage(userTeacher.TeacherImagePath);
+        }
+
         private void SetPictureBoxImage(string imagePath)
         {
             try
@@ -164,5 +176,6 @@ namespace Archivary._1500X1000.FORM_USERS
                 userTeacher.TeacherStatus = "ACTIVE";
             }
         }
+        #endregion
     }
 }

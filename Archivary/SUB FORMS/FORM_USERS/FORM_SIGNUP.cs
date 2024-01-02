@@ -151,6 +151,7 @@ namespace Archivary._1200X800.FORM_USERS
             SetPictureBoxImage("No_image");
         }
 
+        #region Backend
         private void uploadImageButton_Click(object sender, EventArgs e)
         {
             openFolderDialog.Filter = "JPEG Files|*.jpeg;*.jpg|PNG Files|*.png";
@@ -255,7 +256,7 @@ namespace Archivary._1200X800.FORM_USERS
                         if (UserOperation.AddStudent(
                         firstNameTextBox.Text,
                         lastNameTextBox.Text,
-                        middleInitialTextBox.Text,
+                        middleInitialTextBox.Text.ToUpper().Trim(','),
                         emailTextBox.Text,
                         address,
                         contactNumberTextBox.Text,
@@ -287,7 +288,7 @@ namespace Archivary._1200X800.FORM_USERS
                 string[] errorMessage = UserOperation.IsUserInputValid(
                     firstNameTextBox.Text,
                     lastNameTextBox.Text,
-                    middleInitialTextBox.Text,
+                    middleInitialTextBox.Text.ToUpper().Trim(','),
                     emailTextBox.Text,
                     address,
                     contactNumberTextBox.Text,
@@ -303,7 +304,7 @@ namespace Archivary._1200X800.FORM_USERS
                         if (UserOperation.AddTeacher(
                             firstNameTextBox.Text,
                             lastNameTextBox.Text,
-                            middleInitialTextBox.Text,
+                            middleInitialTextBox.Text.ToUpper().Trim(','),
                             emailTextBox.Text,
                             address,
                             contactNumberTextBox.Text,
@@ -324,7 +325,7 @@ namespace Archivary._1200X800.FORM_USERS
                         if (UserOperation.AddTeacher(
                             firstNameTextBox.Text,
                             lastNameTextBox.Text,
-                            middleInitialTextBox.Text,
+                            middleInitialTextBox.Text.ToUpper().Trim(','),
                             emailTextBox.Text,
                             address,
                             contactNumberTextBox.Text,
@@ -354,7 +355,7 @@ namespace Archivary._1200X800.FORM_USERS
                 string[] errorMessage = UserOperation.IsUserInputValid(
                     firstNameTextBox.Text,
                     lastNameTextBox.Text,
-                    middleInitialTextBox.Text,
+                    middleInitialTextBox.Text.ToUpper().Trim(','),
                     emailTextBox.Text,
                     address,
                     contactNumberTextBox.Text,
@@ -372,7 +373,7 @@ namespace Archivary._1200X800.FORM_USERS
                                 emailTextBox.Text,
                                 lastNameTextBox.Text,
                                 firstNameTextBox.Text,                 
-                                middleInitialTextBox.Text,             
+                                middleInitialTextBox.Text.ToUpper().Trim(','),             
                                 address,
                                 contactNumberTextBox.Text,
                                 (int)UserOperation.UserLevel.Employee,
@@ -395,7 +396,7 @@ namespace Archivary._1200X800.FORM_USERS
                                 emailTextBox.Text,
                                 lastNameTextBox.Text,
                                 firstNameTextBox.Text,
-                                middleInitialTextBox.Text,
+                                middleInitialTextBox.Text.ToUpper().Trim(','),
                                 address,
                                 contactNumberTextBox.Text,
                                 (int)UserOperation.UserLevel.Employee,
@@ -428,5 +429,6 @@ namespace Archivary._1200X800.FORM_USERS
             FORM_UPLOAD upload = new FORM_UPLOAD(conditionForAddExcell);
             upload.ShowDialog();
         }
+        #endregion
     }
 }

@@ -45,20 +45,6 @@ namespace Archivary._1500X1000.FORM_USERS
             editInfo = new FORM_EDITSTUDENT(student);
         }
 
-        private void IntializeStudentInfo()
-        {
-            userIDLabel.Text = userStudent.StudentId;
-            lastNameLabel.Text = userStudent.StudentLastName;
-            firstNameLabel.Text = userStudent.StudentFirstName;
-            middleNameLabel.Text = userStudent.StudentMiddleName;
-            emailLabel.Text = userStudent.StudentEmail;
-            contactNumLabel.Text = userStudent.StudentContactNum;
-            addressLabel.Text = userStudent.StudentAddress;
-            statusColor(userStudent.StudentStatus);
-            collegeLabel.Text = userStudent.StudentDepartment;
-            sectionLabel.Text = userStudent.StudentSection;
-            SetPictureBoxImage(userStudent.StudentImagePath);
-        }
 
         private void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
         {
@@ -118,6 +104,31 @@ namespace Archivary._1500X1000.FORM_USERS
                 userIDLabel.ForeColor = archivaryRed();
             }
         }
+
+        #region BACKEND
+        private void IntializeStudentInfo()
+        {
+            userIDLabel.Text = userStudent.StudentId;
+            lastNameLabel.Text = userStudent.StudentLastName;
+            firstNameLabel.Text = userStudent.StudentFirstName;
+            //Set the middle initial to blank if N/A
+            string middleInitial = (userStudent.StudentMiddleName == "N/A") ? "" : userStudent.StudentMiddleName;
+            middleNameLabel.Text = middleInitial;
+            emailLabel.Text = userStudent.StudentEmail;
+            contactNumLabel.Text = userStudent.StudentContactNum;
+            //Trim the start of the address if N/A
+            string originalAddress = userStudent.StudentAddress; ;
+            string substringToRemove = "N/A,";
+            string trimmedAddress = originalAddress.StartsWith(substringToRemove)
+                ? originalAddress.Substring(substringToRemove.Length).TrimStart()
+                : originalAddress;
+            addressLabel.Text = trimmedAddress;
+            statusColor(userStudent.StudentStatus);
+            collegeLabel.Text = userStudent.StudentDepartment;
+            sectionLabel.Text = userStudent.StudentYearLevel + " " + userStudent.StudentSection;
+            SetPictureBoxImage(userStudent.StudentImagePath);
+        }
+
         private void SetPictureBoxImage(string imagePath)
         {
             try
@@ -164,5 +175,6 @@ namespace Archivary._1500X1000.FORM_USERS
                 userStudent.StudentStatus = "ACTIVE";
             }
         }
+        #endregion
     }
 }
