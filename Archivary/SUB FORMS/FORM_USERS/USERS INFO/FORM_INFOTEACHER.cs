@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
 using Archivary._900X500;
+using Archivary.BACKEND.COMMON_OPERATIONS;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 
@@ -19,7 +20,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private FORM_EDITTEACHER editInfo;
         private Teacher userTeacher;
         private FORM_ALERT alert;
-
+        List<BookStatusInfo> bookStatusList;
         private Color archivaryGreen()
         {
             return Color.FromArgb(37, 211, 102);
@@ -49,15 +50,7 @@ namespace Archivary._1500X1000.FORM_USERS
 
         private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
         {
-            Random random = new Random();
-            string[] returnStatus = { "Overdue", "Not Overdue" };
-            String randomStatus;
-            int n = 10;
-            for (int i = 0; i <= n; i++)
-            {
-                randomStatus = returnStatus[random.Next(returnStatus.Length)];
-                bookListDataGridView.Rows.Add("abcdefghijklmnopqrstuvwxyz", "MM/DD/YY", "MM/DD/YY", "MM/DD/YY", randomStatus);
-            }
+            loadHistory();
         }
 
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -174,6 +167,31 @@ namespace Archivary._1500X1000.FORM_USERS
                 UserOperation.UpdateUserStatus(userTeacher.TeacherUserId, "ACTIVE");
                 statusColor("ACTIVE");
                 userTeacher.TeacherStatus = "ACTIVE";
+            }
+        }
+
+        private async Task loadHistory()
+        {
+            await Task.Run(() =>
+            {
+                Setting day = CommonOperation.GetSettingsFromDatabase();
+                bookStatusList = UserOperation.GetBookStatusList(userTeacher.TeacherUserId, day.borrowingDuration);
+            });
+
+            foreach (BookStatusInfo bookStatus in bookStatusList)
+            {
+                string returnDate = "";
+                if (bookStatus.ReturnDate.ToString() == CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.DateTimeMin])
+                {
+                    returnDate = CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.IfNotReturnedStatus];
+                }
+                else
+                {
+                    returnDate = bookStatus.ReturnDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]);
+                }
+                bookListDataGridView.Rows.Add(bookStatus.Title, bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]),
+                    bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]),
+                    returnDate, bookStatus.Status);
             }
         }
         #endregion

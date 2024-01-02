@@ -143,6 +143,7 @@
     <Compile Include="BACKEND\COMMON_OPERATIONS\CommonOperation.cs" />
     <Compile Include="BACKEND\OBJECTS\Admin.cs" />
     <Compile Include="BACKEND\OBJECTS\Book.cs" />
+    <Compile Include="BACKEND\OBJECTS\BookStatusInfo.cs" />
     <Compile Include="BACKEND\OBJECTS\Employee.cs" />
     <Compile Include="BACKEND\OBJECTS\IdentificationResult.cs" />
     <Compile Include="BACKEND\OBJECTS\Setting.cs" />

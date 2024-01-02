@@ -14,13 +14,25 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
     { 
         static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
 
+        #region Arrays
         public static string[] MONTHS = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
         public static string[] CATEGORIES = { "Academic", "Fiction", "Nonfiction" };
         public static string[] GENRES = { "Science and nature", "Philosophy", "History", "English", "Filipino", "Mathematics", //Academic genres
         "Autobiography","Biograpy", "Memoir", "Food and cooking", "Health and Wellness", "Self help", "Technology", "Travel and Exploration", // Nonfiction genres
         "Fantasy", "Mystery", "Thriller", "Romance", "Horror", "Children's Literature", "Science Fiction", " Historical Fiction", "Young Adult", //Fiction genres
         "Action", "Adventure", "Supernatural", "Comedy/Satire", "psychological fiction", "apocalyptic/post-apocalyptic" };
+        public static string[] TimeFormatsArray = { "yyyy-MM-dd" , "1/1/0001 12:00:00 AM", "Not Returned" };
+        #endregion
+
+        #region Enum
         
+        #endregion
+        public enum TimeFormats
+        {
+           YearMontDate = 0,
+           DateTimeMin = 1,
+           IfNotReturnedStatus = 2
+        }
 
         #region Settings
         public static Setting GetSettingsFromDatabase()

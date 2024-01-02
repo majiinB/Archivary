@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Policy;
@@ -1134,6 +1135,96 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return null; // Or throw an exception, depending on your requirements
         }
+        public static List<BookStatusInfo> GetBookStatusList(int userId, int daysToAdd)
+        {
+            //Create a list to store book status information
+            List<BookStatusInfo> bookStatusList = new List<BookStatusInfo>();
+
+            //query to retrieve information from the database
+            string sqlQuery = @"
+            SELECT 
+                b.title,
+                bb.borrowed_at,
+                DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) AS return_due_date,
+                bb.is_returned,
+            CASE
+                WHEN bb.is_returned = 1 THEN rb.return_at
+                ELSE 'Not Returned'
+            END AS return_date,
+            CASE
+                WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                ELSE 'Not Overdue'
+            END AS status
+            FROM borrowed_books bb
+                JOIN books b ON bb.book_id = b.id
+                LEFT JOIN returned_books rb ON bb.borrower_id = rb.borrower_id
+             WHERE bb.borrower_id = @UserId;
+            ";
+
+            try
+            {
+                //Open a MySqlConnection
+                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                {
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open();
+                    }
+
+                    //Create a MySqlCommand and set the parameters
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.Parameters.AddWithValue("@DaysToAdd", daysToAdd);
+
+                        //Execute the query and read the results
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    // Retrieve information from the query results
+                                    BookStatusInfo bookStatus = new BookStatusInfo()
+                                    {
+                                        Title = reader["title"].ToString(),
+                                        BorrowedAt = (DateTime)reader["borrowed_at"],
+                                        ReturnDueDate = (DateTime)reader["return_due_date"],
+                                        IsReturned = Convert.ToBoolean(reader["is_returned"])
+                                    };
+
+                                    if (bookStatus.IsReturned)
+                                    {
+                                        bookStatus.ReturnDate = reader["return_date"] != DBNull.Value
+                                            ? (DateTime)reader["return_date"]
+                                            : DateTime.MinValue;
+                                    }
+                                    else
+                                    {
+                                        bookStatus.ReturnDate = DateTime.MinValue;
+                                    }
+
+                                    bookStatus.Status = reader["status"].ToString();
+
+                                    // Add the BookStatusInfo to the list
+                                    bookStatusList.Add(bookStatus);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (log, throw, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return bookStatusList;
+        }
+
+
 
 
         //FOR INSERTING NEW USER RECORDS IN THE DATABASE(DONE)
