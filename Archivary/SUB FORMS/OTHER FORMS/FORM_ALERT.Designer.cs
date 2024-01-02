@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.Controls.Add(this.cancelButton, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 268);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -70,7 +70,7 @@
             this.continueButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueButton.ForeColor = System.Drawing.Color.White;
             this.continueButton.Location = new System.Drawing.Point(2, 2);
-            this.continueButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.continueButton.Margin = new System.Windows.Forms.Padding(2);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(225, 52);
             this.continueButton.TabIndex = 0;
@@ -92,7 +92,7 @@
             this.cancelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cancelButton.Location = new System.Drawing.Point(231, 2);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(225, 52);
             this.cancelButton.TabIndex = 1;
@@ -106,7 +106,7 @@
             this.iconPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.iconPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("iconPictureBox.Image")));
             this.iconPictureBox.Location = new System.Drawing.Point(8, 8);
-            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.iconPictureBox.Name = "iconPictureBox";
             this.iconPictureBox.Size = new System.Drawing.Size(458, 81);
             this.iconPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -132,7 +132,7 @@
             this.descriptionContainer.Controls.Add(this.alertMessageLabel);
             this.descriptionContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionContainer.Location = new System.Drawing.Point(8, 169);
-            this.descriptionContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.descriptionContainer.Margin = new System.Windows.Forms.Padding(2);
             this.descriptionContainer.MaximumSize = new System.Drawing.Size(458, 76);
             this.descriptionContainer.MinimumSize = new System.Drawing.Size(458, 76);
             this.descriptionContainer.Name = "descriptionContainer";
@@ -149,7 +149,7 @@
             this.alertMessageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.alertMessageLabel.Name = "alertMessageLabel";
             this.alertMessageLabel.Padding = new System.Windows.Forms.Padding(4, 8, 4, 0);
-            this.alertMessageLabel.Size = new System.Drawing.Size(427, 128);
+            this.alertMessageLabel.Size = new System.Drawing.Size(447, 128);
             this.alertMessageLabel.TabIndex = 6;
             this.alertMessageLabel.Text = resources.GetString("alertMessageLabel.Text");
             this.alertMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -165,9 +165,9 @@
             this.Controls.Add(this.iconPictureBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FORM_ALERT";
-            this.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_ALERT";
