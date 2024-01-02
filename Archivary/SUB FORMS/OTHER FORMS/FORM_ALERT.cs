@@ -30,19 +30,41 @@ namespace Archivary._900X500
             if(condition == (int)KIND_OF_ALERT.Error)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung error
+                tableLayoutPanel1.SetColumnSpan(continueButton, 2);
+                alertTitleLabel.ForeColor= Color.FromArgb(227, 25, 55);
+                continueButton.BackColor = Color.FromArgb(227, 25, 55);
                 cancelButton.Visible = false;
             }
             else if (condition == (int)KIND_OF_ALERT.Success)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung success
+                tableLayoutPanel1.SetColumnSpan(continueButton, 2);
+                alertTitleLabel.ForeColor = Color.FromArgb(37, 211, 102);
+                continueButton.BackColor = Color.FromArgb(37, 211, 102);
                 cancelButton.Visible = false;
             }
             else if (condition == (int)KIND_OF_ALERT.Confirmation)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung confirmation
+                alertTitleLabel.ForeColor = Color.FromArgb(128, 128, 255);
+                continueButton.BackColor = Color.FromArgb(128, 128, 255);
+                
+            }
+            //for centering the alertMessageLabel
+            alertMessageLabel.ParentChanged += (sender, e) => CenterLabel();
+            CenterLabel(); 
+
+        }
+        private void CenterLabel() //<-- for centering labels kasi nawawala text alignment pag naka-set to true yung auto size
+        {
+            if (alertMessageLabel.Parent is FlowLayoutPanel)
+            {
+                FlowLayoutPanel flowLayoutPanel = (FlowLayoutPanel)alertMessageLabel.Parent;
+
+                int spaceLeft = flowLayoutPanel.ClientSize.Width - alertMessageLabel.Width;
+                alertMessageLabel.Padding = new Padding(spaceLeft / 2, alertMessageLabel.Padding.Top, 0, 0);
             }
         }
-
         private void FORM_ALERT_Load(object sender, EventArgs e)
         {
 
