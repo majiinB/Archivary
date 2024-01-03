@@ -1,4 +1,5 @@
 ﻿using Archivary._900X500;
+using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using custom;
 using OfficeOpenXml.Packaging.Ionic.Zlib;
@@ -36,12 +37,18 @@ namespace Archivary._1200X800.FORM_USERS
             Teacher = 2
         }
 
-        public FORM_SIGNUP()
+        public FORM_SIGNUP(object user)
         {
             InitializeComponent();
             ShowInTaskbar = false;
             ActivateButton(studentButton);
             SetPictureBoxImage("No_image");
+
+            if(user is Employee)
+            {
+                employeeButton.Visible = false;
+                employeeButton.Enabled = false;
+            }
         }
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
@@ -199,7 +206,15 @@ namespace Archivary._1200X800.FORM_USERS
             string address = (houseNumberTextBox.Text + ", " + streetTextBox.Text + ", " + barangayTextBox.Text +
                 ", " + cityTextBox.Text);
 
-            string imageCon = "";
+            //Check address one by one kingina di pala to iisang texbox
+            if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
+                string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
+            {
+                alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
+                alert.ShowDialog();
+            }
+
+                string imageCon = "";
             if (string.IsNullOrEmpty(selectedFilePath))
             {
                 imageCon = "No_image";
@@ -243,12 +258,14 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                         {
                             alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Student: " + lastNameTextBox.Text + " Successfully added!");
-                            alert.ShowDialog();    
+                            alert.ShowDialog();
+                            ClearAllTextBoxes(this);
                         }
                         else
                         {
                             alert = new FORM_ALERT(1, "ADD USER UNSUCCESSFULL", "An error has occured causing an unsuccessful transaction");
                             alert.ShowDialog();
+                            return;
                         }
                     }
                     else
@@ -268,6 +285,7 @@ namespace Archivary._1200X800.FORM_USERS
                         {
                             alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Student: " + lastNameTextBox.Text + " Successfully added!");
                             alert.ShowDialog();
+                            ClearAllTextBoxes(this);
                         }
                         else
                         {
@@ -313,6 +331,7 @@ namespace Archivary._1200X800.FORM_USERS
                         {
                             alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Teacher: " + lastNameTextBox.Text + " Successfully added!");
                             alert.ShowDialog();
+                            ClearAllTextBoxes(this);
                         }
                         else
                         {
@@ -335,6 +354,7 @@ namespace Archivary._1200X800.FORM_USERS
                         {
                             alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Teacher: " + lastNameTextBox.Text + " Successfully added!");
                             alert.ShowDialog();
+                            ClearAllTextBoxes(this);
                         }
                         else
                         {
@@ -383,6 +403,7 @@ namespace Archivary._1200X800.FORM_USERS
                             alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
                                 "Employee password is : " + password);
                             alert.ShowDialog();
+                            ClearAllTextBoxes(this);
                         }
                         else
                         {
@@ -407,6 +428,7 @@ namespace Archivary._1200X800.FORM_USERS
                             alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
                                 "Employee password is : " + password);
                             alert.ShowDialog();
+                            ClearAllTextBoxes(this);
                         }
                         else
                         {
@@ -421,7 +443,6 @@ namespace Archivary._1200X800.FORM_USERS
                     alert.ShowDialog();
                 }
             }
-            ClearAllTextBoxes(this);
         }
 
         private void uploadExcelFIleButton_Click(object sender, EventArgs e)

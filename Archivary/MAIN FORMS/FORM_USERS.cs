@@ -26,7 +26,7 @@ namespace Archivary.PARENT_FORMS
         private FORM_INFOEMPLOYEE employeeInfo;
         private FORM_INFOTEACHER teacherInfo;
         private FORM_INFOSTUDENT studentInfo;
-        private FORM_SIGNUP FormsSignup = new FORM_SIGNUP();
+        private FORM_SIGNUP FormsSignup;
         private ArrayList students;
         private ArrayList teachers;
         private ArrayList employees;
@@ -68,9 +68,12 @@ namespace Archivary.PARENT_FORMS
 
             //Assign the one who logged in as user to access info form different methods
             this.user = user;
+            
+            //Pass user reference to signup form
+            FormsSignup = new FORM_SIGNUP(user);
 
             //If user is an employee remove the employee strip menu
-            if(user is Employee)
+            if (user is Employee)
             {
                 filterDropdown.Items.Remove(employeeToolStripMenuItem);
             }
