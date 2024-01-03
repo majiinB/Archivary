@@ -55,6 +55,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                             (
                                 Convert.ToInt32(reader["id"]),
                                 Convert.ToInt32(reader["borrowing_capacity"]),
+                                Convert.ToInt32(reader["borrowing_capacity_teacher"]),
                                 Convert.ToInt32(reader["reserve_limit"]),
                                 Convert.ToInt32(reader["borrowing_duration"])
                             );
@@ -64,7 +65,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
             }
             return settings;
         }
-        public static bool UpdateSettings(int borrowingCapacity, int reserveLimit, int borrowingDuration)
+        public static bool UpdateSettings(int borrowingCapacity, int borrowingCapacityTeacher, int reserveLimit, int borrowingDuration)
         {
             using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
             {
@@ -73,7 +74,8 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                 string query = "UPDATE settings " +
                                "SET borrowing_capacity = @BorrowingCapacity, " +
                                "reserve_limit = @ReserveLimit, " +
-                               "borrowing_duration = @BorrowingDuration " +
+                               "borrowing_duration = @BorrowingDuration, " +
+                               "borrowing_capacity_teacher = @BorrowingCapacityTeacher " +
                                "WHERE id = 1"; // Assuming there is only one row in the settings table
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -81,6 +83,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     command.Parameters.AddWithValue("@BorrowingCapacity", borrowingCapacity);
                     command.Parameters.AddWithValue("@ReserveLimit", reserveLimit);
                     command.Parameters.AddWithValue("@BorrowingDuration", borrowingDuration);
+                    command.Parameters.AddWithValue("@BorrowingCapacityTeacher", borrowingCapacityTeacher);
 
                     try
                     {

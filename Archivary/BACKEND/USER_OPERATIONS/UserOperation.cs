@@ -157,15 +157,14 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             if (string.IsNullOrEmpty(middleInitial))
             {
-                errorMessage[0] = "Invalid Middle Name";
-                errorMessage[1] = "Middle name can't be empty";
+                errorMessage[0] = "Invalid Middle Initial";
+                errorMessage[1] = "Middle initial can't be empty";
                 return errorMessage;
             }
-            MessageBox.Show((!IsOnlyCharacterOrNA(middleInitial)).ToString());
             if (!IsOnlyCharacterOrNA(middleInitial))
             {
-                errorMessage[0] = "Invalid Middle Name";
-                errorMessage[1] = "Middle can only be a character";
+                errorMessage[0] = "Invalid Middle Initial";
+                errorMessage[1] = "Middle intial can only be a character";
                 return errorMessage;
             }
             if (string.IsNullOrEmpty(email))
@@ -1223,9 +1222,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return bookStatusList;
         }
-
-
-
 
         //FOR INSERTING NEW USER RECORDS IN THE DATABASE(DONE)
         private static bool AddUser(string firstName, string lastName, string middleName, string email, string address,
