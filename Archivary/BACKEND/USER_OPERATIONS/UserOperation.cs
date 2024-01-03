@@ -1245,7 +1245,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         //Add parameters to the command
                         command.Parameters.AddWithValue("@firstName", firstName);
                         command.Parameters.AddWithValue("@lastName", lastName);
-                        command.Parameters.AddWithValue("@middleName", middleName);
+                        command.Parameters.AddWithValue("@middleName", middleName.ToUpper().Trim().Trim('.'));
                         command.Parameters.AddWithValue("@email", email);
                         command.Parameters.AddWithValue("@address", address);
                         command.Parameters.AddWithValue("@contactNum", contactNum);
@@ -1602,7 +1602,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddStudent(
                                         colValues[(int)StudentInfo.FirstName].Trim(),
                                         colValues[(int)StudentInfo.LastName].Trim(),
-                                        colValues[(int)StudentInfo.MiddleInitial].ToUpper().TrimEnd('.'),
+                                        colValues[(int)StudentInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
                                         colValues[(int)StudentInfo.Email].Trim(),
                                         address.Trim(),
                                         colValues[(int)StudentInfo.ContactNum].Trim(),
@@ -1616,7 +1616,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddStudent(
                                         colValues[(int)StudentInfo.FirstName].Trim(),
                                         colValues[(int)StudentInfo.LastName].Trim(),
-                                        colValues[(int)StudentInfo.MiddleInitial].ToUpper().TrimEnd('.'),
+                                        colValues[(int)StudentInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
                                         colValues[(int)StudentInfo.Email].Trim(),
                                         address,
                                         colValues[(int)StudentInfo.ContactNum].Trim(),
@@ -1768,7 +1768,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddTeacher(
                                             colValues[(int)TeacherInfo.FirstName],
                                             colValues[(int)TeacherInfo.LastName],
-                                            colValues[(int)TeacherInfo.MiddleInitial],
+                                            colValues[(int)TeacherInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
                                             colValues[(int)TeacherInfo.Email],
                                             address,
                                             colValues[(int)TeacherInfo.ContactNum],
@@ -1780,7 +1780,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddTeacher(
                                             colValues[(int)TeacherInfo.FirstName],
                                             colValues[(int)TeacherInfo.LastName],
-                                            colValues[(int)TeacherInfo.MiddleInitial],
+                                            colValues[(int)TeacherInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
                                             colValues[(int)TeacherInfo.Email],
                                             address,
                                             colValues[(int)TeacherInfo.ContactNum],
