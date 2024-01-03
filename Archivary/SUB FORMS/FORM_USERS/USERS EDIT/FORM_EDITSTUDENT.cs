@@ -25,7 +25,7 @@ namespace Archivary._1200X800.FORM_USERS
             InitializeComponent();
             ShowInTaskbar = false;
             this.student = student;
-            InitalizeStudentInfo();
+            InitializeStudentInfo();
         }
         
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
@@ -47,12 +47,12 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            InitalizeStudentInfo();
+            InitializeStudentInfo();
             this.Close();
         }
 
         #region BACKEND
-        private void InitalizeStudentInfo()
+        private void InitializeStudentInfo()
         {
             lastNameTextBox.Text = student.StudentLastName;
             firstNameTextBox.Text = student.StudentFirstName;
@@ -148,7 +148,7 @@ namespace Archivary._1200X800.FORM_USERS
                 {
                     alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
                     alert.ShowDialog();
-                    InitalizeStudentInfo();
+                    InitializeStudentInfo();
                     return;
                 }
 
@@ -178,7 +178,8 @@ namespace Archivary._1200X800.FORM_USERS
                     {
                         //Error message for update
                         alert = new FORM_ALERT(1, "STUDENT INFO UPDATE FAILED", "An error has occured during the update process");
-                        InitalizeStudentInfo();
+                        alert.ShowDialog();
+                        InitializeStudentInfo();
                     }
                 }
                 else
@@ -186,7 +187,7 @@ namespace Archivary._1200X800.FORM_USERS
                     //Error message for input validation
                     alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
                     alert.ShowDialog();
-                    InitalizeStudentInfo();
+                    InitializeStudentInfo();
                 }
             }
         }

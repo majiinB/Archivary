@@ -2033,7 +2033,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     cmd.Parameters.AddWithValue("@UserId", userId);
                     cmd.Parameters.AddWithValue("@FirstName", firstName);
                     cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@MiddleName", middleName);
+                    cmd.Parameters.AddWithValue("@MiddleName", middleName.ToUpper().Trim('.').Trim());
                     cmd.Parameters.AddWithValue("@Address", address);
                     cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
                     cmd.Parameters.AddWithValue("@ImagePath", imagePath);

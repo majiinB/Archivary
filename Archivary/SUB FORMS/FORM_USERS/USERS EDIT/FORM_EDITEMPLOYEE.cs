@@ -24,7 +24,7 @@ namespace Archivary._1200X800.FORM_USERS
             InitializeComponent();
             ShowInTaskbar = false;
             this.userEmployee = employee;
-            intializeEmployeeInfo();
+            IntializeEmployeeInfo();
         }
 
         private void FORM_EDITEMPLYEE_Load(object sender, EventArgs e)
@@ -55,12 +55,12 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            intializeEmployeeInfo();
+            IntializeEmployeeInfo();
             this.Close();
         }
 
         #region BACKEND 
-        private void intializeEmployeeInfo()
+        private void IntializeEmployeeInfo()
         {
             lastNameTextBox.Text = userEmployee.EmployeeLastName;
             firstNameTextBox.Text = userEmployee.EmployeeFirstName;
@@ -109,7 +109,7 @@ namespace Archivary._1200X800.FORM_USERS
                 {
                     alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
                     alert.ShowDialog();
-                    intializeEmployeeInfo();
+                    IntializeEmployeeInfo();
                     return;
                 }
 
@@ -144,7 +144,7 @@ namespace Archivary._1200X800.FORM_USERS
                     //Error message for input validation
                     alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
                     alert.ShowDialog();
-                    intializeEmployeeInfo();
+                    IntializeEmployeeInfo();
                 }
             }
         }
