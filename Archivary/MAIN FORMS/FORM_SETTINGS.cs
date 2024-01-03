@@ -89,22 +89,64 @@ namespace Archivary.PARENT_FORMS
 
                 if (control.HasChildren)
                 {
-                    EnableAllTextBoxes(control.Controls); 
+                    EnableAllTextBoxes(control.Controls);
                 }
             }
+            changePassButton.Enabled = true;
+            uploadImageButton.Enabled = true;
+
+        }
+        private void DisableAllTextBoxes(Control.ControlCollection controls)
+        {
+            foreach (Control control in controls)
+            {
+                if (control is RoundedTextBox)
+                {
+                    RoundedTextBox textBox = (RoundedTextBox)control;
+                    textBox.Enabled = false;
+                }
+
+                if (control.HasChildren)
+                {
+                    DisableAllTextBoxes(control.Controls);
+                }
+            }
+            changePassButton.Enabled = false;
+            uploadImageButton.Enabled = false;
+
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            EnableAllTextBoxes(this.Controls);
-            if(user is Employee)
+
+            //changing to edit to cancel button
+            if (editButton.Text == "Cancel")
+            {
+                DisableAllTextBoxes(this.Controls);
+                //editButtonAppearance
+                editButton.Text = ("Edit");
+                editButton.ForeColor = Color.FromArgb(30, 30, 30);
+                editButton.BackColor = Color.FromArgb(208, 190, 143);
+                editButton.BorderSize = 0;
+            }
+            else if (editButton.Text == "Edit")
+            {
+                EnableAllTextBoxes(this.Controls);
+                //cancelButton appearance
+                editButton.Text = ("Cancel");
+                editButton.ForeColor = Color.FromArgb(244, 244, 244);
+                editButton.BackColor = Color.FromArgb(30, 30, 30);
+                editButton.BorderColor = Color.FromArgb(244, 244, 244);
+                editButton.BorderSize = 2;
+            }
+            if (user is Employee)
             {
                 borrowingCapacityLabel.Enabled = false;
                 reserveLimitTextBox.Enabled = false;
                 borrowingDurationTextBox.Enabled = false;
             }
-            changePassButton.Enabled = true;
-            uploadImageButton.Enabled = true;
+            /*changePassButton.Enabled = true;
+            uploadImageButton.Enabled = true;*/
             allowSave = true;
         }
         private void InitializeUserInfo(object user)
@@ -193,6 +235,8 @@ namespace Archivary.PARENT_FORMS
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
+            DisableAllTextBoxes(this.Controls);
+
             if (!allowSave)
             {
                 alert = new FORM_ALERT(1, "ACTION ERROR", "Press Edit Button First");
