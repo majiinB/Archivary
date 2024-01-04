@@ -1,4 +1,6 @@
-﻿using Archivary.Archivary_Components;
+﻿using Archivary._900X500;
+using Archivary.Archivary_Components;
+using Archivary.BACKEND.COMMON_OPERATIONS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,121 +10,193 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace Archivary.PARENT_FORMS
 {
     public partial class FORM_REPORTS : Form
     {
-        /*private monthlyOverview monthlyOverview;
+        private monthlyOverview monthlyOverview;
         private booksReserved booksReserved;
-        private booksBorrowed booksBorrowed;*/
+        private booksBorrowed booksBorrowed;
+        private bool isDataLoading = false;
+        private bool needMoreData = true;
+        private int whatPage = 0;
+        private FORM_ALERT alert;
 
         public FORM_REPORTS()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
+            UpdateStyles();
         }
 
         private void FORM_REPORTS_Load(object sender, EventArgs e)
         {
-              monthlyOverview1.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-            booksReserved1.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-            booksBorrowed1.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-
-
-            monthlyOverview1.Height = LAYOUT_REPORT.ClientSize.Width /2;
-            booksReserved1.Height = LAYOUT_REPORT.ClientSize.Width / 2;
-            booksBorrowed1.Height = LAYOUT_REPORT.ClientSize.Width / 2;
-
-            //sample data for monthly overview
-            monthlyOverview1.BooksLoaned.Points.AddXY("JAN", 1);
-            monthlyOverview1.BooksLoaned.Points.AddXY("FEB", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("MAR", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("APR", 11);
-            monthlyOverview1.BooksLoaned.Points.AddXY("MAY", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("JUN", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("JUL", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("AUG", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("SEP", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("OCT", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("NOV", 10);
-            monthlyOverview1.BooksLoaned.Points.AddXY("DEC", 1);
-            monthlyOverview1.BooksReserved.Points.AddXY("JAN", 11);
-            monthlyOverview1.BooksReserved.Points.AddXY("FEB", 55);
-            monthlyOverview1.BooksReserved.Points.AddXY("MAR", 77);
-            monthlyOverview1.BooksReserved.Points.AddXY("APR", 10);
-            monthlyOverview1.BooksReserved.Points.AddXY("MAY", 6);
-            monthlyOverview1.BooksReserved.Points.AddXY("JUN", 10);
-            monthlyOverview1.BooksReserved.Points.AddXY("JUL", 33);
-            monthlyOverview1.BooksReserved.Points.AddXY("AUG", 11);
-            monthlyOverview1.BooksReserved.Points.AddXY("SEP", 10);
-            monthlyOverview1.BooksReserved.Points.AddXY("OCT", 13);
-            monthlyOverview1.BooksReserved.Points.AddXY("NOV", 12);
-            monthlyOverview1.BooksReserved.Points.AddXY("DEC", 10);
-            monthlyOverview1.BooksReturned.Points.AddXY("JAN", 50);
-            monthlyOverview1.BooksReturned.Points.AddXY("FEB", 10);
-            monthlyOverview1.BooksReturned.Points.AddXY("MAR", 15);
-            monthlyOverview1.BooksReturned.Points.AddXY("APR", 60);
-            monthlyOverview1.BooksReturned.Points.AddXY("MAY", 11);
-            monthlyOverview1.BooksReturned.Points.AddXY("JUN", 10);
-            monthlyOverview1.BooksReturned.Points.AddXY("JUL", 18);
-            monthlyOverview1.BooksReturned.Points.AddXY("AUG", 13);
-            monthlyOverview1.BooksReturned.Points.AddXY("SEP", 10);
-            monthlyOverview1.BooksReturned.Points.AddXY("OCT", 60);
-            monthlyOverview1.BooksReturned.Points.AddXY("NOV", 10);
-            monthlyOverview1.BooksReturned.Points.AddXY("DEC", 33);
-            
-            monthlyOverview1.CategoryCopies.Points.AddXY("Academic", 10);
-            monthlyOverview1.CategoryCopies.Points.AddXY("Fiction", 50);
-            monthlyOverview1.CategoryCopies.Points.AddXY("Non-Fiction", 30);
-
-            string[] genres = {"English","Filipino","History","Mathematics","Philosophy","Science and Nature",
-            "Autobiography/Biography/Memoir", "Food and Cooking", "Health and Wellness", "Self Help", "Technology","Travel and Exploration",
-            "Fantasy","Mystery","Thriller","Romance","Horror", "Children's Literature", "Science Fiction", "Young Adult"
-            , "Action","Adventure", "Supernatural", "Comedy/Satire","Psychological Fiction","Apocalyptic/Post-Apocalyptic"};
-            Random random = new Random();
-            monthlyOverview1.GenreCopies.Points.AddXY("English", 31);
-            monthlyOverview1.GenreCopies.Points.AddXY("History", 177);
-            monthlyOverview1.GenreCopies.Points.AddXY("Supernatural", 66);
-            monthlyOverview1.GenreCopies.Points.AddXY("Romance", 23);
-            monthlyOverview1.GenreCopies.Points.AddXY("Action", 15);
-            monthlyOverview1.GenreCopies.Points.AddXY("Adventure", 47);
-            monthlyOverview1.GenreCopies.Points.AddXY("Supernatural", 88);
-            monthlyOverview1.GenreCopies.Points.AddXY("Comedy/Satire", 7);
-            monthlyOverview1.GenreCopies.Points.AddXY("Psychological Fiction", 37);
-            monthlyOverview1.GenreCopies.Points.AddXY("English", 31);
-            monthlyOverview1.GenreCopies.Points.AddXY("History", 177);
-            monthlyOverview1.GenreCopies.Points.AddXY("Supernatural", 66);
-            monthlyOverview1.GenreCopies.Points.AddXY("Romance", 23);
-            monthlyOverview1.GenreCopies.Points.AddXY("Action", 15);
-            monthlyOverview1.GenreCopies.Points.AddXY("Adventure", 47);
-            monthlyOverview1.GenreCopies.Points.AddXY("Supernatural", 88);
-            monthlyOverview1.GenreCopies.Points.AddXY("Comedy/Satire", 7);
-            monthlyOverview1.GenreCopies.Points.AddXY("Psychological Fiction", 37);
-
-
-
-            //sample data books borowed
-            int n = 100;
-            for (int i = 1; i <= n; i++)
+            LAYOUT_REPORT.Scroll += LAYOUT_REPORT_Scroll;
+            LAYOUT_REPORT.MouseWheel += LAYOUT_REPORT_MouseWheel;
+           
+            if (!isDataLoading)
             {
-                booksBorrowed1.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
-                booksBorrowed1.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
-                booksReserved1.ReserveDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
-                booksReserved1.ReserveDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
+                isDataLoading = true;
+                LoadReports();
             }
-
         }
 
         private void FORM_REPORTS_Resize(object sender, EventArgs e)
         {
-            monthlyOverview1.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-            booksReserved1.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-            booksBorrowed1.Width = LAYOUT_REPORT.ClientSize.Width - 30;
-
-
-            monthlyOverview1.Height = LAYOUT_REPORT.ClientSize.Width /2;
-            booksReserved1.Height = LAYOUT_REPORT.ClientSize.Width / 2;
-            booksBorrowed1.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+            LAYOUT_REPORT.Controls.Clear();
+            if (!isDataLoading)
+            {
+                isDataLoading = true;
+                LoadReports();
+            }  
         }
+
+        #region BACKEND
+        private async Task LoadReports()
+        {
+            await Task.Run(() =>
+            {
+                try
+                {
+                    //NOTE: Mas gusto ko naka await to pero ayaw niya gumana sa laptop ko pag naka await 
+                    //Pero try niyo kung naka await
+                    LoadMonthlyOverview();
+                    BooksBorrowed();
+                }
+                catch (Exception ex)
+                {
+                    // Handle or log the exception
+                    alert = new FORM_ALERT(1, "REPORT FORM ERROR", $"An error occurred: {ex.Message}");
+                    alert.ShowDialog();
+                }
+            });
+        }
+        private async Task LoadMonthlyOverview()
+        {
+            try
+            {
+                if (LAYOUT_REPORT.InvokeRequired)
+                {
+                    LAYOUT_REPORT.BeginInvoke(new MethodInvoker(async () => await LoadMonthlyOverview()));
+                    return;
+                }
+
+                monthlyOverview = new monthlyOverview();
+                LAYOUT_REPORT.Controls.Add(monthlyOverview);
+                monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 40;
+                monthlyOverview.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+
+                //load monthly overview charts
+                for (int y = 0; y < CommonOperation.GENRES.Length; y++)
+                {
+                    if (y < CommonOperation.CATEGORIES.Length)
+                    {
+                        //Get category in the CATEGORIES array in CommonOperations class
+                        string category = CommonOperation.CATEGORIES[y];
+                        //Get Book Count asynchronously in the CommonOperations class
+                        int categoryCount = await CommonOperation.CountBooksByCategoryAsync(category);
+                        //Add the information as a point in the monthly overview category copies chart
+                        monthlyOverview.CategoryCopies.Points.AddXY(category, categoryCount);
+                    }
+                    string genre = CommonOperation.GENRES[y];
+                    int genreCount = await CommonOperation.CountBooksByGenreAsync(genre);
+                    monthlyOverview.GenreCopies.Points.AddXY(genre, genreCount);
+                }
+                //load monthly overview book circulation info
+                for (int i = 0; i < CommonOperation.MONTHS.Length; i++)
+                {
+                    //Circulation chart info
+                    string month = CommonOperation.MONTHS[i]; //Get months in commonoperations class MONTHS array
+                                                              //Get info from database
+                    int borroweBooksCount = await CommonOperation.GetBorrowedBooksCountForMonthAsync(i + 1);
+                    int reservedBooksCount = await CommonOperation.GetReservedBooksCountForMonthAsync(i + 1);
+                    int returnedBooksCount = await CommonOperation.GetReturnedBooksCountForMonthAsync(i + 1);
+                    //Insert info to make a point in the monthly overview chart
+                    monthlyOverview.BooksLoaned.Points.AddXY(month, borroweBooksCount);
+                    monthlyOverview.BooksReserved.Points.AddXY(month, reservedBooksCount);
+                    monthlyOverview.BooksReturned.Points.AddXY(month, returnedBooksCount);
+                }
+                isDataLoading = false;
+            }
+            catch(Exception ex)
+            {
+                alert = new FORM_ALERT(1, "REPORT FORM ERROR", $"An Error Has Occured in LoadMonthlyOverview {ex.Message}");
+                alert.ShowDialog();
+            }
+        }
+        private async Task BooksBorrowed()
+        {
+            if (LAYOUT_REPORT.InvokeRequired)
+            {
+                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(async () => await BooksBorrowed()));
+                return;
+            }
+
+            booksBorrowed = new booksBorrowed();
+            LAYOUT_REPORT.Controls.Add(booksBorrowed);
+            booksBorrowed.Width = LAYOUT_REPORT.ClientSize.Width - 30;
+            booksBorrowed.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+            int n = 100;
+            for (int i = 1; i <= n; i++)
+            {
+                booksBorrowed.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
+                booksBorrowed.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
+            }
+            isDataLoading = false;
+            needMoreData = true;
+            //whatPage = 1;
+        }
+        private async Task BooksReserved()
+        {
+            if (LAYOUT_REPORT.InvokeRequired)
+            {
+                LAYOUT_REPORT.BeginInvoke(new MethodInvoker(async() => await BooksReserved()));
+                return;
+            }
+
+            booksReserved = new booksReserved();
+            LAYOUT_REPORT.Controls.Add(booksReserved);
+            booksReserved.Width = LAYOUT_REPORT.ClientSize.Width - 30;
+            booksReserved.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+
+            int n = 100;
+            for (int i = 1; i <= n; i++)
+            {
+                booksReserved.ReserveDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
+                booksReserved.ReserveDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
+            }
+            isDataLoading = false;
+            needMoreData = false;
+            //whatPage = 2;
+        }
+
+        //Scroll events to load other data
+        private void LAYOUT_REPORT_Scroll(object sender, ScrollEventArgs e)
+        {
+            CheckIfAtBottom();
+        }
+        private void LAYOUT_REPORT_MouseWheel(object sender, MouseEventArgs e)
+        {
+            CheckIfAtBottom();
+        }
+        private void CheckIfAtBottom()
+        {
+            FlowLayoutPanel reportlist = this.LAYOUT_REPORT;
+            int visibleHeight = LAYOUT_REPORT.ClientSize.Height;
+            int totalHeigth = LAYOUT_REPORT.VerticalScroll.Value + visibleHeight;
+
+            //Checks if total height is greater than or equal to the veritcal scroll value minus the height of the 4 bookinfos
+            if (totalHeigth >= (LAYOUT_REPORT.VerticalScroll.Maximum - (monthlyOverview.Height / 10)) && LAYOUT_REPORT.VerticalScroll.Visible)
+            {
+                if (needMoreData && !isDataLoading) //We didnt call filter books method because we dont want to reset the value
+                {
+                    isDataLoading = true;
+                    BooksReserved();
+                }
+            }
+        }
+        #endregion
     }
 }

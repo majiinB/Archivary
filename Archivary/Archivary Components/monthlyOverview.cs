@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archivary.BACKEND.COMMON_OPERATIONS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,37 @@ namespace Archivary.Archivary_Components
 {
     public partial class monthlyOverview : UserControl
     {
+        private int userCount = 0;
+        private int reservedCount = 0;
+        private int loanedCount = 0;
+        private int returnedCount = 0;
+        private int copiesCount = 0;
         public monthlyOverview()
         {
             InitializeComponent();
-
         }
-
-        private void monthlyOverview_Load(object sender, EventArgs e)
+        private async void monthlyOverview_Load(object sender, EventArgs e)
         {
+            try
+            {
+                userCount = await CommonOperation.GetUserCountAsync();
+                reservedCount = await CommonOperation.GetReservedBooksCountForCurrentMonthAsync();
+                loanedCount = await CommonOperation.GetBorrowedBooksCountForCurrentMonthAsync();
+                returnedCount = await CommonOperation.GetReturnedBooksCountForCurrentMonthAsync();
+                copiesCount = await CommonOperation.GetBookCountAsync();
+
+                // Update UI elements
+                monthlyUserCountLabel.Text = userCount.ToString();
+                monthlyReservedCountLabel.Text = reservedCount.ToString();
+                monthlyLoanedCountLabel.Text = loanedCount.ToString();
+                monthlyReturnedCountLabel.Text = returnedCount.ToString();
+                monthlyCopiesCountLabel.Text = copiesCount.ToString();
+            }
+            catch (Exception ex)
+            {
+                // Handle or log the exception
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

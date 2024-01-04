@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Archivary._1200X800.FORM_USERS;
 using Archivary._900X500;
+using Archivary.BACKEND.COMMON_OPERATIONS;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 
@@ -19,7 +20,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private FORM_EDITTEACHER editInfo;
         private Teacher userTeacher;
         private FORM_ALERT alert;
-
+        List<BookStatusInfo> bookStatusList;
         private Color archivaryGreen()
         {
             return Color.FromArgb(37, 211, 102);
@@ -45,31 +46,11 @@ namespace Archivary._1500X1000.FORM_USERS
             InitializeTeacherInfo();
             editInfo = new FORM_EDITTEACHER(teacher);
         }
-        private void InitializeTeacherInfo()
-        {
-            userIDLabel.Text = userTeacher.TeacherId;
-            lastNameLabel.Text = userTeacher.TeacherLastName;
-            firstNameLabel.Text = userTeacher.TeacherFirstName;
-            middleNameLabel.Text = userTeacher.TeacherMiddleName;
-            collegeLabel.Text = userTeacher.TeacherDepartment;
-            emailLabel.Text = userTeacher.TeacherEmail;
-            contactNumLabel.Text = userTeacher.TeacherContactNum;
-            addressLabel.Text = userTeacher.TeacherAddress;
-            statusColor(userTeacher.TeacherStatus);
-            SetPictureBoxImage(userTeacher.TeacherImagePath);
-        }
+        
 
         private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
         {
-            Random random = new Random();
-            string[] returnStatus = { "Overdue", "Not Overdue" };
-            String randomStatus;
-            int n = 10;
-            for (int i = 0; i <= n; i++)
-            {
-                randomStatus = returnStatus[random.Next(returnStatus.Length)];
-                bookListDataGridView.Rows.Add("abcdefghijklmnopqrstuvwxyz", "MM/DD/YY", "MM/DD/YY", "MM/DD/YY", randomStatus);
-            }
+            loadHistory();
         }
 
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -118,6 +99,30 @@ namespace Archivary._1500X1000.FORM_USERS
                 userIDLabel.ForeColor = archivaryRed();
             }
         }
+
+        #region BACKEND
+        private void InitializeTeacherInfo()
+        {
+            userIDLabel.Text = userTeacher.TeacherId;
+            lastNameLabel.Text = userTeacher.TeacherLastName;
+            firstNameLabel.Text = userTeacher.TeacherFirstName;
+            //Set the middle initial to blank if N/A
+            string middleInitial = (userTeacher.TeacherMiddleName == "N/A") ? "" : userTeacher.TeacherMiddleName;
+            middleNameLabel.Text = middleInitial;
+            collegeLabel.Text = userTeacher.TeacherDepartment;
+            emailLabel.Text = userTeacher.TeacherEmail;
+            contactNumLabel.Text = userTeacher.TeacherContactNum;
+            //Trim the start of the address if N/A
+            string originalAddress = userTeacher.TeacherAddress;
+            string substringToRemove = "N/A,";
+            string trimmedAddress = originalAddress.StartsWith(substringToRemove)
+                ? originalAddress.Substring(substringToRemove.Length).TrimStart()
+                : originalAddress;
+            addressLabel.Text = trimmedAddress;
+            statusColor(userTeacher.TeacherStatus);
+            SetPictureBoxImage(userTeacher.TeacherImagePath);
+        }
+
         private void SetPictureBoxImage(string imagePath)
         {
             try
@@ -164,5 +169,31 @@ namespace Archivary._1500X1000.FORM_USERS
                 userTeacher.TeacherStatus = "ACTIVE";
             }
         }
+
+        private async Task loadHistory()
+        {
+            await Task.Run(() =>
+            {
+                Setting day = CommonOperation.GetSettingsFromDatabase();
+                bookStatusList = UserOperation.GetBookStatusList(userTeacher.TeacherUserId, day.borrowingDuration);
+            });
+
+            foreach (BookStatusInfo bookStatus in bookStatusList)
+            {
+                string returnDate = "";
+                if (bookStatus.ReturnDate.ToString() == CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.DateTimeMin])
+                {
+                    returnDate = CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.IfNotReturnedStatus];
+                }
+                else
+                {
+                    returnDate = bookStatus.ReturnDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]);
+                }
+                bookListDataGridView.Rows.Add(bookStatus.Title, bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]),
+                    bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]),
+                    returnDate, bookStatus.Status);
+            }
+        }
+        #endregion
     }
 }

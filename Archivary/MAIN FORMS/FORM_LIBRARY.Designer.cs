@@ -38,11 +38,9 @@
             this.LAYOUT_searchBar = new RoundedCorners.RoundedPanel();
             this.filterDropdown = new CustomDropdown.DropdownMenu(this.components);
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.authorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.genreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ISBNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NonFictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AcademicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PANEL_libraryListContainer.SuspendLayout();
             this.LAYOUT_searchBar.SuspendLayout();
             this.filterDropdown.SuspendLayout();
@@ -78,7 +76,7 @@
             this.searchBar.BorderThickness = 0;
             this.searchBar.Br = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar.Font = new System.Drawing.Font("Montserrat Light", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
@@ -87,6 +85,7 @@
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "Search Book";
             this.searchBar.UseSystemPasswordChar = false;
+            this.searchBar.TextChanged += new System.EventHandler(this.searchBar_TextChanged);
             this.searchBar.Enter += new System.EventHandler(this.searchBar_Enter);
             this.searchBar.Leave += new System.EventHandler(this.searchBar_Leave);
             // 
@@ -101,7 +100,7 @@
             this.filterSearchButton.ButtonImage = ((System.Drawing.Image)(resources.GetObject("filterSearchButton.ButtonImage")));
             this.filterSearchButton.FlatAppearance.BorderSize = 0;
             this.filterSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterSearchButton.ForeColor = System.Drawing.Color.White;
             this.filterSearchButton.Location = new System.Drawing.Point(606, 12);
             this.filterSearchButton.Name = "filterSearchButton";
@@ -124,7 +123,7 @@
             this.addBookButton.ButtonImage = global::Archivary.Properties.Resources.ICON_ADD;
             this.addBookButton.FlatAppearance.BorderSize = 0;
             this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBookButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBookButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBookButton.ForeColor = System.Drawing.Color.White;
             this.addBookButton.Location = new System.Drawing.Point(797, 12);
             this.addBookButton.Name = "addBookButton";
@@ -158,58 +157,42 @@
             this.filterDropdown.IsMainMenu = false;
             this.filterDropdown.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.allToolStripMenuItem,
-            this.bookNameToolStripMenuItem,
-            this.authorToolStripMenuItem,
-            this.categoryToolStripMenuItem,
-            this.genreToolStripMenuItem,
-            this.ISBNToolStripMenuItem});
+            this.FictionToolStripMenuItem,
+            this.NonFictionToolStripMenuItem,
+            this.AcademicToolStripMenuItem});
             this.filterDropdown.MenuItemHeight = 25;
             this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
             this.filterDropdown.Name = "dropdownMenu1";
             this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Size = new System.Drawing.Size(157, 148);
+            this.filterDropdown.Size = new System.Drawing.Size(132, 92);
             // 
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.allToolStripMenuItem.Text = "All";
             this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
-            // bookNameToolStripMenuItem
+            // FictionToolStripMenuItem
             // 
-            this.bookNameToolStripMenuItem.Name = "bookNameToolStripMenuItem";
-            this.bookNameToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.bookNameToolStripMenuItem.Text = "Book Name";
-            this.bookNameToolStripMenuItem.Click += new System.EventHandler(this.bookNameToolStripMenuItem_Click);
+            this.FictionToolStripMenuItem.Name = "FictionToolStripMenuItem";
+            this.FictionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.FictionToolStripMenuItem.Text = "Fiction";
+            this.FictionToolStripMenuItem.Click += new System.EventHandler(this.FictionToolStripMenuItem_Click);
             // 
-            // authorToolStripMenuItem
+            // NonFictionToolStripMenuItem
             // 
-            this.authorToolStripMenuItem.Name = "authorToolStripMenuItem";
-            this.authorToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.authorToolStripMenuItem.Text = "Author";
-            this.authorToolStripMenuItem.Click += new System.EventHandler(this.authorToolStripMenuItem_Click);
+            this.NonFictionToolStripMenuItem.Name = "NonFictionToolStripMenuItem";
+            this.NonFictionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.NonFictionToolStripMenuItem.Text = "Nonfiction";
+            this.NonFictionToolStripMenuItem.Click += new System.EventHandler(this.NonFictionToolStripMenuItem_Click);
             // 
-            // categoryToolStripMenuItem
+            // AcademicToolStripMenuItem
             // 
-            this.categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            this.categoryToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.categoryToolStripMenuItem.Text = "Category";
-            this.categoryToolStripMenuItem.Click += new System.EventHandler(this.categoryToolStripMenuItem_Click);
-            // 
-            // genreToolStripMenuItem
-            // 
-            this.genreToolStripMenuItem.Name = "genreToolStripMenuItem";
-            this.genreToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.genreToolStripMenuItem.Text = "Genre";
-            this.genreToolStripMenuItem.Click += new System.EventHandler(this.genreToolStripMenuItem_Click);
-            // 
-            // ISBNToolStripMenuItem
-            // 
-            this.ISBNToolStripMenuItem.Name = "ISBNToolStripMenuItem";
-            this.ISBNToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
-            this.ISBNToolStripMenuItem.Text = "ISBN";
-            this.ISBNToolStripMenuItem.Click += new System.EventHandler(this.ISBNToolStripMenuItem_Click);
+            this.AcademicToolStripMenuItem.Name = "AcademicToolStripMenuItem";
+            this.AcademicToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.AcademicToolStripMenuItem.Text = "Academic";
+            this.AcademicToolStripMenuItem.Click += new System.EventHandler(this.AcademicToolStripMenuItem_Click);
             // 
             // FORM_LIBRARY
             // 
@@ -241,11 +224,9 @@
         private sidebarComponents.RoundedPictureButtonRight filterSearchButton;
         private CustomDropdown.DropdownMenu filterDropdown;
         private System.Windows.Forms.ToolStripMenuItem allToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bookNameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem authorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem categoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem genreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ISBNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NonFictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AcademicToolStripMenuItem;
         private RoundedCorners.RoundedTextBox searchBar;
     }
 }

@@ -26,7 +26,7 @@ namespace Archivary.PARENT_FORMS
         private FORM_INFOEMPLOYEE employeeInfo;
         private FORM_INFOTEACHER teacherInfo;
         private FORM_INFOSTUDENT studentInfo;
-        private FORM_SIGNUP FormsSignup = new FORM_SIGNUP();
+        private FORM_SIGNUP FormsSignup;
         private ArrayList students;
         private ArrayList teachers;
         private ArrayList employees;
@@ -68,9 +68,12 @@ namespace Archivary.PARENT_FORMS
 
             //Assign the one who logged in as user to access info form different methods
             this.user = user;
+            
+            //Pass user reference to signup form
+            FormsSignup = new FORM_SIGNUP(user);
 
             //If user is an employee remove the employee strip menu
-            if(user is Employee)
+            if (user is Employee)
             {
                 filterDropdown.Items.Remove(employeeToolStripMenuItem);
             }
@@ -193,6 +196,14 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            FormsSignup.ShowDialog();
+            SearchUsers(searchKey);
+        }
+
+        #region BACKEND
+        //TEXT CHANGED ACTION LISTENER
         private void userDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Ensure the double-click is on a valid cell (not a header or empty space)
@@ -217,7 +228,7 @@ namespace Archivary.PARENT_FORMS
                 if (cellInfo[2] == "Employee")
                 {
                     Employee employee = UserOperation.GetEmployeeByEmployeeId(cellInfo[1]);
-                    if(employee != null)
+                    if (employee != null)
                     {
                         employeeInfo = new FORM_INFOEMPLOYEE(employee);
                         employeeInfo.ShowDialog();
@@ -227,7 +238,7 @@ namespace Archivary.PARENT_FORMS
                 else if (cellInfo[2] == "Teacher")
                 {
                     Teacher teacher = UserOperation.GetTeacherById(cellInfo[1]);
-                    if(teacher != null)
+                    if (teacher != null)
                     {
                         teacherInfo = new FORM_INFOTEACHER(teacher);
                         teacherInfo.ShowDialog();
@@ -237,7 +248,7 @@ namespace Archivary.PARENT_FORMS
                 else if (cellInfo[2] == "Student")
                 {
                     Student student = UserOperation.GetStudentById(cellInfo[1]);
-                    if(student != null)
+                    if (student != null)
                     {
                         studentInfo = new FORM_INFOSTUDENT(student);
                         studentInfo.ShowDialog();
@@ -246,15 +257,6 @@ namespace Archivary.PARENT_FORMS
                 }
             }
         }
-
-        private void addUserButton_Click(object sender, EventArgs e)
-        {
-            FormsSignup.ShowDialog();
-            SearchUsers(searchKey);
-        }
-
-        #region SEARCH FUNCTION
-        //TEXT CHANGED ACTION LISTENER
         private void Search(object sender, EventArgs e)
         {
             searchKey = searchBar.Text;
@@ -273,7 +275,8 @@ namespace Archivary.PARENT_FORMS
                     if (string.IsNullOrEmpty(searchString) || searchString == "Search User")
                     {
                         string[] nextUser = (string[])user;
-                        userDataGridView.Rows.Add(nextUser[0] + ", " + nextUser[1] + " " + nextUser[2], nextUser[3], nextUser[4], nextUser[5]);
+                        string name = (nextUser[2] == "N/A") ? nextUser[0] + ", " + nextUser[1] : nextUser[0] + ", " + nextUser[1] + " " + nextUser[2];
+                        userDataGridView.Rows.Add(name, nextUser[3], nextUser[4], nextUser[5]);
                     }
                     else if (!string.IsNullOrEmpty(searchString))
                     {
@@ -281,7 +284,8 @@ namespace Archivary.PARENT_FORMS
                         if (ContainsIgnoreCase(user, searchString))
                         {
                             string[] nextUser = (string[])user;
-                            userDataGridView.Rows.Add(nextUser[0] + ", " + nextUser[1] + " " + nextUser[2], nextUser[3], nextUser[4], nextUser[5]);
+                            string name = (nextUser[2] == "N/A") ? nextUser[0] + ", " + nextUser[1] : nextUser[0] + ", " + nextUser[1] + " " + nextUser[2];
+                            userDataGridView.Rows.Add(name, nextUser[3], nextUser[4], nextUser[5]);
                         }
                     }
                 }

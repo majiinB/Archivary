@@ -24,18 +24,7 @@ namespace Archivary._1200X800.FORM_USERS
             InitializeComponent();
             ShowInTaskbar = false;
             this.userEmployee = employee;
-            lastNameTextBox.Text = employee.EmployeeLastName;
-            firstNameTextBox.Text = employee.EmployeeFirstName;
-            middleInitialTextBox.Text = employee.EmployeeMiddleName;
-            emailTextBox.Text = employee.EmployeeEmail;
-            contactNumberTextBox.Text = employee.EmployeeContactNum;
-            string[] address = UserOperation.SplitAddress(employee.EmployeeAddress);
-            houseNumberTextBox.Text = address[0];
-            streetTextBox.Text = address[1];
-            barangayTextBox.Text = address[2];
-            cityTextBox.Text = address[3];
-            SetPictureBoxImage(employee.EmployeeImagePath);
-            selectedFilePath = employee.EmployeeImagePath;
+            IntializeEmployeeInfo();
         }
 
         private void FORM_EDITEMPLYEE_Load(object sender, EventArgs e)
@@ -66,9 +55,26 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            IntializeEmployeeInfo();
             this.Close();
         }
 
+        #region BACKEND 
+        private void IntializeEmployeeInfo()
+        {
+            lastNameTextBox.Text = userEmployee.EmployeeLastName;
+            firstNameTextBox.Text = userEmployee.EmployeeFirstName;
+            middleInitialTextBox.Text = userEmployee.EmployeeMiddleName;
+            emailTextBox.Text = userEmployee.EmployeeEmail;
+            contactNumberTextBox.Text = userEmployee.EmployeeContactNum;
+            string[] address = UserOperation.SplitAddress(userEmployee.EmployeeAddress);
+            houseNumberTextBox.Text = address[0];
+            streetTextBox.Text = address[1];
+            barangayTextBox.Text = address[2];
+            cityTextBox.Text = address[3];
+            SetPictureBoxImage(userEmployee.EmployeeImagePath);
+            selectedFilePath = userEmployee.EmployeeImagePath;
+        }
         private void saveButton_Click(object sender, EventArgs e)
         {
             //Concat the each textbox for adress
@@ -103,6 +109,7 @@ namespace Archivary._1200X800.FORM_USERS
                 {
                     alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
                     alert.ShowDialog();
+                    IntializeEmployeeInfo();
                     return;
                 }
 
@@ -121,7 +128,7 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                     {
                         UpdateEmployeeObject(concatAddress); // Update the object referenced
-                        alert = new FORM_ALERT(3, "EMPLOYEE INFO UPDATE SUCCESS", "");
+                        alert = new FORM_ALERT(3, "EMPLOYEE INFO UPDATE SUCCESS", $"Information of Employee {firstNameTextBox.Text} is now updated");
                         alert.ShowDialog();
                         this.Close();
                     }
@@ -137,6 +144,7 @@ namespace Archivary._1200X800.FORM_USERS
                     //Error message for input validation
                     alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
                     alert.ShowDialog();
+                    IntializeEmployeeInfo();
                 }
             }
         }
@@ -148,21 +156,21 @@ namespace Archivary._1200X800.FORM_USERS
                 var image = Image.FromFile(imagePath);
 
                 // Set the image to the PictureBox
-                pictureBox1.Image = image;
+                profilePictureImageBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.Size = image.Size;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
             {
                 // Handle the case when the file is not found
                 // Load a default image from resources and set it to the PictureBox
-                pictureBox1.Image = Properties.Resources.PLACEHOLDER_PICTURE;
+                profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
 
                 // Optionally, adjust the PictureBox size to fit the default image
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
             }
             catch (Exception ex)
             {
@@ -171,7 +179,6 @@ namespace Archivary._1200X800.FORM_USERS
                 alert.ShowDialog();
             }
         }
-
         private void uploadImageButton_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "JPEG Files|*.jpeg;*.jpg|PNG Files|*.png";
@@ -182,15 +189,15 @@ namespace Archivary._1200X800.FORM_USERS
                 SetPictureBoxImage(selectedFilePath);
             }
         }
-
         private void UpdateEmployeeObject(string concatAddress)
         {
             userEmployee.EmployeeFirstName = firstNameTextBox.Text;
             userEmployee.EmployeeLastName = lastNameTextBox.Text;
-            userEmployee.EmployeeMiddleName = middleInitialLabel.Text;
+            userEmployee.EmployeeMiddleName = middleInitialTextBox.Text;
             userEmployee.EmployeeAddress = concatAddress;
             userEmployee.EmployeeContactNum = contactNumberTextBox.Text;
             userEmployee.EmployeeImagePath = selectedFilePath;
         }
+        #endregion 
     }
 }

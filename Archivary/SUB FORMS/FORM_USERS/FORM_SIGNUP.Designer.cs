@@ -64,6 +64,7 @@
             this.sectionTextBox = new RoundedCorners.RoundedTextBox();
             this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
+            this.uploadExcelFIleButton = new roundedCorners.roundedButton();
             this.openFolderDialog = new System.Windows.Forms.OpenFileDialog();
             this.PANEL_CONTENTS.SuspendLayout();
             this.buttons_Container2.SuspendLayout();
@@ -124,11 +125,12 @@
             this.PANEL_CONTENTS.Controls.Add(this.sectionTextBox, 4, 9);
             this.PANEL_CONTENTS.Controls.Add(this.profilePictureImageBox, 6, 2);
             this.PANEL_CONTENTS.Controls.Add(this.uploadImageButton, 6, 7);
+            this.PANEL_CONTENTS.Controls.Add(this.uploadExcelFIleButton, 6, 8);
             this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PANEL_CONTENTS.Location = new System.Drawing.Point(2, 96);
-            this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(2);
+            this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
-            this.PANEL_CONTENTS.Padding = new System.Windows.Forms.Padding(8);
+            this.PANEL_CONTENTS.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.PANEL_CONTENTS.RowCount = 11;
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.797239F));
             this.PANEL_CONTENTS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.884688F));
@@ -159,7 +161,7 @@
             this.buttons_Container2.Controls.Add(this.saveButton, 2, 0);
             this.buttons_Container2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttons_Container2.Location = new System.Drawing.Point(10, 358);
-            this.buttons_Container2.Margin = new System.Windows.Forms.Padding(2);
+            this.buttons_Container2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttons_Container2.Name = "buttons_Container2";
             this.buttons_Container2.RowCount = 1;
             this.buttons_Container2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -179,7 +181,7 @@
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cancelButton.Location = new System.Drawing.Point(2, 32);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(340, 44);
             this.cancelButton.TabIndex = 0;
@@ -201,7 +203,7 @@
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.saveButton.Location = new System.Drawing.Point(352, 32);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(342, 44);
             this.saveButton.TabIndex = 1;
@@ -239,7 +241,7 @@
             this.buttonContainers.Controls.Add(this.employeeButton, 4, 0);
             this.buttonContainers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonContainers.Location = new System.Drawing.Point(10, 47);
-            this.buttonContainers.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonContainers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonContainers.Name = "buttonContainers";
             this.buttonContainers.RowCount = 1;
             this.buttonContainers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -259,7 +261,7 @@
             this.studentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.studentButton.Location = new System.Drawing.Point(2, 2);
-            this.studentButton.Margin = new System.Windows.Forms.Padding(2);
+            this.studentButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.studentButton.Name = "studentButton";
             this.studentButton.Size = new System.Drawing.Size(155, 30);
             this.studentButton.TabIndex = 0;
@@ -281,7 +283,7 @@
             this.teacherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.teacherButton.Location = new System.Drawing.Point(166, 2);
-            this.teacherButton.Margin = new System.Windows.Forms.Padding(2);
+            this.teacherButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.teacherButton.Name = "teacherButton";
             this.teacherButton.Size = new System.Drawing.Size(155, 30);
             this.teacherButton.TabIndex = 1;
@@ -303,7 +305,7 @@
             this.employeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.employeeButton.Location = new System.Drawing.Point(330, 2);
-            this.employeeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.employeeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.employeeButton.Name = "employeeButton";
             this.employeeButton.Size = new System.Drawing.Size(157, 30);
             this.employeeButton.TabIndex = 2;
@@ -323,7 +325,7 @@
             this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
             this.lastNameTextBox.Location = new System.Drawing.Point(10, 115);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Radius = 10;
             this.lastNameTextBox.Size = new System.Drawing.Size(139, 32);
@@ -342,7 +344,7 @@
             this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameTextBox.ForeColor = System.Drawing.Color.Black;
             this.firstNameTextBox.Location = new System.Drawing.Point(153, 115);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Radius = 10;
             this.firstNameTextBox.Size = new System.Drawing.Size(215, 32);
@@ -360,7 +362,7 @@
             this.middleInitialTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleInitialTextBox.ForeColor = System.Drawing.Color.Black;
             this.middleInitialTextBox.Location = new System.Drawing.Point(372, 115);
-            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.middleInitialTextBox.Name = "middleInitialTextBox";
             this.middleInitialTextBox.Radius = 10;
             this.middleInitialTextBox.Size = new System.Drawing.Size(127, 32);
@@ -409,7 +411,7 @@
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.ForeColor = System.Drawing.Color.Black;
             this.emailTextBox.Location = new System.Drawing.Point(10, 184);
-            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Radius = 10;
             this.emailTextBox.Size = new System.Drawing.Size(240, 32);
@@ -428,7 +430,7 @@
             this.contactNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNumberTextBox.ForeColor = System.Drawing.Color.Black;
             this.contactNumberTextBox.Location = new System.Drawing.Point(254, 184);
-            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
             this.contactNumberTextBox.Radius = 10;
             this.contactNumberTextBox.Size = new System.Drawing.Size(245, 32);
@@ -503,7 +505,7 @@
             this.houseNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.houseNumberTextBox.ForeColor = System.Drawing.Color.Black;
             this.houseNumberTextBox.Location = new System.Drawing.Point(10, 253);
-            this.houseNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.houseNumberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.houseNumberTextBox.Name = "houseNumberTextBox";
             this.houseNumberTextBox.Radius = 10;
             this.houseNumberTextBox.Size = new System.Drawing.Size(139, 32);
@@ -521,7 +523,7 @@
             this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.streetTextBox.ForeColor = System.Drawing.Color.Black;
             this.streetTextBox.Location = new System.Drawing.Point(153, 253);
-            this.streetTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.streetTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Radius = 10;
             this.streetTextBox.Size = new System.Drawing.Size(97, 32);
@@ -540,7 +542,7 @@
             this.barangayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barangayTextBox.ForeColor = System.Drawing.Color.Black;
             this.barangayTextBox.Location = new System.Drawing.Point(254, 253);
-            this.barangayTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.barangayTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.barangayTextBox.Name = "barangayTextBox";
             this.barangayTextBox.Radius = 10;
             this.barangayTextBox.Size = new System.Drawing.Size(114, 32);
@@ -558,7 +560,7 @@
             this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityTextBox.ForeColor = System.Drawing.Color.Black;
             this.cityTextBox.Location = new System.Drawing.Point(372, 253);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Radius = 10;
             this.cityTextBox.Size = new System.Drawing.Size(127, 32);
@@ -605,7 +607,7 @@
             this.collegeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.collegeTextBox.ForeColor = System.Drawing.Color.Black;
             this.collegeTextBox.Location = new System.Drawing.Point(10, 322);
-            this.collegeTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.collegeTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.collegeTextBox.Name = "collegeTextBox";
             this.collegeTextBox.Radius = 10;
             this.collegeTextBox.Size = new System.Drawing.Size(299, 32);
@@ -681,7 +683,7 @@
             this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearTextBox.ForeColor = System.Drawing.Color.Black;
             this.yearTextBox.Location = new System.Drawing.Point(313, 322);
-            this.yearTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.yearTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Radius = 10;
             this.yearTextBox.Size = new System.Drawing.Size(55, 32);
@@ -699,7 +701,7 @@
             this.sectionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sectionTextBox.ForeColor = System.Drawing.Color.Black;
             this.sectionTextBox.Location = new System.Drawing.Point(372, 322);
-            this.sectionTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.sectionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sectionTextBox.Name = "sectionTextBox";
             this.sectionTextBox.Radius = 10;
             this.sectionTextBox.Size = new System.Drawing.Size(127, 32);
@@ -709,18 +711,20 @@
             // profilePictureImageBox
             // 
             this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.profilePictureImageBox.Location = new System.Drawing.Point(520, 85);
-            this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(2);
+            this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.profilePictureImageBox.Name = "profilePictureImageBox";
             this.PANEL_CONTENTS.SetRowSpan(this.profilePictureImageBox, 5);
-            this.profilePictureImageBox.Size = new System.Drawing.Size(166, 164);
+            this.profilePictureImageBox.Size = new System.Drawing.Size(186, 164);
+            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePictureImageBox.TabIndex = 42;
             this.profilePictureImageBox.TabStop = false;
             // 
             // uploadImageButton
             // 
-            this.uploadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.uploadImageButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uploadImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.uploadImageButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.uploadImageButton.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -730,15 +734,37 @@
             this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.uploadImageButton.Location = new System.Drawing.Point(520, 258);
-            this.uploadImageButton.Margin = new System.Windows.Forms.Padding(2);
+            this.uploadImageButton.Location = new System.Drawing.Point(520, 257);
+            this.uploadImageButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uploadImageButton.Name = "uploadImageButton";
-            this.uploadImageButton.Size = new System.Drawing.Size(166, 27);
+            this.uploadImageButton.Size = new System.Drawing.Size(186, 28);
             this.uploadImageButton.TabIndex = 43;
             this.uploadImageButton.Text = "UPLOAD IMAGE";
             this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadImageButton.UseVisualStyleBackColor = false;
             this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
+            // 
+            // uploadExcelFIleButton
+            // 
+            this.uploadExcelFIleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelFIleButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelFIleButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.uploadExcelFIleButton.BorderRadius = 10;
+            this.uploadExcelFIleButton.BorderSize = 0;
+            this.uploadExcelFIleButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadExcelFIleButton.FlatAppearance.BorderSize = 0;
+            this.uploadExcelFIleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadExcelFIleButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadExcelFIleButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.uploadExcelFIleButton.Location = new System.Drawing.Point(520, 289);
+            this.uploadExcelFIleButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uploadExcelFIleButton.Name = "uploadExcelFIleButton";
+            this.uploadExcelFIleButton.Size = new System.Drawing.Size(186, 29);
+            this.uploadExcelFIleButton.TabIndex = 45;
+            this.uploadExcelFIleButton.Text = "UPLOAD EXCEL FILE";
+            this.uploadExcelFIleButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.uploadExcelFIleButton.UseVisualStyleBackColor = false;
+            this.uploadExcelFIleButton.Click += new System.EventHandler(this.uploadExcelFIleButton_Click);
             // 
             // openFolderDialog
             // 
@@ -754,9 +780,9 @@
             this.Controls.Add(this.PANEL_CONTENTS);
             this.Controls.Add(this.accoutRegLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FORM_SIGNUP";
-            this.Padding = new System.Windows.Forms.Padding(2);
+            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_SIGNUP";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FORM_SIGNUP_Paint);
@@ -808,5 +834,6 @@
         private roundedCorners.roundedButton uploadImageButton;
         private System.Windows.Forms.Label collegeLabel;
         private System.Windows.Forms.OpenFileDialog openFolderDialog;
+        private roundedCorners.roundedButton uploadExcelFIleButton;
     }
 }

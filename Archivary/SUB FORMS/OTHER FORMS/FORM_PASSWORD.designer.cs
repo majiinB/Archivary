@@ -100,9 +100,9 @@
             this.tableLayoutPanel_Container.Controls.Add(this.confirmButtonContainer, 1, 5);
             this.tableLayoutPanel_Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_Container.Location = new System.Drawing.Point(8, 8);
-            this.tableLayoutPanel_Container.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel_Container.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_Container.Name = "tableLayoutPanel_Container";
-            this.tableLayoutPanel_Container.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel_Container.Padding = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel_Container.RowCount = 6;
             this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -138,12 +138,12 @@
             this.oldPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oldPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.oldPasswordTextBox.Location = new System.Drawing.Point(6, 53);
-            this.oldPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oldPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.oldPasswordTextBox.Name = "oldPasswordTextBox";
             this.oldPasswordTextBox.Radius = 10;
             this.oldPasswordTextBox.Size = new System.Drawing.Size(493, 43);
             this.oldPasswordTextBox.TabIndex = 9;
-            this.oldPasswordTextBox.Text = "Enter Old Password  ";
+            this.oldPasswordTextBox.Text = "Enter Old Password";
             this.oldPasswordTextBox.UseSystemPasswordChar = true;
             this.oldPasswordTextBox.Enter += new System.EventHandler(this.oldPasswordTextBox_Enter);
             this.oldPasswordTextBox.Leave += new System.EventHandler(this.oldPasswordTextBox_Leave);
@@ -187,12 +187,12 @@
             this.newPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.newPasswordTextBox.Location = new System.Drawing.Point(6, 147);
-            this.newPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.newPasswordTextBox.Name = "newPasswordTextBox";
             this.newPasswordTextBox.Radius = 10;
             this.newPasswordTextBox.Size = new System.Drawing.Size(493, 43);
             this.newPasswordTextBox.TabIndex = 12;
-            this.newPasswordTextBox.Text = "Enter New Password  ";
+            this.newPasswordTextBox.Text = "Enter New Password";
             this.newPasswordTextBox.UseSystemPasswordChar = true;
             this.newPasswordTextBox.Enter += new System.EventHandler(this.newPasswordTextBox_Enter);
             this.newPasswordTextBox.Leave += new System.EventHandler(this.newPasswordTextBox_Leave);
@@ -208,12 +208,12 @@
             this.confirmNewPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmNewPasswordTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.confirmNewPasswordTextBox.Location = new System.Drawing.Point(6, 241);
-            this.confirmNewPasswordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.confirmNewPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.confirmNewPasswordTextBox.Name = "confirmNewPasswordTextBox";
             this.confirmNewPasswordTextBox.Radius = 10;
             this.confirmNewPasswordTextBox.Size = new System.Drawing.Size(493, 43);
             this.confirmNewPasswordTextBox.TabIndex = 13;
-            this.confirmNewPasswordTextBox.Text = "Enter New Password";
+            this.confirmNewPasswordTextBox.Text = "Confirm New Password";
             this.confirmNewPasswordTextBox.UseSystemPasswordChar = true;
             this.confirmNewPasswordTextBox.Enter += new System.EventHandler(this.confirmNewPasswordTextBox_Enter);
             this.confirmNewPasswordTextBox.Leave += new System.EventHandler(this.confirmNewPasswordTextBox_Leave);
@@ -223,7 +223,7 @@
             this.oldButtonContainer.Controls.Add(this.oldEyeButton);
             this.oldButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.oldButtonContainer.Location = new System.Drawing.Point(503, 53);
-            this.oldButtonContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oldButtonContainer.Margin = new System.Windows.Forms.Padding(2);
             this.oldButtonContainer.Name = "oldButtonContainer";
             this.oldButtonContainer.Size = new System.Drawing.Size(41, 43);
             this.oldButtonContainer.TabIndex = 16;
@@ -241,7 +241,7 @@
             this.oldEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.oldEyeButton.ForeColor = System.Drawing.Color.White;
             this.oldEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.oldEyeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.oldEyeButton.Margin = new System.Windows.Forms.Padding(2);
             this.oldEyeButton.Name = "oldEyeButton";
             this.oldEyeButton.Size = new System.Drawing.Size(41, 43);
             this.oldEyeButton.TabIndex = 15;
@@ -254,7 +254,7 @@
             this.newButtonContainer.Controls.Add(this.newEyeButton);
             this.newButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newButtonContainer.Location = new System.Drawing.Point(503, 147);
-            this.newButtonContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newButtonContainer.Margin = new System.Windows.Forms.Padding(2);
             this.newButtonContainer.Name = "newButtonContainer";
             this.newButtonContainer.Size = new System.Drawing.Size(41, 43);
             this.newButtonContainer.TabIndex = 17;
@@ -272,7 +272,7 @@
             this.newEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newEyeButton.ForeColor = System.Drawing.Color.White;
             this.newEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.newEyeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.newEyeButton.Margin = new System.Windows.Forms.Padding(2);
             this.newEyeButton.Name = "newEyeButton";
             this.newEyeButton.Size = new System.Drawing.Size(41, 43);
             this.newEyeButton.TabIndex = 15;
@@ -285,7 +285,7 @@
             this.confirmButtonContainer.Controls.Add(this.confirmEyeButton);
             this.confirmButtonContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmButtonContainer.Location = new System.Drawing.Point(503, 241);
-            this.confirmButtonContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.confirmButtonContainer.Margin = new System.Windows.Forms.Padding(2);
             this.confirmButtonContainer.Name = "confirmButtonContainer";
             this.confirmButtonContainer.Size = new System.Drawing.Size(41, 43);
             this.confirmButtonContainer.TabIndex = 18;
@@ -303,7 +303,7 @@
             this.confirmEyeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmEyeButton.ForeColor = System.Drawing.Color.White;
             this.confirmEyeButton.Location = new System.Drawing.Point(0, 0);
-            this.confirmEyeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.confirmEyeButton.Margin = new System.Windows.Forms.Padding(2);
             this.confirmEyeButton.Name = "confirmEyeButton";
             this.confirmEyeButton.Size = new System.Drawing.Size(41, 43);
             this.confirmEyeButton.TabIndex = 15;
@@ -324,7 +324,7 @@
             this.continueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.continueButton.ForeColor = System.Drawing.Color.White;
             this.continueButton.Location = new System.Drawing.Point(285, 10);
-            this.continueButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.continueButton.Margin = new System.Windows.Forms.Padding(2);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(271, 45);
             this.continueButton.TabIndex = 3;
@@ -346,7 +346,7 @@
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.White;
             this.cancelButton.Location = new System.Drawing.Point(10, 10);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(271, 45);
             this.cancelButton.TabIndex = 2;
@@ -364,9 +364,9 @@
             this.buttonTableLayout.Controls.Add(this.continueButton, 1, 0);
             this.buttonTableLayout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonTableLayout.Location = new System.Drawing.Point(2, 396);
-            this.buttonTableLayout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTableLayout.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTableLayout.Name = "buttonTableLayout";
-            this.buttonTableLayout.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.buttonTableLayout.Padding = new System.Windows.Forms.Padding(8);
             this.buttonTableLayout.RowCount = 1;
             this.buttonTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.buttonTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
@@ -378,9 +378,9 @@
             this.LAYOUT_MENU.Controls.Add(this.tableLayoutPanel_Container);
             this.LAYOUT_MENU.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LAYOUT_MENU.Location = new System.Drawing.Point(2, 90);
-            this.LAYOUT_MENU.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LAYOUT_MENU.Margin = new System.Windows.Forms.Padding(2);
             this.LAYOUT_MENU.Name = "LAYOUT_MENU";
-            this.LAYOUT_MENU.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.LAYOUT_MENU.Padding = new System.Windows.Forms.Padding(8);
             this.LAYOUT_MENU.Size = new System.Drawing.Size(566, 306);
             this.LAYOUT_MENU.TabIndex = 9;
             // 
@@ -390,7 +390,7 @@
             this.PANEL_LABEL.Controls.Add(this.instructionLabel);
             this.PANEL_LABEL.Dock = System.Windows.Forms.DockStyle.Top;
             this.PANEL_LABEL.Location = new System.Drawing.Point(2, 2);
-            this.PANEL_LABEL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PANEL_LABEL.Margin = new System.Windows.Forms.Padding(2);
             this.PANEL_LABEL.Name = "PANEL_LABEL";
             this.PANEL_LABEL.Size = new System.Drawing.Size(566, 88);
             this.PANEL_LABEL.TabIndex = 10;
@@ -406,9 +406,9 @@
             this.Controls.Add(this.buttonTableLayout);
             this.ForeColor = System.Drawing.Color.Coral;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FORM_PASSWORD";
-            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_PASSWORD";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FORM_PASSWORD_Paint);
