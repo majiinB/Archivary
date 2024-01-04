@@ -19,9 +19,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 {
     public class UserOperation
     {
-
-        static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
-
         #region ENUM
         public enum UserLevel
         {
@@ -286,7 +283,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static bool IsEmailExisting(string email)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -615,7 +612,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         private static string[] GetUserByEmail(string email)
         {
             string[] result = new string[10];
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -653,7 +650,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         private static string[] GetAdminOrEmployeeByUserid(int id, int userLevel)
         {
             string[] result = new string[2];
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -688,7 +685,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         static int GetUserIdByEmailAndLastName(string email, string lastName)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -731,7 +728,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             ArrayList employeesList = new ArrayList();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -771,7 +768,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             ArrayList studentsList = new ArrayList();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -816,7 +813,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             ArrayList teachersList = new ArrayList();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -857,7 +854,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             Employee employee = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -898,7 +895,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             Student student = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -942,7 +939,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             Teacher teacher = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -990,7 +987,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 string tableName = isAdmin ? "admin" : "employee";
                 string idColumnName = isAdmin ? "admin_id" : "employee_id";
 
-                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     connection.Open();
 
@@ -1017,7 +1014,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             string contactNum, int userLevel, string imagePath = "NO_IMAGE")
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1088,7 +1085,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             {
                 tableName = "employees";
             }
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1155,7 +1152,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 return condition;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1219,7 +1216,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 return condition;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1552,7 +1549,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         //FOR UPDATING USER INFORMATION (NEXT)
         public static bool UpdateSecurityQuestion(string adminOrEmployeeId, int userLevel, string newQuestion)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1584,7 +1581,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static bool UpdateSecurityAnswer(string adminOrEmployeeId, int userLevel, string newAnswer)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1617,7 +1614,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         public static bool UpdateStudentInformation(int studentUserId, string newDepartment, int newYearLevel, string newSection, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1656,7 +1653,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         public static bool UpdateTeacherInformation(int teacherUserId, string newDepartment, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1689,7 +1686,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         public static bool UpdateUserInformation(int userId, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1728,7 +1725,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static void UpdateUserStatus(int userId, string newStatus)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1753,7 +1750,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 string tableName = isAdmin ? "admin" : "employee";
                 string idColumnName = isAdmin ? "admin_id" : "employee_id";
 
-                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     connection.Open();
 

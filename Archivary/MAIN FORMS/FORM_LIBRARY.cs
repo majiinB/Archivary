@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace Archivary.PARENT_FORMS
         private int pagesToAdd = 10;
         private Dictionary<int, Book> booksDictionary;
         private List<int> keys;
-        private bool isDataLoading = false;
+        public bool isDataLoading = false;
 
         //
         // COLOR METHODS
@@ -84,7 +85,7 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
-        private async Task LoadListAsync()
+        public async Task LoadListAsync()
         {
             booksDictionary = BACKEND.BOOK_OPERATIONS.BookOperation.LoadBooksFromDatabase();
             keys = booksDictionary.Keys.ToList();
@@ -125,7 +126,7 @@ namespace Archivary.PARENT_FORMS
 
             if (bookAdded != null)
             {
-                bookInfo = new bookDetails(bookAdded);
+                bookInfo = new bookDetails(bookAdded, this);
                 bookInfo.Height = 200;
                 bookInfo.Margin = new Padding(10);
                 libraryList.Controls.Add(bookInfo);

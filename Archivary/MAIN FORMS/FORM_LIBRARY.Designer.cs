@@ -236,7 +236,7 @@
 
         private RoundedCorners.RoundedPanel LAYOUT_searchBar;
         private System.Windows.Forms.Panel PANEL_libraryListContainer;
-        private System.Windows.Forms.FlowLayoutPanel libraryList;
+        public System.Windows.Forms.FlowLayoutPanel libraryList;
         private sidebarComponents.RoundedSidebarButton addBookButton;
         private sidebarComponents.RoundedPictureButtonRight filterSearchButton;
         private CustomDropdown.DropdownMenu filterDropdown;

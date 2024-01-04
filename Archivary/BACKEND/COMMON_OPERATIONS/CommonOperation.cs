@@ -10,13 +10,11 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 {
     public class CommonOperation
     {
-        static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
-
         public static Setting GetSettingsFromDatabase()
         {
             Setting settings = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -44,7 +42,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 
         public static bool UpdateSettings(int borrowingCapacity, int reserveLimit, int borrowingDuration)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 

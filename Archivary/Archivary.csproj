@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BACKEND\BOOK_OPERATIONS\BookOperation.cs" />
+    <Compile Include="BACKEND\DATABASE\DatabaseConnection.cs" />
     <Compile Include="BACKEND\COMMON_OPERATIONS\CommonOperation.cs" />
     <Compile Include="BACKEND\OBJECTS\Admin.cs" />
     <Compile Include="BACKEND\OBJECTS\Book.cs" />

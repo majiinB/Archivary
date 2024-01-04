@@ -10,12 +10,11 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
 {
     public class BookOperation
     {
-        static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
         public static Dictionary<int, Book> LoadBooksFromDatabase()
         {
             Dictionary<int, Book> booksDictionary = new Dictionary<int, Book>();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
