@@ -12,8 +12,6 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
 {
     public class CommonOperation
     { 
-        static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
-
         #region Arrays
         public static string[] MONTHS = { "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" };
         public static string[] CATEGORIES = { "Academic", "Fiction", "Nonfiction" };
@@ -105,7 +103,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int userCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -127,7 +125,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int bookCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -152,7 +150,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int borrowedBooksCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -185,7 +183,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int reservedBooksCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -218,7 +216,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int returnedBooksCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -252,7 +250,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int borrowedBooksCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -283,7 +281,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int reservedBooksCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -314,7 +312,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int returnedBooksCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -345,7 +343,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int bookCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 
@@ -370,7 +368,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
         {
             int bookCount = 0;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 await connection.OpenAsync();
 

@@ -27,6 +27,19 @@ namespace Archivary.Archivary_Components
             FormsBookInfo = new FORM_BOOKINFO(bookAdded, library);
         }
 
+        public bookDetails(Book bookAdded)
+        {
+            InitializeComponent();
+            isbnLabel.Hide();
+            viewButton.Hide();
+            this.Click += new EventHandler(bookDetails_Click);
+        }
+
+        private void bookDetails_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #region Properties
 
         private FORM_BOOKINFO FormsBookInfo;

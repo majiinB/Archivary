@@ -161,7 +161,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void nonfictionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            categoryDropdown.Text = "Non Fiction";
+            categoryDropdown.Text = "Nonfiction";
             UpdateGenreMenu();
         }
 
@@ -183,7 +183,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             switch (categoryDropdown.Text)
             {
                 case "Academic": SetAcademicGenres(); break;
-                case "Non Fiction": SetNonFictionGenres(); break;
+                case "Nonfiction": SetNonFictionGenres(); break;
                 case "Fiction": SetFictionGenres(); break;
             }
             

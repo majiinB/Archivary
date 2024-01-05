@@ -30,6 +30,7 @@ namespace Archivary.PARENT_FORMS
             FormsBorrow.Dock = DockStyle.Fill;
             FormsBorrow.BringToFront();
             FormsBorrow.Show();
+            FormsBorrow.LoadAvailableBooks();
         }
 
         private void returnButton_Click(object sender, EventArgs e)

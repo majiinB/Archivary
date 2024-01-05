@@ -31,7 +31,7 @@ namespace Archivary.PARENT_FORMS
         private string searchTerms =  "";
         private List<Book> booksDictionary;
         private List<Book> booksSearched;
-        private bool isDataLoading = false; 
+        public bool isDataLoading = false; 
         private bool startSearch = false;
         private Timer searchTimer;
 
@@ -186,7 +186,7 @@ namespace Archivary.PARENT_FORMS
         /*
          * Eto dito talga nangyayari yung filter tsaka pag retrieve ng data
          */
-        private async Task LoadListAsync()
+        public async Task LoadListAsync()
         {
             //Check if bookDictionary and book searched has any elements in it
             //if there are any clear it
@@ -253,7 +253,7 @@ namespace Archivary.PARENT_FORMS
             //Check if book added is not null
             if (bookAdded != null)
             {
-                bookInfo = new bookDetails(bookAdded); //pass the object reference again
+                bookInfo = new bookDetails(bookAdded, this); //pass the object reference again
                 bookInfo.Height = 200;
                 bookInfo.Margin = new Padding(10);
                 libraryList.Controls.Add(bookInfo);

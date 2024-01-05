@@ -223,7 +223,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             if (!IsValidInteger(yearLevel))
             {
-                if(!(int.TryParse(yearLevel, out int parsedYearLevel) && parsedYearLevel > 0 && parsedYearLevel < 7))
+                if (!(int.TryParse(yearLevel, out int parsedYearLevel) && parsedYearLevel > 0 && parsedYearLevel < 7))
                 {
                     if (!(yearLevel == "No_yearLevel"))
                     {
@@ -385,7 +385,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             HashSet<string> encounteredHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
             //Loop to fill the array
-            for(int row = headerLocation; row == headerLocation; row++)
+            for (int row = headerLocation; row == headerLocation; row++)
             {
                 for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
                 {
@@ -663,10 +663,10 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     return (false, "Invalid image file or file does not exist");
                 }
             }
-            
-            string[] headerNames = { "Last Name", "First Name", "Middle Initial", "Email Address", 
+
+            string[] headerNames = { "Last Name", "First Name", "Middle Initial", "Email Address",
                 "Block No.", "Street", "Barangay", "City", "Contact Number", "College Department", "Year Level", "Section",  "Image Path" };
-            
+
             for (int i = 0; i < studentInfos.Length; i++)
             {
                 // Skip iteration
@@ -1161,7 +1161,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             try
             {
                 //Open a MySqlConnection
-                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     if (connection.State != ConnectionState.Open)
                     {
@@ -1273,7 +1273,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             return condition;
         }
         public static bool AddAdminOrEmployee(string email, string lastName,
-            string firstName, string middleName, string address, string contactNum, int userLevel, string password, string imagePath = "NO_IMAGE", 
+            string firstName, string middleName, string address, string contactNum, int userLevel, string password, string imagePath = "NO_IMAGE",
             string securityQuestion = "NO_SECURITY_QUESTION", string securityAnswer = "NO_SECURITY_ANSWER")
         {
             bool condition = false;
@@ -1379,7 +1379,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     int userID = GetUserIdByEmailAndLastName(email, lastName);
 
                     if (userID == -1)
-                    {                 
+                    {
                         return condition;
                     }
 
@@ -1401,7 +1401,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         }
                         else
                         {
-                           condition = false;
+                            condition = false;
                         }
                     }
 
@@ -1503,7 +1503,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                 actualRowCount++;
                             }
                         }
-                        
+
                         if (actualRowCount == 0 || actualRowCount == 1)
                         {
                             errors.Add("There are no information inside the excell file");
@@ -1522,7 +1522,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                 actualColumnCount++;
                             }
                         }
-                        
+
                         // Check if the number of columns is as expected
                         if (actualColumnCount != 13)
                         {
@@ -1808,7 +1808,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         //USER CREATION IN THE APP - LOGIN
         public static object Login(string email, string password)
         {
-            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) 
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 return null;
             }
@@ -1963,7 +1963,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
-                        { 
+                        {
                             condition = true;
                         }
                         else
@@ -1971,7 +1971,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                             condition = false;
                         }
                     }
-                    
+
                 }
             }
             return condition;
@@ -1989,7 +1989,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                 using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
                 {
-                    if(UpdateUserInformation(teacherUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
+                    if (UpdateUserInformation(teacherUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
                     {
                         cmd.Parameters.AddWithValue("@user_Id", teacherUserId);
                         cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
@@ -2097,5 +2097,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             return false; // Or throw an exception, depending on your requirements
         }
         #endregion
+
     }
 }
