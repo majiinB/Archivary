@@ -169,7 +169,7 @@ namespace Archivary.PARENT_FORMS
          * kasi once na icall to na na applly na laht ng filter
          * like yung dropdown pait search bar
          */
-        private async Task FilterBooks()
+        public async Task FilterBooks()
         {
             //Reset values
             start = 0;
@@ -183,10 +183,11 @@ namespace Archivary.PARENT_FORMS
                 await LoadListAsync();
             }
         }
+
         /*
          * Eto dito talga nangyayari yung filter tsaka pag retrieve ng data
          */
-        public async Task LoadListAsync()
+        private async Task LoadListAsync()
         {
             //Check if bookDictionary and book searched has any elements in it
             //if there are any clear it

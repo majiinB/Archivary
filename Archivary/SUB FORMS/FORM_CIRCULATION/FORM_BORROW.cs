@@ -25,9 +25,11 @@ namespace Archivary.SUB_FORMS
         private int borrowerId = -1;
         private int studentBorrowLimit, teacherBorrowLimit, reserveLimit;
         private bool isStudent, isTeacher;
-        public FORM_BORROW()
+        private object user;
+        public FORM_BORROW(object user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void FORM_BORROW_Load(object sender, EventArgs e)
@@ -118,12 +120,12 @@ namespace Archivary.SUB_FORMS
         {
             return Color.FromArgb(200, 200, 200);
         }
-        
+
         private void AddBookToBooksDataGridView(Book book)
         {
             DataGridViewRow row = new DataGridViewRow();
 
-            if (!book.BookImage.Equals("NO_IMAGE"))
+            try
             {
                 PictureBox pictureBox = new PictureBox
                 {
@@ -137,11 +139,27 @@ namespace Archivary.SUB_FORMS
                 row.Cells.Add(imageCell);
                 row.Cells[0].Style.Padding = new Padding(10);
             }
-            else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                PictureBox pictureBox = new PictureBox
+                {
+                    Image = ResizeImage(Properties.Resources.ArchivaryLogoGreen, 100, 100),
+                    SizeMode = PictureBoxSizeMode.AutoSize,
+                    Size = new Size(100, 100),
+                };
+                DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                imageCell.Value = pictureBox.Image;
+                row.Height = pictureBox.Height;
+                row.Cells.Add(imageCell);
+                row.Cells[0].Style.Padding = new Padding(10);
+            }
+
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookTitle });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookISBN });
             BooksDataGridView.Rows.Add(row);
         }
+
 
         private void LoadAvailableBooks()
         {
@@ -380,9 +398,10 @@ namespace Archivary.SUB_FORMS
                         alert.Show();
                         return;
                     }
-                } 
-                else
-                {
+                }
+
+                if (reservedBooksISBN.Count > 0)
+                {  
                     foreach(Book book in reversedBookList)
                     {
                         if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
@@ -392,7 +411,7 @@ namespace Archivary.SUB_FORMS
                         }
                     }
                 }
-                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId);
+                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 SuccessBorrowReserve(message);
             }
             else

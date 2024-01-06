@@ -254,8 +254,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
                     {
                         command.ExecuteNonQuery();
                         library.libraryList.Controls.Clear();
-                        library.isDataLoading = true;
-                        await library.LoadListAsync();
+                        await library.FilterBooks();
                         FORM_ALERT success = new FORM_ALERT(3, "Book updated!", $"Successfully updated {titleTextbox.Text}!");
                         success.TopMost = true;
                         success.Show();

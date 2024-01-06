@@ -26,8 +26,8 @@ namespace Archivary
         private FORM_USERS FormsUsers;
         private FORM_REPORTS FormsReports = new FORM_REPORTS();
         private FORM_SETTINGS FormsSettings;
-        private FORM_BORROW FormsBorrow = new FORM_BORROW();
-        private FORM_RETURN FormsReturn = new FORM_RETURN();
+        private FORM_BORROW FormsBorrow;
+        private FORM_RETURN FormsReturn;
         private object user;
 
         private bool isToggled = false;
@@ -44,6 +44,8 @@ namespace Archivary
             //Initialize other components and pass the user object
             FormsUsers = new FORM_USERS(user);
             FormsSettings = new FORM_SETTINGS(user);
+            FormsBorrow = new FORM_BORROW(user);
+            FormsReturn = new FORM_RETURN(user);
 
             //Subscribe to form_settings save event
             FormsSettings.SaveButtonClicked += FormSetting_SaveButtonClicked;
@@ -330,7 +332,7 @@ namespace Archivary
 
         private void circulationsButton_Click(object sender, EventArgs e)
         {
-            FORM_CIRCULATION FormsCirculation = new FORM_CIRCULATION(this);
+            FORM_CIRCULATION FormsCirculation = new FORM_CIRCULATION(this, user);
             ToggleForm(FormsCirculation, sender);
         }
 

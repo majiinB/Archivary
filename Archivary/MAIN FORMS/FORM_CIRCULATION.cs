@@ -13,14 +13,17 @@ namespace Archivary.PARENT_FORMS
 {
     public partial class FORM_CIRCULATION : Form
     {
-        private FORM_RETURN FormsReturn = new FORM_RETURN();
-        private FORM_BORROW FormsBorrow = new FORM_BORROW();
+        private FORM_RETURN FormsReturn;
+        private FORM_BORROW FormsBorrow;
         private FORM_SIDEBAR FormsSidebar;
 
-        public FORM_CIRCULATION(FORM_SIDEBAR FormsSidebar)
+        public FORM_CIRCULATION(FORM_SIDEBAR FormsSidebar, object user)
         {
             InitializeComponent();
             this.FormsSidebar = FormsSidebar;
+            FormsReturn = new FORM_RETURN(user);
+            FormsBorrow = new FORM_BORROW(user);
+
         }
 
         private void borrowButton_Click(object sender, EventArgs e)

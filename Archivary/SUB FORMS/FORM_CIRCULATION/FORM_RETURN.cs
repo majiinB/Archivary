@@ -22,7 +22,7 @@ namespace Archivary.SUB_FORMS
         private bool startSearch = false, isStudent, isTeacher;
         private int borrowerId = -1;
 
-        public FORM_RETURN()
+        public FORM_RETURN(object user)
         {
             InitializeComponent();
         }
@@ -113,7 +113,7 @@ namespace Archivary.SUB_FORMS
         {
             DataGridViewRow row = new DataGridViewRow();
 
-            if (!book.BookImage.Equals("NO_IMAGE"))
+            try
             {
                 PictureBox pictureBox = new PictureBox
                 {
@@ -127,10 +127,24 @@ namespace Archivary.SUB_FORMS
                 row.Cells.Add(imageCell);
                 row.Cells[0].Style.Padding = new Padding(10);
             }
-            else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
+            catch (System.IO.FileNotFoundException)
+            {
+                // Handle the case when the file is not found
+                PictureBox pictureBox = new PictureBox
+                {
+                    Image = ResizeImage(Properties.Resources.ArchivaryLogoGreen, 100, 100),
+                    SizeMode = PictureBoxSizeMode.AutoSize,
+                    Size = new Size(100, 100),
+                };
+                DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                imageCell.Value = pictureBox.Image;
+                row.Height = pictureBox.Height;
+                row.Cells.Add(imageCell);
+                row.Cells[0].Style.Padding = new Padding(10);
+            }
+
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookTitle });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookISBN });
-            row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookStatus });
             BooksDataGridView.Rows.Add(row);
         }
 

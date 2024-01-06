@@ -174,7 +174,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             return searchResults;
         }
 
-        public static void BorrowReserveBook(string table, List<Book> bookList, HashSet<string> ISBNs, int userId)
+        public static void BorrowReserveBook(string table, List<Book> bookList, HashSet<string> ISBNs, int userId, int librarianID)
         {
             using (MySqlConnection conn = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
@@ -192,11 +192,12 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                             string columnOne = (table == "borrowed_books") ? "borrowed_at" : "reserved_at";
                             string columnTwo = (table == "borrowed_books") ? "is_returned" : "is_borrowed";
 
-                            insertCommand.CommandText = $"INSERT INTO {table} (book_id, borrower_id, {columnOne}, {columnTwo}) VALUES (@BookId, @UserId, @ColumnOneValue, false)";
+                            insertCommand.CommandText = $"INSERT INTO {table} (book_id, borrower_id, {columnOne}, {columnTwo}, librarian_id) VALUES (@BookId, @UserId, @ColumnOneValue, false, @LibrarianId)";
 
                             insertCommand.Parameters.AddWithValue("@BookId", book.BookId);
                             insertCommand.Parameters.AddWithValue("@UserId", userId);
                             insertCommand.Parameters.AddWithValue("@ColumnOneValue", DateTime.Now);
+                            insertCommand.Parameters.AddWithValue("@LibrarianId", librarianID);
 
                             insertCommand.ExecuteNonQuery();
 
