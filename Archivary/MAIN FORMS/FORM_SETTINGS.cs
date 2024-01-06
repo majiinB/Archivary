@@ -148,6 +148,8 @@ namespace Archivary.PARENT_FORMS
                 reserveLimitTextBox.Enabled = false;
                 borrowingDurationTextBox.Enabled = false;
                 teacher_borrowingCapacityTextBox.Enabled = false;
+                teacher_borrowingCapacityTextBox.Enabled = false;
+                reservationDurationTextBox.Enabled = false;
             }
             /*changePassButton.Enabled = true;
             uploadImageButton.Enabled = true;*/
