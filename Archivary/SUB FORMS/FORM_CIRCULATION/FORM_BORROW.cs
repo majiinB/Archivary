@@ -23,7 +23,7 @@ namespace Archivary.SUB_FORMS
         private bool startSearch = false;
         private int borrowerId = -1;
         private int studentBorrowLimit, teacherBorrowLimit, reserveLimit;
-        private bool isStudent;
+        private bool isStudent, isTeacher;
         public FORM_BORROW()
         {
             InitializeComponent();
@@ -285,6 +285,7 @@ namespace Archivary.SUB_FORMS
                 if (user != null) SetTexts(user);
                 borrowerId = user.StudentUserId;
                 isStudent = true;
+                isTeacher = false;
             }
             else if (query.Contains("T") && query.Length == 10)
             {
@@ -292,6 +293,7 @@ namespace Archivary.SUB_FORMS
                 if (user != null) SetTexts(user);
                 borrowerId = user.TeacherUserId;
                 isStudent = false;
+                isTeacher = true;
             }
             else
             {
@@ -300,6 +302,7 @@ namespace Archivary.SUB_FORMS
                 nameInputLabel.Text = "User not found.";
                 borrowerId = -1;
                 isStudent = false;
+                isTeacher = false;
             }
         }
 
@@ -338,12 +341,20 @@ namespace Archivary.SUB_FORMS
         private void HandleCirculationEvent(string type, string message)
         {
             int alreadyBorrowed = BookOperation.CheckCountOfExistingBorrowedReservedBooks(borrowerId, type);
-            bool isBelowStudentLimit = isStudent && (dataGridView1.RowCount + alreadyBorrowed) <= studentBorrowLimit;
-            bool isBelowTeacherLimit = !isStudent && (dataGridView1.RowCount + alreadyBorrowed) <= teacherBorrowLimit;
+            bool isBelowStudentLimit = isStudent && !isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= studentBorrowLimit;
+            bool isBelowTeacherLimit = !isStudent && isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= teacherBorrowLimit;
             if (isBelowStudentLimit || isBelowTeacherLimit)
             {
                 Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, availableBookList, selectedISBNs, borrowerId);
                 SuccessBorrowReserve(message);
+            }
+            else
+            {
+                int borrow = isStudent ? studentBorrowLimit : teacherBorrowLimit;
+                string circulation = type.Equals("borrow") ? $"You may only borrow {borrow} books." : $"You many only reserve {reserveLimit} books.";
+                FORM_ALERT alert = new FORM_ALERT(1, "LIMIT EXCEEDED", circulation);
+                alert.TopMost = true;
+                alert.Show();
             }
         }
 

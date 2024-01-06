@@ -1,10 +1,12 @@
 ﻿using Archivary._1500X1000.FORM_CIRCULATION;
+using Archivary.BACKEND.OBJECTS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,9 +16,130 @@ namespace Archivary.SUB_FORMS
 {
     public partial class FORM_RETURN : Form
     {
+        private List<Book> borrowedReservedBooks;
+        private HashSet<string> selectedISBNs = new HashSet<string>();
+        private Timer searchUser;
+        private bool startSearch = false, isStudent, isTeacher;
+        private int borrowerId = -1;
+
         public FORM_RETURN()
         {
             InitializeComponent();
+        }
+
+        private void FORM_RETURN_Load(object sender, EventArgs e)
+        {
+            BooksDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            InitializeSearchUser();
+        }
+
+        private void InitializeSearchUser()
+        {
+            searchUser = new Timer();
+            searchUser.Interval = 500;
+            searchUser.Tick += searchUser_Tick;
+        }
+
+        private void searchUser_Tick(object sender, EventArgs e)
+        {
+            searchUser.Stop();
+            if(borrowedReservedBooks != null) borrowedReservedBooks.Clear();
+            SearchUser(searchID.Text);
+        }
+
+        private void SearchUser(string query)
+        {
+            if (query.Contains("S") && query.Length == 10)
+            {
+                Student user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetStudentById(query);
+                if (user != null)
+                {
+                    SetTexts(user);
+                    borrowerId = user.StudentUserId;
+                    isStudent = true;
+                    isTeacher = false;
+                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedReservedBooks(borrowerId);
+                }
+            }
+            else if (query.Contains("T") && query.Length == 10)
+            {
+                Teacher user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetTeacherById(query);
+                if (user != null)
+                {
+                    SetTexts(user);
+                    borrowerId = user.TeacherUserId;
+                    isStudent = false;
+                    isTeacher = true;
+                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedReservedBooks(borrowerId);
+                }
+            }
+            else
+            {
+                IDInputLabel.Text = "";
+                collegeInputLabel.Text = "";
+                nameInputLabel.Text = "User not found.";
+                borrowerId = -1;
+                isStudent = false;
+                isTeacher = false;
+            }
+            if (borrowedReservedBooks != null && borrowedReservedBooks.Count > 0) LoadBorrowedReservedBooks();
+        }
+
+        private void SetTexts(Student user)
+        {
+            IDInputLabel.Text = user.StudentId;
+            collegeInputLabel.Text = user.StudentDepartment;
+            nameInputLabel.Text = $"{user.StudentFirstName} {user.StudentMiddleName}. {user.StudentLastName}";
+        }
+        private void SetTexts(Teacher user)
+        {
+            IDInputLabel.Text = user.TeacherId;
+            collegeInputLabel.Text = user.TeacherDepartment;
+            nameInputLabel.Text = $"{user.TeacherFirstName} {user.TeacherMiddleName}. {user.TeacherLastName}";
+        }
+
+        private Image ResizeImage(Image image, int width, int height)
+        {
+            Bitmap result = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(result))
+            {
+                g.DrawImage(image, 0, 0, width, height);
+            }
+            return result;
+        }
+
+        private void AddBookToBooksDataGridView(Book book)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+
+            if (!book.BookImage.Equals("NO_IMAGE"))
+            {
+                PictureBox pictureBox = new PictureBox
+                {
+                    Image = ResizeImage(Image.FromFile(book.BookImage), 100, 100),
+                    SizeMode = PictureBoxSizeMode.AutoSize,
+                    Size = new Size(100, 100),
+                };
+                DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                imageCell.Value = pictureBox.Image;
+                row.Height = pictureBox.Height;
+                row.Cells.Add(imageCell);
+                row.Cells[0].Style.Padding = new Padding(10);
+            }
+            else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookTitle });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookISBN });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookStatus });
+            BooksDataGridView.Rows.Add(row);
+        }
+
+        private void LoadBorrowedReservedBooks()
+        {
+            foreach(Book book in borrowedReservedBooks)
+            {
+                AddBookToBooksDataGridView(book);
+            }
         }
 
         //
@@ -47,6 +170,7 @@ namespace Archivary.SUB_FORMS
                 searchID.Text = "";
                 searchID.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
                 searchID.ForeColor = archivaryWhite();
+                startSearch = true;
             }
         }
 
@@ -57,12 +181,77 @@ namespace Archivary.SUB_FORMS
                 searchID.Text = "Search by User ID";
                 searchID.ForeColor = archivaryHoverGray();
                 searchID.Font = new Font("Montserrat", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+                startSearch = false;
             }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            selectedISBNs.Clear();
+        }
 
+        private void BooksDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = BooksDataGridView.Rows[e.RowIndex];
+                DataGridViewRow row = new DataGridViewRow();
+
+                if (selectedRow.Cells[0].Value != null && selectedRow.Cells[0].Value is Image)
+                {
+                    PictureBox pictureBox = new PictureBox
+                    {
+                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 100, 100),
+                        SizeMode = PictureBoxSizeMode.AutoSize,
+                        Size = new Size(100, 100),
+                    };
+                    DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                    imageCell.Value = pictureBox.Image;
+                    row.Height = pictureBox.Height;
+                    row.Cells.Add(imageCell);
+                    row.Cells[0].Style.Padding = new Padding(10);
+                }
+                else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[1].Value });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[2].Value });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[3].Value });
+                dataGridView1.Rows.Add(row);
+                selectedISBNs.Add(selectedRow.Cells[2].Value.ToString());
+                BooksDataGridView.Rows.Remove(selectedRow);
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow row = new DataGridViewRow();
+
+                if (selectedRow.Cells[0].Value != null && selectedRow.Cells[0].Value is Image)
+                {
+                    PictureBox pictureBox = new PictureBox
+                    {
+                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 100, 100),
+                        SizeMode = PictureBoxSizeMode.AutoSize,
+                        Size = new Size(100, 100),
+                    };
+                    DataGridViewImageCell imageCell = new DataGridViewImageCell();
+                    imageCell.Value = pictureBox.Image;
+                    row.Height = pictureBox.Height;
+                    row.Cells.Add(imageCell);
+                    row.Cells[0].Style.Padding = new Padding(10);
+                }
+                else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[1].Value });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[2].Value });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[3].Value });
+                BooksDataGridView.Rows.Add(row);
+                BooksDataGridView.Sort(BooksDataGridView.Columns[1], ListSortDirection.Ascending);
+                dataGridView1.Rows.Remove(selectedRow);
+                selectedISBNs.Remove(selectedRow.Cells[2].Value.ToString());
+            }
         }
 
         private void returnButton_Click(object sender, EventArgs e)
@@ -72,6 +261,15 @@ namespace Archivary.SUB_FORMS
                 FormsPos.ShowInTaskbar = false;
                 FormsPos.BringToFront();
                 DialogResult result = FormsPos.ShowDialog();
+            }
+        }
+
+        private void searchID_TextChanged(object sender, EventArgs e)
+        {
+            if (searchID != null && searchUser != null && startSearch)
+            {
+                searchUser.Stop();
+                searchUser.Start();
             }
         }
     }
