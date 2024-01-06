@@ -18,9 +18,10 @@ namespace Archivary.SUB_FORMS
     public partial class FORM_BORROW : Form
     {
         private List<Book> availableBookList;
-        private HashSet<string> selectedISBNs = new HashSet<string>();
+        private List<Book> reversedBookList = new List<Book>();
+        private HashSet<string> selectedISBNs = new HashSet<string>(), reservedBooksISBN = new HashSet<string>();
         private Timer searchTimer, searchUserTimer;
-        private bool startSearch = false;
+        private bool startSearch = false, startUserSearch = false;
         private int borrowerId = -1;
         private int studentBorrowLimit, teacherBorrowLimit, reserveLimit;
         private bool isStudent, isTeacher;
@@ -142,16 +143,26 @@ namespace Archivary.SUB_FORMS
             BooksDataGridView.Rows.Add(row);
         }
 
-        public void LoadAvailableBooks()
+        private void LoadAvailableBooks()
         {
+            BooksDataGridView.Rows.Clear();
+            reservedBooksISBN.Clear();
+            if(availableBookList != null) availableBookList.Clear();
+            if (reversedBookList != null) reversedBookList.Clear();
             Setting setting = CommonOperation.GetSettingsFromDatabase();
             studentBorrowLimit = setting.borrowingCapacityStudent;
             teacherBorrowLimit = setting.borrowingCapacityTeacher;
             reserveLimit = setting.reserveLimit;
-
+             
             availableBookList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.LoadAvailableBooksFromDatabase("AVAILABLE");
+            if(borrowerId != - 1) reversedBookList.AddRange(Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.LoadReservedBooksOfUserFromDatabase(borrowerId));
+            foreach(Book book in reversedBookList)
+            {
+                reservedBooksISBN.Add(book.BookISBN);
+            }
+            reversedBookList.AddRange(availableBookList);
             BooksDataGridView.Rows.Clear();
-            foreach (Book book in availableBookList)
+            foreach (Book book in reversedBookList)
             {
                 AddBookToBooksDataGridView(book);
             }
@@ -203,7 +214,7 @@ namespace Archivary.SUB_FORMS
                 searchID.Text = "";
                 searchID.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
                 searchID.ForeColor = archivaryWhite();
-                startSearch = true;
+                startUserSearch = true;
             }
         }
 
@@ -214,7 +225,7 @@ namespace Archivary.SUB_FORMS
                 searchID.Text = "Search by User ID";
                 searchID.ForeColor = archivaryHoverGray();
                 searchID.Font = new Font("Montserrat", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-                startSearch = false;
+                startUserSearch = false;
             }
         }
 
@@ -249,13 +260,13 @@ namespace Archivary.SUB_FORMS
 
         private void SearchUserTimer_Tick(object sender, EventArgs e)
         {
-            searchTimer.Stop();
+            searchUserTimer.Stop();
             SearchUser(searchID.Text);
         }
 
         private void SearchTimer_Tick(object sender, EventArgs e)
         {
-            searchUserTimer.Stop();
+            searchTimer.Stop();
             SearchBooks(searchBook.Text);
         }
 
@@ -268,7 +279,7 @@ namespace Archivary.SUB_FORMS
         private void SearchBooks(string query)
         {
             BooksDataGridView.Rows.Clear();
-            List<Book> bookList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SearchBooks(availableBookList,query);
+            List<Book> bookList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SearchBooks(reversedBookList,query);
             foreach(Book book in bookList)
             {
                 if (CheckIfBookAlreadySelected(book)) continue;
@@ -282,18 +293,26 @@ namespace Archivary.SUB_FORMS
             if (query.Contains("S") && query.Length == 10)
             {
                 Student user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetStudentById(query);
-                if (user != null) SetTexts(user);
-                borrowerId = user.StudentUserId;
+                if (user != null)
+                {
+                    SetTexts(user);
+                    borrowerId = user.StudentUserId;
+                }
                 isStudent = true;
                 isTeacher = false;
+                LoadAvailableBooks();
             }
             else if (query.Contains("T") && query.Length == 10)
             {
                 Teacher user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetTeacherById(query);
-                if (user != null) SetTexts(user);
-                borrowerId = user.TeacherUserId;
+                if (user != null)
+                {
+                    SetTexts(user);
+                    borrowerId = user.TeacherUserId;
+                }
                 isStudent = false;
                 isTeacher = true;
+                LoadAvailableBooks();
             }
             else
             {
@@ -303,6 +322,7 @@ namespace Archivary.SUB_FORMS
                 borrowerId = -1;
                 isStudent = false;
                 isTeacher = false;
+                BooksDataGridView.Rows.Clear();
             }
         }
 
@@ -345,13 +365,40 @@ namespace Archivary.SUB_FORMS
             bool isBelowTeacherLimit = !isStudent && isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= teacherBorrowLimit;
             if (isBelowStudentLimit || isBelowTeacherLimit)
             {
-                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, availableBookList, selectedISBNs, borrowerId);
+                if (message.Equals("reserv"))
+                {
+                    bool hasReservedBookSelected = false;
+                    foreach (Book book in reversedBookList)
+                    {
+                        if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN)) hasReservedBookSelected = true;
+                        if (hasReservedBookSelected) break;
+                    }
+                    if (hasReservedBookSelected)
+                    {
+                        FORM_ALERT alert = new FORM_ALERT(1, "BOOK RESERVED", "You can't reserve the reserved book again! Please remove the reserved book to reserve.");
+                        alert.TopMost = true;
+                        alert.Show();
+                        return;
+                    }
+                } 
+                else
+                {
+                    foreach(Book book in reversedBookList)
+                    {
+                        if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
+                        {
+                            reservedBooksISBN.Remove(book.BookISBN);
+                            Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetReservedBookToBorrowed(book, borrowerId);
+                        }
+                    }
+                }
+                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId);
                 SuccessBorrowReserve(message);
             }
             else
             {
                 int borrow = isStudent ? studentBorrowLimit : teacherBorrowLimit;
-                string circulation = type.Equals("borrow") ? $"You may only borrow {borrow} books." : $"You many only reserve {reserveLimit} books.";
+                string circulation = message.Equals("borrow") ? $"You may only borrow {borrow} books." : $"You many only reserve {reserveLimit} books.";
                 FORM_ALERT alert = new FORM_ALERT(1, "LIMIT EXCEEDED", circulation);
                 alert.TopMost = true;
                 alert.Show();
@@ -360,7 +407,7 @@ namespace Archivary.SUB_FORMS
 
         private void searchID_TextChanged(object sender, EventArgs e)
         {
-            if (searchID != null && searchUserTimer != null && startSearch)
+            if (searchID != null && searchUserTimer != null && startUserSearch)
             {
                 searchUserTimer.Stop();
                 searchUserTimer.Start();

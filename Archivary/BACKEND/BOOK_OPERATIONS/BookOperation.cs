@@ -106,6 +106,45 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             return booksList;
         }
 
+        public static List<Book> LoadReservedBooksOfUserFromDatabase(int borrowerId)
+        {
+            List<Book> bookList = new List<Book>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT books.* FROM reserved_books JOIN books ON reserved_books.book_id = books.id WHERE reserved_books.borrower_id = @Id and reserved_books.is_borrowed = false";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", borrowerId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("id");
+                            string title = reader.GetString("title");
+                            string genre = reader.GetString("genre");
+                            string author = reader.GetString("author");
+                            string isbn = reader.GetString("isbn");
+                            string category = reader.GetString("category");
+                            string copyright = reader.GetString("copyright");
+                            string publisher = reader.GetString("publisher");
+                            string status = reader.GetString("status");
+                            int aisle = reader.GetInt32("aisle");
+                            int shelf = reader.GetInt32("shelf");
+                            string imagePath = reader.GetString("book_img_path");
+
+                            Book book = new Book(id, title, genre, author, isbn, category, copyright,
+                                publisher, status, aisle, shelf, imagePath);
+
+                            bookList.Add(book);
+                        }
+                    }
+                }
+            }
+            return bookList;
+        }
+
         public static List<Book> SearchBooks(List<Book> books, string searchTerm)
         {
             // If the search term is empty, return all books
@@ -192,7 +231,8 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = $"SELECT COUNT(*) FROM {type} WHERE borrower_id = @Id";
+                string reserved = type.Equals("borrowed_books") ? "" : "AND is_borrowed = false";
+                string query = $"SELECT COUNT(*) FROM {type} WHERE borrower_id = @Id {reserved}";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -204,13 +244,28 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
-        public static List<Book> ShowBorrowedReservedBooks(int borrowerId)
+        public static void SetReservedBookToBorrowed(Book book, int borrowerId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "UPDATE reserved_books SET is_borrowed = true WHERE book_id = @id and borrower_id = @borrower_id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", book.BookId);
+                    command.Parameters.AddWithValue("@borrower_id", borrowerId);
+                    command.ExecuteScalar();
+                }
+            }
+        }
+
+        public static List<Book> ShowBorrowedBooks(int borrowerId)
         {
             List<Book> bookList = new List<Book>();
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "SELECT books.* FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @Id UNION SELECT books.* FROM reserved_books JOIN books ON reserved_books.book_id = books.id WHERE reserved_books.borrower_id = @Id;";
+                string query = "SELECT books.* FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @Id;";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {

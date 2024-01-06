@@ -59,7 +59,7 @@ namespace Archivary.SUB_FORMS
                     borrowerId = user.StudentUserId;
                     isStudent = true;
                     isTeacher = false;
-                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedReservedBooks(borrowerId);
+                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
                 }
             }
             else if (query.Contains("T") && query.Length == 10)
@@ -71,7 +71,7 @@ namespace Archivary.SUB_FORMS
                     borrowerId = user.TeacherUserId;
                     isStudent = false;
                     isTeacher = true;
-                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedReservedBooks(borrowerId);
+                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
                 }
             }
             else
