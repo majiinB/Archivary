@@ -66,6 +66,18 @@
             this.systemSettings_Container = new RoundedCorners.RoundedPanel();
             this.system_Container = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.categAndGenreContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.acadButton = new roundedCorners.roundedButton();
+            this.nonFicButton = new roundedCorners.roundedButton();
+            this.categLabel = new System.Windows.Forms.Label();
+            this.fictionButton = new roundedCorners.roundedButton();
+            this.listViewContainer = new System.Windows.Forms.Panel();
+            this.genreListView = new System.Windows.Forms.ListView();
+            this.genreHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.additionalFeeTextBox = new RoundedCorners.RoundedTextBox();
+            this.teacher_borrowingCapacityLabel = new System.Windows.Forms.Label();
+            this.reservationDurationLabel = new System.Windows.Forms.Label();
+            this.reservationDurationTextBox = new RoundedCorners.RoundedTextBox();
             this.teacher_borrowingCapacityTextBox = new RoundedCorners.RoundedTextBox();
             this.borrowingCapacityLabel = new RoundedCorners.RoundedTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,14 +85,9 @@
             this.reserveLimitTextBox = new RoundedCorners.RoundedTextBox();
             this.borrowingDurationLabel = new System.Windows.Forms.Label();
             this.borrowingDurationTextBox = new RoundedCorners.RoundedTextBox();
-            this.categAndGenreContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.acadButton = new roundedCorners.roundedButton();
-            this.nonFicButton = new roundedCorners.roundedButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.fictionButton = new roundedCorners.roundedButton();
-            this.listViewContainer = new System.Windows.Forms.Panel();
-            this.genreListView = new System.Windows.Forms.ListView();
-            this.genreHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.penaltyFeeLabel = new System.Windows.Forms.Label();
+            this.additionalFeeLabel = new System.Windows.Forms.Label();
+            this.penaltFeeTextBox = new RoundedCorners.RoundedTextBox();
             this.systemSettingsLabel = new System.Windows.Forms.Label();
             this.userSettings_Container = new RoundedCorners.RoundedPanel();
             this.user_Container = new System.Windows.Forms.Panel();
@@ -110,9 +117,6 @@
             this.userIDLabel = new System.Windows.Forms.Label();
             this.userId = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.reservationDurationTextBox = new RoundedCorners.RoundedTextBox();
-            this.reservationDurationLabel = new System.Windows.Forms.Label();
-            this.teacher_borrowingCapacityLabel = new System.Windows.Forms.Label();
             this.LAYOUT_buttons.SuspendLayout();
             this.PANEL_CONTAINER.SuspendLayout();
             this.settings_Container.SuspendLayout();
@@ -243,6 +247,8 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.categAndGenreContainer, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.additionalFeeTextBox, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.teacher_borrowingCapacityLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.reservationDurationLabel, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.reservationDurationTextBox, 1, 5);
@@ -253,139 +259,26 @@
             this.tableLayoutPanel1.Controls.Add(this.reserveLimitTextBox, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.borrowingDurationLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.borrowingDurationTextBox, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.categAndGenreContainer, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.penaltyFeeLabel, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.additionalFeeLabel, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.penaltFeeTextBox, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 129);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.036746F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.136483F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.299212F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.136483F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.56168F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.136483F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.69291F));
+            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.589213F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.533286F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.832221F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.533286F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.07523F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.533286F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.073676F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.536543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.29326F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(326, 405);
             this.tableLayoutPanel1.TabIndex = 6;
-            // 
-            // teacher_borrowingCapacityTextBox
-            // 
-            this.teacher_borrowingCapacityTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.teacher_borrowingCapacityTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.teacher_borrowingCapacityTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.teacher_borrowingCapacityTextBox.BorderThickness = 0;
-            this.teacher_borrowingCapacityTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.teacher_borrowingCapacityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacher_borrowingCapacityTextBox.Enabled = false;
-            this.teacher_borrowingCapacityTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacher_borrowingCapacityTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.teacher_borrowingCapacityTextBox.Location = new System.Drawing.Point(166, 36);
-            this.teacher_borrowingCapacityTextBox.Name = "teacher_borrowingCapacityTextBox";
-            this.teacher_borrowingCapacityTextBox.Radius = 10;
-            this.teacher_borrowingCapacityTextBox.Size = new System.Drawing.Size(147, 25);
-            this.teacher_borrowingCapacityTextBox.TabIndex = 10;
-            this.teacher_borrowingCapacityTextBox.Text = "002";
-            this.teacher_borrowingCapacityTextBox.UseSystemPasswordChar = false;
-            // 
-            // borrowingCapacityLabel
-            // 
-            this.borrowingCapacityLabel.BackColor = System.Drawing.Color.Transparent;
-            this.borrowingCapacityLabel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.borrowingCapacityLabel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.borrowingCapacityLabel.BorderThickness = 0;
-            this.borrowingCapacityLabel.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.borrowingCapacityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borrowingCapacityLabel.Enabled = false;
-            this.borrowingCapacityLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.borrowingCapacityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.borrowingCapacityLabel.Location = new System.Drawing.Point(13, 36);
-            this.borrowingCapacityLabel.Name = "borrowingCapacityLabel";
-            this.borrowingCapacityLabel.Radius = 10;
-            this.borrowingCapacityLabel.Size = new System.Drawing.Size(147, 25);
-            this.borrowingCapacityLabel.TabIndex = 1;
-            this.borrowingCapacityLabel.Text = "002";
-            this.borrowingCapacityLabel.UseSystemPasswordChar = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.label1.Location = new System.Drawing.Point(13, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 23);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Students\' Borrowing Capacity";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // reserveLimitLabel
-            // 
-            this.reserveLimitLabel.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.reserveLimitLabel, 3);
-            this.reserveLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reserveLimitLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reserveLimitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.reserveLimitLabel.Location = new System.Drawing.Point(13, 64);
-            this.reserveLimitLabel.Name = "reserveLimitLabel";
-            this.reserveLimitLabel.Size = new System.Drawing.Size(300, 24);
-            this.reserveLimitLabel.TabIndex = 4;
-            this.reserveLimitLabel.Text = "Reserve Limit";
-            this.reserveLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // reserveLimitTextBox
-            // 
-            this.reserveLimitTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.reserveLimitTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.reserveLimitTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.reserveLimitTextBox.BorderThickness = 0;
-            this.reserveLimitTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.reserveLimitTextBox, 3);
-            this.reserveLimitTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reserveLimitTextBox.Enabled = false;
-            this.reserveLimitTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reserveLimitTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.reserveLimitTextBox.Location = new System.Drawing.Point(13, 91);
-            this.reserveLimitTextBox.Name = "reserveLimitTextBox";
-            this.reserveLimitTextBox.Radius = 10;
-            this.reserveLimitTextBox.Size = new System.Drawing.Size(300, 25);
-            this.reserveLimitTextBox.TabIndex = 5;
-            this.reserveLimitTextBox.Text = "002";
-            this.reserveLimitTextBox.UseSystemPasswordChar = false;
-            // 
-            // borrowingDurationLabel
-            // 
-            this.borrowingDurationLabel.AutoSize = true;
-            this.borrowingDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borrowingDurationLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.borrowingDurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.borrowingDurationLabel.Location = new System.Drawing.Point(13, 119);
-            this.borrowingDurationLabel.Name = "borrowingDurationLabel";
-            this.borrowingDurationLabel.Size = new System.Drawing.Size(147, 25);
-            this.borrowingDurationLabel.TabIndex = 6;
-            this.borrowingDurationLabel.Text = "Borrowing Duration";
-            this.borrowingDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // borrowingDurationTextBox
-            // 
-            this.borrowingDurationTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.borrowingDurationTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.borrowingDurationTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.borrowingDurationTextBox.BorderThickness = 0;
-            this.borrowingDurationTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.borrowingDurationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.borrowingDurationTextBox.Enabled = false;
-            this.borrowingDurationTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.borrowingDurationTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.borrowingDurationTextBox.Location = new System.Drawing.Point(13, 147);
-            this.borrowingDurationTextBox.Name = "borrowingDurationTextBox";
-            this.borrowingDurationTextBox.Radius = 10;
-            this.borrowingDurationTextBox.Size = new System.Drawing.Size(147, 25);
-            this.borrowingDurationTextBox.TabIndex = 7;
-            this.borrowingDurationTextBox.Text = "002";
-            this.borrowingDurationTextBox.UseSystemPasswordChar = false;
             // 
             // categAndGenreContainer
             // 
@@ -396,19 +289,21 @@
             this.categAndGenreContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.444F));
             this.categAndGenreContainer.Controls.Add(this.acadButton, 2, 1);
             this.categAndGenreContainer.Controls.Add(this.nonFicButton, 1, 1);
-            this.categAndGenreContainer.Controls.Add(this.label2, 0, 0);
+            this.categAndGenreContainer.Controls.Add(this.categLabel, 0, 0);
             this.categAndGenreContainer.Controls.Add(this.fictionButton, 0, 1);
             this.categAndGenreContainer.Controls.Add(this.listViewContainer, 0, 3);
             this.categAndGenreContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categAndGenreContainer.Location = new System.Drawing.Point(13, 178);
+            this.categAndGenreContainer.Location = new System.Drawing.Point(13, 218);
             this.categAndGenreContainer.Name = "categAndGenreContainer";
             this.categAndGenreContainer.RowCount = 4;
-            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.64425F));
-            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.95327F));
-            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.201345F));
-            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.02804F));
-            this.categAndGenreContainer.Size = new System.Drawing.Size(300, 214);
-            this.categAndGenreContainer.TabIndex = 8;
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.47241F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.3908F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.72701F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.7931F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.categAndGenreContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.categAndGenreContainer.Size = new System.Drawing.Size(300, 174);
+            this.categAndGenreContainer.TabIndex = 20;
             // 
             // acadButton
             // 
@@ -422,14 +317,14 @@
             this.acadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.acadButton.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.acadButton.Location = new System.Drawing.Point(202, 27);
+            this.acadButton.Location = new System.Drawing.Point(202, 28);
             this.acadButton.Name = "acadButton";
             this.acadButton.Size = new System.Drawing.Size(95, 25);
             this.acadButton.TabIndex = 3;
             this.acadButton.Text = "Academic";
             this.acadButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.acadButton.UseVisualStyleBackColor = false;
-            this.acadButton.Click += new System.EventHandler(this.acadButton_Click);
+            this.acadButton.Click += new System.EventHandler(this.acadButton_Click_1);
             // 
             // nonFicButton
             // 
@@ -443,28 +338,28 @@
             this.nonFicButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nonFicButton.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nonFicButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.nonFicButton.Location = new System.Drawing.Point(97, 27);
+            this.nonFicButton.Location = new System.Drawing.Point(97, 28);
             this.nonFicButton.Name = "nonFicButton";
             this.nonFicButton.Size = new System.Drawing.Size(99, 25);
             this.nonFicButton.TabIndex = 2;
             this.nonFicButton.Text = "Nonfiction";
             this.nonFicButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.nonFicButton.UseVisualStyleBackColor = false;
-            this.nonFicButton.Click += new System.EventHandler(this.nonFicButton_Click);
+            this.nonFicButton.Click += new System.EventHandler(this.nonFicButton_Click_1);
             // 
-            // label2
+            // categLabel
             // 
-            this.label2.AutoSize = true;
-            this.categAndGenreContainer.SetColumnSpan(this.label2, 3);
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(294, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "CATEGORY";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.categLabel.AutoSize = true;
+            this.categAndGenreContainer.SetColumnSpan(this.categLabel, 3);
+            this.categLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.categLabel.Location = new System.Drawing.Point(3, 0);
+            this.categLabel.Name = "categLabel";
+            this.categLabel.Size = new System.Drawing.Size(294, 25);
+            this.categLabel.TabIndex = 0;
+            this.categLabel.Text = "CATEGORY";
+            this.categLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // fictionButton
             // 
@@ -478,14 +373,14 @@
             this.fictionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fictionButton.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fictionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.fictionButton.Location = new System.Drawing.Point(3, 27);
+            this.fictionButton.Location = new System.Drawing.Point(3, 28);
             this.fictionButton.Name = "fictionButton";
             this.fictionButton.Size = new System.Drawing.Size(88, 25);
             this.fictionButton.TabIndex = 1;
             this.fictionButton.Text = "Fiction";
             this.fictionButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.fictionButton.UseVisualStyleBackColor = false;
-            this.fictionButton.Click += new System.EventHandler(this.fictionButton_Click);
+            this.fictionButton.Click += new System.EventHandler(this.fictionButton_Click_1);
             // 
             // listViewContainer
             // 
@@ -493,10 +388,10 @@
             this.categAndGenreContainer.SetColumnSpan(this.listViewContainer, 3);
             this.listViewContainer.Controls.Add(this.genreListView);
             this.listViewContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listViewContainer.Location = new System.Drawing.Point(3, 64);
+            this.listViewContainer.Location = new System.Drawing.Point(3, 65);
             this.listViewContainer.Name = "listViewContainer";
             this.listViewContainer.Padding = new System.Windows.Forms.Padding(1);
-            this.listViewContainer.Size = new System.Drawing.Size(294, 147);
+            this.listViewContainer.Size = new System.Drawing.Size(294, 106);
             this.listViewContainer.TabIndex = 4;
             // 
             // genreListView
@@ -528,17 +423,242 @@
             listViewItem15});
             this.genreListView.Location = new System.Drawing.Point(1, 1);
             this.genreListView.Name = "genreListView";
-            this.genreListView.Size = new System.Drawing.Size(292, 145);
+            this.genreListView.Size = new System.Drawing.Size(292, 104);
             this.genreListView.TabIndex = 0;
             this.genreListView.UseCompatibleStateImageBehavior = false;
             this.genreListView.View = System.Windows.Forms.View.Details;
-            this.genreListView.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.genreListView_DrawColumnHeader);
             this.genreListView.SizeChanged += new System.EventHandler(this.genreListView_SizeChanged);
             // 
             // genreHeader
             // 
             this.genreHeader.Text = "GENRE";
-            this.genreHeader.Width = 100;
+            this.genreHeader.Width = 201;
+            // 
+            // additionalFeeTextBox
+            // 
+            this.additionalFeeTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.additionalFeeTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.additionalFeeTextBox.BorderColor = System.Drawing.Color.Black;
+            this.additionalFeeTextBox.BorderThickness = 0;
+            this.additionalFeeTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.additionalFeeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.additionalFeeTextBox.Enabled = false;
+            this.additionalFeeTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.additionalFeeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.additionalFeeTextBox.Location = new System.Drawing.Point(166, 189);
+            this.additionalFeeTextBox.Name = "additionalFeeTextBox";
+            this.additionalFeeTextBox.Radius = 10;
+            this.additionalFeeTextBox.Size = new System.Drawing.Size(147, 23);
+            this.additionalFeeTextBox.TabIndex = 19;
+            this.additionalFeeTextBox.Text = "0";
+            this.additionalFeeTextBox.UseSystemPasswordChar = false;
+            // 
+            // teacher_borrowingCapacityLabel
+            // 
+            this.teacher_borrowingCapacityLabel.AutoSize = true;
+            this.teacher_borrowingCapacityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacher_borrowingCapacityLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacher_borrowingCapacityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.teacher_borrowingCapacityLabel.Location = new System.Drawing.Point(166, 10);
+            this.teacher_borrowingCapacityLabel.Name = "teacher_borrowingCapacityLabel";
+            this.teacher_borrowingCapacityLabel.Size = new System.Drawing.Size(147, 21);
+            this.teacher_borrowingCapacityLabel.TabIndex = 14;
+            this.teacher_borrowingCapacityLabel.Text = "Teachers\' Borrowing Capacity";
+            this.teacher_borrowingCapacityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // reservationDurationLabel
+            // 
+            this.reservationDurationLabel.AutoSize = true;
+            this.reservationDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reservationDurationLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservationDurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.reservationDurationLabel.Location = new System.Drawing.Point(166, 111);
+            this.reservationDurationLabel.Name = "reservationDurationLabel";
+            this.reservationDurationLabel.Size = new System.Drawing.Size(147, 23);
+            this.reservationDurationLabel.TabIndex = 13;
+            this.reservationDurationLabel.Text = "Reservation Duration";
+            this.reservationDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // reservationDurationTextBox
+            // 
+            this.reservationDurationTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.reservationDurationTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.reservationDurationTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.reservationDurationTextBox.BorderThickness = 0;
+            this.reservationDurationTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.reservationDurationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reservationDurationTextBox.Enabled = false;
+            this.reservationDurationTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reservationDurationTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.reservationDurationTextBox.Location = new System.Drawing.Point(166, 137);
+            this.reservationDurationTextBox.Name = "reservationDurationTextBox";
+            this.reservationDurationTextBox.Radius = 10;
+            this.reservationDurationTextBox.Size = new System.Drawing.Size(147, 23);
+            this.reservationDurationTextBox.TabIndex = 12;
+            this.reservationDurationTextBox.Text = "002";
+            this.reservationDurationTextBox.UseSystemPasswordChar = false;
+            // 
+            // teacher_borrowingCapacityTextBox
+            // 
+            this.teacher_borrowingCapacityTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.teacher_borrowingCapacityTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.teacher_borrowingCapacityTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.teacher_borrowingCapacityTextBox.BorderThickness = 0;
+            this.teacher_borrowingCapacityTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.teacher_borrowingCapacityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacher_borrowingCapacityTextBox.Enabled = false;
+            this.teacher_borrowingCapacityTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacher_borrowingCapacityTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.teacher_borrowingCapacityTextBox.Location = new System.Drawing.Point(166, 34);
+            this.teacher_borrowingCapacityTextBox.Name = "teacher_borrowingCapacityTextBox";
+            this.teacher_borrowingCapacityTextBox.Radius = 10;
+            this.teacher_borrowingCapacityTextBox.Size = new System.Drawing.Size(147, 23);
+            this.teacher_borrowingCapacityTextBox.TabIndex = 10;
+            this.teacher_borrowingCapacityTextBox.Text = "002";
+            this.teacher_borrowingCapacityTextBox.UseSystemPasswordChar = false;
+            // 
+            // borrowingCapacityLabel
+            // 
+            this.borrowingCapacityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.borrowingCapacityLabel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.borrowingCapacityLabel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.borrowingCapacityLabel.BorderThickness = 0;
+            this.borrowingCapacityLabel.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.borrowingCapacityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.borrowingCapacityLabel.Enabled = false;
+            this.borrowingCapacityLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowingCapacityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.borrowingCapacityLabel.Location = new System.Drawing.Point(13, 34);
+            this.borrowingCapacityLabel.Name = "borrowingCapacityLabel";
+            this.borrowingCapacityLabel.Radius = 10;
+            this.borrowingCapacityLabel.Size = new System.Drawing.Size(147, 23);
+            this.borrowingCapacityLabel.TabIndex = 1;
+            this.borrowingCapacityLabel.Text = "002";
+            this.borrowingCapacityLabel.UseSystemPasswordChar = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.label1.Location = new System.Drawing.Point(13, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 21);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Students\' Borrowing Capacity";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // reserveLimitLabel
+            // 
+            this.reserveLimitLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.reserveLimitLabel, 2);
+            this.reserveLimitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reserveLimitLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reserveLimitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.reserveLimitLabel.Location = new System.Drawing.Point(13, 60);
+            this.reserveLimitLabel.Name = "reserveLimitLabel";
+            this.reserveLimitLabel.Size = new System.Drawing.Size(300, 22);
+            this.reserveLimitLabel.TabIndex = 4;
+            this.reserveLimitLabel.Text = "Reserve Limit";
+            this.reserveLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // reserveLimitTextBox
+            // 
+            this.reserveLimitTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.reserveLimitTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.reserveLimitTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.reserveLimitTextBox.BorderThickness = 0;
+            this.reserveLimitTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.reserveLimitTextBox, 2);
+            this.reserveLimitTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reserveLimitTextBox.Enabled = false;
+            this.reserveLimitTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reserveLimitTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.reserveLimitTextBox.Location = new System.Drawing.Point(13, 85);
+            this.reserveLimitTextBox.Name = "reserveLimitTextBox";
+            this.reserveLimitTextBox.Radius = 10;
+            this.reserveLimitTextBox.Size = new System.Drawing.Size(300, 23);
+            this.reserveLimitTextBox.TabIndex = 5;
+            this.reserveLimitTextBox.Text = "002";
+            this.reserveLimitTextBox.UseSystemPasswordChar = false;
+            // 
+            // borrowingDurationLabel
+            // 
+            this.borrowingDurationLabel.AutoSize = true;
+            this.borrowingDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.borrowingDurationLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowingDurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.borrowingDurationLabel.Location = new System.Drawing.Point(13, 111);
+            this.borrowingDurationLabel.Name = "borrowingDurationLabel";
+            this.borrowingDurationLabel.Size = new System.Drawing.Size(147, 23);
+            this.borrowingDurationLabel.TabIndex = 6;
+            this.borrowingDurationLabel.Text = "Borrowing Duration";
+            this.borrowingDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // borrowingDurationTextBox
+            // 
+            this.borrowingDurationTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.borrowingDurationTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.borrowingDurationTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.borrowingDurationTextBox.BorderThickness = 0;
+            this.borrowingDurationTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.borrowingDurationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.borrowingDurationTextBox.Enabled = false;
+            this.borrowingDurationTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.borrowingDurationTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.borrowingDurationTextBox.Location = new System.Drawing.Point(13, 137);
+            this.borrowingDurationTextBox.Name = "borrowingDurationTextBox";
+            this.borrowingDurationTextBox.Radius = 10;
+            this.borrowingDurationTextBox.Size = new System.Drawing.Size(147, 23);
+            this.borrowingDurationTextBox.TabIndex = 7;
+            this.borrowingDurationTextBox.Text = "002";
+            this.borrowingDurationTextBox.UseSystemPasswordChar = false;
+            // 
+            // penaltyFeeLabel
+            // 
+            this.penaltyFeeLabel.AutoSize = true;
+            this.penaltyFeeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.penaltyFeeLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.penaltyFeeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.penaltyFeeLabel.Location = new System.Drawing.Point(13, 163);
+            this.penaltyFeeLabel.Name = "penaltyFeeLabel";
+            this.penaltyFeeLabel.Size = new System.Drawing.Size(147, 23);
+            this.penaltyFeeLabel.TabIndex = 15;
+            this.penaltyFeeLabel.Text = "Penalty Fee";
+            this.penaltyFeeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // additionalFeeLabel
+            // 
+            this.additionalFeeLabel.AutoSize = true;
+            this.additionalFeeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.additionalFeeLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.additionalFeeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.additionalFeeLabel.Location = new System.Drawing.Point(166, 163);
+            this.additionalFeeLabel.Name = "additionalFeeLabel";
+            this.additionalFeeLabel.Size = new System.Drawing.Size(147, 23);
+            this.additionalFeeLabel.TabIndex = 17;
+            this.additionalFeeLabel.Text = "Additional Fee";
+            this.additionalFeeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // penaltFeeTextBox
+            // 
+            this.penaltFeeTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.penaltFeeTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.penaltFeeTextBox.BorderColor = System.Drawing.Color.Black;
+            this.penaltFeeTextBox.BorderThickness = 0;
+            this.penaltFeeTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.penaltFeeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.penaltFeeTextBox.Enabled = false;
+            this.penaltFeeTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.penaltFeeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.penaltFeeTextBox.Location = new System.Drawing.Point(13, 189);
+            this.penaltFeeTextBox.Name = "penaltFeeTextBox";
+            this.penaltFeeTextBox.Radius = 10;
+            this.penaltFeeTextBox.Size = new System.Drawing.Size(147, 23);
+            this.penaltFeeTextBox.TabIndex = 18;
+            this.penaltFeeTextBox.Text = "0";
+            this.penaltFeeTextBox.UseSystemPasswordChar = false;
             // 
             // systemSettingsLabel
             // 
@@ -927,6 +1047,7 @@
             this.profilePictureImageBox.Name = "profilePictureImageBox";
             this.profilePictureImageBox.Padding = new System.Windows.Forms.Padding(1);
             this.profilePictureImageBox.Size = new System.Drawing.Size(170, 173);
+            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePictureImageBox.TabIndex = 0;
             this.profilePictureImageBox.TabStop = false;
             // 
@@ -1013,51 +1134,6 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // reservationDurationTextBox
-            // 
-            this.reservationDurationTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.reservationDurationTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.reservationDurationTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.reservationDurationTextBox.BorderThickness = 0;
-            this.reservationDurationTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.reservationDurationTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reservationDurationTextBox.Enabled = false;
-            this.reservationDurationTextBox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reservationDurationTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.reservationDurationTextBox.Location = new System.Drawing.Point(166, 147);
-            this.reservationDurationTextBox.Name = "reservationDurationTextBox";
-            this.reservationDurationTextBox.Radius = 10;
-            this.reservationDurationTextBox.Size = new System.Drawing.Size(147, 25);
-            this.reservationDurationTextBox.TabIndex = 12;
-            this.reservationDurationTextBox.Text = "002";
-            this.reservationDurationTextBox.UseSystemPasswordChar = false;
-            // 
-            // reservationDurationLabel
-            // 
-            this.reservationDurationLabel.AutoSize = true;
-            this.reservationDurationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reservationDurationLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reservationDurationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.reservationDurationLabel.Location = new System.Drawing.Point(166, 119);
-            this.reservationDurationLabel.Name = "reservationDurationLabel";
-            this.reservationDurationLabel.Size = new System.Drawing.Size(147, 25);
-            this.reservationDurationLabel.TabIndex = 13;
-            this.reservationDurationLabel.Text = "Reservation Duration";
-            this.reservationDurationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // teacher_borrowingCapacityLabel
-            // 
-            this.teacher_borrowingCapacityLabel.AutoSize = true;
-            this.teacher_borrowingCapacityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacher_borrowingCapacityLabel.Font = new System.Drawing.Font("Montserrat SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacher_borrowingCapacityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.teacher_borrowingCapacityLabel.Location = new System.Drawing.Point(166, 10);
-            this.teacher_borrowingCapacityLabel.Name = "teacher_borrowingCapacityLabel";
-            this.teacher_borrowingCapacityLabel.Size = new System.Drawing.Size(147, 23);
-            this.teacher_borrowingCapacityLabel.TabIndex = 14;
-            this.teacher_borrowingCapacityLabel.Text = "Teachers\' Borrowing Capacity";
-            this.teacher_borrowingCapacityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // FORM_SETTINGS
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1139,17 +1215,21 @@
         private RoundedCorners.RoundedTextBox borrowingDurationTextBox;
         private System.Windows.Forms.Panel button_Container;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.TableLayoutPanel categAndGenreContainer;
-        private System.Windows.Forms.Label label2;
-        private roundedCorners.roundedButton fictionButton;
-        private roundedCorners.roundedButton acadButton;
-        private roundedCorners.roundedButton nonFicButton;
-        private System.Windows.Forms.Panel listViewContainer;
-        private System.Windows.Forms.ListView genreListView;
-        private System.Windows.Forms.ColumnHeader genreHeader;
         private RoundedCorners.RoundedTextBox teacher_borrowingCapacityTextBox;
         private System.Windows.Forms.Label reservationDurationLabel;
         private RoundedCorners.RoundedTextBox reservationDurationTextBox;
         private System.Windows.Forms.Label teacher_borrowingCapacityLabel;
+        private System.Windows.Forms.Label penaltyFeeLabel;
+        private System.Windows.Forms.Label additionalFeeLabel;
+        private RoundedCorners.RoundedTextBox penaltFeeTextBox;
+        private RoundedCorners.RoundedTextBox additionalFeeTextBox;
+        private System.Windows.Forms.TableLayoutPanel categAndGenreContainer;
+        private roundedCorners.roundedButton acadButton;
+        private roundedCorners.roundedButton nonFicButton;
+        private System.Windows.Forms.Label categLabel;
+        private roundedCorners.roundedButton fictionButton;
+        private System.Windows.Forms.Panel listViewContainer;
+        private System.Windows.Forms.ListView genreListView;
+        private System.Windows.Forms.ColumnHeader genreHeader;
     }
 }
