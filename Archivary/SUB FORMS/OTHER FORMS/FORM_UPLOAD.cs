@@ -1,4 +1,5 @@
-﻿using Archivary.BACKEND.COMMON_OPERATIONS;
+﻿using Archivary.BACKEND.BOOK_OPERATIONS;
+using Archivary.BACKEND.COMMON_OPERATIONS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using roundedCorners;
 using System;
@@ -231,6 +232,24 @@ namespace Archivary._900X500
                         isDataLoading = false;
                     });
                 }
+            }else if(condition == (int)EXCEL_FORMAT.Book)
+            {
+                isDataLoading = true;
+                await Task.Run(() =>
+                {
+                    List<string> confirmation = BookOperation.AddBookByExcel(selectedFilePath, worksheetTextbox.Text, int.Parse(startingRowTextbox.Text));
+                    if (confirmation.Count == 0)
+                    {
+                        alert = new FORM_ALERT(3, "UPLOAD SUCCESSFUL", "Upload success and did not encounter any errors");
+                        alert.ShowDialog();
+                    }
+                    else
+                    {
+                        alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Book info upload completed but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
+                        alert.ShowDialog();
+                    }
+                    isDataLoading = false;
+                });
             }
         }
     }

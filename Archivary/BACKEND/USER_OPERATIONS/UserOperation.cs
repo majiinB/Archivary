@@ -1601,7 +1601,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         for (int col = worksheet.Dimension.Start.Column; col <= worksheet.Dimension.End.Column; col++)
                         {
                             var columnHasData = worksheet.Cells
-                                .Skip(startRow)  // Skip header rows
                                 .Any(cell => cell.Start.Column == col && cell.Value != null);
 
                             if (columnHasData)
@@ -1767,7 +1766,6 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         for (int col = worksheet.Dimension.Start.Column; col <= worksheet.Dimension.End.Column; col++)
                         {
                             var columnHasData = worksheet.Cells
-                                .Skip(startRow)  // Skip header rows
                                 .Any(cell => cell.Start.Column == col && cell.Value != null);
 
                             if (columnHasData)

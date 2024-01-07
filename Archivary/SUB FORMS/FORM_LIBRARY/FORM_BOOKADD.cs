@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archivary._900X500;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,12 @@ namespace Archivary._1500X1000.FORM_LIBRARY
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void uploadExcelButton_Click(object sender, EventArgs e)
+        {
+            FORM_UPLOAD upload = new FORM_UPLOAD(1);
+            upload.ShowDialog();
         }
     }
 }
