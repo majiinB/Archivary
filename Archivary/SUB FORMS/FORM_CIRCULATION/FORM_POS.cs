@@ -21,12 +21,14 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
         private List<DateTime> borrowedDates;
         private int borrowerId;
         private decimal totalCost, payment, change;
-        public FORM_POS(List<Book> selectedBooks, List<DateTime> borrowedDates, int borrowerId)
+        private object user;
+        public FORM_POS(List<Book> selectedBooks, List<DateTime> borrowedDates, int borrowerId, object user)
         {
             InitializeComponent();
             this.selectedBooks = selectedBooks;
             this.borrowedDates = borrowedDates;
             this.borrowerId = borrowerId;
+            this.user = user;
         }
         private void FORM_POS_Load(object sender, EventArgs e)
         {
@@ -181,7 +183,7 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 
             foreach (Book book in selectedBooks)
             {
-                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId);
+                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
             }
             FORM_ALERT alert = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books!");
             alert.TopMost = true;

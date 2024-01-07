@@ -22,10 +22,12 @@ namespace Archivary.SUB_FORMS
         private Timer searchUser;
         private bool startSearch = false, isStudent, isTeacher;
         private int borrowerId = -1;
+        private object user;
 
         public FORM_RETURN(object user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void FORM_RETURN_Load(object sender, EventArgs e)
@@ -280,7 +282,7 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            using (FORM_POS FormsPos = new FORM_POS(GetSelectedBooks(),GetDates(GetSelectedBooks()), borrowerId))
+            using (FORM_POS FormsPos = new FORM_POS(GetSelectedBooks(),GetDates(GetSelectedBooks()), borrowerId, user))
             {
                 FormsPos.ShowInTaskbar = false;
                 FormsPos.BringToFront();

@@ -301,7 +301,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
-        public static void SetBorrowedBookToReturned(Book book, int borrowerId)
+        public static void SetBorrowedBookToReturned(Book book, int borrowerId, int librarianId)
         {
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
@@ -313,7 +313,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     command.Parameters.AddWithValue("@borrower", borrowerId);
                     command.ExecuteScalar();
                     SetBorrowedBookToAvailable(book);
-                    InsertReturnedBookToTable(book);
+                    InsertReturnedBookToTable(book, borrowerId, librarianId);
                 }
             }
         }
@@ -332,15 +332,19 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
-        private static void InsertReturnedBookToTable(Book book)
+        private static void InsertReturnedBookToTable(Book book, int borrowerId, int librarianId)
         {
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "INSERT INTO returned_books ()";
+                string query = "INSERT INTO returned_books (book_id, borrower_id, return_at, librarian_id) VALUES (@book, @borrower, @time, @user)";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-
+                    command.Parameters.AddWithValue("@book", book.BookId);
+                    command.Parameters.AddWithValue("@borrower", borrowerId);
+                    command.Parameters.AddWithValue("@time", DateTime.Now);
+                    command.Parameters.AddWithValue("@user", librarianId);
+                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -383,7 +387,52 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
             return bookList;
         }
-      
+
+        public static List<string> IdentifyOverdueOrNotBooks(int borrowerId)
+        {
+            List<string> status = new List<string>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT CASE WHEN TIMESTAMPDIFF(DAY, borrowed_books.borrowed_at, CURRENT_TIMESTAMP) > settings.borrowing_duration THEN 'Overdue' ELSE 'Not Overdue' END AS status FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id JOIN settings ON 1=1 WHERE borrowed_books.is_returned = false and borrowed_books.borrower_id = @id ORDER BY books.title ASC";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            status.Add(reader.GetString("status"));
+                        }
+                    }
+                }
+                return status;
+            }
+        }
+
+        public static List<DateTime> GetDateFromBorrowedBooks(int borrowerId)
+        {
+            List<DateTime> dates = new List<DateTime>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id ORDER BY books.title ASC";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            dates.Add(reader.GetDateTime("date"));
+                        }
+                    }
+                }
+            }
+            return dates;
+        }
+
         public static void AddBook(string author, string genre, string isbn, string category, string title, string copyright,
             string publisher, int aisle, int shelf, string bookImage = "NO_IMAGE", string status = "AVAILABLE")
         {
@@ -779,50 +828,6 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 return true;
             }
             return false;
-        }
-        public static List<string> IdentifyOverdueOrNotBooks(int borrowerId)
-        {
-            List<string> status = new List<string>();
-            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
-            {
-                connection.Open();
-                string query = "SELECT CASE WHEN TIMESTAMPDIFF(DAY, borrowed_books.borrowed_at, CURRENT_TIMESTAMP) > settings.borrowing_duration THEN 'Overdue' ELSE 'Not Overdue' END AS status FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id JOIN settings ON 1=1 WHERE borrowed_books.is_returned = false and borrowed_books.borrower_id = @id ORDER BY books.title ASC";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@id", borrowerId);
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            status.Add(reader.GetString("status"));
-                        }
-                    }
-                }
-                return status;
-            }
-        }
-
-        public static List<DateTime> GetDateFromBorrowedBooks(int borrowerId)
-        {
-            List<DateTime> dates = new List<DateTime>();
-            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
-            {
-                connection.Open();
-                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id ORDER BY books.title ASC";
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@id", borrowerId);
-                    using (MySqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            dates.Add(reader.GetDateTime("date"));
-                        }
-                    }
-                }
-            }
-            return dates;
         }
 
     }
