@@ -207,7 +207,7 @@
             this.LAYOUT_userinfo.Controls.Add(this.PANEL_email, 0, 2);
             this.LAYOUT_userinfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LAYOUT_userinfo.Location = new System.Drawing.Point(2, 2);
-            this.LAYOUT_userinfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LAYOUT_userinfo.Margin = new System.Windows.Forms.Padding(4);
             this.LAYOUT_userinfo.Name = "LAYOUT_userinfo";
             this.LAYOUT_userinfo.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.LAYOUT_userinfo.RowCount = 10;
@@ -295,7 +295,7 @@
             this.editInfoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editInfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.editInfoButton.Location = new System.Drawing.Point(329, 478);
-            this.editInfoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInfoButton.Margin = new System.Windows.Forms.Padding(2);
             this.editInfoButton.Name = "editInfoButton";
             this.editInfoButton.Size = new System.Drawing.Size(176, 48);
             this.editInfoButton.TabIndex = 0;
@@ -335,7 +335,7 @@
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.backButton.Location = new System.Drawing.Point(13, 478);
-            this.backButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(132, 48);
             this.backButton.TabIndex = 5;
@@ -356,7 +356,7 @@
             this.changeStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeStatusButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.changeStatusButton.Location = new System.Drawing.Point(524, 478);
-            this.changeStatusButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeStatusButton.Margin = new System.Windows.Forms.Padding(2);
             this.changeStatusButton.Name = "changeStatusButton";
             this.changeStatusButton.Size = new System.Drawing.Size(177, 44);
             this.changeStatusButton.TabIndex = 6;
@@ -473,7 +473,7 @@
             this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userPictureBox.Image = global::Archivary.Properties.Resources.PLACEHOLDER_PICTURE;
             this.userPictureBox.Location = new System.Drawing.Point(524, 14);
-            this.userPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.userPictureBox.Name = "userPictureBox";
             this.userPictureBox.Padding = new System.Windows.Forms.Padding(1);
             this.LAYOUT_userinfo.SetRowSpan(this.userPictureBox, 5);
@@ -559,9 +559,9 @@
             this.ClientSize = new System.Drawing.Size(720, 544);
             this.Controls.Add(this.LAYOUT_userinfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FORM_INFOEMPLOYEE";
-            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORM_INFOEMPLOYEE";

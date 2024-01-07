@@ -47,13 +47,14 @@
             this.titleTextbox = new RoundedCorners.RoundedTextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.LAYOUT_LeftSide = new System.Windows.Forms.TableLayoutPanel();
-            this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
+            this.uploadExcelButton = new roundedCorners.roundedButton();
             this.bookPIctureBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
+            this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.categoryDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveInfoButton = new roundedCorners.roundedButton();
-            this.uploadExcelButton = new roundedCorners.roundedButton();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             shelfLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.LAYOUT_RightSide.SuspendLayout();
@@ -413,27 +414,26 @@
             this.LAYOUT_LeftSide.Size = new System.Drawing.Size(219, 511);
             this.LAYOUT_LeftSide.TabIndex = 9;
             // 
-            // genreDropdown
+            // uploadExcelButton
             // 
-            this.genreDropdown.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.genreDropdown.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
-            this.genreDropdown.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.genreDropdown.BorderRadius = 10;
-            this.genreDropdown.BorderSize = 0;
-            this.genreDropdown.ButtonImage = global::Archivary.Properties.Resources.ICON_DROPDOWN;
-            this.genreDropdown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genreDropdown.FlatAppearance.BorderSize = 0;
-            this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreDropdown.ForeColor = System.Drawing.Color.White;
-            this.genreDropdown.Location = new System.Drawing.Point(3, 462);
-            this.genreDropdown.Name = "genreDropdown";
-            this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.genreDropdown.Size = new System.Drawing.Size(213, 46);
-            this.genreDropdown.TabIndex = 3;
-            this.genreDropdown.Text = "Genre";
-            this.genreDropdown.TextColor = System.Drawing.Color.White;
-            this.genreDropdown.UseVisualStyleBackColor = false;
+            this.uploadExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.uploadExcelButton.BorderRadius = 20;
+            this.uploadExcelButton.BorderSize = 0;
+            this.uploadExcelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadExcelButton.FlatAppearance.BorderSize = 0;
+            this.uploadExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadExcelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadExcelButton.ForeColor = System.Drawing.Color.White;
+            this.uploadExcelButton.Location = new System.Drawing.Point(3, 328);
+            this.uploadExcelButton.Name = "uploadExcelButton";
+            this.uploadExcelButton.Size = new System.Drawing.Size(213, 43);
+            this.uploadExcelButton.TabIndex = 4;
+            this.uploadExcelButton.Text = "Upload Excel File";
+            this.uploadExcelButton.TextColor = System.Drawing.Color.White;
+            this.uploadExcelButton.UseVisualStyleBackColor = false;
+            this.uploadExcelButton.Click += new System.EventHandler(this.uploadExcelButton_Click);
             // 
             // bookPIctureBox
             // 
@@ -464,6 +464,28 @@
             this.uploadImageButton.Text = "Upload Image";
             this.uploadImageButton.TextColor = System.Drawing.Color.White;
             this.uploadImageButton.UseVisualStyleBackColor = false;
+            // 
+            // genreDropdown
+            // 
+            this.genreDropdown.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.genreDropdown.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
+            this.genreDropdown.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.genreDropdown.BorderRadius = 10;
+            this.genreDropdown.BorderSize = 0;
+            this.genreDropdown.ButtonImage = global::Archivary.Properties.Resources.ICON_DROPDOWN;
+            this.genreDropdown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreDropdown.FlatAppearance.BorderSize = 0;
+            this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genreDropdown.ForeColor = System.Drawing.Color.White;
+            this.genreDropdown.Location = new System.Drawing.Point(3, 462);
+            this.genreDropdown.Name = "genreDropdown";
+            this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.genreDropdown.Size = new System.Drawing.Size(213, 46);
+            this.genreDropdown.TabIndex = 3;
+            this.genreDropdown.Text = "Genre";
+            this.genreDropdown.TextColor = System.Drawing.Color.White;
+            this.genreDropdown.UseVisualStyleBackColor = false;
             // 
             // categoryDropdown
             // 
@@ -526,25 +548,9 @@
             this.saveInfoButton.TextColor = System.Drawing.Color.White;
             this.saveInfoButton.UseVisualStyleBackColor = false;
             // 
-            // uploadExcelButton
+            // openFileDialog
             // 
-            this.uploadExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadExcelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadExcelButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.uploadExcelButton.BorderRadius = 20;
-            this.uploadExcelButton.BorderSize = 0;
-            this.uploadExcelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadExcelButton.FlatAppearance.BorderSize = 0;
-            this.uploadExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadExcelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadExcelButton.ForeColor = System.Drawing.Color.White;
-            this.uploadExcelButton.Location = new System.Drawing.Point(3, 328);
-            this.uploadExcelButton.Name = "uploadExcelButton";
-            this.uploadExcelButton.Size = new System.Drawing.Size(213, 43);
-            this.uploadExcelButton.TabIndex = 4;
-            this.uploadExcelButton.Text = "Upload Excel File";
-            this.uploadExcelButton.TextColor = System.Drawing.Color.White;
-            this.uploadExcelButton.UseVisualStyleBackColor = false;
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // FORM_BOOKADD
             // 
@@ -594,5 +600,6 @@
         private RoundedCorners.RoundedTextBox copyrightTextbox;
         private System.Windows.Forms.Label copyrightLabel;
         private roundedCorners.roundedButton uploadExcelButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
