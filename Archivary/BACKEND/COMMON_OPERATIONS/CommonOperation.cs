@@ -55,7 +55,10 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                                 Convert.ToInt32(reader["borrowing_capacity"]),
                                 Convert.ToInt32(reader["borrowing_capacity_teacher"]),
                                 Convert.ToInt32(reader["reserve_limit"]),
-                                Convert.ToInt32(reader["borrowing_duration"])
+                                Convert.ToInt32(reader["borrowing_duration"]),
+                                Convert.ToInt32(reader["reserve_duration"]),
+                                Convert.ToInt32(reader["overdue_fee"]),
+                                Convert.ToInt32(reader["additional_overdue_fee"])
                             );
                         }
                     }

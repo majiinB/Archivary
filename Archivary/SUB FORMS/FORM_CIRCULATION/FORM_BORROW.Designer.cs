@@ -43,9 +43,6 @@
             this.LAYOUT_searchBook = new RoundedCorners.RoundedPanel();
             this.searchBook = new RoundedCorners.RoundedTextBox();
             this.BooksDataGridView = new System.Windows.Forms.DataGridView();
-            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.right_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.LAYOUT_searchID = new RoundedCorners.RoundedPanel();
             this.searchID = new RoundedCorners.RoundedTextBox();
@@ -59,9 +56,14 @@
             this.nameInputLabel = new System.Windows.Forms.Label();
             this.collegeInputLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAIN_TableLayout.SuspendLayout();
             this.left_TableLayout.SuspendLayout();
             this.LAYOUT_searchBook.SuspendLayout();
@@ -174,7 +176,8 @@
             this.BooksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pictureHeader,
             this.TitleColumn,
-            this.ISBNColumn});
+            this.ISBNColumn,
+            this.StatusColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold);
@@ -211,28 +214,6 @@
             this.BooksDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.BooksDataGridView.Size = new System.Drawing.Size(337, 420);
             this.BooksDataGridView.TabIndex = 1;
-            // 
-            // pictureHeader
-            // 
-            this.pictureHeader.HeaderText = "Picture";
-            this.pictureHeader.MinimumWidth = 6;
-            this.pictureHeader.Name = "pictureHeader";
-            this.pictureHeader.ReadOnly = true;
-            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // TitleColumn
-            // 
-            this.TitleColumn.HeaderText = "Title";
-            this.TitleColumn.MinimumWidth = 6;
-            this.TitleColumn.Name = "TitleColumn";
-            this.TitleColumn.ReadOnly = true;
-            // 
-            // ISBNColumn
-            // 
-            this.ISBNColumn.HeaderText = "ISBN";
-            this.ISBNColumn.MinimumWidth = 6;
-            this.ISBNColumn.Name = "ISBNColumn";
-            this.ISBNColumn.ReadOnly = true;
             // 
             // right_TableLayout
             // 
@@ -487,7 +468,8 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn3,
+            this.StatusColumn1});
             this.right_TableLayout.SetColumnSpan(this.dataGridView1, 3);
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
@@ -526,6 +508,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(337, 167);
             this.dataGridView1.TabIndex = 10;
             // 
+            // pictureHeader
+            // 
+            this.pictureHeader.HeaderText = "Picture";
+            this.pictureHeader.MinimumWidth = 6;
+            this.pictureHeader.Name = "pictureHeader";
+            this.pictureHeader.ReadOnly = true;
+            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // TitleColumn
+            // 
+            this.TitleColumn.HeaderText = "Title";
+            this.TitleColumn.MinimumWidth = 6;
+            this.TitleColumn.Name = "TitleColumn";
+            this.TitleColumn.ReadOnly = true;
+            // 
+            // ISBNColumn
+            // 
+            this.ISBNColumn.HeaderText = "ISBN";
+            this.ISBNColumn.MinimumWidth = 6;
+            this.ISBNColumn.Name = "ISBNColumn";
+            this.ISBNColumn.ReadOnly = true;
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.HeaderText = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Picture";
@@ -546,6 +556,12 @@
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // StatusColumn1
+            // 
+            this.StatusColumn1.HeaderText = "Status";
+            this.StatusColumn1.Name = "StatusColumn1";
+            this.StatusColumn1.ReadOnly = true;
             // 
             // FORM_BORROW
             // 
@@ -593,11 +609,13 @@
         private System.Windows.Forms.Label nameInputLabel;
         private System.Windows.Forms.Label collegeInputLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn pictureHeader;
         private System.Windows.Forms.DataGridViewTextBoxColumn TitleColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ISBNColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn1;
     }
 }

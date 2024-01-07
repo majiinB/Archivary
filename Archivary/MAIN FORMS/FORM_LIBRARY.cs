@@ -204,7 +204,8 @@ namespace Archivary.PARENT_FORMS
             booksSearched = BACKEND.BOOK_OPERATIONS.BookOperation.SearchBooks(booksDictionary, searchTerms);
             //Set the max to that will be loaded in the table based on the final list which is the book searched
             max = booksSearched.Count();
-
+            // Adjust padding to provide space at the bottom
+            libraryList.Padding = new Padding(0, 0, 0, 10);
             await Task.Run(() =>
             {
                 if (start == 0) Task.Delay(500).Wait(); // Wait for other tasks in the thread que to finish
@@ -212,8 +213,7 @@ namespace Archivary.PARENT_FORMS
                 buttonWidth = ((libraryList.ClientSize.Width - SystemInformation.VerticalScrollBarWidth) / 2) - 20;
                 buttonWidth1 = (libraryList.ClientSize.Width / 2) - 20;
 
-                // Adjust padding to provide space at the bottom
-                libraryList.Padding = new Padding(0, 0, 0, 10);
+                
 
                 //Logic on how the program will divide the list that will be loaded
                 //Check if list contains any elements based on the max value
