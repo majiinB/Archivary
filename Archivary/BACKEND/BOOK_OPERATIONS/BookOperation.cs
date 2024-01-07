@@ -272,6 +272,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     command.Parameters.AddWithValue("@borrower", borrowerId);
                     command.ExecuteScalar();
                     SetBorrowedBookToAvailable(book);
+                    InsertReturnedBookToTable(book);
                 }
             }
         }
@@ -286,6 +287,19 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 {
                     command.Parameters.AddWithValue("@id", book.BookId);
                     command.ExecuteScalar();
+                }
+            }
+        }
+
+        private static void InsertReturnedBookToTable(Book book)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "INSERT INTO returned_books ()";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+
                 }
             }
         }

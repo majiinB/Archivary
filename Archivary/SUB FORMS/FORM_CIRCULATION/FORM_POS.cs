@@ -82,7 +82,6 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
             int initialPenalty = settings.overdueFee;
             int additionalPenaltyPerDay = settings.additionalOverdueFee;
 
-            // Calculate the total penalty
             int totalPenalty = initialPenalty + (daysOverdue - 1) * additionalPenaltyPerDay;
 
             return totalPenalty;
