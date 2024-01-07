@@ -17,6 +17,7 @@ namespace Archivary.SUB_FORMS
     public partial class FORM_RETURN : Form
     {
         private List<Book> borrowedReservedBooks;
+        private List<string> bookOverdueStatus;
         private HashSet<string> selectedISBNs = new HashSet<string>();
         private Timer searchUser;
         private bool startSearch = false, isStudent, isTeacher;
@@ -60,6 +61,8 @@ namespace Archivary.SUB_FORMS
                     isStudent = true;
                     isTeacher = false;
                     borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+                    bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
+                    LoadBorrowedReservedBooks();
                 }
             }
             else if (query.Contains("T") && query.Length == 10)
@@ -72,6 +75,8 @@ namespace Archivary.SUB_FORMS
                     isStudent = false;
                     isTeacher = true;
                     borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+                    bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
+                    LoadBorrowedReservedBooks();
                 }
             }
             else
@@ -82,8 +87,10 @@ namespace Archivary.SUB_FORMS
                 borrowerId = -1;
                 isStudent = false;
                 isTeacher = false;
+                BooksDataGridView.Rows.Clear();
+                dataGridView1.Rows.Clear();
+                selectedISBNs.Clear();
             }
-            if (borrowedReservedBooks != null && borrowedReservedBooks.Count > 0) LoadBorrowedReservedBooks();
         }
 
         private void SetTexts(Student user)
@@ -109,7 +116,7 @@ namespace Archivary.SUB_FORMS
             return result;
         }
 
-        private void AddBookToBooksDataGridView(Book book)
+        private void AddBookToBooksDataGridView(Book book, int index)
         {
             DataGridViewRow row = new DataGridViewRow();
 
@@ -145,14 +152,18 @@ namespace Archivary.SUB_FORMS
 
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookTitle });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookISBN });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = bookOverdueStatus[index] });
             BooksDataGridView.Rows.Add(row);
         }
 
         private void LoadBorrowedReservedBooks()
         {
-            foreach(Book book in borrowedReservedBooks)
+            BooksDataGridView.Rows.Clear();
+            dataGridView1.Rows.Clear();
+            selectedISBNs.Clear();
+            for(int i = 0; i < borrowedReservedBooks.Count; i++)
             {
-                AddBookToBooksDataGridView(book);
+                AddBookToBooksDataGridView(borrowedReservedBooks[i], i);
             }
         }
 
@@ -201,8 +212,7 @@ namespace Archivary.SUB_FORMS
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            selectedISBNs.Clear();
+            LoadBorrowedReservedBooks();
         }
 
         private void BooksDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -270,12 +280,40 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            using (FORM_POS FormsPos = new FORM_POS())
+            using (FORM_POS FormsPos = new FORM_POS(GetSelectedBooks(),GetDates(GetSelectedBooks()), borrowerId))
             {
                 FormsPos.ShowInTaskbar = false;
                 FormsPos.BringToFront();
                 DialogResult result = FormsPos.ShowDialog();
             }
+        }
+
+        private List<Book> GetSelectedBooks()
+        {
+            List<Book> list = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+            List<Book> selectedBooks = new List<Book>();
+            foreach(Book book in list)
+            {
+                if (selectedISBNs.Contains(book.BookISBN))
+                {
+                    selectedBooks.Add(book);
+                }
+            }
+            return selectedBooks;
+        }
+
+        private List<DateTime> GetDates(List<Book> list)
+        {
+            List<DateTime> dates = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateFromBorrowedBooks(borrowerId);
+            List<DateTime> selectedDates = new List<DateTime>();
+            for(int i = 0; i < list.Count; i++)
+            {
+                if (selectedISBNs.Contains(list[i].BookISBN))
+                {
+                    selectedDates.Add(dates[i]);
+                }
+            }
+            return selectedDates;
         }
 
         private void searchID_TextChanged(object sender, EventArgs e)

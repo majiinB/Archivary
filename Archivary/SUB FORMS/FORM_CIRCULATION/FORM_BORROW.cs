@@ -66,6 +66,7 @@ namespace Archivary.SUB_FORMS
                 else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[1].Value });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[2].Value });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[3].Value });
                 dataGridView1.Rows.Add(row);
                 selectedISBNs.Add(selectedRow.Cells[2].Value.ToString());
                 BooksDataGridView.Rows.Remove(selectedRow);
@@ -96,6 +97,7 @@ namespace Archivary.SUB_FORMS
                 else row.Cells.Add(new DataGridViewTextBoxCell { Value = "" });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[1].Value });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[2].Value });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = selectedRow.Cells[3].Value });
                 BooksDataGridView.Rows.Add(row);
                 BooksDataGridView.Sort(BooksDataGridView.Columns[1], ListSortDirection.Ascending);
                 dataGridView1.Rows.Remove(selectedRow);
@@ -157,6 +159,7 @@ namespace Archivary.SUB_FORMS
 
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookTitle });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookISBN });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = book.BookStatus });
             BooksDataGridView.Rows.Add(row);
         }
 
@@ -164,6 +167,8 @@ namespace Archivary.SUB_FORMS
         private void LoadAvailableBooks()
         {
             BooksDataGridView.Rows.Clear();
+            dataGridView1.Rows.Clear();
+            selectedISBNs.Clear();
             reservedBooksISBN.Clear();
             if(availableBookList != null) availableBookList.Clear();
             if (reversedBookList != null) reversedBookList.Clear();
@@ -378,6 +383,14 @@ namespace Archivary.SUB_FORMS
 
         private void HandleCirculationEvent(string type, string message)
         {
+            if(selectedISBNs.Count < 1)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO SELECTED BOOKS", "Please add books before borrowing/reserving.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
+
             int alreadyBorrowed = BookOperation.CheckCountOfExistingBorrowedReservedBooks(borrowerId, type);
             bool isBelowStudentLimit = isStudent && !isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= studentBorrowLimit;
             bool isBelowTeacherLimit = !isStudent && isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= teacherBorrowLimit;
@@ -393,7 +406,7 @@ namespace Archivary.SUB_FORMS
                     }
                     if (hasReservedBookSelected)
                     {
-                        FORM_ALERT alert = new FORM_ALERT(1, "BOOK RESERVED", "You can't reserve the reserved book again! Please remove the reserved book to reserve.");
+                        FORM_ALERT alert = new FORM_ALERT(1, "BOOK ALREADY RESERVED", "You can't reserve the reserved book.");
                         alert.TopMost = true;
                         alert.Show();
                         return;
