@@ -71,7 +71,7 @@ namespace Archivary._1200X800.FORM_USERS
                 profilePictureImageBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
@@ -81,7 +81,7 @@ namespace Archivary._1200X800.FORM_USERS
                 profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
 
                 // Optionally, adjust the PictureBox size to fit the default image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
             }
             catch (Exception ex)

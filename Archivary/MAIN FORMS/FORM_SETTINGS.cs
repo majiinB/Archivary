@@ -150,6 +150,8 @@ namespace Archivary.PARENT_FORMS
                 teacher_borrowingCapacityTextBox.Enabled = false;
                 teacher_borrowingCapacityTextBox.Enabled = false;
                 reservationDurationTextBox.Enabled = false;
+                penaltFeeTextBox.Enabled = false;
+                additionalFeeTextBox.Enabled = false;
             }
             /*changePassButton.Enabled = true;
             uploadImageButton.Enabled = true;*/
@@ -182,11 +184,7 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
-        private void genreListView_SizeChanged(object sender, EventArgs e)
-        {
-            genreListView.Columns[0].Width = genreListView.ClientSize.Width;
-
-        }
+       
         private void ActivateButton(object senderBtn)
         {
             if (senderBtn != null)
@@ -208,57 +206,10 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
-        private void fictionButton_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            genreListView.ForeColor = System.Drawing.Color.FromArgb(244, 244, 244);
+       
 
-            genreListView.Items.Clear();
-                string[] genres = {
-                    "Fantasy", "Mystery", "Thriller", "Romance", "Horror", "Children's Literature", "Science Fiction", "Historical Fiction",
-                    "Young Adult", "Action", "Adventure", "Supernatural", "Comedy/Satire", "Psychological Fiction", "Apocalyptic/Post-Apocalyptic"
-                };
-
-            foreach (string genre in genres)
-            {
-                genreListView.Items.Add(genre);
-            }
-
-        }
-
-        private void nonFicButton_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            genreListView.ForeColor = System.Drawing.Color.FromArgb(244, 244, 244);
-
-            genreListView.Items.Clear();
-            string[] genres = {
-                    "Autobiography/Biography/Memoir", "Food and Cooking", "Health and Wellness", "Self Help", "Technology",  "Travel and Exploration"
-            };
-
-            foreach (string genre in genres)
-            {
-                genreListView.Items.Add(genre);
-            }
-        }
-
-        private void acadButton_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            genreListView.ForeColor = System.Drawing.Color.FromArgb(244, 244, 244);
-
-            genreListView.Items.Clear();
-            string[] genres = {
-                    "English", "Filipino", "History", "Mathematics", "Philosophy", "Science and Nature"
-            };
-
-            foreach (string genre in genres)
-            {
-                genreListView.Items.Add(genre);
-            }
-
-        }
-
+      
+      
         #region BACKEND
         private void InitializeUserInfo(object user)
         {
@@ -317,7 +268,7 @@ namespace Archivary.PARENT_FORMS
                 profilePictureImageBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
@@ -327,7 +278,7 @@ namespace Archivary.PARENT_FORMS
                 profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
 
                 // Optionally, adjust the PictureBox size to fit the default image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
             }
             catch (Exception ex)
@@ -575,5 +526,60 @@ namespace Archivary.PARENT_FORMS
         }
         #endregion
 
+        private void nonFicButton_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            genreListView.ForeColor = System.Drawing.Color.FromArgb(244, 244, 244);
+
+            genreListView.Items.Clear();
+            string[] genres = {
+                    "Autobiography/Biography/Memoir", "Food and Cooking", "Health and Wellness", "Self Help", "Technology",  "Travel and Exploration"
+            };
+
+            foreach (string genre in genres)
+            {
+                genreListView.Items.Add(genre);
+            }
+        }
+
+        private void fictionButton_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            genreListView.ForeColor = System.Drawing.Color.FromArgb(244, 244, 244);
+
+            genreListView.Items.Clear();
+            string[] genres = {
+                    "Fantasy", "Mystery", "Thriller", "Romance", "Horror", "Children's Literature", "Science Fiction", "Historical Fiction",
+                    "Young Adult", "Action", "Adventure", "Supernatural", "Comedy/Satire", "Psychological Fiction", "Apocalyptic/Post-Apocalyptic"
+                };
+
+            foreach (string genre in genres)
+            {
+                genreListView.Items.Add(genre);
+            }
+
+        }
+
+        private void acadButton_Click_1(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            genreListView.ForeColor = System.Drawing.Color.FromArgb(244, 244, 244);
+
+            genreListView.Items.Clear();
+            string[] genres = {
+                    "English", "Filipino", "History", "Mathematics", "Philosophy", "Science and Nature"
+            };
+
+            foreach (string genre in genres)
+            {
+                genreListView.Items.Add(genre);
+            }
+        }
+
+        private void genreListView_SizeChanged(object sender, EventArgs e)
+        {
+            genreListView.Columns[0].Width = genreListView.ClientSize.Width;
+
+        }
     }
 }

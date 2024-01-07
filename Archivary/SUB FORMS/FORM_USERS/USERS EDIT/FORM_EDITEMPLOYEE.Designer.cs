@@ -33,29 +33,29 @@
             this.middleInitialLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
+            this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
+            this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
+            this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.houseNumberLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
             this.contactNumberLabel = new System.Windows.Forms.Label();
-            this.barangayLabel = new System.Windows.Forms.Label();
-            this.streetLabel = new System.Windows.Forms.Label();
-            this.buttons_Container = new System.Windows.Forms.TableLayoutPanel();
-            this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
-            this.EmployeeRoleLabel = new System.Windows.Forms.Label();
-            this.editInformationLabel = new System.Windows.Forms.Label();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
-            this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
-            this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
             this.emailTextBox = new RoundedCorners.RoundedTextBox();
             this.contactNumberTextBox = new RoundedCorners.RoundedTextBox();
+            this.barangayLabel = new System.Windows.Forms.Label();
+            this.streetLabel = new System.Windows.Forms.Label();
             this.streetTextBox = new RoundedCorners.RoundedTextBox();
             this.barangayTextBox = new RoundedCorners.RoundedTextBox();
             this.cityTextBox = new RoundedCorners.RoundedTextBox();
             this.houseNumberTextBox = new RoundedCorners.RoundedTextBox();
+            this.buttons_Container = new System.Windows.Forms.TableLayoutPanel();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveButton = new roundedCorners.roundedButton();
             this.uploadImageButton = new roundedCorners.roundedButton();
+            this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
+            this.EmployeeRoleLabel = new System.Windows.Forms.Label();
+            this.editInformationLabel = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.PANEL_CONTENTS.SuspendLayout();
             this.contents_TableLayoutPanel.SuspendLayout();
             this.buttons_Container.SuspendLayout();
@@ -72,7 +72,7 @@
             this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 2);
             this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
-            this.PANEL_CONTENTS.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.PANEL_CONTENTS.Padding = new System.Windows.Forms.Padding(7);
             this.PANEL_CONTENTS.Size = new System.Drawing.Size(954, 666);
             this.PANEL_CONTENTS.TabIndex = 0;
             this.PANEL_CONTENTS.Paint += new System.Windows.Forms.PaintEventHandler(this.PANEL_CONTENTS_Paint);
@@ -166,145 +166,6 @@
             this.lastNameLabel.Text = "Last Name";
             this.lastNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // emailLabel
-            // 
-            this.emailLabel.AutoSize = true;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.emailLabel, 2);
-            this.emailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.emailLabel.Location = new System.Drawing.Point(14, 110);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(314, 52);
-            this.emailLabel.TabIndex = 15;
-            this.emailLabel.Text = "Email";
-            this.emailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // houseNumberLabel
-            // 
-            this.houseNumberLabel.AutoSize = true;
-            this.houseNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.houseNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.houseNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.houseNumberLabel.Location = new System.Drawing.Point(14, 210);
-            this.houseNumberLabel.Name = "houseNumberLabel";
-            this.houseNumberLabel.Size = new System.Drawing.Size(182, 52);
-            this.houseNumberLabel.TabIndex = 19;
-            this.houseNumberLabel.Text = "House No.";
-            this.houseNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cityLabel
-            // 
-            this.cityLabel.AutoSize = true;
-            this.cityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cityLabel.Location = new System.Drawing.Point(488, 210);
-            this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(166, 52);
-            this.cityLabel.TabIndex = 23;
-            this.cityLabel.Text = "City";
-            this.cityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // contactNumberLabel
-            // 
-            this.contactNumberLabel.AutoSize = true;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.contactNumberLabel, 3);
-            this.contactNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.contactNumberLabel.Location = new System.Drawing.Point(334, 110);
-            this.contactNumberLabel.Name = "contactNumberLabel";
-            this.contactNumberLabel.Size = new System.Drawing.Size(320, 52);
-            this.contactNumberLabel.TabIndex = 17;
-            this.contactNumberLabel.Text = "Contact No.";
-            this.contactNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // barangayLabel
-            // 
-            this.barangayLabel.AutoSize = true;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.barangayLabel, 2);
-            this.barangayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barangayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barangayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.barangayLabel.Location = new System.Drawing.Point(334, 210);
-            this.barangayLabel.Name = "barangayLabel";
-            this.barangayLabel.Size = new System.Drawing.Size(148, 52);
-            this.barangayLabel.TabIndex = 22;
-            this.barangayLabel.Text = "Barangay";
-            this.barangayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // streetLabel
-            // 
-            this.streetLabel.AutoSize = true;
-            this.streetLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.streetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.streetLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.streetLabel.Location = new System.Drawing.Point(202, 210);
-            this.streetLabel.Name = "streetLabel";
-            this.streetLabel.Size = new System.Drawing.Size(126, 52);
-            this.streetLabel.TabIndex = 32;
-            this.streetLabel.Text = "Street";
-            this.streetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttons_Container
-            // 
-            this.buttons_Container.ColumnCount = 3;
-            this.contents_TableLayoutPanel.SetColumnSpan(this.buttons_Container, 7);
-            this.buttons_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.56522F));
-            this.buttons_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.8695652F));
-            this.buttons_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.56522F));
-            this.buttons_Container.Controls.Add(this.cancelButton, 0, 0);
-            this.buttons_Container.Controls.Add(this.saveButton, 2, 0);
-            this.buttons_Container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttons_Container.Location = new System.Drawing.Point(14, 312);
-            this.buttons_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttons_Container.Name = "buttons_Container";
-            this.buttons_Container.RowCount = 1;
-            this.buttons_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.buttons_Container.Size = new System.Drawing.Size(911, 107);
-            this.buttons_Container.TabIndex = 40;
-            // 
-            // profilePictureImageBox
-            // 
-            this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.profilePictureImageBox.Location = new System.Drawing.Point(682, 12);
-            this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.profilePictureImageBox.Name = "profilePictureImageBox";
-            this.contents_TableLayoutPanel.SetRowSpan(this.profilePictureImageBox, 5);
-            this.profilePictureImageBox.Size = new System.Drawing.Size(243, 248);
-            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePictureImageBox.TabIndex = 41;
-            this.profilePictureImageBox.TabStop = false;
-            // 
-            // EmployeeRoleLabel
-            // 
-            this.EmployeeRoleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.EmployeeRoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmployeeRoleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.EmployeeRoleLabel.Location = new System.Drawing.Point(21, 153);
-            this.EmployeeRoleLabel.Name = "EmployeeRoleLabel";
-            this.EmployeeRoleLabel.Size = new System.Drawing.Size(229, 30);
-            this.EmployeeRoleLabel.TabIndex = 4;
-            this.EmployeeRoleLabel.Text = "Employee";
-            this.EmployeeRoleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // editInformationLabel
-            // 
-            this.editInformationLabel.AutoSize = true;
-            this.editInformationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editInformationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editInformationLabel.Location = new System.Drawing.Point(3, 60);
-            this.editInformationLabel.Name = "editInformationLabel";
-            this.editInformationLabel.Size = new System.Drawing.Size(620, 69);
-            this.editInformationLabel.TabIndex = 3;
-            this.editInformationLabel.Text = "EDIT INFORMATION";
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.BackColor = System.Drawing.Color.Transparent;
@@ -363,6 +224,60 @@
             this.middleInitialTextBox.Text = "A.";
             this.middleInitialTextBox.UseSystemPasswordChar = false;
             // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.contents_TableLayoutPanel.SetColumnSpan(this.emailLabel, 2);
+            this.emailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.emailLabel.Location = new System.Drawing.Point(14, 110);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(314, 52);
+            this.emailLabel.TabIndex = 15;
+            this.emailLabel.Text = "Email";
+            this.emailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // houseNumberLabel
+            // 
+            this.houseNumberLabel.AutoSize = true;
+            this.houseNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.houseNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.houseNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.houseNumberLabel.Location = new System.Drawing.Point(14, 210);
+            this.houseNumberLabel.Name = "houseNumberLabel";
+            this.houseNumberLabel.Size = new System.Drawing.Size(182, 52);
+            this.houseNumberLabel.TabIndex = 19;
+            this.houseNumberLabel.Text = "House No.";
+            this.houseNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cityLabel.Location = new System.Drawing.Point(488, 210);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(166, 52);
+            this.cityLabel.TabIndex = 23;
+            this.cityLabel.Text = "City";
+            this.cityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // contactNumberLabel
+            // 
+            this.contactNumberLabel.AutoSize = true;
+            this.contents_TableLayoutPanel.SetColumnSpan(this.contactNumberLabel, 3);
+            this.contactNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.contactNumberLabel.Location = new System.Drawing.Point(334, 110);
+            this.contactNumberLabel.Name = "contactNumberLabel";
+            this.contactNumberLabel.Size = new System.Drawing.Size(320, 52);
+            this.contactNumberLabel.TabIndex = 17;
+            this.contactNumberLabel.Text = "Contact No.";
+            this.contactNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // emailTextBox
             // 
             this.emailTextBox.BackColor = System.Drawing.Color.Transparent;
@@ -402,6 +317,33 @@
             this.contactNumberTextBox.TabIndex = 31;
             this.contactNumberTextBox.Text = "09XXXXXXXXX";
             this.contactNumberTextBox.UseSystemPasswordChar = false;
+            // 
+            // barangayLabel
+            // 
+            this.barangayLabel.AutoSize = true;
+            this.contents_TableLayoutPanel.SetColumnSpan(this.barangayLabel, 2);
+            this.barangayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.barangayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barangayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.barangayLabel.Location = new System.Drawing.Point(334, 210);
+            this.barangayLabel.Name = "barangayLabel";
+            this.barangayLabel.Size = new System.Drawing.Size(148, 52);
+            this.barangayLabel.TabIndex = 22;
+            this.barangayLabel.Text = "Barangay";
+            this.barangayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // streetLabel
+            // 
+            this.streetLabel.AutoSize = true;
+            this.streetLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.streetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.streetLabel.Location = new System.Drawing.Point(202, 210);
+            this.streetLabel.Name = "streetLabel";
+            this.streetLabel.Size = new System.Drawing.Size(126, 52);
+            this.streetLabel.TabIndex = 32;
+            this.streetLabel.Text = "Street";
+            this.streetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // streetTextBox
             // 
@@ -480,6 +422,24 @@
             this.houseNumberTextBox.Text = "21st Avenue";
             this.houseNumberTextBox.UseSystemPasswordChar = false;
             // 
+            // buttons_Container
+            // 
+            this.buttons_Container.ColumnCount = 3;
+            this.contents_TableLayoutPanel.SetColumnSpan(this.buttons_Container, 7);
+            this.buttons_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.56522F));
+            this.buttons_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 0.8695652F));
+            this.buttons_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.56522F));
+            this.buttons_Container.Controls.Add(this.cancelButton, 0, 0);
+            this.buttons_Container.Controls.Add(this.saveButton, 2, 0);
+            this.buttons_Container.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttons_Container.Location = new System.Drawing.Point(14, 312);
+            this.buttons_Container.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttons_Container.Name = "buttons_Container";
+            this.buttons_Container.RowCount = 1;
+            this.buttons_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.buttons_Container.Size = new System.Drawing.Size(911, 107);
+            this.buttons_Container.TabIndex = 40;
+            // 
             // cancelButton
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -545,6 +505,47 @@
             this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.uploadImageButton.UseVisualStyleBackColor = false;
             this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
+            // 
+            // profilePictureImageBox
+            // 
+            this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profilePictureImageBox.Location = new System.Drawing.Point(682, 12);
+            this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.profilePictureImageBox.Name = "profilePictureImageBox";
+            this.profilePictureImageBox.Padding = new System.Windows.Forms.Padding(1);
+            this.contents_TableLayoutPanel.SetRowSpan(this.profilePictureImageBox, 5);
+            this.profilePictureImageBox.Size = new System.Drawing.Size(243, 248);
+            this.profilePictureImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePictureImageBox.TabIndex = 41;
+            this.profilePictureImageBox.TabStop = false;
+            // 
+            // EmployeeRoleLabel
+            // 
+            this.EmployeeRoleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.EmployeeRoleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeRoleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.EmployeeRoleLabel.Location = new System.Drawing.Point(21, 153);
+            this.EmployeeRoleLabel.Name = "EmployeeRoleLabel";
+            this.EmployeeRoleLabel.Size = new System.Drawing.Size(229, 30);
+            this.EmployeeRoleLabel.TabIndex = 4;
+            this.EmployeeRoleLabel.Text = "Employee";
+            this.EmployeeRoleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // editInformationLabel
+            // 
+            this.editInformationLabel.AutoSize = true;
+            this.editInformationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInformationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInformationLabel.Location = new System.Drawing.Point(3, 60);
+            this.editInformationLabel.Name = "editInformationLabel";
+            this.editInformationLabel.Size = new System.Drawing.Size(620, 69);
+            this.editInformationLabel.TabIndex = 3;
+            this.editInformationLabel.Text = "EDIT INFORMATION";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // FORM_EDITEMPLOYEE
             // 
