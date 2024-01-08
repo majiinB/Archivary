@@ -28,6 +28,7 @@ namespace Archivary.PARENT_FORMS
 
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -166,22 +167,7 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
-        private void passwordPicturebox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LAYOUT_EYE_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void usernameTextbox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTextbox_Click(object sender, EventArgs e)
+        private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
         {
 
         }

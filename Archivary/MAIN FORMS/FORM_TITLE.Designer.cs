@@ -51,7 +51,7 @@
             // 
             this.titlePictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titlePictureBox.Image = global::Archivary.Properties.Resources.ArchivaryLogoBannerPNG;
-            this.titlePictureBox.Location = new System.Drawing.Point(87, 92);
+            this.titlePictureBox.Location = new System.Drawing.Point(87, 59);
             this.titlePictureBox.Name = "titlePictureBox";
             this.titlePictureBox.Size = new System.Drawing.Size(775, 322);
             this.titlePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -66,11 +66,12 @@
             this.goLoginButton.BorderColor = System.Drawing.Color.Empty;
             this.goLoginButton.BorderRadius = 30;
             this.goLoginButton.BorderSize = 0;
+            this.goLoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.goLoginButton.FlatAppearance.BorderSize = 0;
             this.goLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.goLoginButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.goLoginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.goLoginButton.Location = new System.Drawing.Point(257, 388);
+            this.goLoginButton.Location = new System.Drawing.Point(257, 355);
             this.goLoginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.goLoginButton.Name = "goLoginButton";
             this.goLoginButton.Size = new System.Drawing.Size(437, 100);
@@ -85,7 +86,7 @@
             this.exitButton.AutoSize = true;
             this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exitButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(400, 536);
+            this.exitButton.Location = new System.Drawing.Point(400, 512);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(151, 24);
             this.exitButton.TabIndex = 3;
