@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace Archivary.BACKEND.TIMER
 {
-    public static class Timer
+    public static class TimerOpersys
     {
         private static Stopwatch stopwatch;
         private static bool isEnabled;
 
-        static Timer()
+        static TimerOpersys()
         {
             stopwatch = new Stopwatch();
             isEnabled = true; //True kung di pa tapos opersys
@@ -48,7 +48,9 @@ namespace Archivary.BACKEND.TIMER
 
         public static void DisplayElapsedTime()
         {
-            MessageBox.Show($"Elapsed Time: {ElapsedTime.TotalMilliseconds} milliseconds");
+            MessageBox.Show($"Elapsed milliseconds: {ElapsedTime.TotalMilliseconds:F3}\n" +
+                $"Elapsed seconds: {ElapsedTime.TotalSeconds:F3}\n" +
+                $"Elapsed minutes: {ElapsedTime.TotalMinutes:F3} ");
         }
     }
 }
