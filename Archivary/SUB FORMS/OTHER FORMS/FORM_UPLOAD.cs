@@ -1,5 +1,6 @@
 ﻿using Archivary.BACKEND.BOOK_OPERATIONS;
 using Archivary.BACKEND.COMMON_OPERATIONS;
+using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using roundedCorners;
 using System;
@@ -197,17 +198,21 @@ namespace Archivary._900X500
                     isDataLoading = true;
                     await Task.Run(() =>
                     {
+                        TimerOpersys.Start();
                         List<string> confirmation = UserOperation.AddStudentByExcel(selectedFilePath, worksheetTextbox.Text, int.Parse(startingRowTextbox.Text));
                         if (confirmation.Count == 0)
                         {
+                            TimerOpersys.Stop();
                             alert = new FORM_ALERT(3, "UPLOAD SUCCESSFUL", "Upload success and did not encounter any errors");
                             alert.ShowDialog();
                         }
                         else
                         {
+                            TimerOpersys.Stop();
                             alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Student info upload completed but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
                             alert.ShowDialog();
                         }
+                        if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
                         isDataLoading = false;
                     });
                 }
@@ -218,17 +223,21 @@ namespace Archivary._900X500
                     isDataLoading = true;
                     await Task.Run(() =>
                     {
+                        TimerOpersys.Start();
                         List<string> confirmation = UserOperation.AddTeacherByExcel(selectedFilePath, worksheetTextbox.Text, int.Parse(startingRowTextbox.Text));
                         if (confirmation.Count == 0)
                         {
+                            TimerOpersys.Stop();
                             alert = new FORM_ALERT(3, "UPLOAD SUCCESSFUL", "Upload success and did not encounter any errors");
                             alert.ShowDialog();
                         }
                         else
                         {
+                            TimerOpersys.Stop();
                             alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Teacher info upload completed but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
                             alert.ShowDialog();
                         }
+                        if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
                         isDataLoading = false;
                     });
                 }
@@ -237,17 +246,21 @@ namespace Archivary._900X500
                 isDataLoading = true;
                 await Task.Run(() =>
                 {
+                    TimerOpersys.Start();
                     List<string> confirmation = BookOperation.AddBookByExcel(selectedFilePath, worksheetTextbox.Text, int.Parse(startingRowTextbox.Text));
                     if (confirmation.Count == 0)
                     {
+                        TimerOpersys.Stop();
                         alert = new FORM_ALERT(3, "UPLOAD SUCCESSFUL", "Upload success and did not encounter any errors");
                         alert.ShowDialog();
                     }
                     else
                     {
+                        TimerOpersys.Stop();
                         alert = new FORM_ALERT(1, "UPLOAD ENCOUNTERED ERRORS", "Book info upload completed but encountered some errors\n\n" + CommonOperation.ConcatenateList(confirmation));
                         alert.ShowDialog();
                     }
+                    if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
                     isDataLoading = false;
                 });
             }
