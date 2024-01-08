@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
 using System.Collections.Generic;
@@ -77,6 +78,7 @@ namespace Archivary._1200X800.FORM_USERS
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             //Concat the each textbox for adress
             string concatAddress = houseNumberTextBox.Text + ", " + streetTextBox.Text + ", "
                 + barangayTextBox.Text + ", " + cityTextBox.Text;
@@ -107,6 +109,7 @@ namespace Archivary._1200X800.FORM_USERS
                 if(string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                     string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                 {
+                    TimerOpersys.Stop();
                     alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
                     alert.ShowDialog();
                     IntializeEmployeeInfo();
@@ -128,6 +131,7 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                     {
                         UpdateEmployeeObject(concatAddress); // Update the object referenced
+                        TimerOpersys.Stop();
                         alert = new FORM_ALERT(3, "EMPLOYEE INFO UPDATE SUCCESS", $"Information of Employee {firstNameTextBox.Text} is now updated");
                         alert.ShowDialog();
                         this.Close();
@@ -135,6 +139,7 @@ namespace Archivary._1200X800.FORM_USERS
                     else
                     {
                         //Error message for update
+                        TimerOpersys.Stop();
                         alert = new FORM_ALERT(1, "EMPLOYEE INFO UPDATE FAILED", "An error has occured during the update process");
                         alert.ShowDialog();
                     }
@@ -142,11 +147,14 @@ namespace Archivary._1200X800.FORM_USERS
                 else
                 {
                     //Error message for input validation
+                    TimerOpersys.Stop();
                     alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
                     alert.ShowDialog();
                     IntializeEmployeeInfo();
                 }
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
         private void SetPictureBoxImage(string imagePath)
         {

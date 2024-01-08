@@ -218,7 +218,7 @@ namespace Archivary._1200X800.FORM_USERS
                 alert.ShowDialog();
             }
 
-                string imageCon = "";
+            string imageCon = "";
             if (string.IsNullOrEmpty(selectedFilePath))
             {
                 imageCon = "No_image";
