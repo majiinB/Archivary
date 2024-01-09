@@ -1156,7 +1156,10 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 FROM borrowed_books bb
                 JOIN books b ON bb.book_id = b.id
                 LEFT JOIN returned_books rb ON bb.book_id = rb.book_id AND bb.borrower_id = rb.borrower_id
-                WHERE bb.borrower_id = @UserId;
+                WHERE 
+                    bb.borrower_id = @UserId
+                ORDER BY 
+                    bb.borrowed_at DESC;
             ";
 
             try
@@ -1243,7 +1246,10 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 FROM borrowed_books bb
                 JOIN books b ON bb.book_id = b.id
                 LEFT JOIN returned_books rb ON bb.book_id = rb.book_id AND bb.borrower_id = rb.borrower_id
-                WHERE bb.librarian_id = @UserId;
+                WHERE 
+                    bb.librarian_id = @UserId
+                ORDER BY 
+                    bb.borrowed_at DESC;
             ";
 
             try

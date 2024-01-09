@@ -48,9 +48,9 @@ namespace Archivary._1500X1000.FORM_USERS
         }
         
 
-        private async void FORM_INFOTEACHER_Load(object sender, EventArgs e)
+        private void FORM_INFOTEACHER_Load(object sender, EventArgs e)
         {
-            await loadHistory();
+            loadHistory();
         }
 
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -170,18 +170,18 @@ namespace Archivary._1500X1000.FORM_USERS
             }
         }
 
-        private async Task loadHistory()
+        private void loadHistory()
         {
-            await Task.Run(() =>
-            {
-                Setting day = CommonOperation.GetSettingsFromDatabase();
-                bookStatusList = UserOperation.GetBookStatusList(userTeacher.TeacherUserId, day.borrowingDuration);
-            });
+
+            Setting day = CommonOperation.GetSettingsFromDatabase();
+            bookStatusList = UserOperation.GetBookStatusList(userTeacher.TeacherUserId, day.borrowingDuration);
 
             foreach (BookStatusInfo bookStatus in bookStatusList)
             {
                 string returnDate = "";
-                if (bookStatus.ReturnDate.ToString() == CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.DateTimeMin])
+
+                // Check if the ReturnDate is the default DateTime value
+                if (bookStatus.ReturnDate == DateTime.MinValue)
                 {
                     returnDate = CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.IfNotReturnedStatus];
                 }
@@ -190,10 +190,11 @@ namespace Archivary._1500X1000.FORM_USERS
                     returnDate = CommonOperation.ConvertToReadableFormat(
                         bookStatus.ReturnDate.ToString(
                             CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]
-                            )
-                        );
+                        )
+                    );
                 }
-                bookListDataGridView.Rows.Add(bookStatus.Title, 
+
+                bookListDataGridView.Rows.Add(bookStatus.Title,
                     CommonOperation.ConvertToReadableFormat(bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     CommonOperation.ConvertToReadableFormat(bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     returnDate, bookStatus.Status);
