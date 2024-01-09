@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RoundedCorners
 {
@@ -31,6 +26,33 @@ namespace RoundedCorners
                 AdjustTextBoxLayout();
                 Invalidate();
             }
+        }
+
+        public new bool TabStop
+        {
+            get => base.TabStop;
+            set
+            {
+                base.TabStop = value;
+                textBox.TabStop = value;
+            }
+        }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            textBox.Focus();
+        }
+
+        protected override bool IsInputKey(Keys keyData)
+        {
+            if (keyData == Keys.Tab)
+            {
+                // Manually handle tab key to focus on the next control
+                SelectNextControl(this, true, true, true, true);
+                return true;
+            }
+            return base.IsInputKey(keyData);
         }
 
         public int Radius
@@ -83,7 +105,9 @@ namespace RoundedCorners
         {
             textBox.Location = new Point(borderThickness + radius, (Height / 2) - (textBox.Font.Height / 2));
             textBox.Width = Width - (2 * borderThickness) - (2 * radius);
+            textBox.Height = Height - (2 * borderThickness); // Ensure the textbox fits within the control
         }
+
 
         public RoundedTextBox()
         {
@@ -93,13 +117,13 @@ namespace RoundedCorners
             this.textBox.Parent = this;
             base.Controls.Add(this.textBox);
             this.textBox.BorderStyle = BorderStyle.None;
-            textBox.Font = this.Font;
+            textBox.Font = new Font("Poppins", 10.2f, FontStyle.Regular); // Set Montserrat font
             this.BackColor = Color.Transparent;
             this.ForeColor = Color.Black;
             this.backgroundColor = Color.White;
             textBox.BackColor = this.backgroundColor;
             this.Text = null;
-            this.Font = new Font("Century Gothic", 12f);
+            this.Font = new Font("Poppins", 10.2f, FontStyle.Regular); // Set Montserrat font
             base.Size = new Size(135, 33);
             this.DoubleBuffered = true;
             textBox.KeyDown += new KeyEventHandler(textBox_KeyDown);
@@ -134,7 +158,7 @@ namespace RoundedCorners
         protected override void OnFontChanged(EventArgs e)
         {
             base.OnFontChanged(e);
-            textBox.Font = this.Font;
+            textBox.Font = new Font("Poppins", 10.2f, FontStyle.Regular); // Set Poppins font
             base.Invalidate();
         }
 
@@ -306,5 +330,4 @@ namespace RoundedCorners
             }
         }
     }
-
 }
