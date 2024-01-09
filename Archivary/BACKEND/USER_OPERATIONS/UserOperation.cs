@@ -1,4 +1,5 @@
 ﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
@@ -2136,6 +2137,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static void UpdateUserStatus(int userId, string newStatus)
         {
+            TimerOpersys.Start();
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
@@ -2150,6 +2152,8 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     command.ExecuteNonQuery();
                 }
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
         public static bool UpdatePassword(string userId, string newPassword)
         {
