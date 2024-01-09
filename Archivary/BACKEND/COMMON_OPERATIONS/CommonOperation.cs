@@ -106,7 +106,25 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                 }
             }
         }
+        public static string ConvertToReadableFormat(string dateString)
+        {
+            try
+            {
+                // Parse the input string as a DateTime
+                DateTime date = DateTime.Parse(dateString);
 
+                // Format the DateTime as a readable string
+                string formattedDate = date.ToString("MMMM d, yyyy");
+
+                return formattedDate;
+            }
+            catch (FormatException ex)
+            {
+                // Handle the case where the input string is not a valid date
+                Console.WriteLine($"Error: {ex.Message}");
+                return "Invalid Date";
+            }
+        }
         #endregion
 
         #region Reports
