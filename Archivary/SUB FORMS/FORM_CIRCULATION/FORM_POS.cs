@@ -194,7 +194,7 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
             alert.TopMost = true;
             alert.Show();
             this.Dispose();
-            TimerOpersys.Stop
+            TimerOpersys.Stop();
             if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
     }
