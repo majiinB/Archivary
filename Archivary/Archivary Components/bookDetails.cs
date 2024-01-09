@@ -17,14 +17,27 @@ namespace Archivary.Archivary_Components
     public partial class bookDetails : UserControl
     {
 
-        public bookDetails(Book bookAdded)
+        public bookDetails(Book bookAdded, Archivary.PARENT_FORMS.FORM_LIBRARY library)
         {
             InitializeComponent();
             bookTitleLabel.Text = bookAdded.BookTitle;
             authorLabel.Text = bookAdded.BookAuthor;
             isbnLabel.Text = bookAdded.BookISBN;
             SetPictureBoxImage(bookAdded.BookImage);
-            FormsBookInfo = new FORM_BOOKINFO(bookAdded);
+            FormsBookInfo = new FORM_BOOKINFO(bookAdded, library);
+        }
+
+        public bookDetails(Book bookAdded)
+        {
+            InitializeComponent();
+            isbnLabel.Hide();
+            viewButton.Hide();
+            this.Click += new EventHandler(bookDetails_Click);
+        }
+
+        private void bookDetails_Click(object sender, EventArgs e)
+        {
+
         }
 
         #region Properties

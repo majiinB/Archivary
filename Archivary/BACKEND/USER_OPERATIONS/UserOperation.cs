@@ -1,11 +1,15 @@
 ﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using OfficeOpenXml;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Policy;
@@ -13,15 +17,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace Archivary.BACKEND.USER_OPERATIONS
 {
     public class UserOperation
     {
-
-        static string CONNECTION_STRING = "Server=localhost;Database=archivary;User ID=root;Password=;";
-
         #region ENUM
         public enum UserLevel
         {
@@ -34,25 +37,31 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             LastName = 0,
             FirstName = 1,
-            MiddleName = 2,
+            MiddleInitial = 2,
             Email = 3,
-            Address = 4,
-            ContactNum = 5,
-            Department = 6,
-            YearLevel = 7,
-            Section = 8,
-            ImagePath = 9
+            BlockNo = 4,
+            Street = 5,
+            Barangay = 6,
+            City = 7,
+            ContactNum = 8,
+            Department = 9,
+            YearLevel = 10,
+            Section = 11,
+            ImagePath = 12,
         }
         public enum TeacherInfo
         {
             LastName = 0,
             FirstName = 1,
-            MiddleName = 2,
+            MiddleInitial = 2,
             Email = 3,
-            Address = 4,
-            ContactNum = 5,
-            Department = 6,
-            ImagePath = 7
+            BlockNo = 4,
+            Street = 5,
+            Barangay = 6,
+            City = 7,
+            ContactNum = 8,
+            Department = 9,
+            ImagePath = 10
         }
         #endregion
 
@@ -127,7 +136,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
 
         //FOR INPUT VALIDATION
-        public static string[] IsUserInputValid(string firstName, string lastName, string middleName, string email, string address, string contactNum,
+        public static string[] IsUserInputValid(string firstName, string lastName, string middleInitial, string email, string address, string contactNum,
             string imagePath = "No_image", string department = "No_department", string yearLevel = "No_yearLevel", string section = "No_section", string password = "No_password",
             string securityQuestion = "No_security_quesion", string securityAnswer = "No_security_question")
         {
@@ -144,10 +153,16 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 errorMessage[1] = "Last name can't be empty";
                 return errorMessage;
             }
-            if (string.IsNullOrEmpty(middleName))
+            if (string.IsNullOrEmpty(middleInitial))
             {
-                errorMessage[0] = "Invalid Middle Name";
-                errorMessage[1] = "Middle name can't be empty";
+                errorMessage[0] = "Invalid Middle Initial";
+                errorMessage[1] = "Middle initial can't be empty";
+                return errorMessage;
+            }
+            if (!IsOnlyCharacterOrNA(middleInitial))
+            {
+                errorMessage[0] = "Invalid Middle Initial";
+                errorMessage[1] = "Middle intial can only be a character";
                 return errorMessage;
             }
             if (string.IsNullOrEmpty(email))
@@ -209,7 +224,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             if (!IsValidInteger(yearLevel))
             {
-                if(!(int.TryParse(yearLevel, out int parsedYearLevel) && parsedYearLevel > 0 && parsedYearLevel < 7))
+                if (!(int.TryParse(yearLevel, out int parsedYearLevel) && parsedYearLevel > 0 && parsedYearLevel < 7))
                 {
                     if (!(yearLevel == "No_yearLevel"))
                     {
@@ -286,7 +301,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static bool IsEmailExisting(string email)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -311,6 +326,19 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 }
             }
         }
+        public static bool IsOnlyCharacterOrNA(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return false; // Empty or null string is not allowed
+            }
+
+            // Remove trailing period if it exists
+            input = input.TrimEnd('.');
+
+            // Check if the input is a single character or "N/A"
+            return (input.Length == 1 && char.IsLetter(input[0])) || input.ToUpper() == "N/A";
+        }
         public static bool DoesFileExistAndIsImage(string filePath)
         {
             // Check if the file exists
@@ -330,256 +358,350 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return false;
         }
-        private static int[] IdentifyStudentColumnInfoSequence(ExcelWorksheet worksheet, int startRow)
+        public static bool DoesFileExistAndIsXlsx(string filePath)
+        {
+            // Check if the file exists
+            if (!File.Exists(filePath))
+            {
+                return false;
+            }
+
+            // Check if the file extension is XLSX
+            string extension = Path.GetExtension(filePath);
+            return string.Equals(extension, ".xlsx", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static IdentificationResult IdentifyStudentColumnInfoSequence(ExcelWorksheet worksheet, int startRow)
         {
             //Check if the start row is greater than 1
             //if start row is equal to 1 it means that there are no header because worksheet is 1 indexed
-            if (startRow < 2)
-            {
-                Console.WriteLine("start row is less than 2");
-                return new int[0];
-            }
+            if (startRow < 2) return IdentificationResult.CreateError("Start Row is Less Than 2");
 
             int headerLocation = startRow - 1; //move one cell up assuming that the header is directly above the first row
 
             //Initialize array
-            int[] sequence = new int[10];
+            int[] sequence = new int[13];
+
+            // Track encountered headers
+            HashSet<string> encounteredHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
             //Loop to fill the array
-            for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
+            for (int row = headerLocation; row == headerLocation; row++)
             {
-                //Take cell value
-                var cellValue = worksheet.Cells[headerLocation, col].Value;
-
-                //Check first if cell is null
-                if (cellValue != null)
+                for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
                 {
-                    // Check if the cells are all string
-                    if (cellValue is double doubleValue) return new int[0];
-                    else if (cellValue is int intValue) return new int[0];
-                    else if (cellValue is float floatValue) return new int[0];
+                    //Take cell value
+                    var cellValue = worksheet.Cells[headerLocation, col].Value;
 
-                    //Fill the array with values based from cell header name
-                    if (cellValue.ToString().Trim().ToUpper() == "LASTNAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST-NAME")
+                    //Check first if cell is null
+                    if (cellValue != null)
                     {
-                        sequence[col - 1] = (int)StudentInfo.LastName;
+                        // Check if the cells are all string
+                        if (cellValue is double doubleValue || cellValue is int intValue || cellValue is float floatValue)
+                        {
+                            return IdentificationResult.CreateError("Cell Value is a type of number or decimal");
+                        }
+
+                        // Check if the header is unique
+                        string headerName = cellValue.ToString().Trim().ToUpper();
+                        if (!encounteredHeaders.Add(headerName))
+                        {
+                            return IdentificationResult.CreateError($"Duplicate header found '{headerName}' in column {col}");
+                        }
+
+                        //Fill the array with values based from cell header name
+                        if (cellValue.ToString().Trim().ToUpper() == "LASTNAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST_NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST-NAME")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.LastName;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "FIRSTNAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST_NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST-NAME")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.FirstName;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "MIDDLEINTIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE INITIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE_INITIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE-INITIAL")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.MiddleInitial;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "EMAIL" ||
+                            cellValue.ToString().Trim().ToUpper() == "EMAIL ADDRESS")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.Email;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "BLOCK NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOUSE NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOUSE NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOME NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "HOME NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.BlockNo;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "STREET")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.Street;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "BARANGAY")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.Barangay;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "CITY")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.City;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "CONTACTNUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT_NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT-NUMBER")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.ContactNum;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "DEPARTMENT" ||
+                            cellValue.ToString().Trim().ToUpper() == "COLLEGE DEPARTMENT")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.Department;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "YEARLEVEL" ||
+                            cellValue.ToString().Trim().ToUpper() == "YEAR LEVEL" ||
+                            cellValue.ToString().Trim().ToUpper() == "YEAR_LEVEL" ||
+                            cellValue.ToString().Trim().ToUpper() == "YEAR-LEVEL" ||
+                            cellValue.ToString().Trim().ToUpper() == "YEAR")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.YearLevel;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "SECTION")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.Section;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "IMAGE PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGE_PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGE-PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGEPATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "PROFILE PICTURE" ||
+                            cellValue.ToString().Trim().ToUpper() == "PROFILE_PICTURE")
+                        {
+                            sequence[col - 1] = (int)StudentInfo.ImagePath;
+                        }
+                        else return IdentificationResult.CreateError($"Column {headerName} in your header is not in the right format or does not correctly identify the column");
                     }
-                    else if (cellValue.ToString().Trim().ToUpper() == "FIRSTNAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST-NAME")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.FirstName;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "MIDDLENAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE-NAME")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.MiddleName;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "EMAIL")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.Email;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "ADDRESS")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.Address;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "CONTACTNUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT_NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT-NUMBER")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.ContactNum;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "DEPARTMENT")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.Department;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "YEARLEVEL" ||
-                        cellValue.ToString().Trim().ToUpper() == "YEAR LEVEL" ||
-                        cellValue.ToString().Trim().ToUpper() == "YEAR_LEVEL" ||
-                        cellValue.ToString().Trim().ToUpper() == "YEAR-LEVEL")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.YearLevel;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "SECTION")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.Section;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "IMAGE PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGE_PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGE-PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGEPATH")
-                    {
-                        sequence[col - 1] = (int)StudentInfo.ImagePath;
-                    }
-                    else return new int[0];
+                    else return IdentificationResult.CreateError($"Column {col} in your header is empty");
                 }
-                else return new int[0]; //Return imediately if the cell is empty
             }
-            return sequence;
+            return IdentificationResult.CreateSuccess(sequence);
         }
-        private static int[] IdentifyTeacherColumnInfoSequence(ExcelWorksheet worksheet, int startRow)
+        private static IdentificationResult IdentifyTeacherColumnInfoSequence(ExcelWorksheet worksheet, int startRow)
         {
             //Check if the start row is greater than 1
             //if start row is equal to 1 it means that there are no header because worksheet is 1 indexed
-            if (startRow < 2)
-            {
-                Console.WriteLine("start row is less than 2");
-                return new int[0];
-            }
+            if (startRow < 2) return IdentificationResult.CreateError("Start Row is Less Than 2");
 
             int headerLocation = startRow - 1; //move one cell up assuming that the header is directly above the first row
 
             //Initialize array
-            int[] sequence = new int[8];
+            int[] sequence = new int[11];
 
-            //Loop to fill the array
-            for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
+            // Track encountered headers
+            HashSet<string> encounteredHeaders = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            for (int row = headerLocation; row == headerLocation; row++)
             {
-                //Take cell value
-                var cellValue = worksheet.Cells[headerLocation, col].Value;
-
-                //Check first if cell is null
-                if (cellValue != null)
+                //Loop to fill the array
+                for (int col = worksheet.Dimension.Start.Column; col <= sequence.Length; col++)
                 {
-                    // Check if the cells are all string
-                    if (cellValue is double doubleValue) return new int[0];
-                    else if (cellValue is int intValue) return new int[0];
-                    else if (cellValue is float floatValue) return new int[0];
+                    //Take cell value
+                    var cellValue = worksheet.Cells[headerLocation, col].Value;
 
-                    //Fill the array with values based from cell header name
-                    if (cellValue.ToString().Trim().ToUpper() == "LASTNAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "LAST-NAME")
+                    //Check first if cell is null
+                    if (cellValue != null)
                     {
-                        sequence[col - 1] = (int)TeacherInfo.LastName;
+                        // Check if the cells are all string
+                        if (cellValue is double doubleValue || cellValue is int intValue || cellValue is float floatValue)
+                        {
+                            return IdentificationResult.CreateError("Cell Value is a type of number or decimal");
+                        }
+
+                        // Check if the header is unique
+                        string headerName = cellValue.ToString().Trim().ToUpper();
+                        if (!encounteredHeaders.Add(headerName))
+                        {
+                            return IdentificationResult.CreateError($"Duplicate header found '{headerName}' in column {col}");
+                        }
+
+                        //Fill the array with values based from cell header name
+                        if (cellValue.ToString().Trim().ToUpper() == "LASTNAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST_NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "LAST-NAME")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.LastName;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "FIRSTNAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST_NAME" ||
+                            cellValue.ToString().Trim().ToUpper() == "FIRST-NAME")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.FirstName;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "MIDDLEINTIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE INITIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE_INITIAL" ||
+                            cellValue.ToString().Trim().ToUpper() == "MIDDLE-INITIAL")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.MiddleInitial;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "EMAIL" ||
+                            cellValue.ToString().Trim().ToUpper() == "EMAIL ADDRESS")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Email;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "BLOCK NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOUSE NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOUSE NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "HOME NO." ||
+                            cellValue.ToString().Trim().ToUpper() == "HOME NO" ||
+                            cellValue.ToString().Trim().ToUpper() == "BLOCK NUMBER")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.BlockNo;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "STREET")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Street;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "BARANGAY")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Barangay;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "CITY")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.City;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "CONTACTNUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT_NUMBER" ||
+                            cellValue.ToString().Trim().ToUpper() == "CONTACT-NUMBER")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.ContactNum;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "DEPARTMENT" ||
+                            cellValue.ToString().Trim().ToUpper() == "COLLEGE DEPARTMENT")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.Department;
+                        }
+                        else if (cellValue.ToString().Trim().ToUpper() == "IMAGE PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGE_PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGE-PATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "IMAGEPATH" ||
+                            cellValue.ToString().Trim().ToUpper() == "PROFILE PICTURE" ||
+                            cellValue.ToString().Trim().ToUpper() == "PROFILE_PICTURE")
+                        {
+                            sequence[col - 1] = (int)TeacherInfo.ImagePath;
+                        }
+                        else return IdentificationResult.CreateError($"Column {headerName} in your header is not in the right format or does not correctly identify the column");
                     }
-                    else if (cellValue.ToString().Trim().ToUpper() == "FIRSTNAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "FIRST-NAME")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.FirstName;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "MIDDLENAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE_NAME" ||
-                        cellValue.ToString().Trim().ToUpper() == "MIDDLE-NAME")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.MiddleName;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "EMAIL")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Email;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "ADDRESS")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Address;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "CONTACTNUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT_NUMBER" ||
-                        cellValue.ToString().Trim().ToUpper() == "CONTACT-NUMBER")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.ContactNum;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "DEPARTMENT")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.Department;
-                    }
-                    else if (cellValue.ToString().Trim().ToUpper() == "IMAGE PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGE_PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGE-PATH" ||
-                        cellValue.ToString().Trim().ToUpper() == "IMAGEPATH")
-                    {
-                        sequence[col - 1] = (int)TeacherInfo.ImagePath;
-                    }
-                    else return new int[0];
+                    else return IdentificationResult.CreateError($"Column {col} in your header is empty");
                 }
-                else return new int[0]; //Return imediately if the cell is empty
             }
-            return sequence;
+            return IdentificationResult.CreateSuccess(sequence);
         }
-        public static bool CheckStudentInfoFromExcel(string[] studentInfos)
+        public static (bool isValid, string errorMessage) CheckStudentInfoFromExcel(string[] studentInfos)
         {
-            //Checks email
+            // Checks middle initial
+            if (!IsOnlyCharacterOrNA(studentInfos[(int)StudentInfo.MiddleInitial]))
+            {
+                return (false, "Invalid middle initial");
+            }
+
+            // Checks email
             if (IsEmailExisting(studentInfos[(int)StudentInfo.Email]))
             {
-                Console.WriteLine("Entered email check 1");
-                return false;
+                return (false, "Email already exists");
             }
             if (!IsValidEmail(studentInfos[(int)StudentInfo.Email]))
             {
-                Console.WriteLine("Entered email check 2");
-                return false;
+                return (false, "Invalid email format");
             }
-            //Checks contact number
+
+            // Checks contact number
             if (!IsValidContactNumber(studentInfos[(int)StudentInfo.ContactNum]))
             {
-                Console.WriteLine("Entered contact number check");
-                return false;
+                return (false, "Invalid contact number");
             }
-            //Checks year level
-            if (!IsValidInteger(studentInfos[(int)StudentInfo.YearLevel]) &&
-                int.TryParse(studentInfos[(int)StudentInfo.YearLevel], out int parsedYearLevel) &&
-                parsedYearLevel > 0 && parsedYearLevel < 7)
+
+            // Checks year level
+            if (!IsValidInteger(studentInfos[(int)StudentInfo.YearLevel]) ||
+                !int.TryParse(studentInfos[(int)StudentInfo.YearLevel], out int parsedYearLevel) ||
+                parsedYearLevel <= 0 || parsedYearLevel >= 7)
             {
-                Console.WriteLine("Entered year level check");
-                return false;
+                return (false, "Invalid year level");
             }
-            //Checks file location
+
+            // Checks file location
             if (string.IsNullOrEmpty(studentInfos[(int)StudentInfo.ImagePath]) ||
                 !(studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO_IMAGE" ||
-                studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
-                studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO-IMAGE" ||
-                studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NOIMAGE" ||
-                studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "N/A"))
+                  studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
+                  studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO-IMAGE" ||
+                  studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NOIMAGE" ||
+                  studentInfos[(int)StudentInfo.ImagePath].ToUpper().Trim() == "N/A"))
             {
-                if (!DoesFileExistAndIsImage(studentInfos[9]))
+                if (!DoesFileExistAndIsImage(studentInfos[(int)StudentInfo.ImagePath]))
                 {
-                    Console.WriteLine("Entered image check");
-                    return false;
+                    return (false, "Invalid image file or file does not exist");
                 }
             }
+
+            string[] headerNames = { "Last Name", "First Name", "Middle Initial", "Email Address",
+                "Block No.", "Street", "Barangay", "City", "Contact Number", "College Department", "Year Level", "Section",  "Image Path" };
+
             for (int i = 0; i < studentInfos.Length; i++)
             {
-                //skip iteration
+                // Skip iteration
                 if (i == (int)StudentInfo.Email || i == (int)StudentInfo.ContactNum ||
-                    i == (int)StudentInfo.YearLevel || i == (int)StudentInfo.ImagePath) continue;
-                //Checks other infos
+                    i == (int)StudentInfo.YearLevel || i == (int)StudentInfo.ImagePath || i == (int)StudentInfo.MiddleInitial) continue;
+
+                // Checks other infos
                 if (string.IsNullOrEmpty(studentInfos[i]))
                 {
-                    Console.WriteLine("Entered Book info is null check");
-                    return false;
+                    return (false, $"Entered student info is null in column {headerNames[i]}");
                 }
             }
-            return true;
+            return (true, null); // No errors
         }
-        public static bool CheckTeacherInfoFromExcel(string[] teacherInfos)
+        public static (bool isValid, string errorMessage) CheckTeacherInfoFromExcel(string[] teacherInfos)
         {
+            // Checks middle initial
+            if (!IsOnlyCharacterOrNA(teacherInfos[(int)TeacherInfo.MiddleInitial]))
+            {
+                return (false, "Invalid middle initial");
+            }
             //Checks email
             if (IsEmailExisting(teacherInfos[(int)TeacherInfo.Email]))
             {
-                Console.WriteLine("Entered email check 1");
-                return false;
+                return (false, "Email already exists");
             }
             if (!IsValidEmail(teacherInfos[(int)TeacherInfo.Email]))
             {
-                Console.WriteLine("Entered email check 2");
-                return false;
+                return (false, "Invalid email format");
             }
             //Checks contact number
             if (!IsValidContactNumber(teacherInfos[(int)TeacherInfo.ContactNum]))
             {
-                Console.WriteLine("Entered contact number check");
-                return false;
+                return (false, "Invalid contact number");
             }
 
             //Checks file location
@@ -592,30 +714,30 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             {
                 if (!DoesFileExistAndIsImage(teacherInfos[(int)TeacherInfo.ImagePath]))
                 {
-                    Console.WriteLine("Entered image check");
-                    Console.WriteLine(teacherInfos[(int)TeacherInfo.ImagePath].ToUpper().Trim());
-                    return false;
+                    return (false, "Invalid image file or file does not exist");
                 }
             }
+            string[] headerNames = { "Last Name", "First Name", "Middle Initial", "Email Address",
+                "Block No.", "Street", "Barangay", "City", "Contact Number", "College Department", "Image Path" };
             for (int i = 0; i < teacherInfos.Length; i++)
             {
                 //skip iteration
-                if (i == (int)TeacherInfo.Email || i == (int)TeacherInfo.ContactNum || i == (int)TeacherInfo.ImagePath) continue;
+                if (i == (int)TeacherInfo.Email || i == (int)TeacherInfo.ContactNum || i == (int)TeacherInfo.ImagePath ||
+                    i == (int)StudentInfo.MiddleInitial) continue;
                 //Checks other infos
                 if (string.IsNullOrEmpty(teacherInfos[i]))
                 {
-                    Console.WriteLine("Entered Teacher info is null check");
-                    return false;
+                    return (false, $"Entered student info is null in column {headerNames[i]}");
                 }
             }
-            return true;
+            return (true, null); // No errors
         }
 
         //FOR EXTRACTING INFORMATION IN THE DATABASE
         private static string[] GetUserByEmail(string email)
         {
             string[] result = new string[10];
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -653,7 +775,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         private static string[] GetAdminOrEmployeeByUserid(int id, int userLevel)
         {
             string[] result = new string[2];
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -688,7 +810,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         static int GetUserIdByEmailAndLastName(string email, string lastName)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -731,7 +853,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             ArrayList employeesList = new ArrayList();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -771,7 +893,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             ArrayList studentsList = new ArrayList();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -816,7 +938,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             ArrayList teachersList = new ArrayList();
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -857,7 +979,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             Employee employee = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -898,7 +1020,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             Student student = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -942,7 +1064,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         {
             Teacher teacher = null;
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -990,7 +1112,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 string tableName = isAdmin ? "admin" : "employee";
                 string idColumnName = isAdmin ? "admin_id" : "employee_id";
 
-                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     connection.Open();
 
@@ -1010,14 +1132,185 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return null; // Or throw an exception, depending on your requirements
         }
+        public static List<BookStatusInfo> GetBookStatusList(int userId, int daysToAdd)
+        {
+            // Create a list to store book status information
+            List<BookStatusInfo> bookStatusList = new List<BookStatusInfo>();
 
+            // Query to retrieve information from the database
+            string sqlQuery = @"
+            SELECT 
+                b.title,
+                bb.borrowed_at,
+                DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) AS return_due_date,
+                bb.is_returned,
+                CASE
+                    WHEN bb.is_returned = 1 THEN rb.return_at
+                    ELSE NULL
+                END AS return_date,
+                CASE
+                    WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    ELSE 'Not Overdue'
+                END AS status
+                FROM borrowed_books bb
+                JOIN books b ON bb.book_id = b.id
+                LEFT JOIN returned_books rb ON bb.book_id = rb.book_id AND bb.borrower_id = rb.borrower_id
+                WHERE bb.borrower_id = @UserId;
+            ";
 
+            try
+            {
+                // Open a MySqlConnection
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+                {
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open();
+                    }
+
+                    // Create a MySqlCommand and set the parameters
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.Parameters.AddWithValue("@DaysToAdd", daysToAdd);
+
+                        // Execute the query and read the results
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    // Retrieve information from the query results
+                                    BookStatusInfo bookStatus = new BookStatusInfo()
+                                    {
+                                        Title = reader["title"].ToString(),
+                                        BorrowedAt = (DateTime)reader["borrowed_at"],
+                                        ReturnDueDate = (DateTime)reader["return_due_date"],
+                                        IsReturned = Convert.ToBoolean(reader["is_returned"])
+                                    };
+
+                                    if (bookStatus.IsReturned && reader["return_date"] != DBNull.Value)
+                                    {
+                                        bookStatus.ReturnDate = (DateTime)reader["return_date"];
+                                    }
+                                    else
+                                    {
+                                        bookStatus.ReturnDate = DateTime.MinValue;
+                                    }
+
+                                    bookStatus.Status = reader["status"].ToString();
+
+                                    // Add the BookStatusInfo to the list
+                                    bookStatusList.Add(bookStatus);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (log, throw, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return bookStatusList;
+        }
+
+        public static List<BookStatusInfo> GetEmployeeBookStatusList(int userId, int daysToAdd)
+        {
+            // Create a list to store book status information
+            List<BookStatusInfo> bookStatusList = new List<BookStatusInfo>();
+
+            // Query to retrieve information from the database
+            string sqlQuery = @"
+            SELECT 
+                b.title,
+                bb.borrowed_at,
+                DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) AS return_due_date,
+                bb.is_returned,
+                CASE
+                    WHEN bb.is_returned = 1 THEN rb.return_at
+                    ELSE NULL
+                END AS return_date,
+                CASE
+                    WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    ELSE 'Not Overdue'
+                END AS status
+                FROM borrowed_books bb
+                JOIN books b ON bb.book_id = b.id
+                LEFT JOIN returned_books rb ON bb.book_id = rb.book_id AND bb.borrower_id = rb.borrower_id
+                WHERE bb.librarian_id = @UserId;
+            ";
+
+            try
+            {
+                // Open a MySqlConnection
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+                {
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open();
+                    }
+
+                    // Create a MySqlCommand and set the parameters
+                    using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.Parameters.AddWithValue("@DaysToAdd", daysToAdd);
+
+                        // Execute the query and read the results
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    // Retrieve information from the query results
+                                    BookStatusInfo bookStatus = new BookStatusInfo()
+                                    {
+                                        Title = reader["title"].ToString(),
+                                        BorrowedAt = (DateTime)reader["borrowed_at"],
+                                        ReturnDueDate = (DateTime)reader["return_due_date"],
+                                        IsReturned = Convert.ToBoolean(reader["is_returned"])
+                                    };
+
+                                    if (bookStatus.IsReturned && reader["return_date"] != DBNull.Value)
+                                    {
+                                        bookStatus.ReturnDate = (DateTime)reader["return_date"];
+                                    }
+                                    else
+                                    {
+                                        bookStatus.ReturnDate = DateTime.MinValue;
+                                    }
+
+                                    bookStatus.Status = reader["status"].ToString();
+
+                                    // Add the BookStatusInfo to the list
+                                    bookStatusList.Add(bookStatus);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions (log, throw, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            return bookStatusList;
+        }
         //FOR INSERTING NEW USER RECORDS IN THE DATABASE(DONE)
         private static bool AddUser(string firstName, string lastName, string middleName, string email, string address,
             string contactNum, int userLevel, string imagePath = "NO_IMAGE")
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1034,7 +1327,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         //Add parameters to the command
                         command.Parameters.AddWithValue("@firstName", firstName);
                         command.Parameters.AddWithValue("@lastName", lastName);
-                        command.Parameters.AddWithValue("@middleName", middleName);
+                        command.Parameters.AddWithValue("@middleName", middleName.ToUpper().Trim().Trim('.'));
                         command.Parameters.AddWithValue("@email", email);
                         command.Parameters.AddWithValue("@address", address);
                         command.Parameters.AddWithValue("@contactNum", contactNum);
@@ -1065,7 +1358,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             return condition;
         }
         public static bool AddAdminOrEmployee(string email, string lastName,
-            string firstName, string middleName, string address, string contactNum, int userLevel, string password, string imagePath = "NO_IMAGE", 
+            string firstName, string middleName, string address, string contactNum, int userLevel, string password, string imagePath = "NO_IMAGE",
             string securityQuestion = "NO_SECURITY_QUESTION", string securityAnswer = "NO_SECURITY_ANSWER")
         {
             bool condition = false;
@@ -1088,7 +1381,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             {
                 tableName = "employees";
             }
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1155,7 +1448,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 return condition;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1171,7 +1464,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     int userID = GetUserIdByEmailAndLastName(email, lastName);
 
                     if (userID == -1)
-                    {                 
+                    {
                         return condition;
                     }
 
@@ -1193,7 +1486,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         }
                         else
                         {
-                           condition = false;
+                            condition = false;
                         }
                     }
 
@@ -1219,7 +1512,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 return condition;
             }
 
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1268,30 +1561,68 @@ namespace Archivary.BACKEND.USER_OPERATIONS
             }
             return condition;
         }
-        public static void AddStudentByExcel(string fileLocation, string workSheetLocation, int startRow)
+        public static List<string> AddStudentByExcel(string fileLocation, string workSheetLocation, int startRow)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial; //Indicates to the dependency that this is for non-commercial use
+
+            List<string> errors = new List<string>();
 
             using (var package = new ExcelPackage(new FileInfo(fileLocation)))
             {
                 if (package != null)
                 {
-                    //.WriteLine(package.Workbook.Worksheets.Count); Just for debug
                     var worksheet = package.Workbook.Worksheets[workSheetLocation];
-                    //if (worksheet == null) Console.WriteLine("is null"); Just for debug
 
                     //Check if the worksheet exists
                     if (worksheet != null)
                     {
-                        //Iterate through the rows and columns
-                        Console.WriteLine(worksheet.Dimension.End.Row.ToString() + " Rows");
-
-                        for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
+                        // Get the actual row count with data
+                        int actualRowCount = 0;
+                        for (int row = startRow - 1; row <= worksheet.Dimension.End.Row; row++)
                         {
-                            string[] colValues = new string[10];
-                            for (int col = worksheet.Dimension.Start.Column; col <= colValues.Length; col++)
-                            {
+                            var rowHasData = worksheet.Cells[row, worksheet.Dimension.Start.Column, row, worksheet.Dimension.End.Column]
+                                .Any(cell => cell.Value != null);
 
+                            if (rowHasData)
+                            {
+                                actualRowCount++;
+                            }
+                        }
+
+                        if (actualRowCount == 0 || actualRowCount == 1)
+                        {
+                            errors.Add("There are no information inside the excell file");
+                            return errors;
+                        }
+
+                        int actualColumnCount = 0;
+                        for (int col = worksheet.Dimension.Start.Column; col <= worksheet.Dimension.End.Column; col++)
+                        {
+                            var columnHasData = worksheet.Cells
+                                .Any(cell => cell.Start.Column == col && cell.Value != null);
+
+                            if (columnHasData)
+                            {
+                                actualColumnCount++;
+                            }
+                        }
+
+                        // Check if the number of columns is as expected
+                        if (actualColumnCount != 13)
+                        {
+                            errors.Add($"Expected {13} columns, but found {actualColumnCount} columns.");
+                            return errors;
+                        }
+
+                        // Adjust actualRowCount based on the presence of header
+                        //Iterate through the rows and columns
+                        for (int row = 1; row <= (startRow - 2) + actualRowCount; row++)
+                        {
+                            if (row < startRow) continue; //skips the rows above the header
+                            string[] colValues = new string[13]; //Store info here
+                            //Iterate through columns
+                            for (int col = worksheet.Dimension.Start.Column; col <= actualColumnCount; col++)
+                            {
                                 //Take cell info of value
                                 var cellValue = worksheet.Cells[row, col].Value;
 
@@ -1316,25 +1647,31 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     colValues[col - 1] = string.Empty;
                                 }
                             }
-
                             //If start row is greater than 1, check the header to identify which info is in the column
                             //If start row is equal to 1 it will identify the information by default order
                             if (startRow > 1)
                             {
-                                //Array to identify each column that has corresponding values
-                                int[] sequence = IdentifyStudentColumnInfoSequence(worksheet, startRow);
-
+                                // Check the header
+                                IdentificationResult result = IdentifyStudentColumnInfoSequence(worksheet, startRow);
+                                if (!result.Success)
+                                {
+                                    errors.Add(result.ErrorMessage);
+                                    return errors;
+                                }
                                 //Check if header is appropriate and describes the required book info
-                                if (sequence.Length != 0)
+                                if (result.Success)
                                 {
                                     //Sort info
-                                    SortInfoBaseOnSequence(sequence, colValues);
+                                    SortInfoBaseOnSequence(result.Sequence, colValues);
                                 }
-                                else return; //Return immediately to avoid insertion of incorrect information
                             }
                             //Check if all infos provided is valid
-                            if (CheckStudentInfoFromExcel(colValues))
+                            var validateResult = CheckStudentInfoFromExcel(colValues);
+                            if (validateResult.isValid)
                             {
+                                string address = colValues[(int)StudentInfo.BlockNo] + ", " + colValues[(int)StudentInfo.Street] + ", " +
+                                    colValues[(int)StudentInfo.Barangay] + ", " + colValues[(int)StudentInfo.City];
+
                                 if (string.IsNullOrEmpty(colValues[(int)StudentInfo.ImagePath]) ||
                                     colValues[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO_IMAGE" ||
                                     colValues[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
@@ -1342,65 +1679,115 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     colValues[(int)StudentInfo.ImagePath].ToUpper().Trim() == "NOIMAGE" ||
                                     colValues[(int)StudentInfo.ImagePath].ToUpper().Trim() == "N/A")
                                 {
+
                                     AddStudent(
-                                        colValues[(int)StudentInfo.FirstName],
-                                        colValues[(int)StudentInfo.LastName],
-                                        colValues[(int)StudentInfo.MiddleName],
-                                        colValues[(int)StudentInfo.Email],
-                                        colValues[(int)StudentInfo.Address],
-                                        colValues[(int)StudentInfo.ContactNum],
-                                        colValues[(int)StudentInfo.Department],
+                                        colValues[(int)StudentInfo.FirstName].Trim(),
+                                        colValues[(int)StudentInfo.LastName].Trim(),
+                                        colValues[(int)StudentInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
+                                        colValues[(int)StudentInfo.Email].Trim(),
+                                        address.Trim(),
+                                        colValues[(int)StudentInfo.ContactNum].Trim(),
+                                        colValues[(int)StudentInfo.Department].Trim(),
                                         int.Parse(colValues[(int)StudentInfo.YearLevel]),
-                                        colValues[(int)StudentInfo.Section]
+                                        colValues[(int)StudentInfo.Section].Trim()
                                         );
                                 }
                                 else
                                 {
                                     AddStudent(
-                                        colValues[(int)StudentInfo.FirstName],
-                                        colValues[(int)StudentInfo.LastName],
-                                        colValues[(int)StudentInfo.MiddleName],
-                                        colValues[(int)StudentInfo.Email],
-                                        colValues[(int)StudentInfo.Address],
-                                        colValues[(int)StudentInfo.ContactNum],
-                                        colValues[(int)StudentInfo.Department],
+                                        colValues[(int)StudentInfo.FirstName].Trim(),
+                                        colValues[(int)StudentInfo.LastName].Trim(),
+                                        colValues[(int)StudentInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
+                                        colValues[(int)StudentInfo.Email].Trim(),
+                                        address,
+                                        colValues[(int)StudentInfo.ContactNum].Trim(),
+                                        colValues[(int)StudentInfo.Department].Trim(),
                                         int.Parse(colValues[(int)StudentInfo.YearLevel]),
-                                        colValues[(int)StudentInfo.Section],
-                                        colValues[(int)StudentInfo.ImagePath]
+                                        colValues[(int)StudentInfo.Section].Trim(),
+                                        colValues[(int)StudentInfo.ImagePath].Trim()
                                         );
                                 }
-
+                            }
+                            else
+                            {
+                                errors.Add($"Row Number: {row} {validateResult.errorMessage}");
                             }
                         }
-                        Console.Write("Student insert from excel finished");
+                    }
+                    else
+                    {
+                        errors.Add($"Worksheet {workSheetLocation} does not exist");
                     }
                 }
+                else
+                {
+                    errors.Add($"File: {fileLocation} does not exist");
+                }
             }
+            return errors;
         }
-        public static void AddTeacherByExcel(string fileLocation, string workSheetLocation, int startRow)
+        public static List<string> AddTeacherByExcel(string fileLocation, string workSheetLocation, int startRow)
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial; //Indicates to the dependency that this is for non-commercial use
+
+            List<string> errors = new List<string>();
 
             using (var package = new ExcelPackage(new FileInfo(fileLocation)))
             {
                 if (package != null)
                 {
-                    //.WriteLine(package.Workbook.Worksheets.Count); Just for debug
                     var worksheet = package.Workbook.Worksheets[workSheetLocation];
-                    //if (worksheet == null) Console.WriteLine("is null"); Just for debug
 
                     //Check if the worksheet exists
                     if (worksheet != null)
                     {
-                        //Iterate through the rows and columns
-                        Console.WriteLine(worksheet.Dimension.End.Row.ToString() + " Rows");
-
-                        for (int row = startRow; row <= worksheet.Dimension.End.Row; row++)
+                        // Get the actual row count with data
+                        int actualRowCount = 0;
+                        for (int row = startRow - 1; row <= worksheet.Dimension.End.Row; row++)
                         {
-                            string[] colValues = new string[8];
+                            var rowHasData = worksheet.Cells[row, worksheet.Dimension.Start.Column, row, worksheet.Dimension.End.Column]
+                                .Any(cell => cell.Value != null);
+
+                            if (rowHasData)
+                            {
+                                actualRowCount++;
+                            }
+                        }
+
+                        if (actualRowCount == 0 || actualRowCount == 1)
+                        {
+                            errors.Add("There are no information inside the excell file");
+                            return errors;
+                        }
+
+                        int actualColumnCount = 0;
+                        for (int col = worksheet.Dimension.Start.Column; col <= worksheet.Dimension.End.Column; col++)
+                        {
+                            var columnHasData = worksheet.Cells
+                                .Any(cell => cell.Start.Column == col && cell.Value != null);
+
+                            if (columnHasData)
+                            {
+                                actualColumnCount++;
+                            }
+                        }
+
+                        // Check if the number of columns is as expected
+                        if (actualColumnCount != 11)
+                        {
+                            errors.Add($"Expected {11} columns, but found {actualColumnCount} columns.");
+                            return errors;
+                        }
+
+                        // Adjust actualRowCount based on the presence of header
+                        //Iterate through the rows and columns
+                        for (int row = startRow; row <= (startRow - 2) + actualRowCount; row++)
+                        {
+                            if (row < startRow) continue; //skips the rows above the header
+                            string[] colValues = new string[11]; //Store info here
+                            //Iterate through columns
                             for (int col = worksheet.Dimension.Start.Column; col <= colValues.Length; col++)
                             {
-
                                 //Take cell info of value
                                 var cellValue = worksheet.Cells[row, col].Value;
 
@@ -1430,20 +1817,27 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                             //If start row is equal to 1 it will identify the information by default order
                             if (startRow > 1)
                             {
-                                //Array to identify each column that has corresponding values
-                                int[] sequence = IdentifyTeacherColumnInfoSequence(worksheet, startRow);
-
+                                // Check the header
+                                IdentificationResult result = IdentifyTeacherColumnInfoSequence(worksheet, startRow);
+                                if (!result.Success)
+                                {
+                                    errors.Add(result.ErrorMessage);
+                                    return errors;
+                                }
                                 //Check if header is appropriate and describes the required book info
-                                if (sequence.Length != 0)
+                                if (result.Success)
                                 {
                                     //Sort info
-                                    SortInfoBaseOnSequence(sequence, colValues);
+                                    SortInfoBaseOnSequence(result.Sequence, colValues);
                                 }
-                                else return; //Return immediately to avoid insertion of incorrect information
                             }
                             //Check if all infos provided is valid
-                            if (CheckTeacherInfoFromExcel(colValues))
+                            var validateResult = CheckTeacherInfoFromExcel(colValues);
+                            if (validateResult.isValid)
                             {
+                                string address = colValues[(int)TeacherInfo.BlockNo] + ", " + colValues[(int)TeacherInfo.Street] + ", " +
+                                    colValues[(int)TeacherInfo.Barangay] + ", " + colValues[(int)TeacherInfo.City];
+
                                 if (string.IsNullOrEmpty(colValues[(int)TeacherInfo.ImagePath]) ||
                                     colValues[(int)TeacherInfo.ImagePath].ToUpper().Trim() == "NO_IMAGE" ||
                                     colValues[(int)TeacherInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
@@ -1454,9 +1848,9 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddTeacher(
                                             colValues[(int)TeacherInfo.FirstName],
                                             colValues[(int)TeacherInfo.LastName],
-                                            colValues[(int)TeacherInfo.MiddleName],
+                                            colValues[(int)TeacherInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
                                             colValues[(int)TeacherInfo.Email],
-                                            colValues[(int)TeacherInfo.Address],
+                                            address,
                                             colValues[(int)TeacherInfo.ContactNum],
                                             colValues[(int)TeacherInfo.Department]
                                         );
@@ -1466,9 +1860,9 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                     AddTeacher(
                                             colValues[(int)TeacherInfo.FirstName],
                                             colValues[(int)TeacherInfo.LastName],
-                                            colValues[(int)TeacherInfo.MiddleName],
+                                            colValues[(int)TeacherInfo.MiddleInitial].ToUpper().Trim().Trim('.'),
                                             colValues[(int)TeacherInfo.Email],
-                                            colValues[(int)TeacherInfo.Address],
+                                            address,
                                             colValues[(int)TeacherInfo.ContactNum],
                                             colValues[(int)TeacherInfo.Department],
                                             colValues[(int)TeacherInfo.ImagePath]
@@ -1476,16 +1870,28 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                 }
 
                             }
+                            else
+                            {
+                                errors.Add($"Row Number: {row} {validateResult.errorMessage}");
+                            }
                         }
-                        Console.Write("Student insert from excel finished");
+                    }
+                    else
+                    {
+                        errors.Add($"Worksheet {workSheetLocation} does not exist");
                     }
                 }
+                else
+                {
+                    errors.Add($"File: {fileLocation} does not exist");
+                }
             }
+            return errors;
         }
         //USER CREATION IN THE APP - LOGIN
         public static object Login(string email, string password)
         {
-            if(string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password)) 
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 return null;
             }
@@ -1552,7 +1958,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         //FOR UPDATING USER INFORMATION (NEXT)
         public static bool UpdateSecurityQuestion(string adminOrEmployeeId, int userLevel, string newQuestion)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1584,7 +1990,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static bool UpdateSecurityAnswer(string adminOrEmployeeId, int userLevel, string newAnswer)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 try
                 {
@@ -1617,7 +2023,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         public static bool UpdateStudentInformation(int studentUserId, string newDepartment, int newYearLevel, string newSection, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1640,7 +2046,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
-                        { 
+                        {
                             condition = true;
                         }
                         else
@@ -1648,7 +2054,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                             condition = false;
                         }
                     }
-                    
+
                 }
             }
             return condition;
@@ -1656,7 +2062,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         public static bool UpdateTeacherInformation(int teacherUserId, string newDepartment, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1666,7 +2072,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
                 using (MySqlCommand cmd = new MySqlCommand(updateQuery, connection))
                 {
-                    if(UpdateUserInformation(teacherUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
+                    if (UpdateUserInformation(teacherUserId, firstName, lastName, middleName, address, contactNumber, imagePath))
                     {
                         cmd.Parameters.AddWithValue("@user_Id", teacherUserId);
                         cmd.Parameters.AddWithValue("@NewDepartment", newDepartment);
@@ -1689,7 +2095,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         public static bool UpdateUserInformation(int userId, string firstName, string lastName, string middleName, string address, string contactNumber, string imagePath)
         {
             bool condition = false;
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1707,7 +2113,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     cmd.Parameters.AddWithValue("@UserId", userId);
                     cmd.Parameters.AddWithValue("@FirstName", firstName);
                     cmd.Parameters.AddWithValue("@LastName", lastName);
-                    cmd.Parameters.AddWithValue("@MiddleName", middleName);
+                    cmd.Parameters.AddWithValue("@MiddleName", middleName.ToUpper().Trim('.').Trim());
                     cmd.Parameters.AddWithValue("@Address", address);
                     cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
                     cmd.Parameters.AddWithValue("@ImagePath", imagePath);
@@ -1728,7 +2134,8 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static void UpdateUserStatus(int userId, string newStatus)
         {
-            using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+            TimerOpersys.Start();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
@@ -1742,6 +2149,8 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                     command.ExecuteNonQuery();
                 }
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
         public static bool UpdatePassword(string userId, string newPassword)
         {
@@ -1753,7 +2162,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                 string tableName = isAdmin ? "admin" : "employee";
                 string idColumnName = isAdmin ? "admin_id" : "employee_id";
 
-                using (MySqlConnection connection = new MySqlConnection(CONNECTION_STRING))
+                using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     connection.Open();
 
@@ -1773,8 +2182,7 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return false; // Or throw an exception, depending on your requirements
         }
-
-
         #endregion
+
     }
 }

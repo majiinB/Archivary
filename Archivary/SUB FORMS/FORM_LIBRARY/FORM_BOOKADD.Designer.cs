@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label shelfLabel;
             this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
             this.LAYOUT_RightSide = new System.Windows.Forms.TableLayoutPanel();
@@ -47,18 +48,25 @@
             this.titleTextbox = new RoundedCorners.RoundedTextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.LAYOUT_LeftSide = new System.Windows.Forms.TableLayoutPanel();
-            this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
+            this.uploadExcelButton = new roundedCorners.roundedButton();
             this.bookPIctureBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
+            this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.categoryDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveInfoButton = new roundedCorners.roundedButton();
-            this.uploadExcelButton = new roundedCorners.roundedButton();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dropdownMenu1 = new CustomDropdown.DropdownMenu(this.components);
+            this.academicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nonfictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dropdownMenu2 = new CustomDropdown.DropdownMenu(this.components);
             shelfLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.LAYOUT_RightSide.SuspendLayout();
             this.LAYOUT_LeftSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPIctureBox)).BeginInit();
+            this.dropdownMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // shelfLabel
@@ -148,8 +156,8 @@
             this.shelfTextbox.Radius = 10;
             this.shelfTextbox.Size = new System.Drawing.Size(624, 43);
             this.shelfTextbox.TabIndex = 19;
-            this.shelfTextbox.Text = "69";
             this.shelfTextbox.UseSystemPasswordChar = false;
+            this.shelfTextbox.TextChanged += new System.EventHandler(this.shelfTextbox_TextChanged);
             // 
             // aisleTextbox
             // 
@@ -168,8 +176,8 @@
             this.aisleTextbox.Radius = 10;
             this.aisleTextbox.Size = new System.Drawing.Size(624, 36);
             this.aisleTextbox.TabIndex = 17;
-            this.aisleTextbox.Text = "1";
             this.aisleTextbox.UseSystemPasswordChar = false;
+            this.aisleTextbox.TextChanged += new System.EventHandler(this.aisleTextbox_TextChanged);
             // 
             // aisleLabel
             // 
@@ -201,7 +209,6 @@
             this.copyrightTextbox.Radius = 10;
             this.copyrightTextbox.Size = new System.Drawing.Size(624, 36);
             this.copyrightTextbox.TabIndex = 15;
-            this.copyrightTextbox.Text = "<1969>";
             this.copyrightTextbox.UseSystemPasswordChar = false;
             // 
             // copyrightLabel
@@ -233,7 +240,6 @@
             this.authorMITextbox.Radius = 10;
             this.authorMITextbox.Size = new System.Drawing.Size(90, 36);
             this.authorMITextbox.TabIndex = 13;
-            this.authorMITextbox.Text = "R";
             this.authorMITextbox.UseSystemPasswordChar = false;
             // 
             // authorFNTextbox
@@ -253,7 +259,6 @@
             this.authorFNTextbox.Radius = 10;
             this.authorFNTextbox.Size = new System.Drawing.Size(261, 36);
             this.authorFNTextbox.TabIndex = 11;
-            this.authorFNTextbox.Text = "Andrei";
             this.authorFNTextbox.UseSystemPasswordChar = false;
             // 
             // authorLNTextbox
@@ -273,7 +278,6 @@
             this.authorLNTextbox.Radius = 10;
             this.authorLNTextbox.Size = new System.Drawing.Size(261, 36);
             this.authorLNTextbox.TabIndex = 10;
-            this.authorLNTextbox.Text = "Ayala";
             this.authorLNTextbox.UseSystemPasswordChar = false;
             // 
             // authorLabel
@@ -306,7 +310,6 @@
             this.publisherTextbox.Radius = 10;
             this.publisherTextbox.Size = new System.Drawing.Size(357, 36);
             this.publisherTextbox.TabIndex = 8;
-            this.publisherTextbox.Text = "Lampara Books";
             this.publisherTextbox.UseSystemPasswordChar = false;
             // 
             // ISBNTextbox
@@ -326,8 +329,8 @@
             this.ISBNTextbox.Radius = 10;
             this.ISBNTextbox.Size = new System.Drawing.Size(261, 36);
             this.ISBNTextbox.TabIndex = 6;
-            this.ISBNTextbox.Text = "1436969143";
             this.ISBNTextbox.UseSystemPasswordChar = false;
+            this.ISBNTextbox.TextChanged += new System.EventHandler(this.ISBNTextbox_TextChanged);
             // 
             // PublisherLabel
             // 
@@ -372,7 +375,6 @@
             this.titleTextbox.Radius = 10;
             this.titleTextbox.Size = new System.Drawing.Size(624, 36);
             this.titleTextbox.TabIndex = 2;
-            this.titleTextbox.Text = "Lord of the Rings";
             this.titleTextbox.UseSystemPasswordChar = false;
             // 
             // titleLabel
@@ -413,27 +415,26 @@
             this.LAYOUT_LeftSide.Size = new System.Drawing.Size(219, 511);
             this.LAYOUT_LeftSide.TabIndex = 9;
             // 
-            // genreDropdown
+            // uploadExcelButton
             // 
-            this.genreDropdown.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.genreDropdown.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
-            this.genreDropdown.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.genreDropdown.BorderRadius = 10;
-            this.genreDropdown.BorderSize = 0;
-            this.genreDropdown.ButtonImage = global::Archivary.Properties.Resources.ICON_DROPDOWN;
-            this.genreDropdown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genreDropdown.FlatAppearance.BorderSize = 0;
-            this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreDropdown.ForeColor = System.Drawing.Color.White;
-            this.genreDropdown.Location = new System.Drawing.Point(3, 462);
-            this.genreDropdown.Name = "genreDropdown";
-            this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.genreDropdown.Size = new System.Drawing.Size(213, 46);
-            this.genreDropdown.TabIndex = 3;
-            this.genreDropdown.Text = "Genre";
-            this.genreDropdown.TextColor = System.Drawing.Color.White;
-            this.genreDropdown.UseVisualStyleBackColor = false;
+            this.uploadExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadExcelButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.uploadExcelButton.BorderRadius = 20;
+            this.uploadExcelButton.BorderSize = 0;
+            this.uploadExcelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadExcelButton.FlatAppearance.BorderSize = 0;
+            this.uploadExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadExcelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadExcelButton.ForeColor = System.Drawing.Color.White;
+            this.uploadExcelButton.Location = new System.Drawing.Point(3, 328);
+            this.uploadExcelButton.Name = "uploadExcelButton";
+            this.uploadExcelButton.Size = new System.Drawing.Size(213, 43);
+            this.uploadExcelButton.TabIndex = 4;
+            this.uploadExcelButton.Text = "Upload Excel File";
+            this.uploadExcelButton.TextColor = System.Drawing.Color.White;
+            this.uploadExcelButton.UseVisualStyleBackColor = false;
+            this.uploadExcelButton.Click += new System.EventHandler(this.uploadExcelButton_Click);
             // 
             // bookPIctureBox
             // 
@@ -464,6 +465,30 @@
             this.uploadImageButton.Text = "Upload Image";
             this.uploadImageButton.TextColor = System.Drawing.Color.White;
             this.uploadImageButton.UseVisualStyleBackColor = false;
+            this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
+            // 
+            // genreDropdown
+            // 
+            this.genreDropdown.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.genreDropdown.BackgroundColor = System.Drawing.Color.DarkSlateBlue;
+            this.genreDropdown.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.genreDropdown.BorderRadius = 10;
+            this.genreDropdown.BorderSize = 0;
+            this.genreDropdown.ButtonImage = global::Archivary.Properties.Resources.ICON_DROPDOWN;
+            this.genreDropdown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreDropdown.FlatAppearance.BorderSize = 0;
+            this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genreDropdown.ForeColor = System.Drawing.Color.White;
+            this.genreDropdown.Location = new System.Drawing.Point(3, 462);
+            this.genreDropdown.Name = "genreDropdown";
+            this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.genreDropdown.Size = new System.Drawing.Size(213, 46);
+            this.genreDropdown.TabIndex = 3;
+            this.genreDropdown.Text = "Genre";
+            this.genreDropdown.TextColor = System.Drawing.Color.White;
+            this.genreDropdown.UseVisualStyleBackColor = false;
+            this.genreDropdown.Click += new System.EventHandler(this.genreDropdown_Click);
             // 
             // categoryDropdown
             // 
@@ -486,6 +511,7 @@
             this.categoryDropdown.Text = "Category";
             this.categoryDropdown.TextColor = System.Drawing.Color.White;
             this.categoryDropdown.UseVisualStyleBackColor = false;
+            this.categoryDropdown.Click += new System.EventHandler(this.categoryDropdown_Click);
             // 
             // cancelButton
             // 
@@ -525,26 +551,54 @@
             this.saveInfoButton.Text = "Save Info";
             this.saveInfoButton.TextColor = System.Drawing.Color.White;
             this.saveInfoButton.UseVisualStyleBackColor = false;
+            this.saveInfoButton.Click += new System.EventHandler(this.saveInfoButton_Click);
             // 
-            // uploadExcelButton
+            // openFileDialog
             // 
-            this.uploadExcelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadExcelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadExcelButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.uploadExcelButton.BorderRadius = 20;
-            this.uploadExcelButton.BorderSize = 0;
-            this.uploadExcelButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadExcelButton.FlatAppearance.BorderSize = 0;
-            this.uploadExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadExcelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadExcelButton.ForeColor = System.Drawing.Color.White;
-            this.uploadExcelButton.Location = new System.Drawing.Point(3, 328);
-            this.uploadExcelButton.Name = "uploadExcelButton";
-            this.uploadExcelButton.Size = new System.Drawing.Size(213, 43);
-            this.uploadExcelButton.TabIndex = 4;
-            this.uploadExcelButton.Text = "Upload Excel File";
-            this.uploadExcelButton.TextColor = System.Drawing.Color.White;
-            this.uploadExcelButton.UseVisualStyleBackColor = false;
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
+            // dropdownMenu1
+            // 
+            this.dropdownMenu1.IsMainMenu = false;
+            this.dropdownMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.academicToolStripMenuItem,
+            this.nonfictionToolStripMenuItem,
+            this.fictionToolStripMenuItem});
+            this.dropdownMenu1.MenuItemHeight = 25;
+            this.dropdownMenu1.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.dropdownMenu1.Name = "dropdownMenu1";
+            this.dropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
+            this.dropdownMenu1.Size = new System.Drawing.Size(132, 70);
+            // 
+            // academicToolStripMenuItem
+            // 
+            this.academicToolStripMenuItem.Name = "academicToolStripMenuItem";
+            this.academicToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.academicToolStripMenuItem.Text = "Academic";
+            this.academicToolStripMenuItem.Click += new System.EventHandler(this.academicToolStripMenuItem_Click);
+            // 
+            // nonfictionToolStripMenuItem
+            // 
+            this.nonfictionToolStripMenuItem.Name = "nonfictionToolStripMenuItem";
+            this.nonfictionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.nonfictionToolStripMenuItem.Text = "Nonfiction";
+            this.nonfictionToolStripMenuItem.Click += new System.EventHandler(this.nonfictionToolStripMenuItem_Click);
+            // 
+            // fictionToolStripMenuItem
+            // 
+            this.fictionToolStripMenuItem.Name = "fictionToolStripMenuItem";
+            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.fictionToolStripMenuItem.Text = "Fiction";
+            this.fictionToolStripMenuItem.Click += new System.EventHandler(this.fictionToolStripMenuItem_Click);
+            // 
+            // dropdownMenu2
+            // 
+            this.dropdownMenu2.IsMainMenu = false;
+            this.dropdownMenu2.MenuItemHeight = 25;
+            this.dropdownMenu2.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.dropdownMenu2.Name = "dropdownMenu2";
+            this.dropdownMenu2.PrimaryColor = System.Drawing.Color.Empty;
+            this.dropdownMenu2.Size = new System.Drawing.Size(61, 4);
             // 
             // FORM_BOOKADD
             // 
@@ -563,6 +617,7 @@
             this.LAYOUT_RightSide.ResumeLayout(false);
             this.LAYOUT_LeftSide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bookPIctureBox)).EndInit();
+            this.dropdownMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -594,5 +649,11 @@
         private RoundedCorners.RoundedTextBox copyrightTextbox;
         private System.Windows.Forms.Label copyrightLabel;
         private roundedCorners.roundedButton uploadExcelButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private CustomDropdown.DropdownMenu dropdownMenu1;
+        private System.Windows.Forms.ToolStripMenuItem academicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nonfictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
+        private CustomDropdown.DropdownMenu dropdownMenu2;
     }
 }

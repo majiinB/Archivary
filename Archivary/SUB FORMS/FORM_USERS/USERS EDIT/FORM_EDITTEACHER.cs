@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
 using System.Collections.Generic;
@@ -24,19 +25,9 @@ namespace Archivary._1200X800.FORM_USERS
             InitializeComponent();
             ShowInTaskbar = false;
             this.userTeacher = teacher;
-            lastNameTextBox.Text = teacher.TeacherLastName;
-            firstNameTextBox.Text = teacher.TeacherFirstName;
-            middleInitialTextBox.Text = teacher.TeacherMiddleName;
-            emailTextBox.Text = teacher.TeacherEmail;
-            contactNumberTextBox.Text = teacher.TeacherContactNum;
-            string[] address = UserOperation.SplitAddress(teacher.TeacherAddress);
-            houseNumberTextBox.Text = address[0];
-            streetTextBox.Text = address[1];
-            barangayTextBox.Text = address[2];
-            cityTextBox.Text = address[3];
-            SetPictureBoxImage(teacher.TeacherImagePath);
-            selectedFilePath = teacher.TeacherImagePath;   
+            InitializeTeacherInfo();
         }
+
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
             ControlPaint.DrawBorder(graphics, rectangle, color, borderWidth, ButtonBorderStyle.Solid,
@@ -51,7 +42,24 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            InitializeTeacherInfo();
             this.Close();
+        }
+
+        private void InitializeTeacherInfo()
+        {
+            lastNameTextBox.Text = userTeacher.TeacherLastName;
+            firstNameTextBox.Text = userTeacher.TeacherFirstName;
+            middleInitialTextBox.Text = userTeacher.TeacherMiddleName;
+            emailTextBox.Text = userTeacher.TeacherEmail;
+            contactNumberTextBox.Text = userTeacher.TeacherContactNum;
+            string[] address = UserOperation.SplitAddress(userTeacher.TeacherAddress);
+            houseNumberTextBox.Text = address[0];
+            streetTextBox.Text = address[1];
+            barangayTextBox.Text = address[2];
+            cityTextBox.Text = address[3];
+            SetPictureBoxImage(userTeacher.TeacherImagePath);
+            selectedFilePath = userTeacher.TeacherImagePath;
         }
         private void SetPictureBoxImage(string imagePath)
         {
@@ -64,7 +72,7 @@ namespace Archivary._1200X800.FORM_USERS
                 profilePictureImageBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
@@ -74,7 +82,7 @@ namespace Archivary._1200X800.FORM_USERS
                 profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
 
                 // Optionally, adjust the PictureBox size to fit the default image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
             }
             catch (Exception ex)
@@ -86,6 +94,7 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             //Concat the each textbox for adress
             string concatAddress = houseNumberTextBox.Text + ", " + streetTextBox.Text + ", "
                 + barangayTextBox.Text + ", " + cityTextBox.Text;
@@ -116,8 +125,10 @@ namespace Archivary._1200X800.FORM_USERS
                 if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                     string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                 {
+                    TimerOpersys.Stop();
                     alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
                     alert.ShowDialog();
+                    InitializeTeacherInfo();
                     return;
                 }
 
@@ -137,19 +148,31 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                     {
                         UpdateTeacherObject(concatAddress); // Update the object referenced
-                        alert = new FORM_ALERT(3, "TEACHER INFO UPDATE SUCCESS", "");
+                        TimerOpersys.Stop();
+                        alert = new FORM_ALERT(3, "TEACHER INFO UPDATE SUCCESS", $"Information of Teacher {firstNameTextBox.Text} is now updated");
                         alert.ShowDialog();
                         this.Close();
+                    }
+                    else
+                    {
+                        //Error message for input validation
+                        TimerOpersys.Stop();
+                        alert = new FORM_ALERT(1, "TEACHER INFO UPDATE FAILED", "An error has occured during the update process");
+                        alert.ShowDialog();
+                        InitializeTeacherInfo();
                     }
                 }
                 else
                 {
                     //Error message for input validation
-                    alert = new FORM_ALERT(1, "TEACHER INFO UPDATE FAILED", "An error has occured during the update process");
+                    TimerOpersys.Stop();
+                    alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
                     alert.ShowDialog();
+                    InitializeTeacherInfo();
                 }
-
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
 
         private void uploadImageButton_Click(object sender, EventArgs e)

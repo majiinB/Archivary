@@ -1,4 +1,5 @@
-﻿using Archivary.BACKEND.OBJECTS;
+﻿using Archivary._900X500;
+using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Archivary.PARENT_FORMS
     public partial class FORM_LOGIN : Form
     {
         private FORM_ROOT FormsRoot;
+        private FORM_ALERT alert;
 
         private readonly Size minimumSize = new Size(960, 650);
 
@@ -26,6 +28,7 @@ namespace Archivary.PARENT_FORMS
 
             this.Size = new Size(960, 650);
             this.MinimumSize = minimumSize;
+            this.KeyPreview = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,13 +59,29 @@ namespace Archivary.PARENT_FORMS
                             FormsRoot.WindowState = System.Windows.Forms.FormWindowState.Maximized;
                             this.Close();
                         }
-                        else MessageBox.Show("Invalid user type");
+                        else
+                        {
+                            alert = new FORM_ALERT(1, "Invalid User Type", "");
+                            alert.ShowDialog();
+                        }
                     }
-                    else MessageBox.Show("Invalid login credentials");
+                    else
+                    {
+                        alert = new FORM_ALERT(1, "Invalid login credentials", "Please double check your credentials");
+                        alert.ShowDialog();
+                    }
                 }
-                else MessageBox.Show("Invalid email address");
+                else
+                {
+                    alert = new FORM_ALERT(1, "Invalid email address", "Please enter a valid email address");
+                    alert.ShowDialog();
+                }
             }
-            else MessageBox.Show("One of the fields are empty");
+            else
+            {
+                alert = new FORM_ALERT(1, "Invalid login credentials", "One of the fields are empty");
+                alert.ShowDialog();
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -148,22 +167,7 @@ namespace Archivary.PARENT_FORMS
             }
         }
 
-        private void passwordPicturebox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LAYOUT_EYE_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void usernameTextbox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordTextbox_Click(object sender, EventArgs e)
+        private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
         {
 
         }

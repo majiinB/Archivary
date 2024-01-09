@@ -1,4 +1,5 @@
 ﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
 using System.Collections.Generic;
@@ -46,10 +47,11 @@ namespace Archivary._900X500
             if (!string.IsNullOrEmpty(oldPasswordTextBox.Text) &&
                 !string.IsNullOrEmpty(newPasswordTextBox.Text) &&
                 !string.IsNullOrEmpty(confirmNewPasswordTextBox.Text) &&
-                oldPasswordTextBox.Text != "Enter Old Password  " &&
-                newPasswordTextBox.Text != "Enter New Password  " &&
-                confirmNewPasswordTextBox.Text != "Enter New Password  ")
+                oldPasswordTextBox.Text != "Enter Old Password" &&
+                newPasswordTextBox.Text != "Enter New Password" &&
+                confirmNewPasswordTextBox.Text != "Confirm New Password")
             {
+                TimerOpersys.Start();
                 if (user is Admin admin)
                 {
                     string adminHashedPass = UserOperation.GetPassword(admin.AdminId);
@@ -62,6 +64,7 @@ namespace Archivary._900X500
                             {
                                 if (UserOperation.UpdatePassword(admin.AdminId, UserOperation.HashPassword(newPasswordTextBox.Text)))
                                 {
+                                    TimerOpersys.Stop();
                                     formAlert = new FORM_ALERT(3, "Password Change Success", "Admin " + admin.AdminFirstName + " has successfully changed his/her password");
                                     formAlert.ShowDialog();
                                     this.Close();
@@ -69,18 +72,21 @@ namespace Archivary._900X500
                             }
                             else
                             {
+                                TimerOpersys.Stop();
                                 formAlert = new FORM_ALERT(1, "Password Change Error", "Please enter a different password");
                                 formAlert.ShowDialog();
                             }
                         }
                         else
                         {
+                            TimerOpersys.Stop();
                             formAlert = new FORM_ALERT(1, "Password Change Error", "New pass and confimation pass are not the same please try again");
                             formAlert.ShowDialog();
                         }
                     }
                     else
                     {
+                        TimerOpersys.Stop();
                         formAlert = new FORM_ALERT(1, "Password Change Error", "Incorrect old password");
                         formAlert.ShowDialog();
                     }
@@ -97,6 +103,7 @@ namespace Archivary._900X500
                             {
                                 if (UserOperation.UpdatePassword(employee.EmployeeId, UserOperation.HashPassword(newPasswordTextBox.Text)))
                                 {
+                                    TimerOpersys.Stop();
                                     formAlert = new FORM_ALERT(33, "Password Change Success", "Employee " + employee.EmployeeFirstName + " has successfully changed his/her password");
                                     formAlert.ShowDialog();
                                     this.Close();
@@ -104,25 +111,31 @@ namespace Archivary._900X500
                             }
                             else
                             {
+                                TimerOpersys.Stop();
                                 formAlert = new FORM_ALERT(1, "Password Change Error", "Please enter a different password");
                                 formAlert.ShowDialog();
                             }
                         }
                         else
                         {
+                            TimerOpersys.Stop();
                             formAlert = new FORM_ALERT(1, "Password Change Error", "New pass and confimation pass are not the same please try again");
                             formAlert.ShowDialog();
                         }
                     }
                     else
                     {
+                        TimerOpersys.Stop();
                         formAlert = new FORM_ALERT(1, "Password Change Error", "Incorrect old password");
                         formAlert.ShowDialog();
                     }
                 }
+                TimerOpersys.Stop();
+                if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
             }
             else
             {
+                TimerOpersys.Stop();
                 formAlert = new FORM_ALERT(1, "Password Change Error", "One of the textbox are blank");
                 formAlert.ShowDialog();
             }
@@ -187,14 +200,14 @@ namespace Archivary._900X500
         private void oldPasswordTextBox_Enter(object sender, EventArgs e)
         {
             passwordInput1 = oldPasswordTextBox.Text;
-            if (passwordInput1 == "Enter Old Password  ") oldPasswordTextBox.Text = "";
+            if (passwordInput1 == "Enter Old Password") oldPasswordTextBox.Text = "";
             else oldPasswordTextBox.Text = passwordInput1;
         }
 
         private void oldPasswordTextBox_Leave(object sender, EventArgs e)
         {
             passwordInput1 = oldPasswordTextBox.Text;
-            if (string.IsNullOrWhiteSpace(passwordInput1)) oldPasswordTextBox.Text = "Enter Old Password  ";
+            if (string.IsNullOrWhiteSpace(passwordInput1)) oldPasswordTextBox.Text = "Enter Old Password";
         }
 
         //
@@ -203,14 +216,14 @@ namespace Archivary._900X500
         private void newPasswordTextBox_Enter(object sender, EventArgs e)
         {
             passwordInput2 = newPasswordTextBox.Text;
-            if (passwordInput2 == "Enter New Password  ") newPasswordTextBox.Text = "";
+            if (passwordInput2 == "Enter New Password") newPasswordTextBox.Text = "";
             else newPasswordTextBox.Text = passwordInput2;
         }
 
         private void newPasswordTextBox_Leave(object sender, EventArgs e)
         {
             passwordInput2 = newPasswordTextBox.Text;
-            if (string.IsNullOrWhiteSpace(passwordInput2)) newPasswordTextBox.Text = "Enter New Password  ";
+            if (string.IsNullOrWhiteSpace(passwordInput2)) newPasswordTextBox.Text = "Enter New Password";
         }
 
         //
@@ -219,14 +232,14 @@ namespace Archivary._900X500
         private void confirmNewPasswordTextBox_Enter(object sender, EventArgs e)
         {
             passwordInput3 = confirmNewPasswordTextBox.Text;
-            if (passwordInput3 == "Enter New Password  ") confirmNewPasswordTextBox.Text = "";
+            if (passwordInput3 == "Confirm New Password") confirmNewPasswordTextBox.Text = "";
             else confirmNewPasswordTextBox.Text = passwordInput3;
         }
 
         private void confirmNewPasswordTextBox_Leave(object sender, EventArgs e)
         {
             passwordInput3 = confirmNewPasswordTextBox.Text;
-            if (string.IsNullOrWhiteSpace(passwordInput3)) confirmNewPasswordTextBox.Text = "Enter New Password  ";
+            if (string.IsNullOrWhiteSpace(passwordInput3)) confirmNewPasswordTextBox.Text = "Confirm New Password";
         }
     }
 }

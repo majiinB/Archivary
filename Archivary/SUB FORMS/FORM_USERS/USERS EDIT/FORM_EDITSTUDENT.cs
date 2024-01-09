@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using OfficeOpenXml.Packaging.Ionic.Zlib;
 using System;
@@ -17,30 +18,17 @@ namespace Archivary._1200X800.FORM_USERS
     public partial class FORM_EDITSTUDENT : Form
     {
         private string selectedFilePath;
-        private Student userStudent;
+        private Student student;
         private FORM_ALERT alert;
 
         public FORM_EDITSTUDENT(Student student)
         {
             InitializeComponent();
             ShowInTaskbar = false;
-            this.userStudent = student;
-            lastNameTextBox.Text = student.StudentLastName;
-            firstNameTextBox.Text = student.StudentFirstName;
-            middleInitialTextBox.Text = student.StudentMiddleName;
-            emailTextBox.Text = student.StudentEmail;
-            contactNumberTextBox.Text = student.StudentContactNum;
-            collegeTextBox.Text = student.StudentDepartment;
-            yearTextBox.Text = student.StudentYearLevel.ToString();
-            sectionTextBox.Text = student.StudentSection;
-            string[] address = UserOperation.SplitAddress(student.StudentAddress);
-            houseNumberTextBox.Text = address[0];
-            streetTextBox.Text = address[1];
-            barangayTextBox.Text = address[2];
-            cityTextBox.Text = address[3];
-            SetPictureBoxImage(student.StudentImagePath);
-            selectedFilePath = student.StudentImagePath;
+            this.student = student;
+            InitializeStudentInfo();
         }
+        
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
             ControlPaint.DrawBorder(graphics, rectangle, color, borderWidth, ButtonBorderStyle.Solid,
@@ -60,7 +48,28 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            InitializeStudentInfo();
             this.Close();
+        }
+
+        #region BACKEND
+        private void InitializeStudentInfo()
+        {
+            lastNameTextBox.Text = student.StudentLastName;
+            firstNameTextBox.Text = student.StudentFirstName;
+            middleInitialTextBox.Text = student.StudentMiddleName;
+            emailTextBox.Text = student.StudentEmail;
+            contactNumberTextBox.Text = student.StudentContactNum;
+            collegeTextBox.Text = student.StudentDepartment;
+            yearTextBox.Text = student.StudentYearLevel.ToString();
+            sectionTextBox.Text = student.StudentSection;
+            string[] address = UserOperation.SplitAddress(student.StudentAddress);
+            houseNumberTextBox.Text = address[0];
+            streetTextBox.Text = address[1];
+            barangayTextBox.Text = address[2];
+            cityTextBox.Text = address[3];
+            SetPictureBoxImage(student.StudentImagePath);
+            selectedFilePath = student.StudentImagePath;
         }
         private void SetPictureBoxImage(string imagePath)
         {
@@ -73,7 +82,7 @@ namespace Archivary._1200X800.FORM_USERS
                 profilePictureImageBox.Image = image;
 
                 // Optionally, adjust the PictureBox size to fit the image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = image.Size;
             }
             catch (System.IO.FileNotFoundException)
@@ -83,7 +92,7 @@ namespace Archivary._1200X800.FORM_USERS
                 profilePictureImageBox.Image = Properties.Resources.PLACEHOLDER_PICTURE;
 
                 // Optionally, adjust the PictureBox size to fit the default image
-                profilePictureImageBox.SizeMode = PictureBoxSizeMode.Zoom;
+                profilePictureImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePictureImageBox.Size = Properties.Resources.PLACEHOLDER_PICTURE.Size;
             }
             catch (Exception ex)
@@ -92,7 +101,6 @@ namespace Archivary._1200X800.FORM_USERS
                 alert.ShowDialog();
             }
         }
-
         private void uploadImageButton_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "JPEG Files|*.jpeg;*.jpg|PNG Files|*.png";
@@ -103,25 +111,25 @@ namespace Archivary._1200X800.FORM_USERS
                 SetPictureBoxImage(selectedFilePath);
             }
         }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             //Concat the each textbox for adress
             string concatAddress = houseNumberTextBox.Text + ", " + streetTextBox.Text + ", "
                 + barangayTextBox.Text + ", " + cityTextBox.Text;
 
             //Check if any info has changed
-            if (firstNameTextBox.Text != userStudent.StudentFirstName || lastNameTextBox.Text != userStudent.StudentLastName ||
-                middleInitialTextBox.Text != userStudent.StudentMiddleName || emailTextBox.Text != userStudent.StudentEmail ||
-                concatAddress != userStudent.StudentAddress || contactNumberTextBox.Text != userStudent.StudentContactNum ||
-                selectedFilePath != userStudent.StudentImagePath || collegeTextBox.Text != userStudent.StudentDepartment ||
-                yearTextBox.Text != userStudent.StudentYearLevel.ToString() || sectionTextBox.Text != userStudent.StudentSection
+            if (firstNameTextBox.Text != student.StudentFirstName || lastNameTextBox.Text != student.StudentLastName ||
+                middleInitialTextBox.Text != student.StudentMiddleName || emailTextBox.Text != student.StudentEmail ||
+                concatAddress != student.StudentAddress || contactNumberTextBox.Text != student.StudentContactNum ||
+                selectedFilePath != student.StudentImagePath || collegeTextBox.Text != student.StudentDepartment ||
+                yearTextBox.Text != student.StudentYearLevel.ToString() || sectionTextBox.Text != student.StudentSection
                 )
             {
                 //Condition to bypass the userinput valid if the user still doesnt want an image
                 string conditionImage = (selectedFilePath == "NO_IMAGE") ? "No_image" : selectedFilePath;
                 //Condition to bypass the userinput valid if the user still doesnt to change email
-                string conditionEmail = (emailTextBox.Text == userStudent.StudentEmail) ? UserOperation.GeneratePassword() + "@gmail.com" : emailTextBox.Text;
+                string conditionEmail = (emailTextBox.Text == student.StudentEmail) ? UserOperation.GeneratePassword() + "@gmail.com" : emailTextBox.Text;
                 //Check user input, returns array of string which contains the message
                 string[] errorMessage = UserOperation.IsUserInputValid(
                     firstNameTextBox.Text,
@@ -140,8 +148,10 @@ namespace Archivary._1200X800.FORM_USERS
                 if (string.IsNullOrEmpty(houseNumberTextBox.Text) || string.IsNullOrEmpty(streetTextBox.Text) ||
                     string.IsNullOrEmpty(barangayTextBox.Text) || string.IsNullOrEmpty(cityTextBox.Text))
                 {
+                    TimerOpersys.Stop();
                     alert = new FORM_ALERT(1, "INVALID ADDRESS INPUT", "One of the textbox for address is empty");
                     alert.ShowDialog();
+                    InitializeStudentInfo();
                     return;
                 }
 
@@ -150,7 +160,7 @@ namespace Archivary._1200X800.FORM_USERS
                 {
                     //Update user information function that returns true if successful
                     if (UserOperation.UpdateStudentInformation(
-                        userStudent.StudentUserId,
+                        student.StudentUserId,
                         collegeTextBox.Text,
                         int.Parse(yearTextBox.Text),
                         sectionTextBox.Text,
@@ -163,38 +173,45 @@ namespace Archivary._1200X800.FORM_USERS
                         ))
                     {
                         UpdateStudentObject(concatAddress);
-                        alert = new FORM_ALERT(3, "STUDENT INFO UPDATE SUCCESS", "");
+                        TimerOpersys.Stop();
+                        alert = new FORM_ALERT(3, "STUDENT INFO UPDATE SUCCESS", $"Information of student {firstNameTextBox.Text} is now updated");
                         alert.ShowDialog();
                         this.Close();
                     }
                     else
                     {
                         //Error message for update
+                        TimerOpersys.Stop();
                         alert = new FORM_ALERT(1, "STUDENT INFO UPDATE FAILED", "An error has occured during the update process");
                         alert.ShowDialog();
+                        InitializeStudentInfo();
                     }
                 }
                 else
                 {
                     //Error message for input validation
+                    TimerOpersys.Stop();
                     alert = new FORM_ALERT(1, errorMessage[0], errorMessage[1]);
                     alert.ShowDialog();
+                    InitializeStudentInfo();
                 }
             }
-
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
         private void UpdateStudentObject(string concatAddress)
         {
-            userStudent.StudentFirstName = firstNameTextBox.Text;
-            userStudent.StudentLastName = lastNameTextBox.Text;
-            userStudent.StudentMiddleName = middleInitialTextBox.Text;
-            userStudent.StudentAddress = concatAddress;
-            userStudent.StudentContactNum = contactNumberTextBox.Text;
-            userStudent.StudentImagePath = selectedFilePath;
-            userStudent.StudentDepartment = collegeTextBox.Text;
-            userStudent.StudentSection = sectionTextBox.Text;
-            userStudent.StudentYearLevel = int.Parse(yearTextBox.Text);
+            student.StudentFirstName = firstNameTextBox.Text;
+            student.StudentLastName = lastNameTextBox.Text;
+            student.StudentMiddleName = middleInitialTextBox.Text;
+            student.StudentAddress = concatAddress;
+            student.StudentContactNum = contactNumberTextBox.Text;
+            student.StudentImagePath = selectedFilePath;
+            student.StudentDepartment = collegeTextBox.Text;
+            student.StudentSection = sectionTextBox.Text;
+            student.StudentYearLevel = int.Parse(yearTextBox.Text);
         }
+        #endregion
     }
-    
+
 }

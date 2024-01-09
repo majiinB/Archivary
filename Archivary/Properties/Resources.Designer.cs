@@ -153,6 +153,36 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FORMAT_BOOK {
+            get {
+                object obj = ResourceManager.GetObject("FORMAT_BOOK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FORMAT_STUDENT {
+            get {
+                object obj = ResourceManager.GetObject("FORMAT_STUDENT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FORMAT_TEACHER {
+            get {
+                object obj = ResourceManager.GetObject("FORMAT_TEACHER", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON_ADD {
             get {
                 object obj = ResourceManager.GetObject("ICON_ADD", resourceCulture);
@@ -466,6 +496,26 @@ namespace Archivary.Properties {
         internal static System.Drawing.Bitmap ICON_SIDEBAR_OPEN_GREEN {
             get {
                 object obj = ResourceManager.GetObject("ICON_SIDEBAR_OPEN_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_TOGGLE_CLOSE {
+            get {
+                object obj = ResourceManager.GetObject("ICON_TOGGLE_CLOSE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_TOGGLE_OPEN {
+            get {
+                object obj = ResourceManager.GetObject("ICON_TOGGLE_OPEN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

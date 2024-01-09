@@ -1,5 +1,6 @@
 ﻿using Archivary._1200X800.FORM_USERS;
 using Archivary._900X500;
+using Archivary.BACKEND.COMMON_OPERATIONS;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.USER_OPERATIONS;
 using System;
@@ -20,6 +21,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private FORM_EDITEMPLOYEE editInfo;
         private Employee userEmployee;
         private FORM_ALERT alert;
+        List<BookStatusInfo> bookStatusList;
 
         private Color archivaryGreen()
         {
@@ -42,34 +44,35 @@ namespace Archivary._1500X1000.FORM_USERS
         public FORM_INFOEMPLOYEE(Employee employee)
         {
             InitializeComponent();
-            InitializeEmployeeInfo(employee);
-            userEmployee = employee;
+            this.userEmployee = employee;
+            InitializeEmployeeInfo();
             editInfo = new FORM_EDITEMPLOYEE(employee);
         }
-        private void InitializeEmployeeInfo(Employee employee)
+        private void InitializeEmployeeInfo()
         {
-            userIDLabel.Text = employee.EmployeeId;
-            emailLabel.Text = employee.EmployeeEmail;
-            lastNameLabel.Text = employee.EmployeeLastName;
-            firstNameLabel.Text = employee.EmployeeFirstName;
-            middleNameLabel.Text = employee.EmployeeMiddleName;
-            contactNumLabel.Text = employee.EmployeeContactNum;
-            addressLabel.Text = employee.EmployeeAddress;
-            SetPictureBoxImage(employee.EmployeeImagePath);
-            statusColor(employee.EmployeeStatus);
+            userIDLabel.Text = userEmployee.EmployeeId;
+            emailLabel.Text = userEmployee.EmployeeEmail;
+            lastNameLabel.Text = userEmployee.EmployeeLastName;
+            firstNameLabel.Text = userEmployee.EmployeeFirstName;
+            //Set the middle intial to blank if N/A
+            string middleInitial = (userEmployee.EmployeeMiddleName == "N/A") ? "" : userEmployee.EmployeeMiddleName;
+            middleNameLabel.Text = middleInitial;
+            contactNumLabel.Text = userEmployee.EmployeeContactNum;
+            //Trim the start of the address if N/A
+            string originalAddress = userEmployee.EmployeeAddress;
+            string substringToRemove = "N/A,";
+            string trimmedAddress = originalAddress.StartsWith(substringToRemove)
+                ? originalAddress.Substring(substringToRemove.Length).TrimStart()
+                : originalAddress;
+            addressLabel.Text = trimmedAddress;
+            addressLabel.Text = userEmployee.EmployeeAddress;
+            SetPictureBoxImage(userEmployee.EmployeeImagePath);
+            statusColor(userEmployee.EmployeeStatus);
         }
 
-        private void FORM_INFOEMPLOYEE_Load(object sender, EventArgs e)
-        {  
-            Random random = new Random();
-            string[] returnStatus = { "Overdue", "Not Overdue" };
-            String randomStatus;
-            int n = 10;
-            for (int i = 0; i <= n; i++)
-            {
-                randomStatus = returnStatus[random.Next(returnStatus.Length)];
-                bookListDataGridView.Rows.Add("abcdefghijklmnopqrstuvwxyz", "MM/DD/YY", "MM/DD/YY", "MM/DD/YY", randomStatus);
-            }
+        private async void FORM_INFOEMPLOYEE_Load(object sender, EventArgs e)
+        {
+            await loadHistory();
         }
         private void backButton_Click(object sender, EventArgs e)
         {
@@ -79,7 +82,7 @@ namespace Archivary._1500X1000.FORM_USERS
         private void editInfoButton_Click(object sender, EventArgs e)
         {
             editInfo.ShowDialog();
-            InitializeEmployeeInfo(userEmployee);
+            InitializeEmployeeInfo();
         }
         
         private void bookListDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -165,6 +168,36 @@ namespace Archivary._1500X1000.FORM_USERS
                 UserOperation.UpdateUserStatus(userEmployee.EmployeeUserId, "ACTIVE");
                 statusColor("ACTIVE");
                 userEmployee.EmployeeStatus = "ACTIVE";
+            }
+        }
+
+        private async Task loadHistory()
+        {
+            await Task.Run(() =>
+            {
+                Setting day = CommonOperation.GetSettingsFromDatabase();
+                bookStatusList = UserOperation.GetEmployeeBookStatusList(userEmployee.EmployeeUserId, day.borrowingDuration);
+            });
+
+            foreach (BookStatusInfo bookStatus in bookStatusList)
+            {
+                string returnDate = "";
+                if (bookStatus.ReturnDate.ToString() == CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.DateTimeMin])
+                {
+                    returnDate = CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.IfNotReturnedStatus];
+                }
+                else
+                {
+                    returnDate = CommonOperation.ConvertToReadableFormat(
+                        bookStatus.ReturnDate.ToString(
+                            CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]
+                            )
+                        );
+                }
+                bookListDataGridView.Rows.Add(bookStatus.Title, 
+                    CommonOperation.ConvertToReadableFormat(bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
+                    CommonOperation.ConvertToReadableFormat(bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
+                    returnDate, bookStatus.Status);
             }
         }
     }

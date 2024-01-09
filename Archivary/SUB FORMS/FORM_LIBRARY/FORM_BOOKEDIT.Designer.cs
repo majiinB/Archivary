@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label shelfLabel;
             this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
             this.LAYOUT_RightSide = new System.Windows.Forms.TableLayoutPanel();
@@ -36,6 +37,8 @@
             this.aisleLabel = new System.Windows.Forms.Label();
             this.copyrightTextbox = new RoundedCorners.RoundedTextBox();
             this.copyrightLabel = new System.Windows.Forms.Label();
+            this.authorMITextbox = new RoundedCorners.RoundedTextBox();
+            this.authorFNTextbox = new RoundedCorners.RoundedTextBox();
             this.authorLNTextbox = new RoundedCorners.RoundedTextBox();
             this.authorLabel = new System.Windows.Forms.Label();
             this.publisherTextbox = new RoundedCorners.RoundedTextBox();
@@ -51,13 +54,17 @@
             this.categoryDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveInfoButton = new roundedCorners.roundedButton();
-            this.authorMITextbox = new RoundedCorners.RoundedTextBox();
-            this.authorFNTextbox = new RoundedCorners.RoundedTextBox();
+            this.dropdownMenu1 = new CustomDropdown.DropdownMenu(this.components);
+            this.academicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nonfictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fictionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dropdownMenu2 = new CustomDropdown.DropdownMenu(this.components);
             shelfLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.LAYOUT_RightSide.SuspendLayout();
             this.LAYOUT_LeftSide.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).BeginInit();
+            this.dropdownMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // shelfLabel
@@ -149,6 +156,7 @@
             this.shelfTextbox.TabIndex = 19;
             this.shelfTextbox.Text = "69";
             this.shelfTextbox.UseSystemPasswordChar = false;
+            this.shelfTextbox.TextChanged += new System.EventHandler(this.shelfTextbox_TextChanged);
             // 
             // aisleTextbox
             // 
@@ -169,6 +177,7 @@
             this.aisleTextbox.TabIndex = 17;
             this.aisleTextbox.Text = "1";
             this.aisleTextbox.UseSystemPasswordChar = false;
+            this.aisleTextbox.TextChanged += new System.EventHandler(this.aisleTextbox_TextChanged);
             // 
             // aisleLabel
             // 
@@ -215,6 +224,45 @@
             this.copyrightLabel.TabIndex = 14;
             this.copyrightLabel.Text = "Copyright";
             this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // authorMITextbox
+            // 
+            this.authorMITextbox.BackColor = System.Drawing.Color.Transparent;
+            this.authorMITextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorMITextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorMITextbox.BorderThickness = 0;
+            this.authorMITextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorMITextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.authorMITextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorMITextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.authorMITextbox.Location = new System.Drawing.Point(537, 213);
+            this.authorMITextbox.Name = "authorMITextbox";
+            this.authorMITextbox.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.authorMITextbox.Radius = 10;
+            this.authorMITextbox.Size = new System.Drawing.Size(90, 36);
+            this.authorMITextbox.TabIndex = 13;
+            this.authorMITextbox.Text = "R";
+            this.authorMITextbox.UseSystemPasswordChar = false;
+            // 
+            // authorFNTextbox
+            // 
+            this.authorFNTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.authorFNTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorFNTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorFNTextbox.BorderThickness = 0;
+            this.authorFNTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.LAYOUT_RightSide.SetColumnSpan(this.authorFNTextbox, 3);
+            this.authorFNTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.authorFNTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorFNTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.authorFNTextbox.Location = new System.Drawing.Point(270, 213);
+            this.authorFNTextbox.Name = "authorFNTextbox";
+            this.authorFNTextbox.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.authorFNTextbox.Radius = 10;
+            this.authorFNTextbox.Size = new System.Drawing.Size(261, 36);
+            this.authorFNTextbox.TabIndex = 11;
+            this.authorFNTextbox.Text = "Andrei";
+            this.authorFNTextbox.UseSystemPasswordChar = false;
             // 
             // authorLNTextbox
             // 
@@ -288,6 +336,7 @@
             this.ISBNTextbox.TabIndex = 6;
             this.ISBNTextbox.Text = "1436969143";
             this.ISBNTextbox.UseSystemPasswordChar = false;
+            this.ISBNTextbox.TextChanged += new System.EventHandler(this.ISBNTextbox_TextChanged);
             // 
             // PublisherLabel
             // 
@@ -390,6 +439,7 @@
             this.genreDropdown.Text = "Genre";
             this.genreDropdown.TextColor = System.Drawing.Color.White;
             this.genreDropdown.UseVisualStyleBackColor = false;
+            this.genreDropdown.Click += new System.EventHandler(this.genreDropdown_Click);
             // 
             // bookPictureBox
             // 
@@ -420,6 +470,7 @@
             this.uploadImageButton.Text = "Upload Image";
             this.uploadImageButton.TextColor = System.Drawing.Color.White;
             this.uploadImageButton.UseVisualStyleBackColor = false;
+            this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
             // 
             // categoryDropdown
             // 
@@ -442,6 +493,7 @@
             this.categoryDropdown.Text = "Category";
             this.categoryDropdown.TextColor = System.Drawing.Color.White;
             this.categoryDropdown.UseVisualStyleBackColor = false;
+            this.categoryDropdown.Click += new System.EventHandler(this.categoryDropdown_Click);
             // 
             // cancelButton
             // 
@@ -481,45 +533,50 @@
             this.saveInfoButton.Text = "Save Info";
             this.saveInfoButton.TextColor = System.Drawing.Color.White;
             this.saveInfoButton.UseVisualStyleBackColor = false;
+            this.saveInfoButton.Click += new System.EventHandler(this.saveInfoButton_Click);
             // 
-            // authorMITextbox
+            // dropdownMenu1
             // 
-            this.authorMITextbox.BackColor = System.Drawing.Color.Transparent;
-            this.authorMITextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorMITextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorMITextbox.BorderThickness = 0;
-            this.authorMITextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorMITextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.authorMITextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorMITextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorMITextbox.Location = new System.Drawing.Point(537, 213);
-            this.authorMITextbox.Name = "authorMITextbox";
-            this.authorMITextbox.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.authorMITextbox.Radius = 10;
-            this.authorMITextbox.Size = new System.Drawing.Size(90, 36);
-            this.authorMITextbox.TabIndex = 13;
-            this.authorMITextbox.Text = "R";
-            this.authorMITextbox.UseSystemPasswordChar = false;
+            this.dropdownMenu1.IsMainMenu = false;
+            this.dropdownMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.academicToolStripMenuItem,
+            this.nonfictionToolStripMenuItem,
+            this.fictionToolStripMenuItem});
+            this.dropdownMenu1.MenuItemHeight = 25;
+            this.dropdownMenu1.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.dropdownMenu1.Name = "dropdownMenu1";
+            this.dropdownMenu1.PrimaryColor = System.Drawing.Color.Empty;
+            this.dropdownMenu1.Size = new System.Drawing.Size(137, 70);
             // 
-            // authorFNTextbox
+            // academicToolStripMenuItem
             // 
-            this.authorFNTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.authorFNTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorFNTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorFNTextbox.BorderThickness = 0;
-            this.authorFNTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.LAYOUT_RightSide.SetColumnSpan(this.authorFNTextbox, 3);
-            this.authorFNTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.authorFNTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorFNTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorFNTextbox.Location = new System.Drawing.Point(270, 213);
-            this.authorFNTextbox.Name = "authorFNTextbox";
-            this.authorFNTextbox.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.authorFNTextbox.Radius = 10;
-            this.authorFNTextbox.Size = new System.Drawing.Size(261, 36);
-            this.authorFNTextbox.TabIndex = 11;
-            this.authorFNTextbox.Text = "Andrei";
-            this.authorFNTextbox.UseSystemPasswordChar = false;
+            this.academicToolStripMenuItem.Name = "academicToolStripMenuItem";
+            this.academicToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.academicToolStripMenuItem.Text = "Academic";
+            this.academicToolStripMenuItem.Click += new System.EventHandler(this.academicToolStripMenuItem_Click_1);
+            // 
+            // nonfictionToolStripMenuItem
+            // 
+            this.nonfictionToolStripMenuItem.Name = "nonfictionToolStripMenuItem";
+            this.nonfictionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.nonfictionToolStripMenuItem.Text = "Non-fiction";
+            this.nonfictionToolStripMenuItem.Click += new System.EventHandler(this.nonfictionToolStripMenuItem_Click);
+            // 
+            // fictionToolStripMenuItem
+            // 
+            this.fictionToolStripMenuItem.Name = "fictionToolStripMenuItem";
+            this.fictionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.fictionToolStripMenuItem.Text = "Fiction";
+            this.fictionToolStripMenuItem.Click += new System.EventHandler(this.fictionToolStripMenuItem_Click);
+            // 
+            // dropdownMenu2
+            // 
+            this.dropdownMenu2.IsMainMenu = false;
+            this.dropdownMenu2.MenuItemHeight = 25;
+            this.dropdownMenu2.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.dropdownMenu2.Name = "dropdownMenu2";
+            this.dropdownMenu2.PrimaryColor = System.Drawing.Color.Empty;
+            this.dropdownMenu2.Size = new System.Drawing.Size(61, 4);
             // 
             // FORM_BOOKEDIT
             // 
@@ -538,6 +595,7 @@
             this.LAYOUT_RightSide.ResumeLayout(false);
             this.LAYOUT_LeftSide.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).EndInit();
+            this.dropdownMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -568,5 +626,10 @@
         private System.Windows.Forms.Label copyrightLabel;
         private RoundedCorners.RoundedTextBox authorMITextbox;
         private RoundedCorners.RoundedTextBox authorFNTextbox;
+        private CustomDropdown.DropdownMenu dropdownMenu1;
+        private System.Windows.Forms.ToolStripMenuItem academicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nonfictionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
+        private CustomDropdown.DropdownMenu dropdownMenu2;
     }
 }

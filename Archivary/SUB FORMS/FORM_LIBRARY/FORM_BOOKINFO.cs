@@ -17,7 +17,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private FORM_BOOKEDIT FormsBookEdit;
 
-        public FORM_BOOKINFO(Book bookAdded)
+        public FORM_BOOKINFO(Book bookAdded, Archivary.PARENT_FORMS.FORM_LIBRARY library)
         {
             InitializeComponent();
             booktitleLabel.Text = bookAdded.BookTitle;
@@ -31,8 +31,9 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             aisleTextbox.Text = bookAdded.BookAisle.ToString();
             shelfTextbox.Text = bookAdded.BookShelf.ToString();
             SetPictureBoxImage(bookAdded.BookImage);
-            FormsBookEdit = new FORM_BOOKEDIT(bookAdded);
+            FormsBookEdit = new FORM_BOOKEDIT(bookAdded, library, this);
         }
+
         private void SetPictureBoxImage(string imagePath)
         {
             try

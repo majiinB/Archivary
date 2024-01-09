@@ -35,10 +35,10 @@
             this.passwordPicturebox = new System.Windows.Forms.PictureBox();
             this.logoTitlePictureBox = new System.Windows.Forms.PictureBox();
             this.PANEL_TOPBAR = new System.Windows.Forms.Panel();
-            this.backButton = new sidebarComponents.sidebarButton();
-            this.closeButton = new sidebarComponents.sidebarButton();
             this.PANEL_BACKGROUND = new System.Windows.Forms.Panel();
             this.LAYOUT_EYE = new System.Windows.Forms.Panel();
+            this.backButton = new sidebarComponents.sidebarButton();
+            this.closeButton = new sidebarComponents.sidebarButton();
             this.eyeButton = new sidebarComponents.sidebarButton();
             this.usernameTextbox = new RoundedCorners.RoundedTextBox();
             this.passwordTextbox = new RoundedCorners.RoundedTextBox();
@@ -94,7 +94,6 @@
             this.passwordPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.passwordPicturebox.TabIndex = 3;
             this.passwordPicturebox.TabStop = false;
-            this.passwordPicturebox.Click += new System.EventHandler(this.passwordPicturebox_Click);
             // 
             // logoTitlePictureBox
             // 
@@ -122,49 +121,6 @@
             this.PANEL_TOPBAR.TabIndex = 7;
             this.PANEL_TOPBAR.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PANEL_TOPBAR_MouseDown);
             // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.backButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.backButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.backButton.BorderRadius = 10;
-            this.backButton.BorderSize = 0;
-            this.backButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SIDEBAR_CLOSE_GREEN;
-            this.backButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.Location = new System.Drawing.Point(5, 5);
-            this.backButton.Margin = new System.Windows.Forms.Padding(1);
-            this.backButton.Name = "backButton";
-            this.backButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.backButton.Size = new System.Drawing.Size(50, 50);
-            this.backButton.TabIndex = 5;
-            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
-            // closeButton
-            // 
-            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.closeButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.closeButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.closeButton.BorderRadius = 10;
-            this.closeButton.BorderSize = 0;
-            this.closeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CLOSE;
-            this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.closeButton.FlatAppearance.BorderSize = 0;
-            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeButton.ForeColor = System.Drawing.Color.White;
-            this.closeButton.Location = new System.Drawing.Point(905, 5);
-            this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(50, 50);
-            this.closeButton.TabIndex = 6;
-            this.closeButton.TextColor = System.Drawing.Color.White;
-            this.closeButton.UseVisualStyleBackColor = false;
-            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
-            // 
             // PANEL_BACKGROUND
             // 
             this.PANEL_BACKGROUND.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PANEL_BACKGROUND.BackgroundImage")));
@@ -186,7 +142,51 @@
             this.LAYOUT_EYE.Name = "LAYOUT_EYE";
             this.LAYOUT_EYE.Size = new System.Drawing.Size(50, 50);
             this.LAYOUT_EYE.TabIndex = 4;
-            this.LAYOUT_EYE.Paint += new System.Windows.Forms.PaintEventHandler(this.LAYOUT_EYE_Paint);
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.backButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.backButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.backButton.BorderRadius = 10;
+            this.backButton.BorderSize = 0;
+            this.backButton.ButtonImage = global::Archivary.Properties.Resources.ICON_SIDEBAR_CLOSE_GREEN;
+            this.backButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Montserrat Medium", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.Location = new System.Drawing.Point(5, 5);
+            this.backButton.Margin = new System.Windows.Forms.Padding(1);
+            this.backButton.Name = "backButton";
+            this.backButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.backButton.Size = new System.Drawing.Size(50, 50);
+            this.backButton.TabIndex = 6;
+            this.backButton.TabStop = false;
+            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.closeButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.closeButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.closeButton.BorderRadius = 10;
+            this.closeButton.BorderSize = 0;
+            this.closeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_CLOSE;
+            this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Location = new System.Drawing.Point(905, 5);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(50, 50);
+            this.closeButton.TabIndex = 5;
+            this.closeButton.TabStop = false;
+            this.closeButton.TextColor = System.Drawing.Color.White;
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // eyeButton
             // 
@@ -203,7 +203,8 @@
             this.eyeButton.Location = new System.Drawing.Point(0, 0);
             this.eyeButton.Name = "eyeButton";
             this.eyeButton.Size = new System.Drawing.Size(50, 50);
-            this.eyeButton.TabIndex = 3;
+            this.eyeButton.TabIndex = 4;
+            this.eyeButton.TabStop = false;
             this.eyeButton.TextColor = System.Drawing.Color.White;
             this.eyeButton.UseVisualStyleBackColor = false;
             this.eyeButton.Click += new System.EventHandler(this.eyeButton_Click);
@@ -218,13 +219,13 @@
             this.usernameTextbox.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.usernameTextbox.Location = new System.Drawing.Point(73, 332);
+            this.usernameTextbox.Margin = new System.Windows.Forms.Padding(0);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Radius = 15;
             this.usernameTextbox.Size = new System.Drawing.Size(656, 50);
-            this.usernameTextbox.TabIndex = 2;
+            this.usernameTextbox.TabIndex = 1;
             this.usernameTextbox.Text = "Enter Username";
             this.usernameTextbox.UseSystemPasswordChar = false;
-            this.usernameTextbox.Click += new System.EventHandler(this.usernameTextbox_Click);
             this.usernameTextbox.Enter += new System.EventHandler(this.usernameTextbox_Enter);
             this.usernameTextbox.Leave += new System.EventHandler(this.usernameTextbox_Leave);
             // 
@@ -244,7 +245,6 @@
             this.passwordTextbox.TabIndex = 2;
             this.passwordTextbox.Text = "Enter Password";
             this.passwordTextbox.UseSystemPasswordChar = true;
-            this.passwordTextbox.Click += new System.EventHandler(this.passwordTextbox_Click);
             this.passwordTextbox.Enter += new System.EventHandler(this.passwordTextbox_Enter);
             this.passwordTextbox.Leave += new System.EventHandler(this.passwordTextbox_Leave);
             // 
@@ -262,7 +262,7 @@
             this.loginButton.Location = new System.Drawing.Point(237, 480);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(258, 67);
-            this.loginButton.TabIndex = 1;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Log In";
             this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.loginButton.UseVisualStyleBackColor = false;
