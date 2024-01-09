@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Windows.Forms;
 using static Archivary.BACKEND.USER_OPERATIONS.UserOperation;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Archivary.BACKEND.BOOK_OPERATIONS
 {
@@ -885,6 +887,106 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             return false;
         }
 
+        public static List<BookReportsInfo> SetInfoFromBorrowedReports()
+        {
+            List<BookReportsInfo> reports = new List<BookReportsInfo>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = @"SELECT
+                                bb.borrower_id,
+                                b.isbn AS book_id,
+                                b.title,
+                                b.author,
+                                bb.borrowed_at AS obtained_date,
+                                adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) as return_date,
+                                CASE
+                                    WHEN bb.is_returned = 1 THEN 'Returned'
+                                    WHEN CURRENT_TIMESTAMP() > adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) THEN 'Overdue'
+                                    ELSE 'Not Overdue'
+                                END AS status
+                            FROM
+                                books b
+                                JOIN borrowed_books bb ON b.id = bb.book_id
+                                JOIN settings s ON s.id = 1
+                            ORDER BY status asc";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Create a new BookReportsInfo object for each row
+                            BookReportsInfo report = new BookReportsInfo
+                            {
+                                userId = reader.GetInt32("borrower_id"),
+                                isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
+                                title = reader.GetString("title"),
+                                author = reader.GetString("author"),
+                                obtainedDate = reader.GetDateTime("obtained_date"),
+                                dueDate = reader.GetDateTime("return_date"),
+                                status = reader.GetString("status")
+                            };
+
+                            // Add the object to the list
+                            reports.Add(report);
+                        }
+                    }
+                }
+                return reports;
+            }
+        }
+
+        public static List<BookReportsInfo> SetInfoFromReservedReports()
+        {
+            List<BookReportsInfo> reports = new List<BookReportsInfo>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = @"SELECT
+                                rb.borrower_id,
+                                b.isbn AS book_id,
+                                b.title,
+                                b.author,
+                                rb.reserved_at AS obtained_date,
+                                rb.is_borrowed,
+                                ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
+                                CASE
+                                    WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+                                    WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
+                                    ELSE 'Reserved'
+                                END AS status
+                            FROM
+                                books b
+                                JOIN reserved_books rb ON b.id = rb.book_id
+                                JOIN settings s ON s.id = 1
+                            ORDER BY status DESC;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Create a new BookReportsInfo object for each row
+                            BookReportsInfo report = new BookReportsInfo
+                            {
+                                userId = reader.GetInt32("borrower_id"),
+                                isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
+                                title = reader.GetString("title"),
+                                author = reader.GetString("author"),
+                                obtainedDate = reader.GetDateTime("obtained_date"),
+                                dueDate = reader.GetDateTime("return_date"),
+                                status = reader.GetString("status")
+                            };
+
+                            // Add the object to the list
+                            reports.Add(report);
+                        }
+                    }
+                }
+                return reports;
+            }
+        }
     }
 }
 

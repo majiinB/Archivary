@@ -81,8 +81,8 @@ namespace Archivary.Archivary_Components
                 string status = Convert.ToString(row.Cells[6].Value).ToLower();
                 if (status == null) continue;
 
-               if (status == "overdue") row.Cells[6].Style.ForeColor = archivaryRed();
-                else if (status == "not overdue") row.Cells[6].Style.ForeColor = archivaryGreen();
+               if (status == "Overdue") row.Cells[6].Style.ForeColor = archivaryRed();
+               else if (status == "Not Overdue" || status == "Returned") row.Cells[6].Style.ForeColor = archivaryGreen();
 
             }
         }
