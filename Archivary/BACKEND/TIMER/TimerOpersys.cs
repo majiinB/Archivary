@@ -16,7 +16,7 @@ namespace Archivary.BACKEND.TIMER
         static TimerOpersys()
         {
             stopwatch = new Stopwatch();
-            isEnabled = true; //True kung di pa tapos opersys
+            isEnabled = false; //True kung di pa tapos opersys
         }
 
         public static bool IsEnabled
