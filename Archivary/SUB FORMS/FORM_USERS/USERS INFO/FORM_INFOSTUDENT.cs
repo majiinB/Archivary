@@ -48,9 +48,9 @@ namespace Archivary._1500X1000.FORM_USERS
         }
 
 
-        private void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
+        private async void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
         {
-            loadHistory();
+            await loadHistory();
         }
         
         private void backButton_Click(object sender, MouseEventArgs e)

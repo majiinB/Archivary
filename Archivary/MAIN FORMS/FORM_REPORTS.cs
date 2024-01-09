@@ -138,16 +138,19 @@ namespace Archivary.PARENT_FORMS
             LAYOUT_REPORT.Controls.Add(booksBorrowed);
             booksBorrowed.Width = LAYOUT_REPORT.ClientSize.Width - 30;
             booksBorrowed.Height = LAYOUT_REPORT.ClientSize.Width / 2;
-            int n = 100;
-            for (int i = 1; i <= n; i++)
-            {
-                booksBorrowed.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
-                booksBorrowed.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
-            }
+            AddBorrowedBooksInDataGridView(booksBorrowed);
             isDataLoading = false;
             needMoreData = true;
             //whatPage = 1;
         }
+
+        private void AddBorrowedBooksInDataGridView(booksBorrowed booksBorrowed)
+        {
+            
+            DataGridView row = new DataGridView();
+            booksBorrowed.BorrowDataGridView.Rows.Add(row);
+        }
+
         private async Task BooksReserved()
         {
             if (LAYOUT_REPORT.InvokeRequired)

@@ -70,9 +70,9 @@ namespace Archivary._1500X1000.FORM_USERS
             statusColor(userEmployee.EmployeeStatus);
         }
 
-        private void FORM_INFOEMPLOYEE_Load(object sender, EventArgs e)
+        private async void FORM_INFOEMPLOYEE_Load(object sender, EventArgs e)
         {
-            loadHistory();
+            await loadHistory();
         }
         private void backButton_Click(object sender, EventArgs e)
         {
