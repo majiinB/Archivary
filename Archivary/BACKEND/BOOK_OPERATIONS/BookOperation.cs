@@ -113,7 +113,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "SELECT * FROM books WHERE status = @status ORDER BY title ASC";
+                string query = "SELECT * FROM books WHERE status = @status and category != 'ACADEMIC' ORDER BY title ASC";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -254,6 +254,23 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
+        private static void BorrowBook(Book book, int borrowerId, int librarianId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "INSERT INTO borrowed_books (book_id, borrower_id, borrowed_at, is_returned, librarianId) VALUES (@book, @id, @time, false, @librarian)";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@book", book.BookId);
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    command.Parameters.AddWithValue("@time", DateTime.Now);
+                    command.Parameters.AddWithValue("@librarian", librarianId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static void UpdateBorrowReserveBook(MySqlTransaction transaction, string status, Book book)
         {
             using (MySqlCommand updateCommand = transaction.Connection.CreateCommand())
@@ -286,7 +303,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
-        public static void SetReservedBookToBorrowed(Book book, int borrowerId)
+        public static void SetReservedBookToBorrowed(Book book, int borrowerId, int librarianId)
         {
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
@@ -297,6 +314,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     command.Parameters.AddWithValue("@id", book.BookId);
                     command.Parameters.AddWithValue("@borrower_id", borrowerId);
                     command.ExecuteScalar();
+                    BorrowBook(book, borrowerId, librarianId);
                 }
             }
         }
@@ -431,6 +449,43 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 }
             }
             return dates;
+        }
+
+        public static DateTime GetDateFromSpecificBorrowedBooks(int borrowerId, int bookId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id and borrowed_books.book_id = @book";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    command.Parameters.AddWithValue("@book", bookId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return reader.GetDateTime("date");
+                        }
+                    }
+                }
+                return DateTime.Now;
+            }
+        }
+
+        public static bool CheckIfExistingUnsettledBorrowedBooks(int borrowerId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) from borrowed_books where is_returned = false and borrower_id = @id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    return count > 0;
+                }
+            }
         }
 
         public static void AddBook(string author, string genre, string isbn, string category, string title, string copyright,

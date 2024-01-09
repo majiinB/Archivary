@@ -1,4 +1,5 @@
 ﻿using Archivary._1500X1000.FORM_CIRCULATION;
+using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace Archivary.SUB_FORMS
         private bool startSearch = false, isStudent, isTeacher;
         private int borrowerId = -1;
         private object user;
+        private Setting settings;
 
         public FORM_RETURN(object user)
         {
@@ -35,6 +37,7 @@ namespace Archivary.SUB_FORMS
             BooksDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             InitializeSearchUser();
+            settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
         }
 
         private void InitializeSearchUser()
@@ -282,12 +285,47 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            using (FORM_POS FormsPos = new FORM_POS(GetSelectedBooks(),GetDates(GetSelectedBooks()), borrowerId, user))
+            List<Book> selectedBooks = GetSelectedBooks();
+            List<DateTime> date = GetSpecificBookBorrowedDates(selectedBooks);
+            bool bookOverdue = false;
+            foreach(DateTime time in date)
             {
-                FormsPos.ShowInTaskbar = false;
-                FormsPos.BringToFront();
-                DialogResult result = FormsPos.ShowDialog();
+                TimeSpan difference = DateTime.Now - time;
+                double totalDaysRounded = Math.Floor(difference.TotalDays);
+                if (totalDaysRounded > settings.borrowingDuration)
+                {
+                    Console.WriteLine($"{difference.TotalDays} and {settings.borrowingDuration}");
+                    bookOverdue = true;
+                    break;
+                }
             }
+            if (bookOverdue)
+            {
+                using (FORM_POS FormsPos = new FORM_POS(borrowedReservedBooks, selectedBooks, GetDates(selectedBooks), borrowerId, user))
+                {
+                    FormsPos.ShowInTaskbar = false;
+                    FormsPos.BringToFront();
+                    DialogResult result = FormsPos.ShowDialog();
+                }
+                return;
+            }
+            foreach (Book book in selectedBooks)
+            {
+                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
+            }
+            FORM_ALERT success = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
+            success.TopMost = true;
+            success.Show();
+        }
+
+        private List<DateTime> GetSpecificBookBorrowedDates(List<Book> selectedBooks)
+        {
+            List<DateTime> specific = new List<DateTime>();
+            foreach (Book book in selectedBooks)
+            {
+                specific.Add(Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateFromSpecificBorrowedBooks(borrowerId, book.BookId));
+            }
+            return specific;
         }
 
         private List<Book> GetSelectedBooks()
@@ -310,10 +348,7 @@ namespace Archivary.SUB_FORMS
             List<DateTime> selectedDates = new List<DateTime>();
             for(int i = 0; i < list.Count; i++)
             {
-                if (selectedISBNs.Contains(list[i].BookISBN))
-                {
-                    selectedDates.Add(dates[i]);
-                }
+                selectedDates.Add(dates[i]);
             }
             return selectedDates;
         }

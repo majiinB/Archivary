@@ -373,6 +373,13 @@ namespace Archivary.SUB_FORMS
 
         private void borrowButton_Click(object sender, EventArgs e)
         {
+            if (Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.CheckIfExistingUnsettledBorrowedBooks(borrowerId))
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "CANNOT BORROW", "The user has previous borrowed book transactions that isn't settled yet.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             HandleCirculationEvent("borrowed_books", "borrow");
         }
 
@@ -420,7 +427,7 @@ namespace Archivary.SUB_FORMS
                         if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
                         {
                             reservedBooksISBN.Remove(book.BookISBN);
-                            Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetReservedBookToBorrowed(book, borrowerId);
+                            Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetReservedBookToBorrowed(book, borrowerId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId);
                         }
                     }
                 }

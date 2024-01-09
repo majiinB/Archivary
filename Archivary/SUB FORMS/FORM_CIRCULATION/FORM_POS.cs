@@ -17,18 +17,20 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 {
     public partial class FORM_POS : Form
     {
+        private List<Book> totalBorrowedBooks;
         private List<Book> selectedBooks;
         private List<DateTime> borrowedDates;
         private int borrowerId;
         private decimal totalCost, payment, change;
         private object user;
-        public FORM_POS(List<Book> selectedBooks, List<DateTime> borrowedDates, int borrowerId, object user)
+        public FORM_POS(List<Book> totalBorrowedBooks, List<Book> selectedBooks, List<DateTime> borrowedDates, int borrowerId, object user)
         {
             InitializeComponent();
             this.selectedBooks = selectedBooks;
             this.borrowedDates = borrowedDates;
             this.borrowerId = borrowerId;
             this.user = user;
+            this.totalBorrowedBooks = totalBorrowedBooks;
         }
         private void FORM_POS_Load(object sender, EventArgs e)
         {
@@ -51,9 +53,19 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
             Setting settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
             for (int i = 0; i < selectedBooks.Count; i++)
             {
-                AddBooksInDataGridView(selectedBooks[i], borrowedDates[i], settings);
+                AddBooksInDataGridView(selectedBooks[i], GetSpecificBookBorrowedDates()[i], settings);
             }
             UpdateChange();
+        }
+
+        private List<DateTime> GetSpecificBookBorrowedDates()
+        {
+            List<DateTime> specific = new List<DateTime>();
+            foreach(Book book in selectedBooks)
+            {
+                specific.Add(Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateFromSpecificBorrowedBooks(borrowerId, book.BookId));
+            }
+            return specific;
         }
 
         private void AddBooksInDataGridView(Book book, DateTime borrowedDate, Setting settings)
