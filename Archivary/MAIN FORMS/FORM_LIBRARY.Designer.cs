@@ -81,10 +81,10 @@
             this.filterSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterSearchButton.ForeColor = System.Drawing.Color.White;
-            this.filterSearchButton.Location = new System.Drawing.Point(606, 12);
+            this.filterSearchButton.Location = new System.Drawing.Point(641, 12);
             this.filterSearchButton.Name = "filterSearchButton";
             this.filterSearchButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.filterSearchButton.Size = new System.Drawing.Size(185, 54);
+            this.filterSearchButton.Size = new System.Drawing.Size(150, 54);
             this.filterSearchButton.TabIndex = 6;
             this.filterSearchButton.Text = "Filter";
             this.filterSearchButton.TextColor = System.Drawing.Color.White;
@@ -126,7 +126,7 @@
             this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
             this.LAYOUT_searchBar.Padding = new System.Windows.Forms.Padding(2);
             this.LAYOUT_searchBar.Radius = 10;
-            this.LAYOUT_searchBar.Size = new System.Drawing.Size(588, 54);
+            this.LAYOUT_searchBar.Size = new System.Drawing.Size(623, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
             // 
             // searchBar
@@ -142,7 +142,7 @@
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
-            this.searchBar.Size = new System.Drawing.Size(584, 50);
+            this.searchBar.Size = new System.Drawing.Size(619, 50);
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "Search Book";
             this.searchBar.UseSystemPasswordChar = false;
