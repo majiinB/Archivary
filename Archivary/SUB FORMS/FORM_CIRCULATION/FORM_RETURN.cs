@@ -311,6 +311,11 @@ namespace Archivary.SUB_FORMS
                     FormsPos.BringToFront();
                     DialogResult result = FormsPos.ShowDialog();
                 }
+                borrowedReservedBooks.Clear();
+                bookOverdueStatus.Clear();
+                borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+                bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
+                LoadBorrowedReservedBooks();
                 return;
             }
             foreach (Book book in selectedBooks)
@@ -320,6 +325,11 @@ namespace Archivary.SUB_FORMS
             FORM_ALERT success = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
             success.TopMost = true;
             success.Show();
+            borrowedReservedBooks.Clear();
+            bookOverdueStatus.Clear();
+            borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+            bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
+            LoadBorrowedReservedBooks();
         }
 
         private List<DateTime> GetSpecificBookBorrowedDates(List<Book> selectedBooks)
