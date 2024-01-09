@@ -173,6 +173,7 @@ namespace Archivary._1500X1000.FORM_USERS
 
         private async Task loadHistory()
         {
+            int penalty = 0;
             await Task.Run(() =>
             {
                 Setting day = CommonOperation.GetSettingsFromDatabase();
@@ -198,7 +199,10 @@ namespace Archivary._1500X1000.FORM_USERS
                     CommonOperation.ConvertToReadableFormat(bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     CommonOperation.ConvertToReadableFormat(bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     returnDate, bookStatus.Status);
+
+                if (bookStatus.Status == "Overdue") penalty++;
             }
+            penaltyCountLabel.Text = penalty.ToString();
         }
         #endregion
     }
