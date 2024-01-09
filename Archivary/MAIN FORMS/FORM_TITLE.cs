@@ -33,8 +33,24 @@ namespace Archivary
 
         private void goLoginButton_Click(object sender, EventArgs e)
         {
+            //FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
             FormsRoot.loadParentForm(new FORM_LOGIN(FormsRoot));
             this.Close();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void exitButton_MouseEnter(object sender, EventArgs e)
+        {
+            exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+        }
+
+        private void exitButton_MouseLeave(object sender, EventArgs e)
+        {
+            exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
         }
     }
 }

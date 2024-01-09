@@ -121,6 +121,9 @@
   <data name="ArchivaryLogo8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArchivaryLogo8.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ArchivaryLogo9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ArchivaryLogo9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ArchivaryLogoBannerPNG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArchivaryLogoBannerPNG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,8 +136,23 @@
   <data name="BACKGROUND" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BACKGROUND.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BACKGROUND_CIRCULATION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BACKGROUND_CIRCULATION.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BACKGROUND_LOGIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BACKGROUND_LOGIN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BACKGROUND_START" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BACKGROUND_START.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FORMAT_BOOK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FORMAT_BOOK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FORMAT_STUDENT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FORMAT_STUDENT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FORMAT_TEACHER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FORMAT_TEACHER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICON_ADD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_ADD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,11 +181,26 @@
   <data name="ICON_DROPUP_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_DROPUP_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICON_EYE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_EYE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON_EYE_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_EYE_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON_EYE_SLASH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_EYE_SLASH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON_EYE_SLASH_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_EYE_SLASH_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICON_LIBRARY" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_LIBRARY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICON_LIBRARY_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_LIBRARY_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON_LOCK_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_LOCK_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICON_LOGOUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_LOGOUT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,10 +250,34 @@
   <data name="ICON_SIDEBAR_OPEN_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_SIDEBAR_OPEN_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ICON_TOGGLE_CLOSE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_TOGGLE_CLOSE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON_TOGGLE_OPEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_TOGGLE_OPEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ICON_USER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_USER.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ICON_USER_GREEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ICON_USER_GREEN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ICON_WARNING" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ICON_WARNING.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PLACEHOLDER_BOOK1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PLACEHOLDER_BOOK1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PLACEHOLDER_BOOK2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PLACEHOLDER_BOOK2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PLACEHOLDER_BOOK3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PLACEHOLDER_BOOK3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PLACEHOLDER_BOOK4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PLACEHOLDER_BOOK4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PLACEHOLDER_PICTURE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PLACEHOLDER_PICTURE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

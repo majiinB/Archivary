@@ -33,8 +33,80 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.0.5\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.6\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.6\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.2.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.8.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,79 +116,120 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.7.4.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.7.4\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.cs">
+    <Compile Include="Archivary Components\excelBookFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\excelBookFormat.designer.cs">
+      <DependentUpon>excelBookFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\excelStudentFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\excelStudentFormat.designer.cs">
+      <DependentUpon>excelStudentFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\excelTeacherFormat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\excelTeacherFormat.designer.cs">
+      <DependentUpon>excelTeacherFormat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BACKEND\BOOK_OPERATIONS\BookOperation.cs" />
+    <Compile Include="BACKEND\DATABASE\DatabaseConnection.cs" />
+    <Compile Include="BACKEND\COMMON_OPERATIONS\CommonOperation.cs" />
+    <Compile Include="BACKEND\OBJECTS\Admin.cs" />
+    <Compile Include="BACKEND\OBJECTS\Book.cs" />
+    <Compile Include="BACKEND\OBJECTS\BookStatusInfo.cs" />
+    <Compile Include="BACKEND\OBJECTS\BookReportsInfo.cs" />
+    <Compile Include="BACKEND\OBJECTS\Employee.cs" />
+    <Compile Include="BACKEND\OBJECTS\IdentificationResult.cs" />
+    <Compile Include="BACKEND\OBJECTS\Setting.cs" />
+    <Compile Include="BACKEND\OBJECTS\Student.cs" />
+    <Compile Include="BACKEND\OBJECTS\Teacher.cs" />
+    <Compile Include="BACKEND\TIMER\TimerOpersys.cs" />
+    <Compile Include="BACKEND\USER_OPERATIONS\UserOperation.cs" />
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITEMPLYEE.Designer.cs">
-      <DependentUpon>FORM_EDITEMPLYEE.cs</DependentUpon>
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.Designer.cs">
+      <DependentUpon>FORM_EDITEMPLOYEE.cs</DependentUpon>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITSTUDENT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITSTUDENT.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITSTUDENT.Designer.cs">
       <DependentUpon>FORM_EDITSTUDENT.cs</DependentUpon>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITTEACHER.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITTEACHER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_EDITTEACHER.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITTEACHER.Designer.cs">
       <DependentUpon>FORM_EDITTEACHER.cs</DependentUpon>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_SIGNUP.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\FORM_SIGNUP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1200X800\FORM_USERS\FORM_SIGNUP.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\FORM_SIGNUP.Designer.cs">
       <DependentUpon>FORM_SIGNUP.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.cs">
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_CIRCULATION\FORM_POS.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_POS.designer.cs">
       <DependentUpon>FORM_POS.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKADD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKADD.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKADD.Designer.cs">
       <DependentUpon>FORM_BOOKADD.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKEDIT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKEDIT.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKEDIT.Designer.cs">
       <DependentUpon>FORM_BOOKEDIT.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKINFO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKINFO.Designer.cs">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOEMPLOYEE.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOEMPLOYEE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOEMPLOYEE.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOEMPLOYEE.Designer.cs">
       <DependentUpon>FORM_INFOEMPLOYEE.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOSTUDENT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOSTUDENT.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOSTUDENT.Designer.cs">
       <DependentUpon>FORM_INFOSTUDENT.cs</DependentUpon>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOTEACHER.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOTEACHER.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1500X1000\FORM_USERS\FORM_INFOTEACHER.Designer.cs">
+    <Compile Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOTEACHER.Designer.cs">
       <DependentUpon>FORM_INFOTEACHER.cs</DependentUpon>
     </Compile>
-    <Compile Include="900X500\FORM_ALERT.cs">
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_ALERT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="900X500\FORM_ALERT.Designer.cs">
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_ALERT.Designer.cs">
       <DependentUpon>FORM_ALERT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_PASSWORD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_PASSWORD.designer.cs">
+      <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
     </Compile>
     <Compile Include="Archivary Components\bookDetails.cs">
       <SubType>UserControl</SubType>
@@ -124,11 +237,35 @@
     <Compile Include="Archivary Components\bookDetails.Designer.cs">
       <DependentUpon>bookDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Archivary Components\booksBorrowed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\booksBorrowed.designer.cs">
+      <DependentUpon>booksBorrowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\booksReserved.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\booksReserved.Designer.cs">
+      <DependentUpon>booksReserved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Archivary Components\circulationBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\circulationBook.Designer.cs">
+      <DependentUpon>circulationBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Archivary Components\DropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Archivary Components\MenuColorTable.cs" />
     <Compile Include="Archivary Components\MenuRenderer.cs" />
+    <Compile Include="Archivary Components\monthlyOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Archivary Components\monthlyOverview.designer.cs">
+      <DependentUpon>monthlyOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Archivary Components\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -146,6 +283,18 @@
     </Compile>
     <Compile Include="FORM_ROOT.Designer.cs">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_REPORTS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_REPORTS.designer.cs">
+      <DependentUpon>FORM_REPORTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SETTINGS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN FORMS\FORM_SETTINGS.designer.cs">
+      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
     </Compile>
     <Compile Include="MAIN FORMS\FORM_SIDEBAR.cs">
       <SubType>Form</SubType>
@@ -170,18 +319,6 @@
     </Compile>
     <Compile Include="MAIN FORMS\FORM_LOGIN.Designer.cs">
       <DependentUpon>FORM_LOGIN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_REPORTS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_REPORTS.Designer.cs">
-      <DependentUpon>FORM_REPORTS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_SETTINGS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MAIN FORMS\FORM_SETTINGS.Designer.cs">
-      <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
     </Compile>
     <Compile Include="MAIN FORMS\FORM_TITLE.cs">
       <SubType>Form</SubType>
@@ -211,29 +348,95 @@
     <Compile Include="Archivary Components\RoundedPictureButtonRight.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
-      <DependentUpon>FORM_BORROW.cs</DependentUpon>
-    </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.Designer.cs">
       <DependentUpon>FORM_RETURN.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="1500X1000\FORM_LIBRARY\FORM_BOOKINFO.resx">
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.Designer.cs">
+      <DependentUpon>FORM_BORROW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_UPLOAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SUB FORMS\OTHER FORMS\FORM_UPLOAD.designer.cs">
+      <DependentUpon>FORM_UPLOAD.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Archivary Components\excelBookFormat.resx">
+      <DependentUpon>excelBookFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\excelStudentFormat.resx">
+      <DependentUpon>excelStudentFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\excelTeacherFormat.resx">
+      <DependentUpon>excelTeacherFormat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\FORM_SIGNUP.resx">
+      <DependentUpon>FORM_SIGNUP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.resx">
+      <DependentUpon>FORM_EDITEMPLOYEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITSTUDENT.resx">
+      <DependentUpon>FORM_EDITSTUDENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITTEACHER.resx">
+      <DependentUpon>FORM_EDITTEACHER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_POS.resx">
+      <DependentUpon>FORM_POS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKADD.resx">
+      <DependentUpon>FORM_BOOKADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKEDIT.resx">
+      <DependentUpon>FORM_BOOKEDIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_LIBRARY\FORM_BOOKINFO.resx">
       <DependentUpon>FORM_BOOKINFO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOEMPLOYEE.resx">
+      <DependentUpon>FORM_INFOEMPLOYEE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOSTUDENT.resx">
+      <DependentUpon>FORM_INFOSTUDENT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_USERS\USERS INFO\FORM_INFOTEACHER.resx">
+      <DependentUpon>FORM_INFOTEACHER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\OTHER FORMS\FORM_ALERT.resx">
+      <DependentUpon>FORM_ALERT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\OTHER FORMS\FORM_PASSWORD.resx">
+      <DependentUpon>FORM_PASSWORD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Archivary Components\bookDetails.resx">
       <DependentUpon>bookDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\booksBorrowed.resx">
+      <DependentUpon>booksBorrowed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\booksReserved.resx">
+      <DependentUpon>booksReserved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\circulationBook.resx">
+      <DependentUpon>circulationBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Archivary Components\monthlyOverview.resx">
+      <DependentUpon>monthlyOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORM_ROOT.resx">
       <DependentUpon>FORM_ROOT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_CIRCULATION.resx">
       <DependentUpon>FORM_CIRCULATION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN FORMS\FORM_REPORTS.resx">
+      <DependentUpon>FORM_REPORTS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN FORMS\FORM_SETTINGS.resx">
       <DependentUpon>FORM_SETTINGS.cs</DependentUpon>
@@ -258,6 +461,16 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_RETURN.resx">
+      <DependentUpon>FORM_RETURN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\FORM_CIRCULATION\FORM_BORROW.resx">
+      <DependentUpon>FORM_BORROW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SUB FORMS\OTHER FORMS\FORM_UPLOAD.resx">
+      <DependentUpon>FORM_UPLOAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -375,6 +588,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICON_DROPDOWN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArchivaryLogo9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE_SLASH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_EYE_SLASH_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_LOCK_GREEN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_WARNING.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND_CIRCULATION.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BACKGROUND_LOGIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_PICTURE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORMAT_BOOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORMAT_STUDENT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORMAT_TEACHER.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_TOGGLE_CLOSE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_TOGGLE_OPEN.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
