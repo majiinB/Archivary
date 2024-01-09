@@ -816,6 +816,13 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             {
                 return (false, "Invalid Category");
             }
+
+            var categoryToGenreValidation = IsGenreAppropriate(bookInfos[(int)BookInfo.Genre], bookInfos[(int)BookInfo.Category]);
+            if (!categoryToGenreValidation.isValid1)
+            {
+                return (false, categoryToGenreValidation.ErrorMessage1);
+            }
+
             if (string.IsNullOrEmpty(bookInfos[(int)BookInfo.ImagePath]) ||
                 !(bookInfos[(int)BookInfo.ImagePath].ToUpper().Trim() == "NO_IMAGE" ||
                 bookInfos[(int)BookInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
@@ -883,6 +890,30 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 return true;
             }
             return false;
+        }
+        public static (bool isValid1, string ErrorMessage1) IsGenreAppropriate(string genre, string category)
+        {
+            List<string> academicGenres = new List<string> { "Science and nature", "Philosophy", "History", "English", "Filipino", "Mathematics" };
+            List<string> nonfictionGenres = new List<string> { "Autobiography", "Biography", "Memoir", "Food and cooking", "Health and Wellness", "Self help", "Technology", "Travel and Exploration" };
+            List<string> fictionGenres = new List<string> { "Fantasy", "Mystery", "Thriller", "Romance", "Horror", "Children's Literature", "Science Fiction", "Historical Fiction", "Young Adult",
+                                                        "Action", "Adventure", "Supernatural", "Comedy/Satire", "psychological fiction", "apocalyptic/post-apocalyptic" };
+
+            if (category == "Academic" && academicGenres.Contains(genre))
+            {
+                return (true, "Genre is appropriate for Academic category");
+            }
+            else if (category == "Nonfiction" && nonfictionGenres.Contains(genre))
+            {
+                return (true, "Genre is appropriate for Nonfiction category");
+            }
+            else if (category == "Fiction" && fictionGenres.Contains(genre))
+            {
+                return (true, "Genre is appropriate for Fiction category");
+            }
+            else
+            {
+                return (false, "Genre is not appropriate for the specified category please check the settings for the list of genres");
+            }
         }
 
     }
