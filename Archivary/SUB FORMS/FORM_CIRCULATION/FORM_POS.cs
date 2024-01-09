@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.PARENT_FORMS;
 using Archivary.SUB_FORMS;
 using System;
@@ -180,11 +181,15 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             UpdateChange();
+            TimerOpersys.Stop();
+            if(TimerOpersys.IsEnabled)TimerOpersys.DisplayElapsedTime();
         }
 
         private void payButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             if(payment < totalCost)
             {
                 FORM_ALERT error = new FORM_ALERT(3, "NOT ENOUGH PAYMENT", "You must pay the total cost.");
@@ -201,6 +206,8 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
             alert.TopMost = true;
             alert.Show();
             this.Dispose();
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
     }
 }

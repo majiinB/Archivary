@@ -1,6 +1,7 @@
 ﻿using Archivary._1500X1000.FORM_CIRCULATION;
 using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,6 +51,7 @@ namespace Archivary.SUB_FORMS
         private void searchUser_Tick(object sender, EventArgs e)
         {
             searchUser.Stop();
+            TimerOpersys.Start();
             if(borrowedReservedBooks != null) borrowedReservedBooks.Clear();
             SearchUser(searchID.Text);
         }
@@ -96,6 +98,8 @@ namespace Archivary.SUB_FORMS
                 dataGridView1.Rows.Clear();
                 selectedISBNs.Clear();
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
 
         private void SetTexts(Student user)

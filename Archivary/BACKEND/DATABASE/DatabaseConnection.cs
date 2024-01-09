@@ -12,7 +12,7 @@ namespace Archivary.BACKEND.DATABASE
         private static readonly string SERVER = "localhost";
         private static readonly string DATABASE = "archivary";
         private static readonly string ID = "root";
-        private static readonly string PASS = "root";
+        private static readonly string PASS = "";
         public static string ConnectionDetails()
         {
             return $"Server={SERVER};Database={DATABASE};User ID={ID};Password={PASS};";
