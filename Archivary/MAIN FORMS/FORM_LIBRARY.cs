@@ -118,7 +118,7 @@ namespace Archivary.PARENT_FORMS
 
         private void addBookButton_Click(object sender, EventArgs e)
         {
-            FormsBookAdd = new FORM_BOOKADD();
+            FormsBookAdd = new FORM_BOOKADD(this);
             FormsBookAdd.ShowDialog();
         }
 
