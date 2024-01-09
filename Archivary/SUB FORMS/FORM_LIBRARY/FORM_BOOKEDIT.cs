@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.PARENT_FORMS;
 using CustomDropdown;
 using MySql.Data.MySqlClient;
@@ -228,8 +229,10 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void saveInfoButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             if(AllInfoUnchanged(book))
             {
+                TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(3, "UNCHANGED INFO", "You cannot save info without changing any information.");
                 alert.TopMost = true;
                 alert.Show();
@@ -237,12 +240,15 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             }
             if (CheckIfTextBoxesAreEmpty())
             {
+                TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(3, "EMPTY TEXT", "You cannot save info with empty textboxes.");
                 alert.TopMost = true;
                 alert.Show();
                 return;
             }
             UpdateBookInfo();
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
             this.Close();
             bookInfo.Close();
         }

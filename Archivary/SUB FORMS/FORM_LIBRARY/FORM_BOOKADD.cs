@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.PARENT_FORMS;
 using CustomDropdown;
 using System;
@@ -86,8 +87,10 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private async void saveInfoButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             if (CheckIfTextBoxesAreEmpty())
             {
+                TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(1, "EMPTY TEXT", "You cannot save info with empty textboxes.");
                 alert.TopMost = true;
                 alert.Show();
@@ -95,6 +98,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             }
             if (CheckIfCategoryIsUnchanged())
             {
+                TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(1, "NO CATEGORY/GENRE", "Select a category and then genre first.");
                 alert.TopMost = true;
                 alert.Show();
@@ -104,10 +108,13 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             library.libraryList.Controls.Clear();
             await library.FilterBooks();
             Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.AddBook(author, genreDropdown.Text, ISBNTextbox.Text, categoryDropdown.Text, titleTextbox.Text, copyrightTextbox.Text, publisherTextbox.Text, Convert.ToInt32(aisleTextbox.Text), Convert.ToInt32(shelfTextbox.Text), imageFileLocation);
+            TimerOpersys.Stop();
             FORM_ALERT success = new FORM_ALERT(3, "BOOK ADDED", "Successfully added a new book.");
             success.TopMost = true;
             success.Show();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
             this.Dispose();
+            
             
         }
 
