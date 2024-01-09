@@ -1134,34 +1134,34 @@ namespace Archivary.BACKEND.USER_OPERATIONS
         }
         public static List<BookStatusInfo> GetBookStatusList(int userId, int daysToAdd)
         {
-            //Create a list to store book status information
+            // Create a list to store book status information
             List<BookStatusInfo> bookStatusList = new List<BookStatusInfo>();
 
-            //query to retrieve information from the database
+            // Query to retrieve information from the database
             string sqlQuery = @"
             SELECT 
                 b.title,
                 bb.borrowed_at,
                 DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) AS return_due_date,
                 bb.is_returned,
-            CASE
-                WHEN bb.is_returned = 1 THEN rb.return_at
-                ELSE 'Not Returned'
-            END AS return_date,
-            CASE
-                WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
-                WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
-                ELSE 'Not Overdue'
-            END AS status
-            FROM borrowed_books bb
+                CASE
+                    WHEN bb.is_returned = 1 THEN rb.return_at
+                    ELSE NULL
+                END AS return_date,
+                CASE
+                    WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    ELSE 'Not Overdue'
+                END AS status
+                FROM borrowed_books bb
                 JOIN books b ON bb.book_id = b.id
-                LEFT JOIN returned_books rb ON bb.borrower_id = rb.borrower_id
-             WHERE bb.borrower_id = @UserId;
+                LEFT JOIN returned_books rb ON bb.book_id = rb.book_id AND bb.borrower_id = rb.borrower_id
+                WHERE bb.borrower_id = @UserId;
             ";
 
             try
             {
-                //Open a MySqlConnection
+                // Open a MySqlConnection
                 using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     if (connection.State != ConnectionState.Open)
@@ -1169,13 +1169,13 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         connection.Open();
                     }
 
-                    //Create a MySqlCommand and set the parameters
+                    // Create a MySqlCommand and set the parameters
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
                         command.Parameters.AddWithValue("@UserId", userId);
                         command.Parameters.AddWithValue("@DaysToAdd", daysToAdd);
 
-                        //Execute the query and read the results
+                        // Execute the query and read the results
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.HasRows)
@@ -1191,11 +1191,9 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                         IsReturned = Convert.ToBoolean(reader["is_returned"])
                                     };
 
-                                    if (bookStatus.IsReturned)
+                                    if (bookStatus.IsReturned && reader["return_date"] != DBNull.Value)
                                     {
-                                        bookStatus.ReturnDate = reader["return_date"] != DBNull.Value
-                                            ? (DateTime)reader["return_date"]
-                                            : DateTime.MinValue;
+                                        bookStatus.ReturnDate = (DateTime)reader["return_date"];
                                     }
                                     else
                                     {
@@ -1220,36 +1218,37 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return bookStatusList;
         }
+
         public static List<BookStatusInfo> GetEmployeeBookStatusList(int userId, int daysToAdd)
         {
-            //Create a list to store book status information
+            // Create a list to store book status information
             List<BookStatusInfo> bookStatusList = new List<BookStatusInfo>();
 
-            //query to retrieve information from the database
+            // Query to retrieve information from the database
             string sqlQuery = @"
             SELECT 
                 b.title,
                 bb.borrowed_at,
                 DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) AS return_due_date,
                 bb.is_returned,
-            CASE
-                WHEN bb.is_returned = 1 THEN rb.return_at
-                ELSE 'Not Returned'
-            END AS return_date,
-            CASE
-                WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
-                WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
-                ELSE 'Not Overdue'
-            END AS status
-            FROM borrowed_books bb
+                CASE
+                    WHEN bb.is_returned = 1 THEN rb.return_at
+                    ELSE NULL
+                END AS return_date,
+                CASE
+                    WHEN bb.is_returned = 0 AND CURRENT_TIMESTAMP() > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    WHEN bb.is_returned = 1 AND rb.return_at > DATE_ADD(bb.borrowed_at, INTERVAL @DaysToAdd DAY) THEN 'Overdue'
+                    ELSE 'Not Overdue'
+                END AS status
+                FROM borrowed_books bb
                 JOIN books b ON bb.book_id = b.id
-                LEFT JOIN returned_books rb ON bb.borrower_id = rb.borrower_id
-             WHERE bb.librarian_id = @UserId;
+                LEFT JOIN returned_books rb ON bb.book_id = rb.book_id AND bb.borrower_id = rb.borrower_id
+                WHERE bb.librarian_id = @UserId;
             ";
 
             try
             {
-                //Open a MySqlConnection
+                // Open a MySqlConnection
                 using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
                 {
                     if (connection.State != ConnectionState.Open)
@@ -1257,13 +1256,13 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                         connection.Open();
                     }
 
-                    //Create a MySqlCommand and set the parameters
+                    // Create a MySqlCommand and set the parameters
                     using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
                     {
                         command.Parameters.AddWithValue("@UserId", userId);
                         command.Parameters.AddWithValue("@DaysToAdd", daysToAdd);
 
-                        //Execute the query and read the results
+                        // Execute the query and read the results
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.HasRows)
@@ -1279,11 +1278,9 @@ namespace Archivary.BACKEND.USER_OPERATIONS
                                         IsReturned = Convert.ToBoolean(reader["is_returned"])
                                     };
 
-                                    if (bookStatus.IsReturned)
+                                    if (bookStatus.IsReturned && reader["return_date"] != DBNull.Value)
                                     {
-                                        bookStatus.ReturnDate = reader["return_date"] != DBNull.Value
-                                            ? (DateTime)reader["return_date"]
-                                            : DateTime.MinValue;
+                                        bookStatus.ReturnDate = (DateTime)reader["return_date"];
                                     }
                                     else
                                     {
