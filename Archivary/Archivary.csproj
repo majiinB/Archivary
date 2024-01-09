@@ -145,11 +145,13 @@
     <Compile Include="BACKEND\OBJECTS\Admin.cs" />
     <Compile Include="BACKEND\OBJECTS\Book.cs" />
     <Compile Include="BACKEND\OBJECTS\BookStatusInfo.cs" />
+    <Compile Include="BACKEND\OBJECTS\BookReportsInfo.cs" />
     <Compile Include="BACKEND\OBJECTS\Employee.cs" />
     <Compile Include="BACKEND\OBJECTS\IdentificationResult.cs" />
     <Compile Include="BACKEND\OBJECTS\Setting.cs" />
     <Compile Include="BACKEND\OBJECTS\Student.cs" />
     <Compile Include="BACKEND\OBJECTS\Teacher.cs" />
+    <Compile Include="BACKEND\TIMER\TimerOpersys.cs" />
     <Compile Include="BACKEND\USER_OPERATIONS\UserOperation.cs" />
     <Compile Include="SUB FORMS\FORM_USERS\USERS EDIT\FORM_EDITEMPLOYEE.cs">
       <SubType>Form</SubType>

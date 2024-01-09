@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.PARENT_FORMS;
 using Archivary.SUB_FORMS;
 using System;
@@ -17,18 +18,20 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 {
     public partial class FORM_POS : Form
     {
+        private List<Book> totalBorrowedBooks;
         private List<Book> selectedBooks;
         private List<DateTime> borrowedDates;
         private int borrowerId;
         private decimal totalCost, payment, change;
         private object user;
-        public FORM_POS(List<Book> selectedBooks, List<DateTime> borrowedDates, int borrowerId, object user)
+        public FORM_POS(List<Book> totalBorrowedBooks, List<Book> selectedBooks, List<DateTime> borrowedDates, int borrowerId, object user)
         {
             InitializeComponent();
             this.selectedBooks = selectedBooks;
             this.borrowedDates = borrowedDates;
             this.borrowerId = borrowerId;
             this.user = user;
+            this.totalBorrowedBooks = totalBorrowedBooks;
         }
         private void FORM_POS_Load(object sender, EventArgs e)
         {
@@ -51,9 +54,19 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
             Setting settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
             for (int i = 0; i < selectedBooks.Count; i++)
             {
-                AddBooksInDataGridView(selectedBooks[i], borrowedDates[i], settings);
+                AddBooksInDataGridView(selectedBooks[i], GetSpecificBookBorrowedDates()[i], settings);
             }
             UpdateChange();
+        }
+
+        private List<DateTime> GetSpecificBookBorrowedDates()
+        {
+            List<DateTime> specific = new List<DateTime>();
+            foreach(Book book in selectedBooks)
+            {
+                specific.Add(Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateFromSpecificBorrowedBooks(borrowerId, book.BookId));
+            }
+            return specific;
         }
 
         private void AddBooksInDataGridView(Book book, DateTime borrowedDate, Setting settings)
@@ -168,11 +181,15 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             UpdateChange();
+            TimerOpersys.Stop();
+            if(TimerOpersys.IsEnabled)TimerOpersys.DisplayElapsedTime();
         }
 
         private void payButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             if(payment < totalCost)
             {
                 FORM_ALERT error = new FORM_ALERT(3, "NOT ENOUGH PAYMENT", "You must pay the total cost.");
@@ -189,6 +206,8 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
             alert.TopMost = true;
             alert.Show();
             this.Dispose();
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
     }
 }

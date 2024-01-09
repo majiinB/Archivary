@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using Archivary.PARENT_FORMS;
 using CustomDropdown;
 using MySql.Data.MySqlClient;
@@ -57,6 +58,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             categoryDropdown.Text = bookAdded.BookCategory.ToString();
             genreDropdown.Text = bookAdded.BookGenre.ToString();
             SetPictureBoxImage(bookAdded.BookImage);
+            imageFileLocation = bookAdded.BookImage;
         }
         static string[] SplitName(string input)
         {
@@ -196,16 +198,19 @@ namespace Archivary._1500X1000.FORM_LIBRARY
         
         private void SetAcademicGenres()
         {
+            genreDropdown.Text = "English";
             SetGenreDropdown(new string[] { "English", "Filipino", "History", "Mathematics", "Philosophy", "Science" });
         }
 
         private void SetNonFictionGenres()
         {
+            genreDropdown.Text = "Autobiography";
             SetGenreDropdown(new string[] { "Autobiography", "Food and Cooking", "Health and Wellness", "Self Help", "Technology", "Travel and Exploration"});
         }
 
         private void SetFictionGenres()
         {
+            genreDropdown.Text = "Fantasy";
             SetGenreDropdown(new string[] { "Fantasy", "Mystery", "Thriller", "Romance", "Horror", "Children's Literature", "Science Fiction", "Historical Fiction", "Young Adult", "Action", "Adventure", "Supernatural", "Comedy/Satire", "Psychological Fiction", "Apocalyptic/Post-Apocalyptic"});
         }
 
@@ -224,9 +229,58 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void saveInfoButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
+            if(AllInfoUnchanged(book))
+            {
+                TimerOpersys.Stop();
+                FORM_ALERT alert = new FORM_ALERT(3, "UNCHANGED INFO", "You cannot save info without changing any information.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
+            if (CheckIfTextBoxesAreEmpty())
+            {
+                TimerOpersys.Stop();
+                FORM_ALERT alert = new FORM_ALERT(3, "EMPTY TEXT", "You cannot save info with empty textboxes.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             UpdateBookInfo();
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
             this.Close();
             bookInfo.Close();
+        }
+
+        private bool AllInfoUnchanged(Book bookAdded)
+        {
+            string[] nameParts = SplitName(bookAdded.BookAuthor);
+            return titleTextbox.Text.Equals(bookAdded.BookTitle) &&
+                   ISBNTextbox.Text.Equals(bookAdded.BookISBN) &&
+                   publisherTextbox.Text.Equals(bookAdded.BookPublisher) &&
+                   authorLNTextbox.Text.Equals(nameParts[0]) &&
+                   authorFNTextbox.Text.Equals(nameParts[1]) &&
+                   authorMITextbox.Text.Equals(nameParts[2]) &&
+                   copyrightTextbox.Text.Equals(bookAdded.BookCopyright) &&
+                   aisleTextbox.Text.Equals(bookAdded.BookAisle.ToString()) &&
+                   shelfTextbox.Text.Equals(bookAdded.BookShelf.ToString()) &&
+                   categoryDropdown.Text.Equals(bookAdded.BookCategory.ToString()) &&
+                   genreDropdown.Text.Equals(bookAdded.BookGenre.ToString()) &&
+                   imageFileLocation.Equals(bookAdded.BookImage);
+        }
+
+        private bool CheckIfTextBoxesAreEmpty()
+        {
+            return string.IsNullOrEmpty(titleTextbox.Text) ||
+                   string.IsNullOrEmpty(ISBNTextbox.Text) ||
+                   string.IsNullOrEmpty(publisherTextbox.Text) ||
+                   string.IsNullOrEmpty(authorLNTextbox.Text) ||
+                   string.IsNullOrEmpty(authorFNTextbox.Text) ||
+                   string.IsNullOrEmpty(authorMITextbox.Text) ||
+                   string.IsNullOrEmpty(copyrightTextbox.Text) ||
+                   string.IsNullOrEmpty(aisleTextbox.Text) ||
+                   string.IsNullOrEmpty(shelfTextbox.Text);
         }
 
         private async void UpdateBookInfo()
@@ -265,6 +319,51 @@ namespace Archivary._1500X1000.FORM_LIBRARY
                     }
                 }
             }
+        }
+
+        private void ISBNTextbox_TextChanged(object sender, EventArgs e)
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (char letter in ISBNTextbox.Text)
+            {
+                if (char.IsDigit(letter))
+                {
+                    result.Append(letter);
+                }
+            }
+
+            ISBNTextbox.Text = result.ToString();
+        }
+
+        private void aisleTextbox_TextChanged(object sender, EventArgs e)
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (char letter in aisleTextbox.Text)
+            {
+                if (char.IsDigit(letter))
+                {
+                    result.Append(letter);
+                }
+            }
+
+            aisleTextbox.Text = result.ToString();
+        }
+
+        private void shelfTextbox_TextChanged(object sender, EventArgs e)
+        {
+            StringBuilder result = new StringBuilder();
+
+            foreach (char letter in shelfTextbox.Text)
+            {
+                if (char.IsDigit(letter))
+                {
+                    result.Append(letter);
+                }
+            }
+
+            shelfTextbox.Text = result.ToString();
         }
     }
 }

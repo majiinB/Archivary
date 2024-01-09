@@ -2,6 +2,7 @@
 using Archivary.Archivary_Components;
 using Archivary.BACKEND.BOOK_OPERATIONS;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 using CustomDropdown;
 using System;
 using System.Collections.Generic;
@@ -118,7 +119,7 @@ namespace Archivary.PARENT_FORMS
 
         private void addBookButton_Click(object sender, EventArgs e)
         {
-            FormsBookAdd = new FORM_BOOKADD();
+            FormsBookAdd = new FORM_BOOKADD(this);
             FormsBookAdd.ShowDialog();
         }
 
@@ -189,6 +190,7 @@ namespace Archivary.PARENT_FORMS
          */
         private async Task LoadListAsync()
         {
+            TimerOpersys.Start();
             //Check if bookDictionary and book searched has any elements in it
             //if there are any clear it
             if (booksSearched != null && booksSearched.Count > 0 &&
@@ -233,8 +235,12 @@ namespace Archivary.PARENT_FORMS
                         if (bookAdded != null) CreateButtonsAsync(bookAdded);
                     }
                     start = end; //Set the start value to be the with the end value
+
+                    TimerOpersys.Stop();
+                    if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
                 }
                 isDataLoading = false; //set to indicate that the method or process is now finished
+                
             });
         }
         /*
@@ -312,6 +318,7 @@ namespace Archivary.PARENT_FORMS
 
             //Handle the text change after the debounce period
             HandleSearchTextChange();
+
         }
         /*
          * Method para iset yung searchTerm as yung value na nasa searchbar texbox

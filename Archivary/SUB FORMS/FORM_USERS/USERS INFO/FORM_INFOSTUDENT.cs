@@ -48,9 +48,9 @@ namespace Archivary._1500X1000.FORM_USERS
         }
 
 
-        private void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
+        private async void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
         {
-            loadHistory();
+            await loadHistory();
         }
         
         private void backButton_Click(object sender, MouseEventArgs e)
@@ -188,10 +188,15 @@ namespace Archivary._1500X1000.FORM_USERS
                 }
                 else
                 {
-                    returnDate = bookStatus.ReturnDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]);
+                    returnDate = CommonOperation.ConvertToReadableFormat(
+                        bookStatus.ReturnDate.ToString(
+                            CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]
+                            )
+                        );
                 }
-                bookListDataGridView.Rows.Add(bookStatus.Title, bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]),
-                    bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]),
+                bookListDataGridView.Rows.Add(bookStatus.Title, 
+                    CommonOperation.ConvertToReadableFormat(bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
+                    CommonOperation.ConvertToReadableFormat(bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     returnDate, bookStatus.Status);
             }
         }

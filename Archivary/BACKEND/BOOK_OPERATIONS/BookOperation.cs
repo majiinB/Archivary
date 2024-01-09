@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Windows.Forms;
 using static Archivary.BACKEND.USER_OPERATIONS.UserOperation;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Archivary.BACKEND.BOOK_OPERATIONS
 {
@@ -113,7 +115,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "SELECT * FROM books WHERE status = @status ORDER BY title ASC";
+                string query = "SELECT * FROM books WHERE status = @status and category != 'ACADEMIC' ORDER BY title ASC";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -254,6 +256,23 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
+        private static void BorrowBook(Book book, int borrowerId, int librarianId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "INSERT INTO borrowed_books (book_id, borrower_id, borrowed_at, is_returned, librarianId) VALUES (@book, @id, @time, false, @librarian)";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@book", book.BookId);
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    command.Parameters.AddWithValue("@time", DateTime.Now);
+                    command.Parameters.AddWithValue("@librarian", librarianId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static void UpdateBorrowReserveBook(MySqlTransaction transaction, string status, Book book)
         {
             using (MySqlCommand updateCommand = transaction.Connection.CreateCommand())
@@ -286,7 +305,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
         }
 
-        public static void SetReservedBookToBorrowed(Book book, int borrowerId)
+        public static void SetReservedBookToBorrowed(Book book, int borrowerId, int librarianId)
         {
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
@@ -297,6 +316,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     command.Parameters.AddWithValue("@id", book.BookId);
                     command.Parameters.AddWithValue("@borrower_id", borrowerId);
                     command.ExecuteScalar();
+                    BorrowBook(book, borrowerId, librarianId);
                 }
             }
         }
@@ -431,6 +451,43 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 }
             }
             return dates;
+        }
+
+        public static DateTime GetDateFromSpecificBorrowedBooks(int borrowerId, int bookId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id and borrowed_books.book_id = @book";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    command.Parameters.AddWithValue("@book", bookId);
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            return reader.GetDateTime("date");
+                        }
+                    }
+                }
+                return DateTime.Now;
+            }
+        }
+
+        public static bool CheckIfExistingUnsettledBorrowedBooks(int borrowerId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) from borrowed_books where is_returned = false and borrower_id = @id";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", borrowerId);
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    return count > 0;
+                }
+            }
         }
 
         public static void AddBook(string author, string genre, string isbn, string category, string title, string copyright,
@@ -761,6 +818,13 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             {
                 return (false, "Invalid Category");
             }
+
+            var categoryToGenreValidation = IsGenreAppropriate(bookInfos[(int)BookInfo.Genre], bookInfos[(int)BookInfo.Category]);
+            if (!categoryToGenreValidation.isValid1)
+            {
+                return (false, categoryToGenreValidation.ErrorMessage1);
+            }
+
             if (string.IsNullOrEmpty(bookInfos[(int)BookInfo.ImagePath]) ||
                 !(bookInfos[(int)BookInfo.ImagePath].ToUpper().Trim() == "NO_IMAGE" ||
                 bookInfos[(int)BookInfo.ImagePath].ToUpper().Trim() == "NO IMAGE" ||
@@ -829,7 +893,131 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             }
             return false;
         }
+        public static (bool isValid1, string ErrorMessage1) IsGenreAppropriate(string genre, string category)
+        {
+            List<string> academicGenres = new List<string> { "Science and nature", "Philosophy", "History", "English", "Filipino", "Mathematics" };
+            List<string> nonfictionGenres = new List<string> { "Autobiography", "Biography", "Memoir", "Food and cooking", "Health and Wellness", "Self help", "Technology", "Travel and Exploration" };
+            List<string> fictionGenres = new List<string> { "Fantasy", "Mystery", "Thriller", "Romance", "Horror", "Children's Literature", "Science Fiction", "Historical Fiction", "Young Adult",
+                                                        "Action", "Adventure", "Supernatural", "Comedy/Satire", "psychological fiction", "apocalyptic/post-apocalyptic" };
 
+            if (category == "Academic" && academicGenres.Contains(genre))
+            {
+                return (true, "Genre is appropriate for Academic category");
+            }
+            else if (category == "Nonfiction" && nonfictionGenres.Contains(genre))
+            {
+                return (true, "Genre is appropriate for Nonfiction category");
+            }
+            else if (category == "Fiction" && fictionGenres.Contains(genre))
+            {
+                return (true, "Genre is appropriate for Fiction category");
+            }
+            else
+            {
+                return (false, "Genre is not appropriate for the specified category please check the settings for the list of genres");
+            }
+        }
+
+        public static List<BookReportsInfo> SetInfoFromBorrowedReports()
+        {
+            List<BookReportsInfo> reports = new List<BookReportsInfo>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = @"SELECT
+                                bb.borrower_id,
+                                b.isbn AS book_id,
+                                b.title,
+                                b.author,
+                                bb.borrowed_at AS obtained_date,
+                                adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) as return_date,
+                                CASE
+                                    WHEN bb.is_returned = 1 THEN 'Returned'
+                                    WHEN CURRENT_TIMESTAMP() > adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) THEN 'Overdue'
+                                    ELSE 'Not Overdue'
+                                END AS status
+                            FROM
+                                books b
+                                JOIN borrowed_books bb ON b.id = bb.book_id
+                                JOIN settings s ON s.id = 1
+                            ORDER BY status asc";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Create a new BookReportsInfo object for each row
+                            BookReportsInfo report = new BookReportsInfo
+                            {
+                                userId = reader.GetInt32("borrower_id"),
+                                isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
+                                title = reader.GetString("title"),
+                                author = reader.GetString("author"),
+                                obtainedDate = reader.GetDateTime("obtained_date"),
+                                dueDate = reader.GetDateTime("return_date"),
+                                status = reader.GetString("status")
+                            };
+
+                            // Add the object to the list
+                            reports.Add(report);
+                        }
+                    }
+                }
+                return reports;
+            }
+        }
+
+        public static List<BookReportsInfo> SetInfoFromReservedReports()
+        {
+            List<BookReportsInfo> reports = new List<BookReportsInfo>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = @"SELECT
+                                rb.borrower_id,
+                                b.isbn AS book_id,
+                                b.title,
+                                b.author,
+                                rb.reserved_at AS obtained_date,
+                                rb.is_borrowed,
+                                ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
+                                CASE
+                                    WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+                                    WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
+                                    ELSE 'Reserved'
+                                END AS status
+                            FROM
+                                books b
+                                JOIN reserved_books rb ON b.id = rb.book_id
+                                JOIN settings s ON s.id = 1
+                            ORDER BY status DESC;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Create a new BookReportsInfo object for each row
+                            BookReportsInfo report = new BookReportsInfo
+                            {
+                                userId = reader.GetInt32("borrower_id"),
+                                isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
+                                title = reader.GetString("title"),
+                                author = reader.GetString("author"),
+                                obtainedDate = reader.GetDateTime("obtained_date"),
+                                dueDate = reader.GetDateTime("return_date"),
+                                status = reader.GetString("status")
+                            };
+
+                            // Add the object to the list
+                            reports.Add(report);
+                        }
+                    }
+                }
+                return reports;
+            }
+        }
     }
 }
 

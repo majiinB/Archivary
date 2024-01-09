@@ -1,6 +1,7 @@
 ﻿using Archivary._900X500;
 using Archivary.Archivary_Components;
 using Archivary.BACKEND.COMMON_OPERATIONS;
+using Archivary.BACKEND.OBJECTS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -138,16 +139,29 @@ namespace Archivary.PARENT_FORMS
             LAYOUT_REPORT.Controls.Add(booksBorrowed);
             booksBorrowed.Width = LAYOUT_REPORT.ClientSize.Width - 30;
             booksBorrowed.Height = LAYOUT_REPORT.ClientSize.Width / 2;
-            int n = 100;
-            for (int i = 1; i <= n; i++)
-            {
-                booksBorrowed.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
-                booksBorrowed.BorrowDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
-            }
+            AddBorrowedBooksInDataGridView(booksBorrowed);
             isDataLoading = false;
             needMoreData = true;
             //whatPage = 1;
         }
+
+        private void AddBorrowedBooksInDataGridView(booksBorrowed booksBorrowed)
+        {
+            List<BookReportsInfo> reportList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetInfoFromBorrowedReports();
+            foreach(BookReportsInfo report in reportList)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.userId});
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.isbn });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.title });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.author });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.obtainedDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.dueDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.status });
+                booksBorrowed.BorrowDataGridView.Rows.Add(row);
+            }
+        }
+
         private async Task BooksReserved()
         {
             if (LAYOUT_REPORT.InvokeRequired)
@@ -161,15 +175,27 @@ namespace Archivary.PARENT_FORMS
             booksReserved.Width = LAYOUT_REPORT.ClientSize.Width - 30;
             booksReserved.Height = LAYOUT_REPORT.ClientSize.Width / 2;
 
-            int n = 100;
-            for (int i = 1; i <= n; i++)
-            {
-                booksReserved.ReserveDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Overdue");
-                booksReserved.ReserveDataGridView.Rows.Add("hh" + i, "ddadsgdffffgdsfgsdgdfgdfgv", "ss" + (i * 7), "ss", "aa", "aa", "Not Overdue");
-            }
+            AddReservedBooksInDataGridView(booksReserved);
             isDataLoading = false;
             needMoreData = false;
             //whatPage = 2;
+        }
+
+        private void AddReservedBooksInDataGridView(booksReserved booksReserved)
+        {
+            List<BookReportsInfo> reportList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetInfoFromReservedReports();
+            foreach (BookReportsInfo report in reportList)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.userId });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.isbn });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.title });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.author });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.obtainedDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.dueDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.status });
+                booksReserved.ReserveDataGridView.Rows.Add(row);
+            }
         }
 
         //Scroll events to load other data

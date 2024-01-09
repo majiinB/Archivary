@@ -66,7 +66,8 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
             }
             return settings;
         }
-        public static bool UpdateSettings(int borrowingCapacity, int borrowingCapacityTeacher, int reserveLimit, int borrowingDuration)
+        public static bool UpdateSettings(int borrowingCapacity, int borrowingCapacityTeacher, int reserveLimit, int borrowingDuration, int reserveDuration,
+    int overdueFee, int additionalOverdue)
         {
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
@@ -76,7 +77,10 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                                "SET borrowing_capacity = @BorrowingCapacity, " +
                                "reserve_limit = @ReserveLimit, " +
                                "borrowing_duration = @BorrowingDuration, " +
-                               "borrowing_capacity_teacher = @BorrowingCapacityTeacher " +
+                               "borrowing_capacity_teacher = @BorrowingCapacityTeacher, " +
+                               "reserve_duration = @ReserveDuration, " +
+                               "overdue_fee = @OverdueFee, " +
+                               "additional_overdue_fee = @AdditionalOverdueFee " +
                                "WHERE id = 1"; // Assuming there is only one row in the settings table
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -85,6 +89,9 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                     command.Parameters.AddWithValue("@ReserveLimit", reserveLimit);
                     command.Parameters.AddWithValue("@BorrowingDuration", borrowingDuration);
                     command.Parameters.AddWithValue("@BorrowingCapacityTeacher", borrowingCapacityTeacher);
+                    command.Parameters.AddWithValue("@ReserveDuration", reserveDuration);
+                    command.Parameters.AddWithValue("@OverdueFee", overdueFee); // Corrected parameter name
+                    command.Parameters.AddWithValue("@AdditionalOverdueFee", additionalOverdue); // Corrected parameter name
 
                     try
                     {
@@ -97,6 +104,25 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                         return false;
                     }
                 }
+            }
+        }
+        public static string ConvertToReadableFormat(string dateString)
+        {
+            try
+            {
+                // Parse the input string as a DateTime
+                DateTime date = DateTime.Parse(dateString);
+
+                // Format the DateTime as a readable string
+                string formattedDate = date.ToString("MMMM d, yyyy");
+
+                return formattedDate;
+            }
+            catch (FormatException ex)
+            {
+                // Handle the case where the input string is not a valid date
+                Console.WriteLine($"Error: {ex.Message}");
+                return "Invalid Date";
             }
         }
         #endregion
