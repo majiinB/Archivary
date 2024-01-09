@@ -12,6 +12,7 @@ using Archivary.Archivary_Components;
 using Archivary.BACKEND.BOOK_OPERATIONS;
 using Archivary.BACKEND.COMMON_OPERATIONS;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 
 namespace Archivary.SUB_FORMS
 {
@@ -284,12 +285,14 @@ namespace Archivary.SUB_FORMS
         private void SearchUserTimer_Tick(object sender, EventArgs e)
         {
             searchUserTimer.Stop();
+            TimerOpersys.Start();
             SearchUser(searchID.Text);
         }
 
         private void SearchTimer_Tick(object sender, EventArgs e)
         {
             searchTimer.Stop();
+            TimerOpersys.Start();
             SearchBooks(searchBook.Text);
         }
 
@@ -309,6 +312,8 @@ namespace Archivary.SUB_FORMS
 
                 AddBookToBooksDataGridView(book);
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
 
         private void SearchUser(string query)
@@ -324,6 +329,7 @@ namespace Archivary.SUB_FORMS
                 isStudent = true;
                 isTeacher = false;
                 LoadAvailableBooks();
+                TimerOpersys.Stop();
             }
             else if (query.Contains("T") && query.Length == 10)
             {
@@ -336,6 +342,7 @@ namespace Archivary.SUB_FORMS
                 isStudent = false;
                 isTeacher = true;
                 LoadAvailableBooks();
+                TimerOpersys.Stop();
             }
             else
             {
@@ -346,7 +353,9 @@ namespace Archivary.SUB_FORMS
                 isStudent = false;
                 isTeacher = false;
                 BooksDataGridView.Rows.Clear();
+                TimerOpersys.Start();
             }
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
 
         private void SetTexts(Student user)
@@ -383,8 +392,10 @@ namespace Archivary.SUB_FORMS
 
         private void HandleCirculationEvent(string type, string message)
         {
+            TimerOpersys.Start();
             if(selectedISBNs.Count < 1)
             {
+                TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(1, "NO SELECTED BOOKS", "Please add books before borrowing/reserving.");
                 alert.TopMost = true;
                 alert.Show();
@@ -406,6 +417,7 @@ namespace Archivary.SUB_FORMS
                     }
                     if (hasReservedBookSelected)
                     {
+                        TimerOpersys.Stop();
                         FORM_ALERT alert = new FORM_ALERT(1, "BOOK ALREADY RESERVED", "You can't reserve the reserved book.");
                         alert.TopMost = true;
                         alert.Show();
@@ -426,15 +438,19 @@ namespace Archivary.SUB_FORMS
                 }
                 Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 SuccessBorrowReserve(message);
+                TimerOpersys.Stop();
             }
             else
             {
                 int borrow = isStudent ? studentBorrowLimit : teacherBorrowLimit;
                 string circulation = message.Equals("borrow") ? $"You may only borrow {borrow} books." : $"You many only reserve {reserveLimit} books.";
+                TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(1, "LIMIT EXCEEDED", circulation);
                 alert.TopMost = true;
                 alert.Show();
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
 
         private void searchID_TextChanged(object sender, EventArgs e)
