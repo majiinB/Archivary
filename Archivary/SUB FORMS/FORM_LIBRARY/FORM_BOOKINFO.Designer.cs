@@ -33,23 +33,23 @@
             this.cancelButton = new roundedCorners.roundedButton();
             this.editInfoButton = new roundedCorners.roundedButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.availableLabel = new System.Windows.Forms.Label();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.genreLabel = new System.Windows.Forms.Label();
             this.ISBNLabel = new System.Windows.Forms.Label();
             this.ISBNTextbox = new RoundedCorners.RoundedTextBox();
             this.authorLabel = new System.Windows.Forms.Label();
             this.authorTextbox = new RoundedCorners.RoundedTextBox();
-            this.shelfLabel = new System.Windows.Forms.Label();
-            this.aisleLabel = new System.Windows.Forms.Label();
-            this.copyrightLabel = new System.Windows.Forms.Label();
             this.publisherLabel = new System.Windows.Forms.Label();
             this.publisherTextbox = new RoundedCorners.RoundedTextBox();
+            this.copyrightLabel = new System.Windows.Forms.Label();
             this.copyrightTextbox = new RoundedCorners.RoundedTextBox();
+            this.aisleLabel = new System.Windows.Forms.Label();
             this.aisleTextbox = new RoundedCorners.RoundedTextBox();
+            this.shelfLabel = new System.Windows.Forms.Label();
             this.shelfTextbox = new RoundedCorners.RoundedTextBox();
             this.bookPictureBox = new System.Windows.Forms.PictureBox();
             this.booktitleLabel = new System.Windows.Forms.Label();
-            this.availableLabel = new System.Windows.Forms.Label();
-            this.genreLabel = new System.Windows.Forms.Label();
-            this.categoryLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).BeginInit();
@@ -62,14 +62,11 @@
             this.PANEL_CONTENTS.Controls.Add(this.editInfoButton);
             this.PANEL_CONTENTS.Controls.Add(this.tableLayoutPanel1);
             this.PANEL_CONTENTS.Controls.Add(this.booktitleLabel);
-            this.PANEL_CONTENTS.Controls.Add(this.availableLabel);
-            this.PANEL_CONTENTS.Controls.Add(this.genreLabel);
-            this.PANEL_CONTENTS.Controls.Add(this.categoryLabel);
             this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_CONTENTS.Location = new System.Drawing.Point(2, 2);
-            this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 2);
+            this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
-            this.PANEL_CONTENTS.Size = new System.Drawing.Size(716, 540);
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(954, 666);
             this.PANEL_CONTENTS.TabIndex = 0;
             // 
             // cancelButton
@@ -83,10 +80,10 @@
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(358, 481);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Location = new System.Drawing.Point(478, 592);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(309, 47);
+            this.cancelButton.Size = new System.Drawing.Size(422, 58);
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Back";
             this.cancelButton.TextColor = System.Drawing.Color.White;
@@ -104,10 +101,10 @@
             this.editInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editInfoButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editInfoButton.ForeColor = System.Drawing.Color.White;
-            this.editInfoButton.Location = new System.Drawing.Point(45, 481);
-            this.editInfoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.editInfoButton.Location = new System.Drawing.Point(50, 592);
+            this.editInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.editInfoButton.Name = "editInfoButton";
-            this.editInfoButton.Size = new System.Drawing.Size(309, 47);
+            this.editInfoButton.Size = new System.Drawing.Size(422, 58);
             this.editInfoButton.TabIndex = 0;
             this.editInfoButton.Text = "Edit Info";
             this.editInfoButton.TextColor = System.Drawing.Color.White;
@@ -116,51 +113,96 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 425F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.ISBNLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ISBNTextbox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.authorLabel, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.authorTextbox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.shelfLabel, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.aisleLabel, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.copyrightLabel, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.publisherLabel, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.publisherTextbox, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.copyrightTextbox, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.aisleTextbox, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.shelfTextbox, 1, 11);
-            this.tableLayoutPanel1.Controls.Add(this.bookPictureBox, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 109);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.availableLabel, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.categoryLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.genreLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ISBNLabel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ISBNTextbox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.authorLabel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.authorTextbox, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.publisherLabel, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.publisherTextbox, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.copyrightLabel, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.copyrightTextbox, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.aisleLabel, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.aisleTextbox, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.shelfLabel, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.shelfTextbox, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.bookPictureBox, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 134);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 12;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(622, 366);
+            this.tableLayoutPanel1.RowCount = 13;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 450);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // availableLabel
+            // 
+            this.availableLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.availableLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.availableLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.availableLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.availableLabel.Location = new System.Drawing.Point(640, 0);
+            this.availableLabel.Name = "availableLabel";
+            this.availableLabel.Size = new System.Drawing.Size(207, 34);
+            this.availableLabel.TabIndex = 2;
+            this.availableLabel.Text = "Available";
+            this.availableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // categoryLabel
+            // 
+            this.categoryLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.categoryLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.categoryLabel.Location = new System.Drawing.Point(428, 0);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(206, 34);
+            this.categoryLabel.TabIndex = 0;
+            this.categoryLabel.Text = "Category";
+            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // genreLabel
+            // 
+            this.genreLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.genreLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.genreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.genreLabel.Location = new System.Drawing.Point(3, 0);
+            this.genreLabel.Name = "genreLabel";
+            this.genreLabel.Size = new System.Drawing.Size(419, 34);
+            this.genreLabel.TabIndex = 1;
+            this.genreLabel.Text = "Genre";
+            this.genreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ISBNLabel
             // 
             this.ISBNLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.ISBNLabel, 2);
             this.ISBNLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ISBNLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ISBNLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ISBNLabel.Location = new System.Drawing.Point(313, 0);
-            this.ISBNLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ISBNLabel.Location = new System.Drawing.Point(428, 34);
             this.ISBNLabel.Name = "ISBNLabel";
-            this.ISBNLabel.Size = new System.Drawing.Size(307, 30);
+            this.ISBNLabel.Size = new System.Drawing.Size(419, 34);
             this.ISBNLabel.TabIndex = 0;
             this.ISBNLabel.Text = "ISBN";
             this.ISBNLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -172,16 +214,17 @@
             this.ISBNTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.ISBNTextbox.BorderThickness = 0;
             this.ISBNTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.ISBNTextbox, 2);
             this.ISBNTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ISBNTextbox.Enabled = false;
             this.ISBNTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ISBNTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ISBNTextbox.Location = new System.Drawing.Point(313, 32);
-            this.ISBNTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ISBNTextbox.Location = new System.Drawing.Point(428, 70);
+            this.ISBNTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ISBNTextbox.Name = "ISBNTextbox";
-            this.ISBNTextbox.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.ISBNTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.ISBNTextbox.Radius = 10;
-            this.ISBNTextbox.Size = new System.Drawing.Size(307, 26);
+            this.ISBNTextbox.Size = new System.Drawing.Size(419, 30);
             this.ISBNTextbox.TabIndex = 1;
             this.ISBNTextbox.Text = "1436969143";
             this.ISBNTextbox.UseSystemPasswordChar = false;
@@ -189,13 +232,13 @@
             // authorLabel
             // 
             this.authorLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.authorLabel, 2);
             this.authorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.authorLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorLabel.Location = new System.Drawing.Point(313, 60);
-            this.authorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.authorLabel.Location = new System.Drawing.Point(428, 102);
             this.authorLabel.Name = "authorLabel";
-            this.authorLabel.Size = new System.Drawing.Size(307, 30);
+            this.authorLabel.Size = new System.Drawing.Size(419, 34);
             this.authorLabel.TabIndex = 2;
             this.authorLabel.Text = "Author";
             this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,72 +250,31 @@
             this.authorTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.authorTextbox.BorderThickness = 0;
             this.authorTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.authorTextbox, 2);
             this.authorTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.authorTextbox.Enabled = false;
             this.authorTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authorTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorTextbox.Location = new System.Drawing.Point(313, 92);
-            this.authorTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.authorTextbox.Location = new System.Drawing.Point(428, 138);
+            this.authorTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.authorTextbox.Name = "authorTextbox";
-            this.authorTextbox.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.authorTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.authorTextbox.Radius = 10;
-            this.authorTextbox.Size = new System.Drawing.Size(307, 26);
+            this.authorTextbox.Size = new System.Drawing.Size(419, 30);
             this.authorTextbox.TabIndex = 3;
             this.authorTextbox.Text = "Reach Mound";
             this.authorTextbox.UseSystemPasswordChar = false;
             // 
-            // shelfLabel
-            // 
-            this.shelfLabel.AutoSize = true;
-            this.shelfLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shelfLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.shelfLabel.Location = new System.Drawing.Point(313, 300);
-            this.shelfLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.shelfLabel.Name = "shelfLabel";
-            this.shelfLabel.Size = new System.Drawing.Size(307, 30);
-            this.shelfLabel.TabIndex = 7;
-            this.shelfLabel.Text = "Shelf";
-            this.shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // aisleLabel
-            // 
-            this.aisleLabel.AutoSize = true;
-            this.aisleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aisleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aisleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.aisleLabel.Location = new System.Drawing.Point(313, 240);
-            this.aisleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.aisleLabel.Name = "aisleLabel";
-            this.aisleLabel.Size = new System.Drawing.Size(307, 30);
-            this.aisleLabel.TabIndex = 6;
-            this.aisleLabel.Text = "Aisle";
-            this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // copyrightLabel
-            // 
-            this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.copyrightLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.copyrightLabel.Location = new System.Drawing.Point(313, 180);
-            this.copyrightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(307, 30);
-            this.copyrightLabel.TabIndex = 5;
-            this.copyrightLabel.Text = "Copyright";
-            this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // publisherLabel
             // 
             this.publisherLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.publisherLabel, 2);
             this.publisherLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.publisherLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.publisherLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.publisherLabel.Location = new System.Drawing.Point(313, 120);
-            this.publisherLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.publisherLabel.Location = new System.Drawing.Point(428, 170);
             this.publisherLabel.Name = "publisherLabel";
-            this.publisherLabel.Size = new System.Drawing.Size(307, 30);
+            this.publisherLabel.Size = new System.Drawing.Size(419, 34);
             this.publisherLabel.TabIndex = 4;
             this.publisherLabel.Text = "Publisher";
             this.publisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -284,19 +286,34 @@
             this.publisherTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.publisherTextbox.BorderThickness = 0;
             this.publisherTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.publisherTextbox, 2);
             this.publisherTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.publisherTextbox.Enabled = false;
             this.publisherTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.publisherTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.publisherTextbox.Location = new System.Drawing.Point(313, 152);
-            this.publisherTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.publisherTextbox.Location = new System.Drawing.Point(428, 206);
+            this.publisherTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.publisherTextbox.Name = "publisherTextbox";
-            this.publisherTextbox.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.publisherTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.publisherTextbox.Radius = 10;
-            this.publisherTextbox.Size = new System.Drawing.Size(307, 26);
+            this.publisherTextbox.Size = new System.Drawing.Size(419, 30);
             this.publisherTextbox.TabIndex = 8;
             this.publisherTextbox.Text = "Gabrielle\'s Books of Revelation";
             this.publisherTextbox.UseSystemPasswordChar = false;
+            // 
+            // copyrightLabel
+            // 
+            this.copyrightLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.copyrightLabel, 2);
+            this.copyrightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.copyrightLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copyrightLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.copyrightLabel.Location = new System.Drawing.Point(428, 238);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(419, 34);
+            this.copyrightLabel.TabIndex = 5;
+            this.copyrightLabel.Text = "Copyright";
+            this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // copyrightTextbox
             // 
@@ -305,19 +322,34 @@
             this.copyrightTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.copyrightTextbox.BorderThickness = 0;
             this.copyrightTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.copyrightTextbox, 2);
             this.copyrightTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.copyrightTextbox.Enabled = false;
             this.copyrightTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.copyrightTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.copyrightTextbox.Location = new System.Drawing.Point(313, 212);
-            this.copyrightTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.copyrightTextbox.Location = new System.Drawing.Point(428, 274);
+            this.copyrightTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.copyrightTextbox.Name = "copyrightTextbox";
-            this.copyrightTextbox.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.copyrightTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.copyrightTextbox.Radius = 10;
-            this.copyrightTextbox.Size = new System.Drawing.Size(307, 26);
+            this.copyrightTextbox.Size = new System.Drawing.Size(419, 30);
             this.copyrightTextbox.TabIndex = 9;
             this.copyrightTextbox.Text = "© 2017 by Taylor Jenkins Reid";
             this.copyrightTextbox.UseSystemPasswordChar = false;
+            // 
+            // aisleLabel
+            // 
+            this.aisleLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.aisleLabel, 2);
+            this.aisleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aisleLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aisleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.aisleLabel.Location = new System.Drawing.Point(428, 306);
+            this.aisleLabel.Name = "aisleLabel";
+            this.aisleLabel.Size = new System.Drawing.Size(419, 34);
+            this.aisleLabel.TabIndex = 6;
+            this.aisleLabel.Text = "Aisle";
+            this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // aisleTextbox
             // 
@@ -326,19 +358,34 @@
             this.aisleTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.aisleTextbox.BorderThickness = 0;
             this.aisleTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.aisleTextbox, 2);
             this.aisleTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.aisleTextbox.Enabled = false;
             this.aisleTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aisleTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.aisleTextbox.Location = new System.Drawing.Point(313, 272);
-            this.aisleTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.aisleTextbox.Location = new System.Drawing.Point(428, 342);
+            this.aisleTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.aisleTextbox.Name = "aisleTextbox";
-            this.aisleTextbox.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.aisleTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.aisleTextbox.Radius = 10;
-            this.aisleTextbox.Size = new System.Drawing.Size(307, 26);
+            this.aisleTextbox.Size = new System.Drawing.Size(419, 30);
             this.aisleTextbox.TabIndex = 10;
             this.aisleTextbox.Text = "<000>";
             this.aisleTextbox.UseSystemPasswordChar = false;
+            // 
+            // shelfLabel
+            // 
+            this.shelfLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.shelfLabel, 2);
+            this.shelfLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shelfLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shelfLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.shelfLabel.Location = new System.Drawing.Point(428, 374);
+            this.shelfLabel.Name = "shelfLabel";
+            this.shelfLabel.Size = new System.Drawing.Size(419, 34);
+            this.shelfLabel.TabIndex = 7;
+            this.shelfLabel.Text = "Shelf";
+            this.shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // shelfTextbox
             // 
@@ -347,16 +394,17 @@
             this.shelfTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.shelfTextbox.BorderThickness = 0;
             this.shelfTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.shelfTextbox, 2);
             this.shelfTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.shelfTextbox.Enabled = false;
             this.shelfTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shelfTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.shelfTextbox.Location = new System.Drawing.Point(313, 332);
-            this.shelfTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.shelfTextbox.Location = new System.Drawing.Point(428, 410);
+            this.shelfTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.shelfTextbox.Name = "shelfTextbox";
-            this.shelfTextbox.Padding = new System.Windows.Forms.Padding(8, 0, 0, 0);
+            this.shelfTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.shelfTextbox.Radius = 10;
-            this.shelfTextbox.Size = new System.Drawing.Size(307, 32);
+            this.shelfTextbox.Size = new System.Drawing.Size(419, 38);
             this.shelfTextbox.TabIndex = 11;
             this.shelfTextbox.Text = "<000>";
             this.shelfTextbox.UseSystemPasswordChar = false;
@@ -365,78 +413,38 @@
             // 
             this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookPictureBox.Location = new System.Drawing.Point(2, 2);
-            this.bookPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bookPictureBox.Location = new System.Drawing.Point(3, 37);
             this.bookPictureBox.Name = "bookPictureBox";
+            this.bookPictureBox.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.tableLayoutPanel1.SetRowSpan(this.bookPictureBox, 12);
-            this.bookPictureBox.Size = new System.Drawing.Size(307, 362);
+            this.bookPictureBox.Size = new System.Drawing.Size(419, 410);
             this.bookPictureBox.TabIndex = 12;
             this.bookPictureBox.TabStop = false;
             // 
             // booktitleLabel
             // 
-            this.booktitleLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.booktitleLabel.Font = new System.Drawing.Font("Montserrat Black", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.booktitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.booktitleLabel.Location = new System.Drawing.Point(2, 33);
-            this.booktitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.booktitleLabel.Location = new System.Drawing.Point(3, 0);
             this.booktitleLabel.Name = "booktitleLabel";
-            this.booktitleLabel.Size = new System.Drawing.Size(711, 73);
+            this.booktitleLabel.Size = new System.Drawing.Size(948, 134);
             this.booktitleLabel.TabIndex = 3;
-            this.booktitleLabel.Text = "LORD OF THE RINGS";
+            this.booktitleLabel.Text = "LORD OF THE RINGS\r\nLORD OF THE RINGS\r\n";
             this.booktitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // availableLabel
-            // 
-            this.availableLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.availableLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availableLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.availableLabel.Location = new System.Drawing.Point(268, 9);
-            this.availableLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.availableLabel.Name = "availableLabel";
-            this.availableLabel.Size = new System.Drawing.Size(112, 24);
-            this.availableLabel.TabIndex = 2;
-            this.availableLabel.Text = "Available";
-            this.availableLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // genreLabel
-            // 
-            this.genreLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.genreLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genreLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.genreLabel.Location = new System.Drawing.Point(138, 9);
-            this.genreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.genreLabel.Name = "genreLabel";
-            this.genreLabel.Size = new System.Drawing.Size(112, 24);
-            this.genreLabel.TabIndex = 1;
-            this.genreLabel.Text = "Genre";
-            this.genreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // categoryLabel
-            // 
-            this.categoryLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.categoryLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.categoryLabel.Location = new System.Drawing.Point(10, 9);
-            this.categoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.categoryLabel.Name = "categoryLabel";
-            this.categoryLabel.Size = new System.Drawing.Size(112, 24);
-            this.categoryLabel.TabIndex = 0;
-            this.categoryLabel.Text = "Category";
-            this.categoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FORM_BOOKINFO
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(720, 544);
+            this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_CONTENTS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FORM_BOOKINFO";
-            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivary | Book Info";
