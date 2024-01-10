@@ -48,9 +48,9 @@ namespace Archivary._1500X1000.FORM_USERS
         }
 
 
-        private async void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
+        private void FORM_INFOSTUDENT_Load(object sender, EventArgs e)
         {
-            await loadHistory();
+            loadHistory();
         }
         
         private void backButton_Click(object sender, MouseEventArgs e)
@@ -171,19 +171,19 @@ namespace Archivary._1500X1000.FORM_USERS
             }
         }
 
-        private async Task loadHistory()
+        private void loadHistory()
         {
             int penalty = 0;
-            await Task.Run(() =>
-            {
-                Setting day = CommonOperation.GetSettingsFromDatabase();
-                bookStatusList = UserOperation.GetBookStatusList(userStudent.StudentUserId, day.borrowingDuration);
-            });
+
+            Setting day = CommonOperation.GetSettingsFromDatabase();
+            bookStatusList = UserOperation.GetBookStatusList(userStudent.StudentUserId, day.borrowingDuration);
 
             foreach (BookStatusInfo bookStatus in bookStatusList)
             {
                 string returnDate = "";
-                if (bookStatus.ReturnDate.ToString() == CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.DateTimeMin])
+
+                // Check if the ReturnDate is the default DateTime value
+                if (bookStatus.ReturnDate == DateTime.MinValue)
                 {
                     returnDate = CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.IfNotReturnedStatus];
                 }
@@ -192,18 +192,21 @@ namespace Archivary._1500X1000.FORM_USERS
                     returnDate = CommonOperation.ConvertToReadableFormat(
                         bookStatus.ReturnDate.ToString(
                             CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate]
-                            )
-                        );
+                        )
+                    );
                 }
-                bookListDataGridView.Rows.Add(bookStatus.Title, 
+
+                bookListDataGridView.Rows.Add(bookStatus.Title,
                     CommonOperation.ConvertToReadableFormat(bookStatus.BorrowedAt.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     CommonOperation.ConvertToReadableFormat(bookStatus.ReturnDueDate.ToString(CommonOperation.TimeFormatsArray[(int)CommonOperation.TimeFormats.YearMontDate])),
                     returnDate, bookStatus.Status);
 
                 if (bookStatus.Status == "Overdue") penalty++;
             }
+
             penaltyCountLabel.Text = penalty.ToString();
         }
+
         #endregion
     }
 }
