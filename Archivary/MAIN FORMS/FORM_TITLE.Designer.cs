@@ -83,10 +83,11 @@
             // 
             // exitButton
             // 
+            this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.exitButton.AutoSize = true;
             this.exitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exitButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(400, 512);
+            this.exitButton.Location = new System.Drawing.Point(393, 512);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(151, 24);
             this.exitButton.TabIndex = 3;
