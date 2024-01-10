@@ -51,16 +51,16 @@
             this.bookPictureBox = new System.Windows.Forms.PictureBox();
             this.booktitleLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PANEL_CONTENTS
             // 
             this.PANEL_CONTENTS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.PANEL_CONTENTS.Controls.Add(this.tableLayoutPanel1);
             this.PANEL_CONTENTS.Controls.Add(this.cancelButton);
             this.PANEL_CONTENTS.Controls.Add(this.editInfoButton);
-            this.PANEL_CONTENTS.Controls.Add(this.tableLayoutPanel1);
             this.PANEL_CONTENTS.Controls.Add(this.booktitleLabel);
             this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 2);
@@ -449,9 +449,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivary | Book Info";
             this.PANEL_CONTENTS.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,7 +463,6 @@
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label availableLabel;
         private System.Windows.Forms.Label booktitleLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label ISBNLabel;
         private RoundedCorners.RoundedTextBox ISBNTextbox;
         private System.Windows.Forms.Label authorLabel;
@@ -479,5 +478,6 @@
         private System.Windows.Forms.PictureBox bookPictureBox;
         private roundedCorners.roundedButton editInfoButton;
         private roundedCorners.roundedButton cancelButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

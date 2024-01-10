@@ -71,7 +71,7 @@
             this.bookTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.bookTitleLabel.Location = new System.Drawing.Point(166, -7);
             this.bookTitleLabel.Name = "bookTitleLabel";
-            this.bookTitleLabel.Size = new System.Drawing.Size(250, 100);
+            this.bookTitleLabel.Size = new System.Drawing.Size(250, 103);
             this.bookTitleLabel.TabIndex = 1;
             this.bookTitleLabel.Text = "LORD OF THE RINGS";
             this.bookTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

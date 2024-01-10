@@ -233,7 +233,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             if(AllInfoUnchanged(book))
             {
                 TimerOpersys.Stop();
-                FORM_ALERT alert = new FORM_ALERT(3, "UNCHANGED INFO", "You cannot save info without changing any information.");
+                FORM_ALERT alert = new FORM_ALERT(4, "UNCHANGED INFO", "You cannot save info without changing any information.");
                 alert.TopMost = true;
                 alert.Show();
                 return;
@@ -241,7 +241,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             if (CheckIfTextBoxesAreEmpty())
             {
                 TimerOpersys.Stop();
-                FORM_ALERT alert = new FORM_ALERT(3, "EMPTY TEXT", "You cannot save info with empty textboxes.");
+                FORM_ALERT alert = new FORM_ALERT(4, "EMPTY TEXT", "You cannot save info with empty textboxes.");
                 alert.TopMost = true;
                 alert.Show();
                 return;
