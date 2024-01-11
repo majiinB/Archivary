@@ -70,7 +70,7 @@
             this.loginSubLabel.Name = "loginSubLabel";
             this.loginSubLabel.Size = new System.Drawing.Size(376, 36);
             this.loginSubLabel.TabIndex = 0;
-            this.loginSubLabel.Text = "Please enter your username and password";
+            this.loginSubLabel.Text = "Please enter your email and password";
             this.loginSubLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // usernamePicturebox
@@ -252,21 +252,21 @@
             // 
             // loginButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.loginButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.loginButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.loginButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.loginButton.BorderRadius = 15;
             this.loginButton.BorderSize = 0;
             this.loginButton.FlatAppearance.BorderSize = 0;
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold);
-            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.loginButton.Location = new System.Drawing.Point(237, 480);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(258, 67);
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Log In";
-            this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.loginButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
