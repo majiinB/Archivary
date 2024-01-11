@@ -458,7 +458,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id and borrowed_books.book_id = @book";
+                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id and borrowed_books.book_id = @book and borrowed_books.is_returned = false";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", borrowerId);
@@ -1003,7 +1003,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                     rb.reserved_at AS obtained_date,
                                     ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
                                     CASE
-                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() < ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
 		                                WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
 		                                ELSE 'Reserved'
                                     END AS status
@@ -1023,7 +1023,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                     rb.reserved_at AS obtained_date,
                                     ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
                                     CASE
-                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() < ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
 		                                WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
 		                                ELSE 'Reserved'
                                     END AS status
