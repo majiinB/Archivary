@@ -981,7 +981,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                 FROM
                                     books b
                                     JOIN borrowed_books bb ON b.id = bb.book_id
-                                    JOIN students st ON bb.borrower_id = st.id
+                                    JOIN students st ON bb.borrower_id = st.user_id  -- Use user_id from students table
                                     JOIN settings s ON s.id = 1
 
                                 UNION
@@ -1001,9 +1001,10 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                 FROM
                                     books b
                                     JOIN borrowed_books bb ON b.id = bb.book_id
-                                    JOIN teachers t ON bb.borrower_id = t.user_id
+                                    JOIN teachers t ON bb.borrower_id = t.user_id  -- Use user_id from teachers table
                                     JOIN settings s ON s.id = 1
-                                ORDER BY return_date desc";
+                                ORDER BY return_date DESC;
+                                ";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -1105,25 +1106,35 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
         private static int IdentifyReservedBorrowedBookQueue(int bookId)
         {
             int result = 0;
+
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
                 string query = @"
-                    SELECT COUNT(*) 
-                    FROM reserved_books 
-                    WHERE book_id = @bookId 
-                    AND reserved_at <= NOW()
-                    AND is_borrowed = 0;
-                ";
+                                SELECT COUNT(*) 
+                                FROM reserved_books 
+                                WHERE book_id = @bookId 
+                                AND reserved_at <= NOW()
+                                AND is_borrowed = 0;
+                            ";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@bookId", bookId);
-                    result = (int)command.ExecuteScalar();
+
+                    // ExecuteScalar can return null, so use Convert.ToInt32 to handle it
+                    object scalarResult = command.ExecuteScalar();
+
+                    // Check for null before casting
+                    if (scalarResult != null)
+                    {
+                        result = Convert.ToInt32(scalarResult);
+                    }
                 }
             }
-            return result < 1 ? 1 : result+1;
+
+            return result < 1 ? 1 : result + 1;
         }
 
         private static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
