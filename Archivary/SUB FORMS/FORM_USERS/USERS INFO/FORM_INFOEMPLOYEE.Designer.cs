@@ -522,7 +522,7 @@
             this.userPictureBox.BorderRadius = 1;
             this.userPictureBox.BorderSize = 1;
             this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userPictureBox.Image = global::Archivary.Properties.Resources.PLACEHOLDER_PICTURE;
+            this.userPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("userPictureBox.Image")));
             this.userPictureBox.Location = new System.Drawing.Point(700, 17);
             this.userPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userPictureBox.Name = "userPictureBox";
