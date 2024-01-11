@@ -64,6 +64,10 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAIN_TableLayout.SuspendLayout();
             this.left_TableLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).BeginInit();
@@ -567,6 +571,34 @@
             this.StatusColumn1.Name = "StatusColumn1";
             this.StatusColumn1.ReadOnly = true;
             // 
+            // StatusColumn
+            // 
+            this.StatusColumn.HeaderText = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.ReadOnly = true;
+            // 
+            // ISBNColumn
+            // 
+            this.ISBNColumn.HeaderText = "ISBN";
+            this.ISBNColumn.MinimumWidth = 6;
+            this.ISBNColumn.Name = "ISBNColumn";
+            this.ISBNColumn.ReadOnly = true;
+            // 
+            // TitleColumn
+            // 
+            this.TitleColumn.HeaderText = "Title";
+            this.TitleColumn.MinimumWidth = 6;
+            this.TitleColumn.Name = "TitleColumn";
+            this.TitleColumn.ReadOnly = true;
+            // 
+            // pictureHeader
+            // 
+            this.pictureHeader.HeaderText = "Picture";
+            this.pictureHeader.MinimumWidth = 6;
+            this.pictureHeader.Name = "pictureHeader";
+            this.pictureHeader.ReadOnly = true;
+            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // FORM_BORROW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -613,13 +645,13 @@
         private System.Windows.Forms.Label nameInputLabel;
         private System.Windows.Forms.Label collegeInputLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pictureHeader;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TitleColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ISBNColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pictureHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TitleColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ISBNColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
     }
 }

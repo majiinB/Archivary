@@ -1,11 +1,14 @@
 ﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.Properties;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using OfficeOpenXml;
 using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -188,6 +191,44 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             return bookList;
         }
 
+        public static List<Book> ShowAllBorrowedBooks()
+        {
+            List<Book> bookList = new List<Book>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT * from books where status = 'BORROWED'";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("id");
+                            string title = reader.GetString("title");
+                            string genre = reader.GetString("genre");
+                            string author = reader.GetString("author");
+                            string isbn = reader.GetString("isbn");
+                            string category = reader.GetString("category");
+                            string copyright = reader.GetString("copyright");
+                            string publisher = reader.GetString("publisher");
+                            string status = reader.GetString("status");
+                            int aisle = reader.GetInt32("aisle");
+                            int shelf = reader.GetInt32("shelf");
+                            string imagePath = reader.GetString("book_img_path");
+
+                            Book book = new Book(id, title, genre, author, isbn, category, copyright,
+                                publisher, status, aisle, shelf, imagePath);
+
+                            bookList.Add(book);
+                        }
+                    }
+                }
+                return bookList;
+            }
+        }
+
         public static List<Book> SearchBooks(List<Book> books, string searchTerm)
         {
             // If the search term is empty, return all books
@@ -261,7 +302,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "INSERT INTO borrowed_books (book_id, borrower_id, borrowed_at, is_returned, librarianId) VALUES (@book, @id, @time, false, @librarian)";
+                string query = "INSERT INTO borrowed_books (book_id, borrower_id, borrowed_at, is_returned, librarian_id) VALUES (@book, @id, @time, false, @librarian)";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@book", book.BookId);
@@ -292,7 +333,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string reserved = type.Equals("borrowed_books") ? "" : "AND is_borrowed = false";
+                string reserved = type.Equals("borrowed_books") ? "AND is_returned = false" : "AND is_borrowed = false";
                 string query = $"SELECT COUNT(*) FROM {type} WHERE borrower_id = @Id {reserved}";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -300,6 +341,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     command.Parameters.AddWithValue("@Id", userId);
 
                     object result = command.ExecuteScalar();
+                    Console.WriteLine($"query: {query}\noutput: {result}");
                     return (result != null) ? Convert.ToInt32(result) : 0;
                 }
             }
@@ -458,7 +500,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id and borrowed_books.book_id = @book";
+                string query = "SELECT borrowed_books.borrowed_at as date FROM borrowed_books JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.borrower_id = @id and borrowed_books.book_id = @book and borrowed_books.is_returned = false";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@id", borrowerId);
@@ -925,22 +967,44 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             {
                 connection.Open();
                 string query = @"SELECT
-                                bb.borrower_id,
-                                b.isbn AS book_id,
-                                b.title,
-                                b.author,
-                                bb.borrowed_at AS obtained_date,
-                                adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) as return_date,
-                                CASE
-                                    WHEN bb.is_returned = 1 THEN 'Returned'
-                                    WHEN CURRENT_TIMESTAMP() > adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) THEN 'Overdue'
-                                    ELSE 'Not Overdue'
-                                END AS status
-                            FROM
-                                books b
-                                JOIN borrowed_books bb ON b.id = bb.book_id
-                                JOIN settings s ON s.id = 1
-                            ORDER BY status asc";
+                                    st.student_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    bb.borrowed_at AS obtained_date,
+                                    ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN bb.is_returned = 1 THEN 'Returned'
+                                        WHEN CURRENT_TIMESTAMP() > ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) THEN 'Overdue'
+                                        ELSE 'Not Overdue'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN borrowed_books bb ON b.id = bb.book_id
+                                    JOIN students st ON bb.borrower_id = st.user_id  -- Use user_id from students table
+                                    JOIN settings s ON s.id = 1
+
+                                UNION
+
+                                SELECT
+                                    t.teacher_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    bb.borrowed_at AS obtained_date,
+                                    ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN bb.is_returned = 1 THEN 'Returned'
+                                        WHEN CURRENT_TIMESTAMP() > ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) THEN 'Overdue'
+                                        ELSE 'Not Overdue'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN borrowed_books bb ON b.id = bb.book_id
+                                    JOIN teachers t ON bb.borrower_id = t.user_id  -- Use user_id from teachers table
+                                    JOIN settings s ON s.id = 1
+                                ORDER BY return_date DESC;
+                                ";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -950,7 +1014,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                             // Create a new BookReportsInfo object for each row
                             BookReportsInfo report = new BookReportsInfo
                             {
-                                userId = reader.GetInt32("borrower_id"),
+                                userId = reader.GetString("user_id"),
                                 isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
                                 title = reader.GetString("title"),
                                 author = reader.GetString("author"),
@@ -975,23 +1039,43 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             {
                 connection.Open();
                 string query = @"SELECT
-                                rb.borrower_id,
-                                b.isbn AS book_id,
-                                b.title,
-                                b.author,
-                                rb.reserved_at AS obtained_date,
-                                rb.is_borrowed,
-                                ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
-                                CASE
-                                    WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
-                                    WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
-                                    ELSE 'Reserved'
-                                END AS status
-                            FROM
-                                books b
-                                JOIN reserved_books rb ON b.id = rb.book_id
-                                JOIN settings s ON s.id = 1
-                            ORDER BY status DESC;";
+                                    st.student_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    rb.reserved_at AS obtained_date,
+                                    ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() < ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+		                                WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
+		                                ELSE 'Reserved'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN reserved_books rb ON b.id = rb.book_id
+                                    JOIN students st ON rb.borrower_id = st.user_id
+                                    JOIN settings s ON s.id = 1
+
+                                UNION
+
+                                SELECT
+                                    t.teacher_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    rb.reserved_at AS obtained_date,
+                                    ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() < ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+		                                WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
+		                                ELSE 'Reserved'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN reserved_books rb ON b.id = rb.book_id
+                                    JOIN teachers t ON rb.borrower_id = t.user_id
+                                    JOIN settings s ON s.id = 1
+                                ORDER BY return_date desc";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -1001,7 +1085,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                             // Create a new BookReportsInfo object for each row
                             BookReportsInfo report = new BookReportsInfo
                             {
-                                userId = reader.GetInt32("borrower_id"),
+                                userId = reader.GetString("user_id"),
                                 isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
                                 title = reader.GetString("title"),
                                 author = reader.GetString("author"),
@@ -1016,6 +1100,154 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     }
                 }
                 return reports;
+            }
+        }
+
+        private static int IdentifyReservedBorrowedBookQueue(int bookId)
+        {
+            int result = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                                SELECT COUNT(*) 
+                                FROM reserved_books 
+                                WHERE book_id = @bookId 
+                                AND reserved_at <= NOW()
+                                AND is_borrowed = 0;
+                            ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+
+                    // ExecuteScalar can return null, so use Convert.ToInt32 to handle it
+                    object scalarResult = command.ExecuteScalar();
+
+                    // Check for null before casting
+                    if (scalarResult != null)
+                    {
+                        result = Convert.ToInt32(scalarResult);
+                    }
+                }
+            }
+
+            return result < 1 ? 1 : result + 1;
+        }
+
+        private static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
+        {
+            int queue = IdentifyReservedBorrowedBookQueue(bookId);
+
+            if (queue > 1)
+            {
+                // If the queue is not empty, use reserved_books
+                return GetDueDateOfPreviousReservedBook(bookId);
+            }
+            else
+            {
+                // If the queue is empty, use borrowed_books
+                return GetDueDateOfPreviousBorrowedBook(bookId);
+            }
+        }
+
+        private static DateTime GetDueDateOfPreviousReservedBook(int bookId)
+        {
+            DateTime date = DateTime.MinValue;
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                    SELECT max(reserved_at)
+                    FROM reserved_books 
+                    WHERE book_id = @bookId 
+                    AND is_borrowed = 0;
+                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    date = (DateTime)command.ExecuteScalar();
+                }
+            }
+            return date;
+        }
+
+        private static DateTime GetDueDateOfPreviousBorrowedBook(int bookId)
+        {
+            DateTime date = DateTime.MinValue;
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                    SELECT max(borrowed_at)
+                    FROM borrowed_books 
+                    WHERE book_id = @bookId 
+                    AND is_returned = 0;
+                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    date = (DateTime)command.ExecuteScalar();
+                }
+            }
+            return date;
+        }
+
+        public static DateTime GetDateToGetQueuedReservedBorrowedBook(int bookId, Setting settings)
+        {
+            //get date to get (previous due date + reserved duration * queue),  // jan 1 + 3 * 1 = jan 4
+            // if queue > 1, (previous due date + borrowing duration * (queue-1) + reserved duration * queue) // jan 1 + 2 + 3 * 2 = jan 9
+            // if queue = 3, jan 1 + 2 * 3-1 + 3 * 3 = jan 1 + 4 + 9 = jan 14
+            DateTime previousDueDate = GetDueDateOfPreviousRecordedBook(bookId);
+            int queue = IdentifyReservedBorrowedBookQueue(bookId);
+            int reserve = settings.reservedDuration;
+            int borrow = settings.borrowingDuration;
+
+            return queue > 1 ? previousDueDate.AddDays(borrow * (queue-1) + reserve * queue) : previousDueDate.AddDays(reserve * queue);
+        }
+
+        public static DateTime GetDueDateOfQueuedReservedBorrowedBook(int bookId, Setting settings)
+        {
+            //get duedate (date to get + borrowing duration) // jan 4 + 2 = jan 6 
+            DateTime dateToGet = GetDateToGetQueuedReservedBorrowedBook(bookId, settings);
+            int duration = settings.borrowingDuration;
+            return dateToGet.AddDays(duration);
+        }
+
+        public static void ReserveBorrowedBook(int borrowerId, int bookId, int librarianId, DateTime dateToGet, DateTime dueDate)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                                    INSERT INTO reserved_books (book_id, borrower_id, reserved_at, librarian_id)
+                                    SELECT 
+                                        @bookId as book_id,
+                                        @borrowerId as borrower_id,
+                                        @dateToGet AS reserved_at,
+                                        @librarianId AS librarian_id
+                                    FROM 
+                                        borrowed_books
+                                    JOIN 
+                                        settings ON 1=1;
+                                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    command.Parameters.AddWithValue("@borrowerId", borrowerId);
+                    command.Parameters.AddWithValue("@librarianId", librarianId);
+                    command.Parameters.AddWithValue("@dateToGet", dateToGet);
+                    command.Parameters.AddWithValue("@dueDate", dueDate);
+                    command.ExecuteNonQuery();
+                }
             }
         }
     }

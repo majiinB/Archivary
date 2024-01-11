@@ -136,13 +136,12 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             openFileDialog1.FilterIndex = 0;
             openFileDialog1.RestoreDirectory = true;
 
-            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                return null;
+                bookPictureBox.Image = new Bitmap(openFileDialog1.FileName);
+                return openFileDialog1.FileName;
             }
-
-            bookPictureBox.Image = new Bitmap(openFileDialog1.FileName);
-            return openFileDialog1.FileName;
+            return book.BookImage;
         }
 
         private void OpenMenu(DropdownMenu dropdown, object sender)
@@ -288,9 +287,11 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             using (MySqlConnection conn = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 conn.Open();
+
                 string query = "UPDATE books SET author = @Author, genre = @Genre, isbn = @Isbn, category = @Category, title = @Title, copyright = @Copyright, publisher = @Publisher, aisle = @Aisle, shelf = @Shelf, book_img_path = @Book_img_path where id = @Id";
                 using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
+
                     string authorMiddleInitial = authorMITextbox.Text.Equals("N/A") ? "" : authorMITextbox.Text;
                     string author = $"{authorLNTextbox.Text}, {authorFNTextbox.Text} {authorMiddleInitial}"; 
                     command.Parameters.AddWithValue("@Author", author);
@@ -307,15 +308,16 @@ namespace Archivary._1500X1000.FORM_LIBRARY
                     try
                     {
                         command.ExecuteNonQuery();
-                        library.libraryList.Controls.Clear();
-                        await library.FilterBooks();
+                        
                         FORM_ALERT success = new FORM_ALERT(3, "Book updated!", $"Successfully updated {titleTextbox.Text}!");
                         success.TopMost = true;
+                        library.libraryList.Controls.Clear();
                         success.Show();
+                        await library.FilterBooks();
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Error updating book info: {ex.Message}");
+                        MessageBox.Show($"Error updating book info: {ex.Message}");
                     }
                 }
             }
