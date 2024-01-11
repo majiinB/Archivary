@@ -59,7 +59,7 @@ namespace Archivary._1200X800.FORM_USERS
         }
         private void FORM_SIGNUP_Paint(object sender, PaintEventArgs e)
         {
-            DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(37, 211, 102), 3);//3 represents the border width
+            DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(100, 100, 100), 2);//3 represents the border width
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -473,5 +473,20 @@ namespace Archivary._1200X800.FORM_USERS
             upload.ShowDialog();
         }
         #endregion
+
+        private void removeImageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeImageButton_MouseEnter(object sender, EventArgs e)
+        {
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+        }
+
+        private void removeImageButton_MouseLeave(object sender, EventArgs e)
+        {
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+        }
     }
 }
