@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LAYOUT_RESERVELIST = new System.Windows.Forms.TableLayoutPanel();
             this.bookReserveLabel = new System.Windows.Forms.Label();
             this.PANEL_booksReservedContainer = new RoundedCorners.RoundedPanel();
@@ -60,7 +60,7 @@
             this.LAYOUT_RESERVELIST.RowCount = 2;
             this.LAYOUT_RESERVELIST.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.LAYOUT_RESERVELIST.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.LAYOUT_RESERVELIST.Size = new System.Drawing.Size(986, 521);
+            this.LAYOUT_RESERVELIST.Size = new System.Drawing.Size(670, 490);
             this.LAYOUT_RESERVELIST.TabIndex = 0;
             // 
             // bookReserveLabel
@@ -71,8 +71,10 @@
             this.bookReserveLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.bookReserveLabel.Location = new System.Drawing.Point(0, 0);
             this.bookReserveLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.bookReserveLabel.MaximumSize = new System.Drawing.Size(0, 52);
+            this.bookReserveLabel.MinimumSize = new System.Drawing.Size(0, 52);
             this.bookReserveLabel.Name = "bookReserveLabel";
-            this.bookReserveLabel.Size = new System.Drawing.Size(986, 52);
+            this.bookReserveLabel.Size = new System.Drawing.Size(670, 52);
             this.bookReserveLabel.TabIndex = 7;
             this.bookReserveLabel.Text = "Books Reserved";
             this.bookReserveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,12 +88,12 @@
             this.PANEL_booksReservedContainer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.PANEL_booksReservedContainer.BorderWidth = 3F;
             this.PANEL_booksReservedContainer.Controls.Add(this.reserveDataGridView);
-            this.PANEL_booksReservedContainer.Location = new System.Drawing.Point(3, 57);
+            this.PANEL_booksReservedContainer.Location = new System.Drawing.Point(3, 54);
             this.PANEL_booksReservedContainer.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.PANEL_booksReservedContainer.Name = "PANEL_booksReservedContainer";
             this.PANEL_booksReservedContainer.Padding = new System.Windows.Forms.Padding(5, 10, 10, 5);
             this.PANEL_booksReservedContainer.Radius = 10;
-            this.PANEL_booksReservedContainer.Size = new System.Drawing.Size(980, 459);
+            this.PANEL_booksReservedContainer.Size = new System.Drawing.Size(664, 431);
             this.PANEL_booksReservedContainer.TabIndex = 8;
             // 
             // reserveDataGridView
@@ -100,14 +102,14 @@
             this.reserveDataGridView.AllowUserToDeleteRows = false;
             this.reserveDataGridView.AllowUserToResizeColumns = false;
             this.reserveDataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reserveDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reserveDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.reserveDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.reserveDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.reserveDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
@@ -115,14 +117,14 @@
             this.reserveDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.reserveDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.reserveDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reserveDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reserveDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.reserveDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reserveDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.userIDReserveColumnHeader,
@@ -132,14 +134,14 @@
             this.dateReserveColumnHeader,
             this.dateDueReserveColumnHeader,
             this.statusReserveColumnHeader});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reserveDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Montserrat Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reserveDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.reserveDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reserveDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.reserveDataGridView.EnableHeadersVisualStyles = false;
@@ -153,14 +155,14 @@
             this.reserveDataGridView.RowHeadersVisible = false;
             this.reserveDataGridView.RowHeadersWidth = 51;
             this.reserveDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.reserveDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.reserveDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.reserveDataGridView.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.reserveDataGridView.RowTemplate.Height = 24;
             this.reserveDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.reserveDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.reserveDataGridView.Size = new System.Drawing.Size(965, 444);
+            this.reserveDataGridView.Size = new System.Drawing.Size(649, 416);
             this.reserveDataGridView.TabIndex = 4;
             this.reserveDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.reserveDataGridView_CellFormatting);
             this.reserveDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.reserveDataGridView_RowsAdded);
@@ -228,8 +230,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.LAYOUT_RESERVELIST);
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.MinimumSize = new System.Drawing.Size(650, 490);
             this.Name = "booksReserved";
-            this.Size = new System.Drawing.Size(986, 521);
+            this.Size = new System.Drawing.Size(670, 490);
             this.LAYOUT_RESERVELIST.ResumeLayout(false);
             this.LAYOUT_RESERVELIST.PerformLayout();
             this.PANEL_booksReservedContainer.ResumeLayout(false);

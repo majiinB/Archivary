@@ -78,15 +78,15 @@
             this.userDataGridView.AllowUserToResizeColumns = false;
             this.userDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.userDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.userDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.userDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.userDataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.userDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -94,10 +94,11 @@
             this.userDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat ExtraBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.userDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.userDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -106,12 +107,12 @@
             this.userIDColumnHeader,
             this.roleColumnHeader,
             this.statusColumnHeader});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat", 9F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.userDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.userDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,8 +131,7 @@
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.userDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.userDataGridView.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.userDataGridView.RowTemplate.Height = 35;
+            this.userDataGridView.RowTemplate.Height = 100;
             this.userDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.userDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userDataGridView.Size = new System.Drawing.Size(958, 580);
@@ -184,12 +184,12 @@
             this.filterSearchButton.ButtonImage = ((System.Drawing.Image)(resources.GetObject("filterSearchButton.ButtonImage")));
             this.filterSearchButton.FlatAppearance.BorderSize = 0;
             this.filterSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
             this.filterSearchButton.ForeColor = System.Drawing.Color.White;
-            this.filterSearchButton.Location = new System.Drawing.Point(606, 12);
+            this.filterSearchButton.Location = new System.Drawing.Point(642, 12);
             this.filterSearchButton.Name = "filterSearchButton";
             this.filterSearchButton.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.filterSearchButton.Size = new System.Drawing.Size(185, 54);
+            this.filterSearchButton.Size = new System.Drawing.Size(150, 54);
             this.filterSearchButton.TabIndex = 6;
             this.filterSearchButton.Text = "Filter";
             this.filterSearchButton.TextColor = System.Drawing.Color.White;
@@ -207,7 +207,7 @@
             this.addUserButton.ButtonImage = global::Archivary.Properties.Resources.ICON_ADD;
             this.addUserButton.FlatAppearance.BorderSize = 0;
             this.addUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold);
             this.addUserButton.ForeColor = System.Drawing.Color.White;
             this.addUserButton.Location = new System.Drawing.Point(798, 12);
             this.addUserButton.Name = "addUserButton";
@@ -231,7 +231,7 @@
             this.LAYOUT_searchBar.Name = "LAYOUT_searchBar";
             this.LAYOUT_searchBar.Padding = new System.Windows.Forms.Padding(2);
             this.LAYOUT_searchBar.Radius = 10;
-            this.LAYOUT_searchBar.Size = new System.Drawing.Size(588, 54);
+            this.LAYOUT_searchBar.Size = new System.Drawing.Size(624, 54);
             this.LAYOUT_searchBar.TabIndex = 0;
             // 
             // searchBar
@@ -247,7 +247,8 @@
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
-            this.searchBar.Size = new System.Drawing.Size(584, 50);
+            this.searchBar.ReadOnly = false;
+            this.searchBar.Size = new System.Drawing.Size(620, 50);
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "Search User";
             this.searchBar.UseSystemPasswordChar = false;
@@ -269,33 +270,33 @@
             this.filterDropdown.MenuItemTextColor = System.Drawing.Color.Empty;
             this.filterDropdown.Name = "dropdownMenu1";
             this.filterDropdown.PrimaryColor = System.Drawing.Color.Empty;
-            this.filterDropdown.Size = new System.Drawing.Size(127, 92);
+            this.filterDropdown.Size = new System.Drawing.Size(145, 100);
             // 
             // allToolStripMenuItem
             // 
             this.allToolStripMenuItem.Name = "allToolStripMenuItem";
-            this.allToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.allToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.allToolStripMenuItem.Text = "All";
             this.allToolStripMenuItem.Click += new System.EventHandler(this.allToolStripMenuItem_Click);
             // 
             // teacherToolStripMenuItem
             // 
             this.teacherToolStripMenuItem.Name = "teacherToolStripMenuItem";
-            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.teacherToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.teacherToolStripMenuItem.Text = "Teacher";
             this.teacherToolStripMenuItem.Click += new System.EventHandler(this.teacherToolStripMenuItem_Click);
             // 
             // studentToolStripMenuItem
             // 
             this.studentToolStripMenuItem.Name = "studentToolStripMenuItem";
-            this.studentToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.studentToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.studentToolStripMenuItem.Text = "Student";
             this.studentToolStripMenuItem.Click += new System.EventHandler(this.studentToolStripMenuItem_Click);
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.employeeToolStripMenuItem.Text = "Employee";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 

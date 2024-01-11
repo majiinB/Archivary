@@ -25,6 +25,7 @@ namespace Archivary.PARENT_FORMS
         private int whatPage = 0;
         private FORM_ALERT alert;
 
+
         public FORM_REPORTS()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace Archivary.PARENT_FORMS
         {
             LAYOUT_REPORT.Scroll += LAYOUT_REPORT_Scroll;
             LAYOUT_REPORT.MouseWheel += LAYOUT_REPORT_MouseWheel;
-           
+
             if (!isDataLoading)
             {
                 isDataLoading = true;
@@ -46,6 +47,7 @@ namespace Archivary.PARENT_FORMS
 
         private void FORM_REPORTS_Resize(object sender, EventArgs e)
         {
+
             LAYOUT_REPORT.Controls.Clear();
             if (!isDataLoading)
             {
@@ -63,6 +65,7 @@ namespace Archivary.PARENT_FORMS
                 {
                     //NOTE: Mas gusto ko naka await to pero ayaw niya gumana sa laptop ko pag naka await 
                     //Pero try niyo kung naka await
+
                     LoadMonthlyOverview();
                     BooksBorrowed();
                 }
@@ -86,9 +89,10 @@ namespace Archivary.PARENT_FORMS
 
                 monthlyOverview = new monthlyOverview();
                 LAYOUT_REPORT.Controls.Add(monthlyOverview);
-                monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 40;
                 monthlyOverview.Height = LAYOUT_REPORT.ClientSize.Width / 2;
-
+                monthlyOverview.Width = LAYOUT_REPORT.ClientSize.Width - 30;
+                monthlyOverview.Margin = new System.Windows.Forms.Padding(0);
+                monthlyOverview.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
                 //load monthly overview charts
                 for (int y = 0; y < CommonOperation.GENRES.Length; y++)
                 {
@@ -135,10 +139,14 @@ namespace Archivary.PARENT_FORMS
                 return;
             }
 
+
             booksBorrowed = new booksBorrowed();
             LAYOUT_REPORT.Controls.Add(booksBorrowed);
             booksBorrowed.Width = LAYOUT_REPORT.ClientSize.Width - 30;
             booksBorrowed.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+            booksBorrowed.Margin = new System.Windows.Forms.Padding(0);
+            booksBorrowed.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+
             AddBorrowedBooksInDataGridView(booksBorrowed);
             isDataLoading = false;
             needMoreData = true;
@@ -155,8 +163,8 @@ namespace Archivary.PARENT_FORMS
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.isbn });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.title });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.author });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.obtainedDate });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.dueDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.obtainedDate) });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.dueDate) });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.status });
                 booksBorrowed.BorrowDataGridView.Rows.Add(row);
             }
@@ -174,6 +182,8 @@ namespace Archivary.PARENT_FORMS
             LAYOUT_REPORT.Controls.Add(booksReserved);
             booksReserved.Width = LAYOUT_REPORT.ClientSize.Width - 30;
             booksReserved.Height = LAYOUT_REPORT.ClientSize.Width / 2;
+            booksReserved.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            booksReserved.Margin = new System.Windows.Forms.Padding(0);
 
             AddReservedBooksInDataGridView(booksReserved);
             isDataLoading = false;
@@ -191,8 +201,8 @@ namespace Archivary.PARENT_FORMS
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.isbn });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.title });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.author });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.obtainedDate });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.dueDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.obtainedDate)});
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.dueDate)});
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.status });
                 booksReserved.ReserveDataGridView.Rows.Add(row);
             }
