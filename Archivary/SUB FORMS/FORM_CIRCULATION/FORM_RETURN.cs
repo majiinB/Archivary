@@ -133,9 +133,9 @@ namespace Archivary.SUB_FORMS
             {
                 PictureBox pictureBox = new PictureBox
                 {
-                    Image = ResizeImage(Image.FromFile(book.BookImage), 100, 100),
-                    SizeMode = PictureBoxSizeMode.AutoSize,
-                    Size = new Size(100, 100),
+                    Image = ResizeImage(Image.FromFile(book.BookImage), 150, 250),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Size = new Size(150, 250),
                 };
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
                 imageCell.Value = pictureBox.Image;
@@ -148,9 +148,9 @@ namespace Archivary.SUB_FORMS
                 // Handle the case when the file is not found
                 PictureBox pictureBox = new PictureBox
                 {
-                    Image = ResizeImage(Properties.Resources.ArchivaryLogoGreen, 100, 100),
-                    SizeMode = PictureBoxSizeMode.AutoSize,
-                    Size = new Size(100, 100),
+                    Image = ResizeImage(Properties.Resources.ArchivaryLogoGreen, 150, 250),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Size = new Size(150, 250),
                 };
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
                 imageCell.Value = pictureBox.Image;
@@ -235,9 +235,9 @@ namespace Archivary.SUB_FORMS
                 {
                     PictureBox pictureBox = new PictureBox
                     {
-                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 100, 100),
-                        SizeMode = PictureBoxSizeMode.AutoSize,
-                        Size = new Size(100, 100),
+                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 150, 250),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Size = new Size(150, 250),
                     };
                     DataGridViewImageCell imageCell = new DataGridViewImageCell();
                     imageCell.Value = pictureBox.Image;
@@ -266,9 +266,9 @@ namespace Archivary.SUB_FORMS
                 {
                     PictureBox pictureBox = new PictureBox
                     {
-                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 100, 100),
-                        SizeMode = PictureBoxSizeMode.AutoSize,
-                        Size = new Size(100, 100),
+                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 150, 250),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Size = new Size(150, 250),
                     };
                     DataGridViewImageCell imageCell = new DataGridViewImageCell();
                     imageCell.Value = pictureBox.Image;
