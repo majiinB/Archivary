@@ -286,7 +286,7 @@
             this.userIDLabel.AutoEllipsis = true;
             this.userIDLabel.AutoSize = true;
             this.userIDLabel.BackColor = System.Drawing.Color.Transparent;
-            this.LAYOUT_userinfo.SetColumnSpan(this.userIDLabel, 2);
+            this.LAYOUT_userinfo.SetColumnSpan(this.userIDLabel, 3);
             this.userIDLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userIDLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userIDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -294,7 +294,7 @@
             this.userIDLabel.Location = new System.Drawing.Point(15, 15);
             this.userIDLabel.Margin = new System.Windows.Forms.Padding(0);
             this.userIDLabel.Name = "userIDLabel";
-            this.userIDLabel.Size = new System.Drawing.Size(422, 73);
+            this.userIDLabel.Size = new System.Drawing.Size(662, 73);
             this.userIDLabel.TabIndex = 3;
             this.userIDLabel.Text = "S00000000";
             this.userIDLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;

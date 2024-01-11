@@ -28,48 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_INFOEMPLOYEE));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_INFOEMPLOYEE));
             this.emailLabel = new System.Windows.Forms.Label();
             this.contactNumLabel = new System.Windows.Forms.Label();
             this.PANEL_contactNumber = new System.Windows.Forms.TableLayoutPanel();
+            this.contactNumPictureBox = new custom.RoundedPictureBox();
             this.addressLabel = new System.Windows.Forms.Label();
             this.PANEL_address = new System.Windows.Forms.TableLayoutPanel();
+            this.addressPictureBox = new custom.RoundedPictureBox();
             this.LAYOUT_userinfo = new System.Windows.Forms.TableLayoutPanel();
             this.PANEL_name = new System.Windows.Forms.FlowLayoutPanel();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.middleNameLabel = new System.Windows.Forms.Label();
+            this.PANEL_role = new RoundedCorners.RoundedPanel();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.editInfoButton = new roundedCorners.roundedButton();
             this.userIDLabel = new System.Windows.Forms.Label();
+            this.backButton = new roundedCorners.roundedButton();
+            this.changeStatusButton = new roundedCorners.roundedButton();
             this.bookListDataGridView = new System.Windows.Forms.DataGridView();
             this.bookTitleColumnHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateBorrowedColumnHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnDateColumnHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateReturnedColumnHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnStatusColumnHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PANEL_email = new System.Windows.Forms.TableLayoutPanel();
-            this.contactNumPictureBox = new custom.RoundedPictureBox();
-            this.addressPictureBox = new custom.RoundedPictureBox();
-            this.PANEL_role = new RoundedCorners.RoundedPanel();
-            this.roleLabel = new System.Windows.Forms.Label();
-            this.editInfoButton = new roundedCorners.roundedButton();
-            this.backButton = new roundedCorners.roundedButton();
-            this.changeStatusButton = new roundedCorners.roundedButton();
             this.userPictureBox = new custom.RoundedPictureBox();
+            this.PANEL_email = new System.Windows.Forms.TableLayoutPanel();
             this.emailPictureBox = new custom.RoundedPictureBox();
             this.PANEL_contactNumber.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contactNumPictureBox)).BeginInit();
             this.PANEL_address.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addressPictureBox)).BeginInit();
             this.LAYOUT_userinfo.SuspendLayout();
             this.PANEL_name.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookListDataGridView)).BeginInit();
-            this.PANEL_email.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contactNumPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressPictureBox)).BeginInit();
             this.PANEL_role.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookListDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
+            this.PANEL_email.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emailPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +123,23 @@
             this.PANEL_contactNumber.Size = new System.Drawing.Size(662, 42);
             this.PANEL_contactNumber.TabIndex = 13;
             // 
+            // contactNumPictureBox
+            // 
+            this.contactNumPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contactNumPictureBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contactNumPictureBox.BorderRadius = 3;
+            this.contactNumPictureBox.BorderSize = 1;
+            this.contactNumPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contactNumPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("contactNumPictureBox.Image")));
+            this.contactNumPictureBox.Location = new System.Drawing.Point(5, 10);
+            this.contactNumPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.contactNumPictureBox.Name = "contactNumPictureBox";
+            this.contactNumPictureBox.Padding = new System.Windows.Forms.Padding(1);
+            this.contactNumPictureBox.Size = new System.Drawing.Size(23, 22);
+            this.contactNumPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.contactNumPictureBox.TabIndex = 1;
+            this.contactNumPictureBox.TabStop = false;
+            // 
             // addressLabel
             // 
             this.addressLabel.AutoEllipsis = true;
@@ -156,6 +173,23 @@
             this.PANEL_address.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PANEL_address.Size = new System.Drawing.Size(662, 42);
             this.PANEL_address.TabIndex = 14;
+            // 
+            // addressPictureBox
+            // 
+            this.addressPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.addressPictureBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.addressPictureBox.BorderRadius = 3;
+            this.addressPictureBox.BorderSize = 1;
+            this.addressPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addressPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("addressPictureBox.Image")));
+            this.addressPictureBox.Location = new System.Drawing.Point(5, 10);
+            this.addressPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.addressPictureBox.Name = "addressPictureBox";
+            this.addressPictureBox.Padding = new System.Windows.Forms.Padding(1);
+            this.addressPictureBox.Size = new System.Drawing.Size(23, 22);
+            this.addressPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.addressPictureBox.TabIndex = 1;
+            this.addressPictureBox.TabStop = false;
             // 
             // LAYOUT_userinfo
             // 
@@ -254,12 +288,67 @@
             this.middleNameLabel.Text = "M.I.";
             this.middleNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // PANEL_role
+            // 
+            this.PANEL_role.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.PANEL_role.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.PANEL_role.BorderWidth = 1F;
+            this.PANEL_role.Controls.Add(this.roleLabel);
+            this.PANEL_role.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PANEL_role.Location = new System.Drawing.Point(360, 16);
+            this.PANEL_role.Margin = new System.Windows.Forms.Padding(0);
+            this.PANEL_role.MaximumSize = new System.Drawing.Size(200, 26);
+            this.PANEL_role.MinimumSize = new System.Drawing.Size(0, 26);
+            this.PANEL_role.Name = "PANEL_role";
+            this.PANEL_role.Radius = 10;
+            this.PANEL_role.Size = new System.Drawing.Size(118, 26);
+            this.PANEL_role.TabIndex = 7;
+            // 
+            // roleLabel
+            // 
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.roleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roleLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.roleLabel.Location = new System.Drawing.Point(0, 0);
+            this.roleLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Padding = new System.Windows.Forms.Padding(15, 2, 15, 5);
+            this.roleLabel.Size = new System.Drawing.Size(115, 25);
+            this.roleLabel.TabIndex = 0;
+            this.roleLabel.Text = "EMPLOYEE";
+            this.roleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.roleLabel.UseMnemonic = false;
+            // 
+            // editInfoButton
+            // 
+            this.editInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BorderRadius = 15;
+            this.editInfoButton.BorderSize = 0;
+            this.editInfoButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editInfoButton.FlatAppearance.BorderSize = 0;
+            this.editInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editInfoButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.editInfoButton.Location = new System.Drawing.Point(440, 589);
+            this.editInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editInfoButton.Name = "editInfoButton";
+            this.editInfoButton.Size = new System.Drawing.Size(234, 60);
+            this.editInfoButton.TabIndex = 0;
+            this.editInfoButton.Text = "Edit Info";
+            this.editInfoButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.editInfoButton.UseVisualStyleBackColor = false;
+            this.editInfoButton.Click += new System.EventHandler(this.editInfoButton_Click);
+            // 
             // userIDLabel
             // 
             this.userIDLabel.AutoEllipsis = true;
             this.userIDLabel.AutoSize = true;
             this.userIDLabel.BackColor = System.Drawing.Color.Transparent;
-            this.LAYOUT_userinfo.SetColumnSpan(this.userIDLabel, 2);
+            this.LAYOUT_userinfo.SetColumnSpan(this.userIDLabel, 3);
             this.userIDLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userIDLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userIDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -267,10 +356,53 @@
             this.userIDLabel.Location = new System.Drawing.Point(15, 15);
             this.userIDLabel.Margin = new System.Windows.Forms.Padding(0);
             this.userIDLabel.Name = "userIDLabel";
-            this.userIDLabel.Size = new System.Drawing.Size(422, 72);
+            this.userIDLabel.Size = new System.Drawing.Size(662, 72);
             this.userIDLabel.TabIndex = 3;
             this.userIDLabel.Text = "E00000000";
             this.userIDLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.backButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.backButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.BorderRadius = 15;
+            this.backButton.BorderSize = 3;
+            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.backButton.FlatAppearance.BorderSize = 0;
+            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.Location = new System.Drawing.Point(18, 589);
+            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(176, 60);
+            this.backButton.TabIndex = 5;
+            this.backButton.Text = "Back";
+            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // changeStatusButton
+            // 
+            this.changeStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
+            this.changeStatusButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
+            this.changeStatusButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
+            this.changeStatusButton.BorderRadius = 15;
+            this.changeStatusButton.BorderSize = 0;
+            this.changeStatusButton.FlatAppearance.BorderSize = 0;
+            this.changeStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeStatusButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeStatusButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.changeStatusButton.Location = new System.Drawing.Point(700, 589);
+            this.changeStatusButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.changeStatusButton.Name = "changeStatusButton";
+            this.changeStatusButton.Size = new System.Drawing.Size(236, 54);
+            this.changeStatusButton.TabIndex = 6;
+            this.changeStatusButton.Text = "DEACTIVATE";
+            this.changeStatusButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.changeStatusButton.UseVisualStyleBackColor = false;
+            this.changeStatusButton.Click += new System.EventHandler(this.changeStatusButton_Click);
             // 
             // bookListDataGridView
             // 
@@ -383,156 +515,6 @@
             this.returnStatusColumnHeader.Name = "returnStatusColumnHeader";
             this.returnStatusColumnHeader.ReadOnly = true;
             // 
-            // PANEL_email
-            // 
-            this.PANEL_email.ColumnCount = 2;
-            this.LAYOUT_userinfo.SetColumnSpan(this.PANEL_email, 3);
-            this.PANEL_email.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.PANEL_email.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95F));
-            this.PANEL_email.Controls.Add(this.emailLabel, 1, 0);
-            this.PANEL_email.Controls.Add(this.emailPictureBox, 0, 0);
-            this.PANEL_email.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_email.Location = new System.Drawing.Point(15, 129);
-            this.PANEL_email.Margin = new System.Windows.Forms.Padding(0);
-            this.PANEL_email.Name = "PANEL_email";
-            this.PANEL_email.RowCount = 1;
-            this.PANEL_email.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PANEL_email.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.PANEL_email.Size = new System.Drawing.Size(662, 42);
-            this.PANEL_email.TabIndex = 12;
-            // 
-            // contactNumPictureBox
-            // 
-            this.contactNumPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.contactNumPictureBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.contactNumPictureBox.BorderRadius = 3;
-            this.contactNumPictureBox.BorderSize = 1;
-            this.contactNumPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("contactNumPictureBox.Image")));
-            this.contactNumPictureBox.Location = new System.Drawing.Point(5, 10);
-            this.contactNumPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.contactNumPictureBox.Name = "contactNumPictureBox";
-            this.contactNumPictureBox.Padding = new System.Windows.Forms.Padding(1);
-            this.contactNumPictureBox.Size = new System.Drawing.Size(23, 22);
-            this.contactNumPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.contactNumPictureBox.TabIndex = 1;
-            this.contactNumPictureBox.TabStop = false;
-            // 
-            // addressPictureBox
-            // 
-            this.addressPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.addressPictureBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.addressPictureBox.BorderRadius = 3;
-            this.addressPictureBox.BorderSize = 1;
-            this.addressPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addressPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("addressPictureBox.Image")));
-            this.addressPictureBox.Location = new System.Drawing.Point(5, 10);
-            this.addressPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.addressPictureBox.Name = "addressPictureBox";
-            this.addressPictureBox.Padding = new System.Windows.Forms.Padding(1);
-            this.addressPictureBox.Size = new System.Drawing.Size(23, 22);
-            this.addressPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.addressPictureBox.TabIndex = 1;
-            this.addressPictureBox.TabStop = false;
-            // 
-            // PANEL_role
-            // 
-            this.PANEL_role.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
-            this.PANEL_role.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
-            this.PANEL_role.BorderWidth = 1F;
-            this.PANEL_role.Controls.Add(this.roleLabel);
-            this.PANEL_role.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PANEL_role.Location = new System.Drawing.Point(360, 16);
-            this.PANEL_role.Margin = new System.Windows.Forms.Padding(0);
-            this.PANEL_role.MaximumSize = new System.Drawing.Size(200, 26);
-            this.PANEL_role.MinimumSize = new System.Drawing.Size(0, 26);
-            this.PANEL_role.Name = "PANEL_role";
-            this.PANEL_role.Radius = 10;
-            this.PANEL_role.Size = new System.Drawing.Size(118, 26);
-            this.PANEL_role.TabIndex = 7;
-            // 
-            // roleLabel
-            // 
-            this.roleLabel.AutoSize = true;
-            this.roleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.roleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roleLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.roleLabel.Location = new System.Drawing.Point(0, 0);
-            this.roleLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.roleLabel.Name = "roleLabel";
-            this.roleLabel.Padding = new System.Windows.Forms.Padding(15, 2, 15, 5);
-            this.roleLabel.Size = new System.Drawing.Size(115, 25);
-            this.roleLabel.TabIndex = 0;
-            this.roleLabel.Text = "EMPLOYEE";
-            this.roleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.roleLabel.UseMnemonic = false;
-            // 
-            // editInfoButton
-            // 
-            this.editInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editInfoButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editInfoButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editInfoButton.BorderRadius = 15;
-            this.editInfoButton.BorderSize = 0;
-            this.editInfoButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editInfoButton.FlatAppearance.BorderSize = 0;
-            this.editInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editInfoButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editInfoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.editInfoButton.Location = new System.Drawing.Point(440, 589);
-            this.editInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.editInfoButton.Name = "editInfoButton";
-            this.editInfoButton.Size = new System.Drawing.Size(234, 60);
-            this.editInfoButton.TabIndex = 0;
-            this.editInfoButton.Text = "Edit Info";
-            this.editInfoButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.editInfoButton.UseVisualStyleBackColor = false;
-            this.editInfoButton.Click += new System.EventHandler(this.editInfoButton_Click);
-            // 
-            // backButton
-            // 
-            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.backButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.backButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.BorderRadius = 15;
-            this.backButton.BorderSize = 3;
-            this.backButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.backButton.FlatAppearance.BorderSize = 0;
-            this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.Location = new System.Drawing.Point(18, 589);
-            this.backButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(176, 60);
-            this.backButton.TabIndex = 5;
-            this.backButton.Text = "Back";
-            this.backButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
-            // changeStatusButton
-            // 
-            this.changeStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
-            this.changeStatusButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
-            this.changeStatusButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(25)))), ((int)(((byte)(55)))));
-            this.changeStatusButton.BorderRadius = 15;
-            this.changeStatusButton.BorderSize = 0;
-            this.changeStatusButton.FlatAppearance.BorderSize = 0;
-            this.changeStatusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changeStatusButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeStatusButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.changeStatusButton.Location = new System.Drawing.Point(700, 589);
-            this.changeStatusButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.changeStatusButton.Name = "changeStatusButton";
-            this.changeStatusButton.Size = new System.Drawing.Size(236, 54);
-            this.changeStatusButton.TabIndex = 6;
-            this.changeStatusButton.Text = "DEACTIVATE";
-            this.changeStatusButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.changeStatusButton.UseVisualStyleBackColor = false;
-            this.changeStatusButton.Click += new System.EventHandler(this.changeStatusButton_Click);
-            // 
             // userPictureBox
             // 
             this.userPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
@@ -551,9 +533,27 @@
             this.userPictureBox.TabIndex = 10;
             this.userPictureBox.TabStop = false;
             // 
+            // PANEL_email
+            // 
+            this.PANEL_email.ColumnCount = 2;
+            this.LAYOUT_userinfo.SetColumnSpan(this.PANEL_email, 3);
+            this.PANEL_email.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.PANEL_email.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95F));
+            this.PANEL_email.Controls.Add(this.emailLabel, 1, 0);
+            this.PANEL_email.Controls.Add(this.emailPictureBox, 0, 0);
+            this.PANEL_email.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PANEL_email.Location = new System.Drawing.Point(15, 129);
+            this.PANEL_email.Margin = new System.Windows.Forms.Padding(0);
+            this.PANEL_email.Name = "PANEL_email";
+            this.PANEL_email.RowCount = 1;
+            this.PANEL_email.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PANEL_email.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.PANEL_email.Size = new System.Drawing.Size(662, 42);
+            this.PANEL_email.TabIndex = 12;
+            // 
             // emailPictureBox
             // 
-            this.emailPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.emailPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.emailPictureBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.emailPictureBox.BorderRadius = 3;
             this.emailPictureBox.BorderSize = 1;
@@ -585,20 +585,20 @@
             this.Load += new System.EventHandler(this.FORM_INFOEMPLOYEE_Load);
             this.PANEL_contactNumber.ResumeLayout(false);
             this.PANEL_contactNumber.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contactNumPictureBox)).EndInit();
             this.PANEL_address.ResumeLayout(false);
             this.PANEL_address.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addressPictureBox)).EndInit();
             this.LAYOUT_userinfo.ResumeLayout(false);
             this.LAYOUT_userinfo.PerformLayout();
             this.PANEL_name.ResumeLayout(false);
             this.PANEL_name.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookListDataGridView)).EndInit();
-            this.PANEL_email.ResumeLayout(false);
-            this.PANEL_email.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contactNumPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.addressPictureBox)).EndInit();
             this.PANEL_role.ResumeLayout(false);
             this.PANEL_role.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookListDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
+            this.PANEL_email.ResumeLayout(false);
+            this.PANEL_email.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emailPictureBox)).EndInit();
             this.ResumeLayout(false);
 
