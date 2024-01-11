@@ -40,19 +40,19 @@
             this.LAYOUT_REPORT.Location = new System.Drawing.Point(0, 0);
             this.LAYOUT_REPORT.Margin = new System.Windows.Forms.Padding(0);
             this.LAYOUT_REPORT.Name = "LAYOUT_REPORT";
-            this.LAYOUT_REPORT.Padding = new System.Windows.Forms.Padding(11, 12, 11, 24);
-            this.LAYOUT_REPORT.Size = new System.Drawing.Size(600, 366);
+            this.LAYOUT_REPORT.Padding = new System.Windows.Forms.Padding(15, 15, 15, 30);
+            this.LAYOUT_REPORT.Size = new System.Drawing.Size(800, 450);
             this.LAYOUT_REPORT.TabIndex = 0;
             // 
             // FORM_REPORTS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.LAYOUT_REPORT);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FORM_REPORTS";
             this.Text = "FORM_REPORTS";
             this.Load += new System.EventHandler(this.FORM_REPORTS_Load);
