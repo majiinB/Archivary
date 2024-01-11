@@ -940,7 +940,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                 FROM
                                     books b
                                     JOIN borrowed_books bb ON b.id = bb.book_id
-                                    JOIN students st ON bb.borrower_id = st.id
+                                    JOIN students st ON bb.borrower_id = st.user_id  -- Use user_id from students table
                                     JOIN settings s ON s.id = 1
 
                                 UNION
@@ -960,9 +960,10 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                 FROM
                                     books b
                                     JOIN borrowed_books bb ON b.id = bb.book_id
-                                    JOIN teachers t ON bb.borrower_id = t.user_id
+                                    JOIN teachers t ON bb.borrower_id = t.user_id  -- Use user_id from teachers table
                                     JOIN settings s ON s.id = 1
-                                ORDER BY return_date desc";
+                                ORDER BY return_date DESC;
+                                ";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
