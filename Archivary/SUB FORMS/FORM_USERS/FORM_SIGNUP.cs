@@ -476,7 +476,7 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void removeImageButton_Click(object sender, EventArgs e)
         {
-
+            SetPictureBoxImage("No_image");
         }
 
         private void removeImageButton_MouseEnter(object sender, EventArgs e)
