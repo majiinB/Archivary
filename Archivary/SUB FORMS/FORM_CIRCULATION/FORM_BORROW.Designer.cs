@@ -56,10 +56,6 @@
             this.borrowButton = new roundedCorners.roundedButton();
             this.clearButton = new roundedCorners.roundedButton();
             this.reserveButton = new roundedCorners.roundedButton();
-            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();

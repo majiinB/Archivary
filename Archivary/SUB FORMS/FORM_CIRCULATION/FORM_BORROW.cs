@@ -406,6 +406,19 @@ namespace Archivary.SUB_FORMS
                 alert.Show();
                 return;
             }
+            foreach(Book book in borrowedBookList)
+            {
+                if(borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
+                {
+                    if(Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.CheckIfBorrowedBookIsSameUser(borrowerId, book.BookId))
+                    {
+                        FORM_ALERT alert = new FORM_ALERT(1, "CANNOT BORROW", "You cannot reserve your own borrowed book.");
+                        alert.TopMost = true;
+                        alert.Show();
+                        break;
+                    }
+                }
+            }
             HandleCirculationEvent("borrowed_books", "borrow");
         }
 

@@ -1251,6 +1251,27 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 }
             }
         }
+
+        public static bool CheckIfBorrowedBookIsSameUser(int borrowerId, int bookId)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = "SELECT COUNT(*) FROM borrowed_books WHERE borrower_id = @borrowerId AND book_id = @bookId and is_returned = false;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@borrowerId", borrowerId);
+                    command.Parameters.AddWithValue("@bookId", bookId);
+
+                    // ExecuteScalar is used when you expect a single value result, like a COUNT query
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    // Return true if the count is greater than 0, indicating the book is borrowed by the user
+                    return count > 0;
+                }
+            }
+        }
     }
 }
 
