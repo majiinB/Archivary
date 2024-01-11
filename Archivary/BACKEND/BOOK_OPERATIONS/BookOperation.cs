@@ -1,11 +1,14 @@
 ﻿using Archivary.BACKEND.OBJECTS;
+using Archivary.Properties;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using OfficeOpenXml;
 using Org.BouncyCastle.Tls;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -186,6 +189,44 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 }
             }
             return bookList;
+        }
+
+        public static List<Book> ShowAllBorrowedBooks()
+        {
+            List<Book> bookList = new List<Book>();
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+                string query = "SELECT * from books where status = 'BORROWED'";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("id");
+                            string title = reader.GetString("title");
+                            string genre = reader.GetString("genre");
+                            string author = reader.GetString("author");
+                            string isbn = reader.GetString("isbn");
+                            string category = reader.GetString("category");
+                            string copyright = reader.GetString("copyright");
+                            string publisher = reader.GetString("publisher");
+                            string status = reader.GetString("status");
+                            int aisle = reader.GetInt32("aisle");
+                            int shelf = reader.GetInt32("shelf");
+                            string imagePath = reader.GetString("book_img_path");
+
+                            Book book = new Book(id, title, genre, author, isbn, category, copyright,
+                                publisher, status, aisle, shelf, imagePath);
+
+                            bookList.Add(book);
+                        }
+                    }
+                }
+                return bookList;
+            }
         }
 
         public static List<Book> SearchBooks(List<Book> books, string searchTerm)
@@ -1059,6 +1100,145 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     }
                 }
                 return reports;
+            }
+        }
+
+        private static int IdentifyReservedBorrowedBookQueue(int bookId)
+        {
+            int result = 0;
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                    SELECT COUNT(*) 
+                    FROM reserved_books 
+                    WHERE book_id = @bookId 
+                    AND reserved_at <= NOW()
+                    AND is_borrowed = 0;
+                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    result = (int)command.ExecuteScalar();
+                }
+            }
+            return result < 1 ? 1 : result+1;
+        }
+
+        private static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
+        {
+            int queue = IdentifyReservedBorrowedBookQueue(bookId);
+
+            if (queue > 1)
+            {
+                // If the queue is not empty, use reserved_books
+                return GetDueDateOfPreviousReservedBook(bookId);
+            }
+            else
+            {
+                // If the queue is empty, use borrowed_books
+                return GetDueDateOfPreviousBorrowedBook(bookId);
+            }
+        }
+
+        private static DateTime GetDueDateOfPreviousReservedBook(int bookId)
+        {
+            DateTime date = DateTime.MinValue;
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                    SELECT max(reserved_at)
+                    FROM reserved_books 
+                    WHERE book_id = @bookId 
+                    AND is_borrowed = 0;
+                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    date = (DateTime)command.ExecuteScalar();
+                }
+            }
+            return date;
+        }
+
+        private static DateTime GetDueDateOfPreviousBorrowedBook(int bookId)
+        {
+            DateTime date = DateTime.MinValue;
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                    SELECT max(borrowed_at)
+                    FROM borrowed_books 
+                    WHERE book_id = @bookId 
+                    AND is_returned = 0;
+                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    date = (DateTime)command.ExecuteScalar();
+                }
+            }
+            return date;
+        }
+
+        public static DateTime GetDateToGetQueuedReservedBorrowedBook(int bookId, Setting settings)
+        {
+            //get date to get (previous due date + reserved duration * queue),  // jan 1 + 3 * 1 = jan 4
+            // if queue > 1, (previous due date + borrowing duration * (queue-1) + reserved duration * queue) // jan 1 + 2 + 3 * 2 = jan 9
+            // if queue = 3, jan 1 + 2 * 3-1 + 3 * 3 = jan 1 + 4 + 9 = jan 14
+            DateTime previousDueDate = GetDueDateOfPreviousRecordedBook(bookId);
+            int queue = IdentifyReservedBorrowedBookQueue(bookId);
+            int reserve = settings.reservedDuration;
+            int borrow = settings.borrowingDuration;
+
+            return queue > 1 ? previousDueDate.AddDays(borrow * (queue-1) + reserve * queue) : previousDueDate.AddDays(reserve * queue);
+        }
+
+        public static DateTime GetDueDateOfQueuedReservedBorrowedBook(int bookId, Setting settings)
+        {
+            //get duedate (date to get + borrowing duration) // jan 4 + 2 = jan 6 
+            DateTime dateToGet = GetDateToGetQueuedReservedBorrowedBook(bookId, settings);
+            int duration = settings.borrowingDuration;
+            return dateToGet.AddDays(duration);
+        }
+
+        public static void ReserveBorrowedBook(int borrowerId, int bookId, int librarianId, DateTime dateToGet, DateTime dueDate)
+        {
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = @"
+                                    INSERT INTO reserved_books (book_id, user_id, reserved_date, due_date, librarian_id)
+                                    SELECT 
+                                        @bookId as book_id,
+                                        @borrowerId as borrower_id,
+                                        @dateToGet AS reserved_date,
+                                        @dueDate AS due_date,
+                                        @librarianId AS librarian_id
+                                    FROM 
+                                        borrowed_books
+                                    JOIN 
+                                        settings ON 1=1;
+                                ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@bookId", bookId);
+                    command.Parameters.AddWithValue("@borrowerId", borrowerId);
+                    command.Parameters.AddWithValue("@librarianId", librarianId);
+                    command.Parameters.AddWithValue("@dateToGet", dateToGet);
+                    command.Parameters.AddWithValue("@dueDate", dueDate);
+                    command.ExecuteNonQuery();
+                }
             }
         }
     }

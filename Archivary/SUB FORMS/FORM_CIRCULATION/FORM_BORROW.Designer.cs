@@ -56,14 +56,14 @@
             this.nameInputLabel = new System.Windows.Forms.Label();
             this.collegeInputLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAIN_TableLayout.SuspendLayout();
             this.left_TableLayout.SuspendLayout();
             this.LAYOUT_searchBook.SuspendLayout();
@@ -138,6 +138,7 @@
             this.searchBook.Margin = new System.Windows.Forms.Padding(2);
             this.searchBook.Name = "searchBook";
             this.searchBook.Radius = 9;
+            this.searchBook.ReadOnly = false;
             this.searchBook.Size = new System.Drawing.Size(333, 38);
             this.searchBook.TabIndex = 0;
             this.searchBook.Text = "Search by Book";
@@ -280,6 +281,7 @@
             this.searchID.Margin = new System.Windows.Forms.Padding(2);
             this.searchID.Name = "searchID";
             this.searchID.Radius = 9;
+            this.searchID.ReadOnly = false;
             this.searchID.Size = new System.Drawing.Size(333, 38);
             this.searchID.TabIndex = 0;
             this.searchID.Text = "Search by User ID";
@@ -508,34 +510,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(337, 167);
             this.dataGridView1.TabIndex = 10;
             // 
-            // pictureHeader
-            // 
-            this.pictureHeader.HeaderText = "Picture";
-            this.pictureHeader.MinimumWidth = 6;
-            this.pictureHeader.Name = "pictureHeader";
-            this.pictureHeader.ReadOnly = true;
-            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // TitleColumn
-            // 
-            this.TitleColumn.HeaderText = "Title";
-            this.TitleColumn.MinimumWidth = 6;
-            this.TitleColumn.Name = "TitleColumn";
-            this.TitleColumn.ReadOnly = true;
-            // 
-            // ISBNColumn
-            // 
-            this.ISBNColumn.HeaderText = "ISBN";
-            this.ISBNColumn.MinimumWidth = 6;
-            this.ISBNColumn.Name = "ISBNColumn";
-            this.ISBNColumn.ReadOnly = true;
-            // 
-            // StatusColumn
-            // 
-            this.StatusColumn.HeaderText = "Status";
-            this.StatusColumn.Name = "StatusColumn";
-            this.StatusColumn.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Picture";
@@ -562,6 +536,34 @@
             this.StatusColumn1.HeaderText = "Status";
             this.StatusColumn1.Name = "StatusColumn1";
             this.StatusColumn1.ReadOnly = true;
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.HeaderText = "Status";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.ReadOnly = true;
+            // 
+            // ISBNColumn
+            // 
+            this.ISBNColumn.HeaderText = "ISBN";
+            this.ISBNColumn.MinimumWidth = 6;
+            this.ISBNColumn.Name = "ISBNColumn";
+            this.ISBNColumn.ReadOnly = true;
+            // 
+            // TitleColumn
+            // 
+            this.TitleColumn.HeaderText = "Title";
+            this.TitleColumn.MinimumWidth = 6;
+            this.TitleColumn.Name = "TitleColumn";
+            this.TitleColumn.ReadOnly = true;
+            // 
+            // pictureHeader
+            // 
+            this.pictureHeader.HeaderText = "Picture";
+            this.pictureHeader.MinimumWidth = 6;
+            this.pictureHeader.Name = "pictureHeader";
+            this.pictureHeader.ReadOnly = true;
+            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // FORM_BORROW
             // 
@@ -609,13 +611,13 @@
         private System.Windows.Forms.Label nameInputLabel;
         private System.Windows.Forms.Label collegeInputLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pictureHeader;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TitleColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ISBNColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pictureHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TitleColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ISBNColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
     }
 }

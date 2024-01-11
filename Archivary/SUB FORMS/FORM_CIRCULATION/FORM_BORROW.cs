@@ -20,7 +20,8 @@ namespace Archivary.SUB_FORMS
     {
         private List<Book> availableBookList;
         private List<Book> reversedBookList = new List<Book>();
-        private HashSet<string> selectedISBNs = new HashSet<string>(), reservedBooksISBN = new HashSet<string>();
+        private List<Book> borrowedBookList = new List<Book>();
+        private HashSet<string> selectedISBNs = new HashSet<string>(), reservedBooksISBN = new HashSet<string>(), borrowedBookISBN = new HashSet<string>();
         private Timer searchTimer, searchUserTimer;
         private bool startSearch = false, startUserSearch = false;
         private int borrowerId = -1;
@@ -171,19 +172,27 @@ namespace Archivary.SUB_FORMS
             dataGridView1.Rows.Clear();
             selectedISBNs.Clear();
             reservedBooksISBN.Clear();
-            if(availableBookList != null) availableBookList.Clear();
+            borrowedBookISBN.Clear();
+            if (availableBookList != null) availableBookList.Clear();
             if (reversedBookList != null) reversedBookList.Clear();
+            if (borrowedBookList != null) borrowedBookList.Clear();
             Setting setting = CommonOperation.GetSettingsFromDatabase();
             studentBorrowLimit = setting.borrowingCapacityStudent;
             teacherBorrowLimit = setting.borrowingCapacityTeacher;
             reserveLimit = setting.reserveLimit;
              
             availableBookList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.LoadAvailableBooksFromDatabase("AVAILABLE");
+            borrowedBookList = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowAllBorrowedBooks();
             if(borrowerId != - 1) reversedBookList.AddRange(Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.LoadReservedBooksOfUserFromDatabase(borrowerId));
             foreach(Book book in reversedBookList)
             {
                 reservedBooksISBN.Add(book.BookISBN);
             }
+            foreach(Book book in borrowedBookList)
+            {
+                borrowedBookISBN.Add(book.BookISBN);
+            }
+            reversedBookList.AddRange(borrowedBookList);
             reversedBookList.AddRange(availableBookList);
             BooksDataGridView.Rows.Clear();
             foreach (Book book in reversedBookList)
@@ -445,11 +454,29 @@ namespace Archivary.SUB_FORMS
                 }
             }
 
+            if (message.Equals("borrow"))
+            {
+                bool hasBorrowedBookSelected = false;
+                foreach(Book book in reversedBookList)
+                {
+                    if (borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN)) hasBorrowedBookSelected = true;
+                    if (hasBorrowedBookSelected) break;
+                }
+                if (hasBorrowedBookSelected)
+                {
+                    TimerOpersys.Stop();
+                    FORM_ALERT alert = new FORM_ALERT(1, "BOOK ALREADY BORROWED", "You can't borrow the borrowed book.");
+                    alert.TopMost = true;
+                    alert.Show();
+                    return;
+                }
+            }
+
             if (isBelowStudentLimit || isBelowTeacherLimit)
             {
                 if (reservedBooksISBN.Count > 0 && type.Equals("reserved_books"))
-                {  
-                    foreach(Book book in reversedBookList)
+                {
+                    foreach (Book book in reversedBookList)
                     {
                         if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
                         {
@@ -457,6 +484,33 @@ namespace Archivary.SUB_FORMS
                             Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetReservedBookToBorrowed(book, borrowerId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId);
                         }
                     }
+                    return;
+                }
+
+                bool willReserveBook = false;
+                foreach (Book book in reversedBookList)
+                {
+                    if (borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
+                    {
+                        willReserveBook = true;
+                    }
+                }
+                if (willReserveBook)
+                {
+                    Setting settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
+                    foreach (Book book in reversedBookList)
+                    {
+                        if(borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
+                        {
+                            borrowedBookISBN.Remove(book.BookISBN);
+                            DateTime dateToGet = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateToGetQueuedReservedBorrowedBook(book.BookId, settings);
+                            DateTime dueDate = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDueDateOfQueuedReservedBorrowedBook(book.BookId, settings);
+                            Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ReserveBorrowedBook(borrowerId, book.BookId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId, dateToGet, dueDate);
+                        }
+                    }
+                    FORM_ALERT alert = new FORM_ALERT(3, "RESERVE SUCCESS", "Successfully borrowed book!");
+                    alert.TopMost = true;
+                    alert.Show();
                     return;
                 }
                 Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
