@@ -533,6 +533,16 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICON_STOP {
+            get {
+                object obj = ResourceManager.GetObject("ICON_STOP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON_TOGGLE_CLOSE {
             get {
                 object obj = ResourceManager.GetObject("ICON_TOGGLE_CLOSE", resourceCulture);
@@ -576,6 +586,16 @@ namespace Archivary.Properties {
         internal static System.Drawing.Bitmap ICON_WARNING {
             get {
                 object obj = ResourceManager.GetObject("ICON_WARNING", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_WARNING1 {
+            get {
+                object obj = ResourceManager.GetObject("ICON_WARNING1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

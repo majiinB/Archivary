@@ -55,11 +55,11 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             {
                 // Handle the case when the file is not found
                 // Load a default image from resources and set it to the PictureBox
-                bookPictureBox.Image = Properties.Resources.ArchivaryLogoGreen;
+                bookPictureBox.Image = Properties.Resources.PLACEHOLDER_BOOK5;
 
                 // Optionally, adjust the PictureBox size to fit the default image
                 bookPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                bookPictureBox.Size = Properties.Resources.ArchivaryLogoGreen.Size;
+                bookPictureBox.Size = Properties.Resources.PLACEHOLDER_BOOK5.Size;
             }
             catch (Exception ex)
             {
