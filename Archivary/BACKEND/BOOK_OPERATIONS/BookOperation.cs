@@ -261,7 +261,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "INSERT INTO borrowed_books (book_id, borrower_id, borrowed_at, is_returned, librarianId) VALUES (@book, @id, @time, false, @librarian)";
+                string query = "INSERT INTO borrowed_books (book_id, borrower_id, borrowed_at, is_returned, librarian_id) VALUES (@book, @id, @time, false, @librarian)";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@book", book.BookId);
@@ -292,7 +292,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string reserved = type.Equals("borrowed_books") ? "" : "AND is_borrowed = false";
+                string reserved = type.Equals("borrowed_books") ? "AND is_returned = false" : "AND is_borrowed = false";
                 string query = $"SELECT COUNT(*) FROM {type} WHERE borrower_id = @Id {reserved}";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
