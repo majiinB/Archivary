@@ -424,30 +424,30 @@ namespace Archivary.SUB_FORMS
                 return;
             }
 
-            int alreadyBorrowed = BookOperation.CheckCountOfExistingBorrowedReservedBooks(borrowerId, type);
-            bool isBelowStudentLimit = isStudent && !isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= studentBorrowLimit;
-            bool isBelowTeacherLimit = !isStudent && isTeacher && (dataGridView1.RowCount + alreadyBorrowed) <= teacherBorrowLimit;
+            int alreadyBorrowReserve = BookOperation.CheckCountOfExistingBorrowedReservedBooks(borrowerId, type);
+            bool isBelowStudentLimit = isStudent && !isTeacher && (dataGridView1.RowCount + alreadyBorrowReserve) <= (type.Equals("borrowed_books") ? studentBorrowLimit : reserveLimit);
+            bool isBelowTeacherLimit = !isStudent && isTeacher && (dataGridView1.RowCount + alreadyBorrowReserve) <= (type.Equals("borrowed_books") ? teacherBorrowLimit : reserveLimit);
+            if (message.Equals("reserv"))
+            {
+                bool hasReservedBookSelected = false;
+                foreach (Book book in reversedBookList)
+                {
+                    if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN)) hasReservedBookSelected = true;
+                    if (hasReservedBookSelected) break;
+                }
+                if (hasReservedBookSelected)
+                {
+                    TimerOpersys.Stop();
+                    FORM_ALERT alert = new FORM_ALERT(1, "BOOK ALREADY RESERVED", "You can't reserve the reserved book.");
+                    alert.TopMost = true;
+                    alert.Show();
+                    return;
+                }
+            }
+
             if (isBelowStudentLimit || isBelowTeacherLimit)
             {
-                if (message.Equals("reserv"))
-                {
-                    bool hasReservedBookSelected = false;
-                    foreach (Book book in reversedBookList)
-                    {
-                        if (reservedBooksISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN)) hasReservedBookSelected = true;
-                        if (hasReservedBookSelected) break;
-                    }
-                    if (hasReservedBookSelected)
-                    {
-                        TimerOpersys.Stop();
-                        FORM_ALERT alert = new FORM_ALERT(1, "BOOK ALREADY RESERVED", "You can't reserve the reserved book.");
-                        alert.TopMost = true;
-                        alert.Show();
-                        return;
-                    }
-                }
-
-                if (reservedBooksISBN.Count > 0)
+                if (reservedBooksISBN.Count > 0 && type.Equals("reserved_books"))
                 {  
                     foreach(Book book in reversedBookList)
                     {
@@ -457,6 +457,7 @@ namespace Archivary.SUB_FORMS
                             Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetReservedBookToBorrowed(book, borrowerId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId);
                         }
                     }
+                    return;
                 }
                 Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 SuccessBorrowReserve(message);

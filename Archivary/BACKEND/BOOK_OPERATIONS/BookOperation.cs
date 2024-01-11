@@ -300,6 +300,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                     command.Parameters.AddWithValue("@Id", userId);
 
                     object result = command.ExecuteScalar();
+                    Console.WriteLine($"query: {query}\noutput: {result}");
                     return (result != null) ? Convert.ToInt32(result) : 0;
                 }
             }
