@@ -382,6 +382,13 @@ namespace Archivary.SUB_FORMS
 
         private void borrowButton_Click(object sender, EventArgs e)
         {
+            if(borrowerId == -1)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot borrow books without an user.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             if (Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.CheckIfExistingUnsettledBorrowedBooks(borrowerId))
             {
                 FORM_ALERT alert = new FORM_ALERT(1, "CANNOT BORROW", "The user has previous borrowed book transactions that isn't settled yet.");
@@ -394,6 +401,13 @@ namespace Archivary.SUB_FORMS
 
         private void reserveButton_Click(object sender, EventArgs e)
         {
+            if (borrowerId == -1)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot reserve books without an user.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             HandleCirculationEvent("reserved_books", "reserv"); //kulang talaga ng e sa dulo.
         }
 

@@ -289,6 +289,13 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
+            if (borrowerId == -1)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot return books without an user.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             List<Book> selectedBooks = GetSelectedBooks();
             List<DateTime> date = GetSpecificBookBorrowedDates(selectedBooks);
             bool bookOverdue = false;
