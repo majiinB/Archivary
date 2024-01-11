@@ -61,6 +61,21 @@ namespace Archivary.PARENT_FORMS
             return Color.FromArgb(200, 200, 200);
         }
 
+        private Color archivaryYellow()
+        {
+            return Color.FromArgb(240, 215, 4);
+        }
+
+        private Color archivaryPink()
+        {
+            return Color.FromArgb(255, 31, 218);
+        }
+
+        private Color archivaryBlue()
+        {
+            return Color.FromArgb(31, 210, 255);
+        }
+
         //MAIN
         public FORM_USERS(object user)
         {
@@ -190,9 +205,31 @@ namespace Archivary.PARENT_FORMS
                 string status = Convert.ToString(row.Cells[3].Value).ToUpper();
 
                 if (status == null) continue;
- 
-                if (status == "INACTIVE") row.Cells[3].Style.ForeColor = archivaryRed();
-                else if (status == "ACTIVE") row.Cells[3].Style.ForeColor = archivaryGreen();
+
+                if (status == "INACTIVE") { row.Cells[3].Style.ForeColor = archivaryRed(); row.Cells[3].Style.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))); }
+                else if (status == "ACTIVE") { row.Cells[3].Style.ForeColor = archivaryGreen(); row.Cells[3].Style.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))); }
+            }
+
+            for (int i = e.RowIndex; i <= e.RowIndex + e.RowCount - 1; i++)
+            {
+                var row = userDataGridView.Rows[i];
+                string status = Convert.ToString(row.Cells[2].Value).ToUpper();
+
+                if (status == null) continue;
+
+                if (status == "STUDENT") { row.Cells[2].Style.ForeColor = archivaryYellow(); }
+                else if (status == "EMPLOYEE") { row.Cells[2].Style.ForeColor = archivaryBlue(); }
+                else if (status == "TEACHER") { row.Cells[2].Style.ForeColor = archivaryPink(); }
+            }
+
+            for (int i = e.RowIndex; i <= e.RowIndex + e.RowCount - 1; i++)
+            {
+                var row = userDataGridView.Rows[i];
+                string status = Convert.ToString(row.Cells[0].Value).ToUpper();
+
+                if (status == null) continue;
+
+                row.Cells[0].Style.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
         }
 

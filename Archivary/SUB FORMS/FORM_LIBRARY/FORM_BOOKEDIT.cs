@@ -234,7 +234,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
                 TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(4, "UNCHANGED INFO", "You cannot save info without changing any information.");
                 alert.TopMost = true;
-                alert.Show();
+                alert.ShowDialog();
                 return;
             }
             if (CheckIfTextBoxesAreEmpty())
@@ -242,7 +242,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
                 TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(4, "EMPTY TEXT", "You cannot save info with empty textboxes.");
                 alert.TopMost = true;
-                alert.Show();
+                alert.ShowDialog();
                 return;
             }
             UpdateBookInfo();
@@ -367,5 +367,21 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
             shelfTextbox.Text = result.ToString();
         }
+
+        private void removeImageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeImageButton_MouseEnter(object sender, EventArgs e)
+        {
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+        }
+
+        private void removeImageButton_MouseLeave(object sender, EventArgs e)
+        {
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+        }
+
     }
 }

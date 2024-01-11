@@ -79,7 +79,7 @@
             this.filterSearchButton.ButtonImage = ((System.Drawing.Image)(resources.GetObject("filterSearchButton.ButtonImage")));
             this.filterSearchButton.FlatAppearance.BorderSize = 0;
             this.filterSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterSearchButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterSearchButton.ForeColor = System.Drawing.Color.White;
             this.filterSearchButton.Location = new System.Drawing.Point(641, 12);
             this.filterSearchButton.Name = "filterSearchButton";
@@ -102,7 +102,7 @@
             this.addBookButton.ButtonImage = global::Archivary.Properties.Resources.ICON_ADD;
             this.addBookButton.FlatAppearance.BorderSize = 0;
             this.addBookButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBookButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBookButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBookButton.ForeColor = System.Drawing.Color.White;
             this.addBookButton.Location = new System.Drawing.Point(797, 12);
             this.addBookButton.Name = "addBookButton";
@@ -142,6 +142,7 @@
             this.searchBar.Location = new System.Drawing.Point(2, 2);
             this.searchBar.Name = "searchBar";
             this.searchBar.Radius = 9;
+            this.searchBar.ReadOnly = false;
             this.searchBar.Size = new System.Drawing.Size(619, 50);
             this.searchBar.TabIndex = 1;
             this.searchBar.Text = "Search Book";

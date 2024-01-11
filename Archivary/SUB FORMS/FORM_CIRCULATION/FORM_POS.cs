@@ -137,7 +137,7 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
 
         private void FORM_POS_Paint(object sender, PaintEventArgs e)
         {
-            DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(37, 211, 102), 3);
+            DrawCustomBorder(e.Graphics, this.ClientRectangle, Color.FromArgb(100, 100, 100), 2);
         }
         private void DrawCustomBorder(Graphics graphics, Rectangle rectangle, Color color, int borderWidth)
         {
@@ -171,11 +171,11 @@ namespace Archivary._1500X1000.FORM_CIRCULATION
                     int y = tableLayoutPanel.GetRowHeights().Take(i).Sum();
                     graphics.DrawLine(pen, rectangle.Left, y, rectangle.Right, y);
                 }
-                /*for(int i = 1; i < tableLayoutPanel.ColumnCount; i++)
+                for (int i = 1; i < tableLayoutPanel.ColumnCount; i++)
                 {
                     int x = tableLayoutPanel.GetColumnWidths().Take(i).Sum();
-                    graphics.DrawLine(pen, x,rectangle.Top, x, rectangle.Bottom );
-                }*/
+                    graphics.DrawLine(pen, x, rectangle.Top, x, rectangle.Bottom);
+                }
             }
         }
 
