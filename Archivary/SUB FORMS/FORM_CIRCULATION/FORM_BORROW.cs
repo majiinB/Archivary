@@ -497,12 +497,15 @@ namespace Archivary.SUB_FORMS
                 }
                 if (willReserveBook)
                 {
+                    Setting settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
                     foreach (Book book in reversedBookList)
                     {
                         if(borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
                         {
                             borrowedBookISBN.Remove(book.BookISBN);
-                            Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ReserveBorrowedBook(borrowerId, book.BookId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId);
+                            DateTime dateToGet = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateToGetQueuedReservedBorrowedBook(book.BookId, settings);
+                            DateTime dueDate = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDueDateOfQueuedReservedBorrowedBook(book.BookId, settings);
+                            Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ReserveBorrowedBook(borrowerId, book.BookId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId, dateToGet, dueDate);
                         }
                     }
                     FORM_ALERT alert = new FORM_ALERT(3, "RESERVE SUCCESS", "Successfully borrowed book!");

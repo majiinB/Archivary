@@ -1126,7 +1126,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             return result < 1 ? 1 : result+1;
         }
 
-        public static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
+        private static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
         {
             int queue = IdentifyReservedBorrowedBookQueue(bookId);
 
