@@ -488,7 +488,7 @@ namespace Archivary.SUB_FORMS
                 }
 
                 bool willReserveBook = false;
-                foreach (Book book in reversedBookList)
+                foreach (Book book in borrowedBookList)
                 {
                     if (borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
                     {
@@ -498,7 +498,7 @@ namespace Archivary.SUB_FORMS
                 if (willReserveBook)
                 {
                     Setting settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
-                    foreach (Book book in reversedBookList)
+                    foreach (Book book in borrowedBookList)
                     {
                         if(borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
                         {
@@ -511,6 +511,9 @@ namespace Archivary.SUB_FORMS
                     FORM_ALERT alert = new FORM_ALERT(3, "RESERVE SUCCESS", "Successfully borrowed book!");
                     alert.TopMost = true;
                     alert.Show();
+                    dataGridView1.Rows.Clear();
+                    BooksDataGridView.Rows.Clear();
+                    LoadAvailableBooks();
                     return;
                 }
                 Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
