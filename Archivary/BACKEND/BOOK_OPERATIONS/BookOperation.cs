@@ -1106,25 +1106,35 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
         private static int IdentifyReservedBorrowedBookQueue(int bookId)
         {
             int result = 0;
+
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
 
                 string query = @"
-                    SELECT COUNT(*) 
-                    FROM reserved_books 
-                    WHERE book_id = @bookId 
-                    AND reserved_at <= NOW()
-                    AND is_borrowed = 0;
-                ";
+                                SELECT COUNT(*) 
+                                FROM reserved_books 
+                                WHERE book_id = @bookId 
+                                AND reserved_at <= NOW()
+                                AND is_borrowed = 0;
+                            ";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@bookId", bookId);
-                    result = (int)command.ExecuteScalar();
+
+                    // ExecuteScalar can return null, so use Convert.ToInt32 to handle it
+                    object scalarResult = command.ExecuteScalar();
+
+                    // Check for null before casting
+                    if (scalarResult != null)
+                    {
+                        result = Convert.ToInt32(scalarResult);
+                    }
                 }
             }
-            return result < 1 ? 1 : result+1;
+
+            return result < 1 ? 1 : result + 1;
         }
 
         private static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
