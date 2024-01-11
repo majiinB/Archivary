@@ -925,22 +925,43 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             {
                 connection.Open();
                 string query = @"SELECT
-                                bb.borrower_id,
-                                b.isbn AS book_id,
-                                b.title,
-                                b.author,
-                                bb.borrowed_at AS obtained_date,
-                                adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) as return_date,
-                                CASE
-                                    WHEN bb.is_returned = 1 THEN 'Returned'
-                                    WHEN CURRENT_TIMESTAMP() > adddate(bb.borrowed_at, INTERVAL s.borrowing_duration day) THEN 'Overdue'
-                                    ELSE 'Not Overdue'
-                                END AS status
-                            FROM
-                                books b
-                                JOIN borrowed_books bb ON b.id = bb.book_id
-                                JOIN settings s ON s.id = 1
-                            ORDER BY status asc";
+                                    st.student_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    bb.borrowed_at AS obtained_date,
+                                    ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN bb.is_returned = 1 THEN 'Returned'
+                                        WHEN CURRENT_TIMESTAMP() > ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) THEN 'Overdue'
+                                        ELSE 'Not Overdue'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN borrowed_books bb ON b.id = bb.book_id
+                                    JOIN students st ON bb.borrower_id = st.id
+                                    JOIN settings s ON s.id = 1
+
+                                UNION
+
+                                SELECT
+                                    t.teacher_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    bb.borrowed_at AS obtained_date,
+                                    ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN bb.is_returned = 1 THEN 'Returned'
+                                        WHEN CURRENT_TIMESTAMP() > ADDDATE(bb.borrowed_at, INTERVAL s.borrowing_duration DAY) THEN 'Overdue'
+                                        ELSE 'Not Overdue'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN borrowed_books bb ON b.id = bb.book_id
+                                    JOIN teachers t ON bb.borrower_id = t.user_id
+                                    JOIN settings s ON s.id = 1
+                                ORDER BY return_date desc";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -950,7 +971,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                             // Create a new BookReportsInfo object for each row
                             BookReportsInfo report = new BookReportsInfo
                             {
-                                userId = reader.GetInt32("borrower_id"),
+                                userId = reader.GetString("user_id"),
                                 isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
                                 title = reader.GetString("title"),
                                 author = reader.GetString("author"),
@@ -975,23 +996,43 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             {
                 connection.Open();
                 string query = @"SELECT
-                                rb.borrower_id,
-                                b.isbn AS book_id,
-                                b.title,
-                                b.author,
-                                rb.reserved_at AS obtained_date,
-                                rb.is_borrowed,
-                                ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
-                                CASE
-                                    WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
-                                    WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
-                                    ELSE 'Reserved'
-                                END AS status
-                            FROM
-                                books b
-                                JOIN reserved_books rb ON b.id = rb.book_id
-                                JOIN settings s ON s.id = 1
-                            ORDER BY status DESC;";
+                                    st.student_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    rb.reserved_at AS obtained_date,
+                                    ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+		                                WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
+		                                ELSE 'Reserved'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN reserved_books rb ON b.id = rb.book_id
+                                    JOIN students st ON rb.borrower_id = st.user_id
+                                    JOIN settings s ON s.id = 1
+
+                                UNION
+
+                                SELECT
+                                    t.teacher_id AS user_id,
+                                    b.isbn AS book_id,
+                                    b.title,
+                                    b.author,
+                                    rb.reserved_at AS obtained_date,
+                                    ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) AS return_date,
+                                    CASE
+                                        WHEN rb.is_borrowed = 1 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Borrowed'
+		                                WHEN rb.is_borrowed = 0 AND CURRENT_TIMESTAMP() > ADDDATE(rb.reserved_at, INTERVAL s.reserve_duration DAY) THEN 'Available'
+		                                ELSE 'Reserved'
+                                    END AS status
+                                FROM
+                                    books b
+                                    JOIN reserved_books rb ON b.id = rb.book_id
+                                    JOIN teachers t ON rb.borrower_id = t.user_id
+                                    JOIN settings s ON s.id = 1
+                                ORDER BY return_date desc";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -1001,7 +1042,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                             // Create a new BookReportsInfo object for each row
                             BookReportsInfo report = new BookReportsInfo
                             {
-                                userId = reader.GetInt32("borrower_id"),
+                                userId = reader.GetString("user_id"),
                                 isbn = reader.GetString("book_id"), // Assuming "id" is the appropriate column name
                                 title = reader.GetString("title"),
                                 author = reader.GetString("author"),
