@@ -260,6 +260,7 @@ namespace Archivary.SUB_FORMS
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            if (reversedBookList.Count == 0) return;
             dataGridView1.Rows.Clear();
             BooksDataGridView.Rows.Clear();
             selectedISBNs.Clear();
