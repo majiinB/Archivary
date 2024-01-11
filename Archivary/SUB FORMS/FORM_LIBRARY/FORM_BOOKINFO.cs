@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,8 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             shelfTextbox.Text = bookAdded.BookShelf.ToString();
             SetPictureBoxImage(bookAdded.BookImage);
             FormsBookEdit = new FORM_BOOKEDIT(bookAdded, library, this);
+            ISBNTextbox.ReadOnly = true;
+            ISBNTextbox.Cursor = Cursors.Arrow;
         }
 
         private void SetPictureBoxImage(string imagePath)
@@ -73,6 +76,16 @@ namespace Archivary._1500X1000.FORM_LIBRARY
         {
             FormsBookEdit.ShowDialog(this);
             this.Show();               
+        }
+
+        private void ISBNTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ISBNTextbox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

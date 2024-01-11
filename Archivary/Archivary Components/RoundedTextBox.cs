@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace RoundedCorners
 {
@@ -76,6 +79,19 @@ namespace RoundedCorners
             }
         }
 
+        private bool readOnly;
+
+        public bool ReadOnly
+        {
+            get => readOnly;
+            set
+            {
+                readOnly = value;
+                textBox.ReadOnly = value;
+            }
+        }
+
+
         public bool UseSystemPasswordChar
         {
             get => useSystemPasswordChar;
@@ -130,6 +146,8 @@ namespace RoundedCorners
             textBox.TextChanged += new EventHandler(textBox_TextChanged);
             textBox.MouseDoubleClick += new MouseEventHandler(textBox_MouseDoubleClick);
             textBox.Width = Width - (2 * borderThickness) - (2 * radius);
+            this.textBox.ReadOnly = false; // Default to not read-only
+            this.ReadOnly = false; // Default to not read-only
             AdjustTextBoxLayout();
         }
 
