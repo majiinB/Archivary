@@ -16,7 +16,8 @@ namespace Archivary._900X500
         {
             Error = 1,
             Confirmation = 2,
-            Success = 3
+            Success = 3,
+            Warning = 4
         }
         public FORM_ALERT(int condition, string errorTitle, string errorMessage)
         {
@@ -49,6 +50,13 @@ namespace Archivary._900X500
                 alertTitleLabel.ForeColor = Color.FromArgb(128, 128, 255);
                 continueButton.BackColor = Color.FromArgb(128, 128, 255);
                 
+            }
+            else if (condition == (int)KIND_OF_ALERT.Warning)
+            {
+                //Apply logic kung ano gusto niyo baguhin dito kung confirmation
+                alertTitleLabel.ForeColor = Color.FromArgb(240, 215, 49);
+                continueButton.BackColor = Color.FromArgb(240, 215, 49);
+
             }
             //for centering the alertMessageLabel
             alertMessageLabel.ParentChanged += (sender, e) => CenterLabel();

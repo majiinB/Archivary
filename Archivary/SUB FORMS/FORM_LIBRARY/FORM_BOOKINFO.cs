@@ -32,6 +32,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             shelfTextbox.Text = bookAdded.BookShelf.ToString();
             SetPictureBoxImage(bookAdded.BookImage);
             FormsBookEdit = new FORM_BOOKEDIT(bookAdded, library, this);
+            ISBNTextbox.ReadOnly = true;
         }
 
         private void SetPictureBoxImage(string imagePath)
@@ -74,5 +75,6 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             FormsBookEdit.ShowDialog(this);
             this.Show();               
         }
+        //PALAtANDAAN NA WORKING YUNG BOOKINFO NA TO
     }
 }
