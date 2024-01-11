@@ -31,6 +31,7 @@ namespace Archivary._900X500
             if(condition == (int)KIND_OF_ALERT.Error)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung error
+                iconPictureBox.Image = Archivary.Properties.Resources.ICON_STOP;
                 tableLayoutPanel1.SetColumnSpan(continueButton, 2);
                 alertTitleLabel.ForeColor= Color.FromArgb(227, 25, 55);
                 continueButton.BackColor = Color.FromArgb(227, 25, 55);
@@ -39,6 +40,7 @@ namespace Archivary._900X500
             else if (condition == (int)KIND_OF_ALERT.Success)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung success
+                iconPictureBox.Image = Archivary.Properties.Resources.ArchivaryLogoGreen;
                 tableLayoutPanel1.SetColumnSpan(continueButton, 2);
                 alertTitleLabel.ForeColor = Color.FromArgb(37, 211, 102);
                 continueButton.BackColor = Color.FromArgb(37, 211, 102);
@@ -47,6 +49,7 @@ namespace Archivary._900X500
             else if (condition == (int)KIND_OF_ALERT.Confirmation)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung confirmation
+                iconPictureBox.Image = Archivary.Properties.Resources.ICON_WARNING1;
                 alertTitleLabel.ForeColor = Color.FromArgb(128, 128, 255);
                 continueButton.BackColor = Color.FromArgb(128, 128, 255);
                 
@@ -54,6 +57,7 @@ namespace Archivary._900X500
             else if (condition == (int)KIND_OF_ALERT.Warning)
             {
                 //Apply logic kung ano gusto niyo baguhin dito kung confirmation
+                iconPictureBox.Image = Archivary.Properties.Resources.ICON_WARNING1;
                 alertTitleLabel.ForeColor = Color.FromArgb(240, 215, 49);
                 continueButton.BackColor = Color.FromArgb(240, 215, 49);
 
