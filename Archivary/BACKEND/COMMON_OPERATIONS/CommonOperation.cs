@@ -106,6 +106,7 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                 }
             }
         }
+        
         public static string ConvertToReadableFormat(string dateString)
         {
             try
@@ -124,6 +125,11 @@ namespace Archivary.BACKEND.COMMON_OPERATIONS
                 Console.WriteLine($"Error: {ex.Message}");
                 return "Invalid Date";
             }
+        }
+        public static string FormatDateTime(DateTime inputDateTime)
+        {
+            // Use the "MMMM d, yyyy" format for "January 1, 2024"
+            return inputDateTime.ToString("MMMM d, yyyy");
         }
         #endregion
 

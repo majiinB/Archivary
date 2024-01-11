@@ -155,8 +155,8 @@ namespace Archivary.PARENT_FORMS
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.isbn });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.title });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.author });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.obtainedDate });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.dueDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.obtainedDate) });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.dueDate) });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.status });
                 booksBorrowed.BorrowDataGridView.Rows.Add(row);
             }
@@ -191,8 +191,8 @@ namespace Archivary.PARENT_FORMS
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.isbn });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.title });
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.author });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.obtainedDate });
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = report.dueDate });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.obtainedDate)});
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = CommonOperation.FormatDateTime(report.dueDate)});
                 row.Cells.Add(new DataGridViewTextBoxCell { Value = report.status });
                 booksReserved.ReserveDataGridView.Rows.Add(row);
             }
