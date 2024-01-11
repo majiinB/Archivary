@@ -133,9 +133,9 @@ namespace Archivary.SUB_FORMS
             {
                 PictureBox pictureBox = new PictureBox
                 {
-                    Image = ResizeImage(Image.FromFile(book.BookImage), 100, 100),
-                    SizeMode = PictureBoxSizeMode.AutoSize,
-                    Size = new Size(100, 100),
+                    Image = ResizeImage(Image.FromFile(book.BookImage), 150, 250),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Size = new Size(150, 250),
                 };
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
                 imageCell.Value = pictureBox.Image;
@@ -148,9 +148,9 @@ namespace Archivary.SUB_FORMS
                 // Handle the case when the file is not found
                 PictureBox pictureBox = new PictureBox
                 {
-                    Image = ResizeImage(Properties.Resources.ArchivaryLogoGreen, 100, 100),
-                    SizeMode = PictureBoxSizeMode.AutoSize,
-                    Size = new Size(100, 100),
+                    Image = ResizeImage(Properties.Resources.ArchivaryLogoGreen, 150, 250),
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    Size = new Size(150, 250),
                 };
                 DataGridViewImageCell imageCell = new DataGridViewImageCell();
                 imageCell.Value = pictureBox.Image;
@@ -221,6 +221,7 @@ namespace Archivary.SUB_FORMS
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            if (borrowerId == -1) return;
             LoadBorrowedReservedBooks();
         }
 
@@ -235,9 +236,9 @@ namespace Archivary.SUB_FORMS
                 {
                     PictureBox pictureBox = new PictureBox
                     {
-                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 100, 100),
-                        SizeMode = PictureBoxSizeMode.AutoSize,
-                        Size = new Size(100, 100),
+                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 150, 250),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Size = new Size(150, 250),
                     };
                     DataGridViewImageCell imageCell = new DataGridViewImageCell();
                     imageCell.Value = pictureBox.Image;
@@ -266,9 +267,9 @@ namespace Archivary.SUB_FORMS
                 {
                     PictureBox pictureBox = new PictureBox
                     {
-                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 100, 100),
-                        SizeMode = PictureBoxSizeMode.AutoSize,
-                        Size = new Size(100, 100),
+                        Image = ResizeImage((Image)selectedRow.Cells[0].Value, 150, 250),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Size = new Size(150, 250),
                     };
                     DataGridViewImageCell imageCell = new DataGridViewImageCell();
                     imageCell.Value = pictureBox.Image;
@@ -289,7 +290,21 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
+            if (borrowerId == -1)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot return books without an user.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             List<Book> selectedBooks = GetSelectedBooks();
+            if(selectedBooks.Count == 0)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO BOOKS", "You must select a book to return first.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             List<DateTime> date = GetSpecificBookBorrowedDates(selectedBooks);
             bool bookOverdue = false;
             foreach(DateTime time in date)

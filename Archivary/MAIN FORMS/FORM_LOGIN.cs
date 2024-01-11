@@ -114,14 +114,14 @@ namespace Archivary.PARENT_FORMS
         private void usernameTextbox_Enter(object sender, EventArgs e)
         {
             usernameInput = usernameTextbox.Text;
-            if (usernameInput == "Enter Username") usernameTextbox.Text = "";
+            if (usernameInput == "Enter Email") usernameTextbox.Text = "";
             else usernameTextbox.Text = usernameInput;
         }
 
         private void usernameTextbox_Leave(object sender, EventArgs e)
         {
             usernameInput = usernameTextbox.Text;
-            if (string.IsNullOrWhiteSpace(usernameInput)) usernameTextbox.Text = "Enter Username";
+            if (string.IsNullOrWhiteSpace(usernameInput)) usernameTextbox.Text = "Enter Email";
         }
 
         //
@@ -165,11 +165,6 @@ namespace Archivary.PARENT_FORMS
                 this.eyeButton.ButtonImage = global::Archivary.Properties.Resources.ICON_EYE_SLASH;
                 passwordTextbox.UseSystemPasswordChar = true;
             }
-        }
-
-        private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
-        {
-
         }
     }
 }

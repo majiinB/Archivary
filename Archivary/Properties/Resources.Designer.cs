@@ -193,6 +193,16 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICON_ADDRESS {
+            get {
+                object obj = ResourceManager.GetObject("ICON_ADDRESS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON_CIRCULATION {
             get {
                 object obj = ResourceManager.GetObject("ICON_CIRCULATION", resourceCulture);
@@ -233,6 +243,16 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ICON_CONTACT {
+            get {
+                object obj = ResourceManager.GetObject("ICON_CONTACT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ICON_DROPDOWN {
             get {
                 object obj = ResourceManager.GetObject("ICON_DROPDOWN", resourceCulture);
@@ -266,6 +286,16 @@ namespace Archivary.Properties {
         internal static System.Drawing.Bitmap ICON_DROPUP_GREEN {
             get {
                 object obj = ResourceManager.GetObject("ICON_DROPUP_GREEN", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ICON_EMAIL {
+            get {
+                object obj = ResourceManager.GetObject("ICON_EMAIL", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
