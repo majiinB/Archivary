@@ -48,10 +48,11 @@
             this.titleTextbox = new RoundedCorners.RoundedTextBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.LAYOUT_LeftSide = new System.Windows.Forms.TableLayoutPanel();
-            this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.bookPictureBox = new System.Windows.Forms.PictureBox();
-            this.uploadImageButton = new roundedCorners.roundedButton();
+            this.genreDropdown = new sidebarComponents.RoundedPictureButtonRight();
             this.categoryDropdown = new sidebarComponents.RoundedPictureButtonRight();
+            this.uploadImageButton = new roundedCorners.roundedButton();
+            this.removeImageButton = new System.Windows.Forms.Label();
             this.cancelButton = new roundedCorners.roundedButton();
             this.saveInfoButton = new roundedCorners.roundedButton();
             this.dropdownMenu1 = new CustomDropdown.DropdownMenu(this.components);
@@ -410,24 +411,35 @@
             // 
             this.LAYOUT_LeftSide.ColumnCount = 1;
             this.LAYOUT_LeftSide.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.LAYOUT_LeftSide.Controls.Add(this.genreDropdown, 0, 6);
             this.LAYOUT_LeftSide.Controls.Add(this.bookPictureBox, 0, 0);
-            this.LAYOUT_LeftSide.Controls.Add(this.uploadImageButton, 0, 2);
-            this.LAYOUT_LeftSide.Controls.Add(this.categoryDropdown, 0, 4);
+            this.LAYOUT_LeftSide.Controls.Add(this.genreDropdown, 0, 8);
+            this.LAYOUT_LeftSide.Controls.Add(this.categoryDropdown, 0, 6);
+            this.LAYOUT_LeftSide.Controls.Add(this.uploadImageButton, 0, 4);
+            this.LAYOUT_LeftSide.Controls.Add(this.removeImageButton, 0, 2);
             this.LAYOUT_LeftSide.Location = new System.Drawing.Point(36, 40);
             this.LAYOUT_LeftSide.Name = "LAYOUT_LeftSide";
             this.LAYOUT_LeftSide.RowCount = 9;
             this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
             this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4F));
             this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2F));
-            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.LAYOUT_LeftSide.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.LAYOUT_LeftSide.Size = new System.Drawing.Size(219, 511);
             this.LAYOUT_LeftSide.TabIndex = 9;
+            // 
+            // bookPictureBox
+            // 
+            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.bookPictureBox.Name = "bookPictureBox";
+            this.bookPictureBox.Size = new System.Drawing.Size(213, 259);
+            this.bookPictureBox.TabIndex = 0;
+            this.bookPictureBox.TabStop = false;
             // 
             // genreDropdown
             // 
@@ -442,48 +454,16 @@
             this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genreDropdown.ForeColor = System.Drawing.Color.White;
-            this.genreDropdown.Location = new System.Drawing.Point(3, 400);
+            this.genreDropdown.Location = new System.Drawing.Point(3, 450);
             this.genreDropdown.Name = "genreDropdown";
             this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.genreDropdown.Size = new System.Drawing.Size(213, 45);
+            this.genreDropdown.Size = new System.Drawing.Size(213, 58);
             this.genreDropdown.TabIndex = 0;
             this.genreDropdown.TabStop = false;
             this.genreDropdown.Text = "Genre";
             this.genreDropdown.TextColor = System.Drawing.Color.White;
             this.genreDropdown.UseVisualStyleBackColor = false;
             this.genreDropdown.Click += new System.EventHandler(this.genreDropdown_Click);
-            // 
-            // bookPictureBox
-            // 
-            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
-            this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookPictureBox.Location = new System.Drawing.Point(3, 3);
-            this.bookPictureBox.Name = "bookPictureBox";
-            this.bookPictureBox.Size = new System.Drawing.Size(213, 259);
-            this.bookPictureBox.TabIndex = 0;
-            this.bookPictureBox.TabStop = false;
-            // 
-            // uploadImageButton
-            // 
-            this.uploadImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadImageButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.uploadImageButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.uploadImageButton.BorderRadius = 20;
-            this.uploadImageButton.BorderSize = 0;
-            this.uploadImageButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadImageButton.FlatAppearance.BorderSize = 0;
-            this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uploadImageButton.ForeColor = System.Drawing.Color.White;
-            this.uploadImageButton.Location = new System.Drawing.Point(3, 278);
-            this.uploadImageButton.Name = "uploadImageButton";
-            this.uploadImageButton.Size = new System.Drawing.Size(213, 45);
-            this.uploadImageButton.TabIndex = 0;
-            this.uploadImageButton.TabStop = false;
-            this.uploadImageButton.Text = "Upload Image";
-            this.uploadImageButton.TextColor = System.Drawing.Color.White;
-            this.uploadImageButton.UseVisualStyleBackColor = false;
-            this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
             // 
             // categoryDropdown
             // 
@@ -498,16 +478,53 @@
             this.categoryDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryDropdown.ForeColor = System.Drawing.Color.White;
-            this.categoryDropdown.Location = new System.Drawing.Point(3, 339);
+            this.categoryDropdown.Location = new System.Drawing.Point(3, 379);
             this.categoryDropdown.Name = "categoryDropdown";
             this.categoryDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.categoryDropdown.Size = new System.Drawing.Size(213, 45);
+            this.categoryDropdown.Size = new System.Drawing.Size(213, 55);
             this.categoryDropdown.TabIndex = 0;
             this.categoryDropdown.TabStop = false;
             this.categoryDropdown.Text = "Category";
             this.categoryDropdown.TextColor = System.Drawing.Color.White;
             this.categoryDropdown.UseVisualStyleBackColor = false;
             this.categoryDropdown.Click += new System.EventHandler(this.categoryDropdown_Click);
+            // 
+            // uploadImageButton
+            // 
+            this.uploadImageButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadImageButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.uploadImageButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.uploadImageButton.BorderRadius = 20;
+            this.uploadImageButton.BorderSize = 0;
+            this.uploadImageButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadImageButton.FlatAppearance.BorderSize = 0;
+            this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageButton.ForeColor = System.Drawing.Color.White;
+            this.uploadImageButton.Location = new System.Drawing.Point(3, 308);
+            this.uploadImageButton.Name = "uploadImageButton";
+            this.uploadImageButton.Size = new System.Drawing.Size(213, 55);
+            this.uploadImageButton.TabIndex = 0;
+            this.uploadImageButton.TabStop = false;
+            this.uploadImageButton.Text = "Upload Image";
+            this.uploadImageButton.TextColor = System.Drawing.Color.White;
+            this.uploadImageButton.UseVisualStyleBackColor = false;
+            this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
+            // 
+            // removeImageButton
+            // 
+            this.removeImageButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.removeImageButton.Location = new System.Drawing.Point(3, 275);
+            this.removeImageButton.Name = "removeImageButton";
+            this.removeImageButton.Size = new System.Drawing.Size(213, 20);
+            this.removeImageButton.TabIndex = 1;
+            this.removeImageButton.Text = "Remove Image";
+            this.removeImageButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.removeImageButton.Click += new System.EventHandler(this.removeImageButton_Click);
+            this.removeImageButton.MouseEnter += new System.EventHandler(this.removeImageButton_MouseEnter);
+            this.removeImageButton.MouseLeave += new System.EventHandler(this.removeImageButton_MouseLeave);
             // 
             // cancelButton
             // 
@@ -647,5 +664,6 @@
         private System.Windows.Forms.ToolStripMenuItem nonfictionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fictionToolStripMenuItem;
         private CustomDropdown.DropdownMenu dropdownMenu2;
+        private System.Windows.Forms.Label removeImageButton;
     }
 }
