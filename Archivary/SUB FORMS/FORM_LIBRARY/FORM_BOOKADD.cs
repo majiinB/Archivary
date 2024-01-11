@@ -260,5 +260,141 @@ namespace Archivary._1500X1000.FORM_LIBRARY
         {
             removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
         }
+
+
+        //
+        // HOVERS FOR BOOK ADD
+        //
+        private string titleInput,
+            isbnInput, publisherInput,
+            authorFNInput, authorLNInput,
+            authorMIInput, copyrightInput,
+            aisleInput, shelfInput;
+
+        // TITLE
+        private void titleTextbox_Enter(object sender, EventArgs e)
+        {
+            titleInput = titleTextbox.Text;
+            if (titleInput == "Enter Book Title") titleTextbox.Text = "";
+            else titleTextbox.Text = titleInput;
+        }
+
+        private void titleTextbox_Leave(object sender, EventArgs e)
+        {
+            titleInput = titleTextbox.Text;
+            if (string.IsNullOrWhiteSpace(titleInput)) titleTextbox.Text = "Enter Book Title";
+        }
+
+        // ISBN
+        private void ISBNTextbox_Enter(object sender, EventArgs e)
+        {
+            isbnInput = ISBNTextbox.Text;
+            if (isbnInput == "000") ISBNTextbox.Text = "";
+            else ISBNTextbox.Text = isbnInput;
+        }
+
+        private void ISBNTextbox_Leave(object sender, EventArgs e)
+        {
+            isbnInput = ISBNTextbox.Text;
+            if (string.IsNullOrWhiteSpace(isbnInput)) ISBNTextbox.Text = "000";
+        }
+
+        //PUBLISHER
+        private void publisherTextbox_Enter(object sender, EventArgs e)
+        {
+            publisherInput = publisherTextbox.Text;
+            if (publisherInput == "Enter Publisher") publisherTextbox.Text = "";
+            else publisherTextbox.Text = publisherInput;
+        }
+
+        private void publisherTextbox_Leave(object sender, EventArgs e)
+        {
+            publisherInput = publisherTextbox.Text;
+            if (string.IsNullOrWhiteSpace(publisherInput)) publisherTextbox.Text = "Enter Publisher";
+        }
+
+        // AUTHOR FIRST NAME
+        private void authorLNTextbox_Enter(object sender, EventArgs e)
+        {
+            authorLNInput = authorLNTextbox.Text;
+            if (authorLNInput == "Enter Author Last Name") authorLNTextbox.Text = "";
+            else authorLNTextbox.Text = authorLNInput;
+        }
+
+        private void authorLNTextbox_Leave(object sender, EventArgs e)
+        {
+            authorLNInput = authorLNTextbox.Text;
+            if (string.IsNullOrWhiteSpace(authorLNInput)) authorLNTextbox.Text = "Enter Author Last Name";
+        }
+
+        // AUTHOR LAST NAME
+        private void authorFNTextbox_Enter(object sender, EventArgs e)
+        {
+            authorFNInput = authorFNTextbox.Text;
+            if (authorFNInput == "Enter Author First Name") authorFNTextbox.Text = "";
+            else authorFNTextbox.Text = authorFNInput;
+        }
+
+        private void authorFNTextbox_Leave(object sender, EventArgs e)
+        {
+            authorFNInput = authorLNTextbox.Text;
+            if (string.IsNullOrWhiteSpace(authorFNInput)) authorLNTextbox.Text = "Enter Author First Name";
+        }
+
+        // AUTHOR MIDDLE NAME
+        private void authorMITextbox_Enter(object sender, EventArgs e)
+        {
+            authorMIInput = authorMITextbox.Text;
+            if (authorMIInput == "M.I") authorMITextbox.Text = "";
+            else authorMITextbox.Text = authorMIInput;
+        }
+
+        private void authorMITextbox_Leave(object sender, EventArgs e)
+        {
+            authorMIInput = authorMITextbox.Text;
+            if (string.IsNullOrWhiteSpace(authorMIInput)) authorMITextbox.Text = "M.I";
+        }
+
+        // COPYRIGHT
+        private void copyrightTextbox_Enter(object sender, EventArgs e)
+        {
+            copyrightInput = copyrightTextbox.Text;
+            if (copyrightInput == "0000") copyrightTextbox.Text = "";
+            else copyrightTextbox.Text = copyrightInput;
+        }
+
+        private void copyrightTextbox_Leave(object sender, EventArgs e)
+        {
+            copyrightInput = copyrightTextbox.Text;
+            if (string.IsNullOrWhiteSpace(copyrightInput)) copyrightTextbox.Text = "0000";
+        }
+
+        // AISLE
+        private void aisleTextbox_Enter(object sender, EventArgs e)
+        {
+            aisleInput = aisleTextbox.Text;
+            if (aisleInput == "000") aisleTextbox.Text = "";
+            else aisleTextbox.Text = aisleInput;
+        }
+
+        private void aisleTextbox_Leave(object sender, EventArgs e)
+        {
+            aisleInput = aisleTextbox.Text;
+            if (string.IsNullOrWhiteSpace(aisleInput)) aisleTextbox.Text = "000";
+        }
+
+        // SHELF
+        private void shelfTextbox_Enter(object sender, EventArgs e)
+        {
+            shelfInput = shelfTextbox.Text;
+            if (shelfInput == "000") shelfTextbox.Text = "";
+            else shelfTextbox.Text = shelfInput;
+        }
+
+        private void shelfTextbox_Leave(object sender, EventArgs e)
+        {
+            shelfInput = shelfTextbox.Text;
+            if (string.IsNullOrWhiteSpace(copyrightInput)) shelfTextbox.Text = "000";
+        }
     }
 }

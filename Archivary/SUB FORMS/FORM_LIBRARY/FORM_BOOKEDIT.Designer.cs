@@ -433,7 +433,7 @@
             // 
             // bookPictureBox
             // 
-            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bookPictureBox.Location = new System.Drawing.Point(3, 3);
             this.bookPictureBox.Name = "bookPictureBox";

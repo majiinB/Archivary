@@ -158,8 +158,11 @@
             this.shelfTextbox.ReadOnly = false;
             this.shelfTextbox.Size = new System.Drawing.Size(624, 43);
             this.shelfTextbox.TabIndex = 9;
+            this.shelfTextbox.Text = "000";
             this.shelfTextbox.UseSystemPasswordChar = false;
             this.shelfTextbox.TextChanged += new System.EventHandler(this.shelfTextbox_TextChanged);
+            this.shelfTextbox.Enter += new System.EventHandler(this.shelfTextbox_Enter);
+            this.shelfTextbox.Leave += new System.EventHandler(this.shelfTextbox_Leave);
             // 
             // aisleTextbox
             // 
@@ -179,8 +182,11 @@
             this.aisleTextbox.ReadOnly = false;
             this.aisleTextbox.Size = new System.Drawing.Size(624, 36);
             this.aisleTextbox.TabIndex = 8;
+            this.aisleTextbox.Text = "000";
             this.aisleTextbox.UseSystemPasswordChar = false;
             this.aisleTextbox.TextChanged += new System.EventHandler(this.aisleTextbox_TextChanged);
+            this.aisleTextbox.Enter += new System.EventHandler(this.aisleTextbox_Enter);
+            this.aisleTextbox.Leave += new System.EventHandler(this.aisleTextbox_Leave);
             // 
             // aisleLabel
             // 
@@ -213,7 +219,10 @@
             this.copyrightTextbox.ReadOnly = false;
             this.copyrightTextbox.Size = new System.Drawing.Size(624, 36);
             this.copyrightTextbox.TabIndex = 7;
+            this.copyrightTextbox.Text = "0000";
             this.copyrightTextbox.UseSystemPasswordChar = false;
+            this.copyrightTextbox.Enter += new System.EventHandler(this.copyrightTextbox_Enter);
+            this.copyrightTextbox.Leave += new System.EventHandler(this.copyrightTextbox_Leave);
             // 
             // copyrightLabel
             // 
@@ -245,7 +254,10 @@
             this.authorMITextbox.ReadOnly = false;
             this.authorMITextbox.Size = new System.Drawing.Size(90, 36);
             this.authorMITextbox.TabIndex = 6;
+            this.authorMITextbox.Text = "M.I";
             this.authorMITextbox.UseSystemPasswordChar = false;
+            this.authorMITextbox.Enter += new System.EventHandler(this.authorMITextbox_Enter);
+            this.authorMITextbox.Leave += new System.EventHandler(this.authorMITextbox_Leave);
             // 
             // authorFNTextbox
             // 
@@ -265,7 +277,10 @@
             this.authorFNTextbox.ReadOnly = false;
             this.authorFNTextbox.Size = new System.Drawing.Size(261, 36);
             this.authorFNTextbox.TabIndex = 5;
+            this.authorFNTextbox.Text = "Enter Author First Name";
             this.authorFNTextbox.UseSystemPasswordChar = false;
+            this.authorFNTextbox.Enter += new System.EventHandler(this.authorFNTextbox_Enter);
+            this.authorFNTextbox.Leave += new System.EventHandler(this.authorFNTextbox_Leave);
             // 
             // authorLNTextbox
             // 
@@ -285,7 +300,10 @@
             this.authorLNTextbox.ReadOnly = false;
             this.authorLNTextbox.Size = new System.Drawing.Size(261, 36);
             this.authorLNTextbox.TabIndex = 4;
+            this.authorLNTextbox.Text = "Enter Author Last Name";
             this.authorLNTextbox.UseSystemPasswordChar = false;
+            this.authorLNTextbox.Enter += new System.EventHandler(this.authorLNTextbox_Enter);
+            this.authorLNTextbox.Leave += new System.EventHandler(this.authorLNTextbox_Leave);
             // 
             // authorLabel
             // 
@@ -318,7 +336,10 @@
             this.publisherTextbox.ReadOnly = false;
             this.publisherTextbox.Size = new System.Drawing.Size(357, 36);
             this.publisherTextbox.TabIndex = 3;
+            this.publisherTextbox.Text = "Enter Publisher";
             this.publisherTextbox.UseSystemPasswordChar = false;
+            this.publisherTextbox.Enter += new System.EventHandler(this.publisherTextbox_Enter);
+            this.publisherTextbox.Leave += new System.EventHandler(this.publisherTextbox_Leave);
             // 
             // ISBNTextbox
             // 
@@ -338,8 +359,11 @@
             this.ISBNTextbox.ReadOnly = false;
             this.ISBNTextbox.Size = new System.Drawing.Size(261, 36);
             this.ISBNTextbox.TabIndex = 2;
+            this.ISBNTextbox.Text = "000";
             this.ISBNTextbox.UseSystemPasswordChar = false;
             this.ISBNTextbox.TextChanged += new System.EventHandler(this.ISBNTextbox_TextChanged);
+            this.ISBNTextbox.Enter += new System.EventHandler(this.ISBNTextbox_Enter);
+            this.ISBNTextbox.Leave += new System.EventHandler(this.ISBNTextbox_Leave);
             // 
             // PublisherLabel
             // 
@@ -385,7 +409,10 @@
             this.titleTextbox.ReadOnly = false;
             this.titleTextbox.Size = new System.Drawing.Size(624, 36);
             this.titleTextbox.TabIndex = 1;
+            this.titleTextbox.Text = "Enter Book Title";
             this.titleTextbox.UseSystemPasswordChar = false;
+            this.titleTextbox.Enter += new System.EventHandler(this.titleTextbox_Enter);
+            this.titleTextbox.Leave += new System.EventHandler(this.titleTextbox_Leave);
             // 
             // titleLabel
             // 
@@ -429,7 +456,7 @@
             // 
             // bookPIctureBox
             // 
-            this.bookPIctureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.bookPIctureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.bookPIctureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bookPIctureBox.Location = new System.Drawing.Point(3, 3);
             this.bookPIctureBox.Name = "bookPIctureBox";
@@ -446,6 +473,7 @@
             this.genreDropdown.BorderSize = 0;
             this.genreDropdown.ButtonImage = global::Archivary.Properties.Resources.ICON_DROPDOWN;
             this.genreDropdown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.genreDropdown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.genreDropdown.FlatAppearance.BorderSize = 0;
             this.genreDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.genreDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -453,7 +481,7 @@
             this.genreDropdown.Location = new System.Drawing.Point(3, 461);
             this.genreDropdown.Name = "genreDropdown";
             this.genreDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.genreDropdown.Size = new System.Drawing.Size(213, 46);
+            this.genreDropdown.Size = new System.Drawing.Size(213, 47);
             this.genreDropdown.TabIndex = 3;
             this.genreDropdown.TabStop = false;
             this.genreDropdown.Text = "Genre";
@@ -470,6 +498,7 @@
             this.categoryDropdown.BorderSize = 0;
             this.categoryDropdown.ButtonImage = global::Archivary.Properties.Resources.ICON_DROPDOWN;
             this.categoryDropdown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.categoryDropdown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoryDropdown.FlatAppearance.BorderSize = 0;
             this.categoryDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoryDropdown.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -477,7 +506,7 @@
             this.categoryDropdown.Location = new System.Drawing.Point(3, 400);
             this.categoryDropdown.Name = "categoryDropdown";
             this.categoryDropdown.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.categoryDropdown.Size = new System.Drawing.Size(213, 43);
+            this.categoryDropdown.Size = new System.Drawing.Size(213, 45);
             this.categoryDropdown.TabIndex = 2;
             this.categoryDropdown.TabStop = false;
             this.categoryDropdown.Text = "Category";
@@ -493,13 +522,14 @@
             this.uploadExcelButton.BorderRadius = 20;
             this.uploadExcelButton.BorderSize = 0;
             this.uploadExcelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uploadExcelButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uploadExcelButton.FlatAppearance.BorderSize = 0;
             this.uploadExcelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadExcelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadExcelButton.ForeColor = System.Drawing.Color.White;
             this.uploadExcelButton.Location = new System.Drawing.Point(3, 339);
             this.uploadExcelButton.Name = "uploadExcelButton";
-            this.uploadExcelButton.Size = new System.Drawing.Size(213, 43);
+            this.uploadExcelButton.Size = new System.Drawing.Size(213, 45);
             this.uploadExcelButton.TabIndex = 4;
             this.uploadExcelButton.TabStop = false;
             this.uploadExcelButton.Text = "Upload Excel File";
@@ -515,13 +545,14 @@
             this.uploadImageButton.BorderRadius = 20;
             this.uploadImageButton.BorderSize = 0;
             this.uploadImageButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uploadImageButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uploadImageButton.FlatAppearance.BorderSize = 0;
             this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadImageButton.ForeColor = System.Drawing.Color.White;
             this.uploadImageButton.Location = new System.Drawing.Point(3, 278);
             this.uploadImageButton.Name = "uploadImageButton";
-            this.uploadImageButton.Size = new System.Drawing.Size(213, 43);
+            this.uploadImageButton.Size = new System.Drawing.Size(213, 45);
             this.uploadImageButton.TabIndex = 1;
             this.uploadImageButton.TabStop = false;
             this.uploadImageButton.Text = "Upload Image";
