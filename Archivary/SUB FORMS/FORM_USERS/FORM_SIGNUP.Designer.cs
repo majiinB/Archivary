@@ -66,6 +66,7 @@
             this.uploadImageButton = new roundedCorners.roundedButton();
             this.uploadExcelFIleButton = new roundedCorners.roundedButton();
             this.openFolderDialog = new System.Windows.Forms.OpenFileDialog();
+            this.removeImageButton = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS.SuspendLayout();
             this.buttons_Container2.SuspendLayout();
             this.buttonContainers.SuspendLayout();
@@ -75,7 +76,7 @@
             // accoutRegLabel
             // 
             this.accoutRegLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.accoutRegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accoutRegLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.accoutRegLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.accoutRegLabel.Location = new System.Drawing.Point(3, 2);
             this.accoutRegLabel.Name = "accoutRegLabel";
@@ -100,7 +101,6 @@
             this.PANEL_CONTENTS.Controls.Add(this.buttonContainers, 0, 1);
             this.PANEL_CONTENTS.Controls.Add(this.lastNameTextBox, 0, 3);
             this.PANEL_CONTENTS.Controls.Add(this.firstNameTextBox, 1, 3);
-            this.PANEL_CONTENTS.Controls.Add(this.middleInitialTextBox, 4, 3);
             this.PANEL_CONTENTS.Controls.Add(this.emailLabel, 0, 4);
             this.PANEL_CONTENTS.Controls.Add(this.contactNumberLabel, 2, 4);
             this.PANEL_CONTENTS.Controls.Add(this.emailTextBox, 0, 5);
@@ -124,7 +124,9 @@
             this.PANEL_CONTENTS.Controls.Add(this.sectionTextBox, 4, 9);
             this.PANEL_CONTENTS.Controls.Add(this.profilePictureImageBox, 6, 2);
             this.PANEL_CONTENTS.Controls.Add(this.uploadImageButton, 6, 7);
-            this.PANEL_CONTENTS.Controls.Add(this.uploadExcelFIleButton, 6, 8);
+            this.PANEL_CONTENTS.Controls.Add(this.middleInitialTextBox, 4, 3);
+            this.PANEL_CONTENTS.Controls.Add(this.uploadExcelFIleButton, 6, 9);
+            this.PANEL_CONTENTS.Controls.Add(this.removeImageButton, 6, 8);
             this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 119);
             this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -174,17 +176,18 @@
             this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cancelButton.BorderRadius = 10;
             this.cancelButton.BorderSize = 2;
+            this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.cancelButton.FlatAppearance.BorderSize = 0;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cancelButton.Location = new System.Drawing.Point(3, 40);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(452, 54);
-            this.cancelButton.TabIndex = 0;
-            this.cancelButton.Text = "CANCEL";
+            this.cancelButton.TabIndex = 16;
+            this.cancelButton.Text = "Cancel";
             this.cancelButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -196,17 +199,18 @@
             this.saveButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.saveButton.BorderRadius = 10;
             this.saveButton.BorderSize = 0;
+            this.saveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.saveButton.Location = new System.Drawing.Point(469, 40);
             this.saveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(454, 54);
-            this.saveButton.TabIndex = 1;
-            this.saveButton.Text = "SAVE";
+            this.saveButton.TabIndex = 17;
+            this.saveButton.Text = "Save";
             this.saveButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -216,7 +220,7 @@
             this.roleNameLabel.AutoSize = true;
             this.PANEL_CONTENTS.SetColumnSpan(this.roleNameLabel, 7);
             this.roleNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roleNameLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roleNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.roleNameLabel.Location = new System.Drawing.Point(14, 10);
             this.roleNameLabel.Name = "roleNameLabel";
@@ -253,16 +257,17 @@
             this.studentButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.studentButton.BorderRadius = 30;
             this.studentButton.BorderSize = 2;
+            this.studentButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.studentButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentButton.FlatAppearance.BorderSize = 0;
             this.studentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.studentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.studentButton.Location = new System.Drawing.Point(3, 2);
             this.studentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.studentButton.Name = "studentButton";
             this.studentButton.Size = new System.Drawing.Size(205, 39);
-            this.studentButton.TabIndex = 0;
+            this.studentButton.TabIndex = 1;
             this.studentButton.Text = "STUDENT";
             this.studentButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.studentButton.UseVisualStyleBackColor = false;
@@ -275,16 +280,17 @@
             this.teacherButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.teacherButton.BorderRadius = 30;
             this.teacherButton.BorderSize = 2;
+            this.teacherButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.teacherButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherButton.FlatAppearance.BorderSize = 0;
             this.teacherButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.teacherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.teacherButton.Location = new System.Drawing.Point(221, 2);
             this.teacherButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.teacherButton.Name = "teacherButton";
             this.teacherButton.Size = new System.Drawing.Size(205, 39);
-            this.teacherButton.TabIndex = 1;
+            this.teacherButton.TabIndex = 2;
             this.teacherButton.Text = "TEACHER";
             this.teacherButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.teacherButton.UseVisualStyleBackColor = false;
@@ -297,16 +303,17 @@
             this.employeeButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.employeeButton.BorderRadius = 30;
             this.employeeButton.BorderSize = 2;
+            this.employeeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.employeeButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeeButton.FlatAppearance.BorderSize = 0;
             this.employeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.employeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.employeeButton.Location = new System.Drawing.Point(439, 2);
             this.employeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.employeeButton.Name = "employeeButton";
             this.employeeButton.Size = new System.Drawing.Size(209, 39);
-            this.employeeButton.TabIndex = 2;
+            this.employeeButton.TabIndex = 3;
             this.employeeButton.Text = "EMPLOYEE";
             this.employeeButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.employeeButton.UseVisualStyleBackColor = false;
@@ -315,56 +322,59 @@
             // lastNameTextBox
             // 
             this.lastNameTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.lastNameTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.lastNameTextBox.BorderColor = System.Drawing.Color.Black;
+            this.lastNameTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.lastNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.lastNameTextBox.BorderThickness = 0;
-            this.lastNameTextBox.Br = System.Drawing.Color.White;
+            this.lastNameTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.lastNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.lastNameTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.lastNameTextBox.Location = new System.Drawing.Point(14, 142);
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Radius = 10;
+            this.lastNameTextBox.ReadOnly = false;
             this.lastNameTextBox.Size = new System.Drawing.Size(185, 40);
-            this.lastNameTextBox.TabIndex = 7;
+            this.lastNameTextBox.TabIndex = 4;
             this.lastNameTextBox.UseSystemPasswordChar = false;
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.firstNameTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.firstNameTextBox.BorderColor = System.Drawing.Color.Black;
+            this.firstNameTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.firstNameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.firstNameTextBox.BorderThickness = 0;
-            this.firstNameTextBox.Br = System.Drawing.Color.White;
+            this.firstNameTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.PANEL_CONTENTS.SetColumnSpan(this.firstNameTextBox, 3);
             this.firstNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.firstNameTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.firstNameTextBox.Location = new System.Drawing.Point(205, 142);
             this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Radius = 10;
+            this.firstNameTextBox.ReadOnly = false;
             this.firstNameTextBox.Size = new System.Drawing.Size(285, 40);
-            this.firstNameTextBox.TabIndex = 8;
+            this.firstNameTextBox.TabIndex = 5;
             this.firstNameTextBox.UseSystemPasswordChar = false;
             // 
             // middleInitialTextBox
             // 
             this.middleInitialTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.middleInitialTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.middleInitialTextBox.BorderColor = System.Drawing.Color.Black;
+            this.middleInitialTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.middleInitialTextBox.BorderThickness = 0;
-            this.middleInitialTextBox.Br = System.Drawing.Color.White;
+            this.middleInitialTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middleInitialTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleInitialTextBox.ForeColor = System.Drawing.Color.Black;
+            this.middleInitialTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.middleInitialTextBox.Location = new System.Drawing.Point(496, 142);
             this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.middleInitialTextBox.Name = "middleInitialTextBox";
             this.middleInitialTextBox.Radius = 10;
+            this.middleInitialTextBox.ReadOnly = false;
             this.middleInitialTextBox.Size = new System.Drawing.Size(169, 40);
-            this.middleInitialTextBox.TabIndex = 9;
+            this.middleInitialTextBox.TabIndex = 6;
             this.middleInitialTextBox.UseSystemPasswordChar = false;
             // 
             // emailLabel
@@ -372,7 +382,7 @@
             this.emailLabel.AutoSize = true;
             this.PANEL_CONTENTS.SetColumnSpan(this.emailLabel, 2);
             this.emailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.emailLabel.Location = new System.Drawing.Point(14, 184);
             this.emailLabel.Name = "emailLabel";
@@ -386,7 +396,7 @@
             this.contactNumberLabel.AutoSize = true;
             this.PANEL_CONTENTS.SetColumnSpan(this.contactNumberLabel, 3);
             this.contactNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.contactNumberLabel.Location = new System.Drawing.Point(340, 184);
             this.contactNumberLabel.Name = "contactNumberLabel";
@@ -398,46 +408,48 @@
             // emailTextBox
             // 
             this.emailTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.emailTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.emailTextBox.BorderColor = System.Drawing.Color.Black;
+            this.emailTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.emailTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.emailTextBox.BorderThickness = 0;
-            this.emailTextBox.Br = System.Drawing.Color.White;
+            this.emailTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.PANEL_CONTENTS.SetColumnSpan(this.emailTextBox, 2);
             this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.ForeColor = System.Drawing.Color.Black;
+            this.emailTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.emailTextBox.Location = new System.Drawing.Point(14, 227);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Radius = 10;
+            this.emailTextBox.ReadOnly = false;
             this.emailTextBox.Size = new System.Drawing.Size(320, 40);
-            this.emailTextBox.TabIndex = 12;
+            this.emailTextBox.TabIndex = 7;
             this.emailTextBox.UseSystemPasswordChar = false;
             // 
             // contactNumberTextBox
             // 
             this.contactNumberTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.contactNumberTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.contactNumberTextBox.BorderColor = System.Drawing.Color.Black;
+            this.contactNumberTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.contactNumberTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.contactNumberTextBox.BorderThickness = 0;
-            this.contactNumberTextBox.Br = System.Drawing.Color.White;
+            this.contactNumberTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.PANEL_CONTENTS.SetColumnSpan(this.contactNumberTextBox, 3);
             this.contactNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contactNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactNumberTextBox.ForeColor = System.Drawing.Color.Black;
+            this.contactNumberTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.contactNumberTextBox.Location = new System.Drawing.Point(340, 227);
             this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
             this.contactNumberTextBox.Radius = 10;
+            this.contactNumberTextBox.ReadOnly = false;
             this.contactNumberTextBox.Size = new System.Drawing.Size(325, 40);
-            this.contactNumberTextBox.TabIndex = 13;
+            this.contactNumberTextBox.TabIndex = 8;
             this.contactNumberTextBox.UseSystemPasswordChar = false;
             // 
             // houseNumberLabel
             // 
             this.houseNumberLabel.AutoSize = true;
             this.houseNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.houseNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.houseNumberLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.houseNumberLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.houseNumberLabel.Location = new System.Drawing.Point(14, 269);
             this.houseNumberLabel.Name = "houseNumberLabel";
@@ -450,7 +462,7 @@
             // 
             this.streetLabel.AutoSize = true;
             this.streetLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.streetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.streetLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.streetLabel.Location = new System.Drawing.Point(205, 269);
             this.streetLabel.Name = "streetLabel";
@@ -464,7 +476,7 @@
             this.BarangayLabel.AutoSize = true;
             this.PANEL_CONTENTS.SetColumnSpan(this.BarangayLabel, 2);
             this.BarangayLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarangayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BarangayLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BarangayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.BarangayLabel.Location = new System.Drawing.Point(340, 269);
             this.BarangayLabel.Name = "BarangayLabel";
@@ -477,7 +489,7 @@
             // 
             this.cityLabel.AutoSize = true;
             this.cityLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cityLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cityLabel.Location = new System.Drawing.Point(496, 269);
             this.cityLabel.Name = "cityLabel";
@@ -489,81 +501,85 @@
             // houseNumberTextBox
             // 
             this.houseNumberTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.houseNumberTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.houseNumberTextBox.BorderColor = System.Drawing.Color.Black;
+            this.houseNumberTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.houseNumberTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.houseNumberTextBox.BorderThickness = 0;
-            this.houseNumberTextBox.Br = System.Drawing.Color.White;
+            this.houseNumberTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.houseNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.houseNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.houseNumberTextBox.ForeColor = System.Drawing.Color.Black;
+            this.houseNumberTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.houseNumberTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.houseNumberTextBox.Location = new System.Drawing.Point(14, 312);
             this.houseNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.houseNumberTextBox.Name = "houseNumberTextBox";
             this.houseNumberTextBox.Radius = 10;
+            this.houseNumberTextBox.ReadOnly = false;
             this.houseNumberTextBox.Size = new System.Drawing.Size(185, 40);
-            this.houseNumberTextBox.TabIndex = 18;
+            this.houseNumberTextBox.TabIndex = 9;
             this.houseNumberTextBox.UseSystemPasswordChar = false;
             // 
             // streetTextBox
             // 
             this.streetTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.streetTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.streetTextBox.BorderColor = System.Drawing.Color.Black;
+            this.streetTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.streetTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.streetTextBox.BorderThickness = 0;
-            this.streetTextBox.Br = System.Drawing.Color.White;
+            this.streetTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.streetTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.streetTextBox.ForeColor = System.Drawing.Color.Black;
+            this.streetTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.streetTextBox.Location = new System.Drawing.Point(205, 312);
             this.streetTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Radius = 10;
+            this.streetTextBox.ReadOnly = false;
             this.streetTextBox.Size = new System.Drawing.Size(129, 40);
-            this.streetTextBox.TabIndex = 19;
+            this.streetTextBox.TabIndex = 10;
             this.streetTextBox.UseSystemPasswordChar = false;
             // 
             // barangayTextBox
             // 
             this.barangayTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.barangayTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.barangayTextBox.BorderColor = System.Drawing.Color.Black;
+            this.barangayTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.barangayTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.barangayTextBox.BorderThickness = 0;
-            this.barangayTextBox.Br = System.Drawing.Color.White;
+            this.barangayTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.PANEL_CONTENTS.SetColumnSpan(this.barangayTextBox, 2);
             this.barangayTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barangayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barangayTextBox.ForeColor = System.Drawing.Color.Black;
+            this.barangayTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barangayTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.barangayTextBox.Location = new System.Drawing.Point(340, 312);
             this.barangayTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.barangayTextBox.Name = "barangayTextBox";
             this.barangayTextBox.Radius = 10;
+            this.barangayTextBox.ReadOnly = false;
             this.barangayTextBox.Size = new System.Drawing.Size(150, 40);
-            this.barangayTextBox.TabIndex = 20;
+            this.barangayTextBox.TabIndex = 11;
             this.barangayTextBox.UseSystemPasswordChar = false;
             // 
             // cityTextBox
             // 
             this.cityTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.cityTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.cityTextBox.BorderColor = System.Drawing.Color.Black;
+            this.cityTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.cityTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.cityTextBox.BorderThickness = 0;
-            this.cityTextBox.Br = System.Drawing.Color.White;
+            this.cityTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.cityTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.ForeColor = System.Drawing.Color.Black;
+            this.cityTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.cityTextBox.Location = new System.Drawing.Point(496, 312);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Radius = 10;
+            this.cityTextBox.ReadOnly = false;
             this.cityTextBox.Size = new System.Drawing.Size(169, 40);
-            this.cityTextBox.TabIndex = 21;
+            this.cityTextBox.TabIndex = 12;
             this.cityTextBox.UseSystemPasswordChar = false;
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
             this.yearLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.yearLabel.Location = new System.Drawing.Point(418, 354);
             this.yearLabel.Name = "yearLabel";
@@ -576,7 +592,7 @@
             // 
             this.sectionLabel.AutoSize = true;
             this.sectionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sectionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.sectionLabel.Location = new System.Drawing.Point(496, 354);
             this.sectionLabel.Name = "sectionLabel";
@@ -588,27 +604,28 @@
             // collegeTextBox
             // 
             this.collegeTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.collegeTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.collegeTextBox.BorderColor = System.Drawing.Color.Black;
+            this.collegeTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.collegeTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.collegeTextBox.BorderThickness = 0;
-            this.collegeTextBox.Br = System.Drawing.Color.White;
+            this.collegeTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.PANEL_CONTENTS.SetColumnSpan(this.collegeTextBox, 3);
             this.collegeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.collegeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collegeTextBox.ForeColor = System.Drawing.Color.Black;
+            this.collegeTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collegeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.collegeTextBox.Location = new System.Drawing.Point(14, 397);
             this.collegeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.collegeTextBox.Name = "collegeTextBox";
             this.collegeTextBox.Radius = 10;
+            this.collegeTextBox.ReadOnly = false;
             this.collegeTextBox.Size = new System.Drawing.Size(398, 40);
-            this.collegeTextBox.TabIndex = 25;
+            this.collegeTextBox.TabIndex = 13;
             this.collegeTextBox.UseSystemPasswordChar = false;
             // 
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
             this.lastNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lastNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.lastNameLabel.Location = new System.Drawing.Point(14, 103);
             this.lastNameLabel.Name = "lastNameLabel";
@@ -622,7 +639,7 @@
             this.firstNameLabel.AutoSize = true;
             this.PANEL_CONTENTS.SetColumnSpan(this.firstNameLabel, 3);
             this.firstNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.firstNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.firstNameLabel.Location = new System.Drawing.Point(205, 103);
             this.firstNameLabel.Name = "firstNameLabel";
@@ -635,7 +652,7 @@
             // 
             this.middleInitialLabel.AutoSize = true;
             this.middleInitialLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middleInitialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.middleInitialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.middleInitialLabel.Location = new System.Drawing.Point(496, 103);
             this.middleInitialLabel.Name = "middleInitialLabel";
@@ -649,7 +666,7 @@
             this.collegeLabel.AutoSize = true;
             this.PANEL_CONTENTS.SetColumnSpan(this.collegeLabel, 3);
             this.collegeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.collegeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collegeLabel.Font = new System.Drawing.Font("Montserrat", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.collegeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.collegeLabel.Location = new System.Drawing.Point(14, 354);
             this.collegeLabel.Name = "collegeLabel";
@@ -661,37 +678,39 @@
             // yearTextBox
             // 
             this.yearTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.yearTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.yearTextBox.BorderColor = System.Drawing.Color.Black;
+            this.yearTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.yearTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.yearTextBox.BorderThickness = 0;
-            this.yearTextBox.Br = System.Drawing.Color.White;
+            this.yearTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.yearTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.yearTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearTextBox.ForeColor = System.Drawing.Color.Black;
+            this.yearTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.yearTextBox.Location = new System.Drawing.Point(418, 397);
             this.yearTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Radius = 10;
+            this.yearTextBox.ReadOnly = false;
             this.yearTextBox.Size = new System.Drawing.Size(72, 40);
-            this.yearTextBox.TabIndex = 26;
+            this.yearTextBox.TabIndex = 14;
             this.yearTextBox.UseSystemPasswordChar = false;
             // 
             // sectionTextBox
             // 
             this.sectionTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.sectionTextBox.BackgroundColor = System.Drawing.Color.White;
-            this.sectionTextBox.BorderColor = System.Drawing.Color.Black;
+            this.sectionTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.sectionTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.sectionTextBox.BorderThickness = 0;
-            this.sectionTextBox.Br = System.Drawing.Color.White;
+            this.sectionTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.sectionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sectionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sectionTextBox.ForeColor = System.Drawing.Color.Black;
+            this.sectionTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.sectionTextBox.Location = new System.Drawing.Point(496, 397);
             this.sectionTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sectionTextBox.Name = "sectionTextBox";
             this.sectionTextBox.Radius = 10;
+            this.sectionTextBox.ReadOnly = false;
             this.sectionTextBox.Size = new System.Drawing.Size(169, 40);
-            this.sectionTextBox.TabIndex = 27;
+            this.sectionTextBox.TabIndex = 15;
             this.sectionTextBox.UseSystemPasswordChar = false;
             // 
             // profilePictureImageBox
@@ -717,16 +736,18 @@
             this.uploadImageButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.uploadImageButton.BorderRadius = 10;
             this.uploadImageButton.BorderSize = 0;
+            this.uploadImageButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uploadImageButton.FlatAppearance.BorderSize = 0;
             this.uploadImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadImageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uploadImageButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadImageButton.Location = new System.Drawing.Point(694, 318);
             this.uploadImageButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uploadImageButton.Name = "uploadImageButton";
             this.uploadImageButton.Size = new System.Drawing.Size(246, 34);
             this.uploadImageButton.TabIndex = 43;
-            this.uploadImageButton.Text = "UPLOAD IMAGE";
+            this.uploadImageButton.TabStop = false;
+            this.uploadImageButton.Text = "Upload Image";
             this.uploadImageButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadImageButton.UseVisualStyleBackColor = false;
             this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
@@ -738,17 +759,19 @@
             this.uploadExcelFIleButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.uploadExcelFIleButton.BorderRadius = 10;
             this.uploadExcelFIleButton.BorderSize = 0;
+            this.uploadExcelFIleButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uploadExcelFIleButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uploadExcelFIleButton.FlatAppearance.BorderSize = 0;
             this.uploadExcelFIleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadExcelFIleButton.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadExcelFIleButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.uploadExcelFIleButton.Location = new System.Drawing.Point(694, 356);
+            this.uploadExcelFIleButton.Location = new System.Drawing.Point(694, 397);
             this.uploadExcelFIleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uploadExcelFIleButton.Name = "uploadExcelFIleButton";
-            this.uploadExcelFIleButton.Size = new System.Drawing.Size(246, 37);
+            this.uploadExcelFIleButton.Size = new System.Drawing.Size(246, 40);
             this.uploadExcelFIleButton.TabIndex = 45;
-            this.uploadExcelFIleButton.Text = "UPLOAD EXCEL FILE";
+            this.uploadExcelFIleButton.TabStop = false;
+            this.uploadExcelFIleButton.Text = "Upload Excel FIle";
             this.uploadExcelFIleButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.uploadExcelFIleButton.UseVisualStyleBackColor = false;
             this.uploadExcelFIleButton.Click += new System.EventHandler(this.uploadExcelFIleButton_Click);
@@ -756,6 +779,22 @@
             // openFolderDialog
             // 
             this.openFolderDialog.FileName = "openFileDialog1";
+            // 
+            // removeImageButton
+            // 
+            this.removeImageButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeImageButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.removeImageButton.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.removeImageButton.Location = new System.Drawing.Point(694, 354);
+            this.removeImageButton.Name = "removeImageButton";
+            this.removeImageButton.Size = new System.Drawing.Size(246, 41);
+            this.removeImageButton.TabIndex = 46;
+            this.removeImageButton.Text = "Remove Image";
+            this.removeImageButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.removeImageButton.Click += new System.EventHandler(this.removeImageButton_Click);
+            this.removeImageButton.MouseEnter += new System.EventHandler(this.removeImageButton_MouseEnter);
+            this.removeImageButton.MouseLeave += new System.EventHandler(this.removeImageButton_MouseLeave);
             // 
             // FORM_SIGNUP
             // 
@@ -822,5 +861,6 @@
         private System.Windows.Forms.Label collegeLabel;
         private System.Windows.Forms.OpenFileDialog openFolderDialog;
         private roundedCorners.roundedButton uploadExcelFIleButton;
+        private System.Windows.Forms.Label removeImageButton;
     }
 }

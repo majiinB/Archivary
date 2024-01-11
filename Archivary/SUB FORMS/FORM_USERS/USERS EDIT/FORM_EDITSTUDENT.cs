@@ -225,7 +225,7 @@ namespace Archivary._1200X800.FORM_USERS
 
         private void removeImageButton_MouseLeave(object sender, EventArgs e)
         {
-            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
         }
     }
 
