@@ -33,7 +33,6 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             this.bookInfo = bookInfo;
             SetBookInformation(book);
             DropdownProperties();
-            UpdateGenreMenu();
         }
         private void DropdownProperties()
         {
