@@ -114,14 +114,14 @@ namespace Archivary.PARENT_FORMS
         private void usernameTextbox_Enter(object sender, EventArgs e)
         {
             usernameInput = usernameTextbox.Text;
-            if (usernameInput == "Enter Username") usernameTextbox.Text = "";
+            if (usernameInput == "Enter Email") usernameTextbox.Text = "";
             else usernameTextbox.Text = usernameInput;
         }
 
         private void usernameTextbox_Leave(object sender, EventArgs e)
         {
             usernameInput = usernameTextbox.Text;
-            if (string.IsNullOrWhiteSpace(usernameInput)) usernameTextbox.Text = "Enter Username";
+            if (string.IsNullOrWhiteSpace(usernameInput)) usernameTextbox.Text = "Enter Email";
         }
 
         //
@@ -168,6 +168,11 @@ namespace Archivary.PARENT_FORMS
         }
 
         private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void usernameTextbox_Click(object sender, EventArgs e)
         {
 
         }
