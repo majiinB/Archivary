@@ -30,29 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_BOOKINFO));
             this.PANEL_CONTENTS = new System.Windows.Forms.Panel();
-            this.cancelButton = new roundedCorners.roundedButton();
-            this.editInfoButton = new roundedCorners.roundedButton();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.availableLabel = new System.Windows.Forms.Label();
             this.categoryLabel = new System.Windows.Forms.Label();
             this.genreLabel = new System.Windows.Forms.Label();
             this.ISBNLabel = new System.Windows.Forms.Label();
-            this.ISBNTextbox = new RoundedCorners.RoundedTextBox();
             this.authorLabel = new System.Windows.Forms.Label();
-            this.authorTextbox = new RoundedCorners.RoundedTextBox();
             this.publisherLabel = new System.Windows.Forms.Label();
-            this.publisherTextbox = new RoundedCorners.RoundedTextBox();
             this.copyrightLabel = new System.Windows.Forms.Label();
-            this.copyrightTextbox = new RoundedCorners.RoundedTextBox();
             this.aisleLabel = new System.Windows.Forms.Label();
-            this.aisleTextbox = new RoundedCorners.RoundedTextBox();
             this.shelfLabel = new System.Windows.Forms.Label();
-            this.shelfTextbox = new RoundedCorners.RoundedTextBox();
             this.bookPictureBox = new System.Windows.Forms.PictureBox();
             this.booktitleLabel = new System.Windows.Forms.Label();
+            this.ISBNTextbox = new RoundedCorners.RoundedTextBox();
+            this.authorTextbox = new RoundedCorners.RoundedTextBox();
+            this.publisherTextbox = new RoundedCorners.RoundedTextBox();
+            this.copyrightTextbox = new RoundedCorners.RoundedTextBox();
+            this.aisleTextbox = new RoundedCorners.RoundedTextBox();
+            this.shelfTextbox = new RoundedCorners.RoundedTextBox();
+            this.cancelButton = new roundedCorners.roundedButton();
+            this.editInfoButton = new roundedCorners.roundedButton();
             this.PANEL_CONTENTS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // PANEL_CONTENTS
@@ -63,53 +63,11 @@
             this.PANEL_CONTENTS.Controls.Add(this.editInfoButton);
             this.PANEL_CONTENTS.Controls.Add(this.booktitleLabel);
             this.PANEL_CONTENTS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_CONTENTS.Location = new System.Drawing.Point(3, 2);
+            this.PANEL_CONTENTS.Location = new System.Drawing.Point(2, 2);
             this.PANEL_CONTENTS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
-            this.PANEL_CONTENTS.Size = new System.Drawing.Size(954, 666);
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(956, 666);
             this.PANEL_CONTENTS.TabIndex = 0;
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.cancelButton.BorderRadius = 15;
-            this.cancelButton.BorderSize = 3;
-            this.cancelButton.FlatAppearance.BorderSize = 0;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(478, 592);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(422, 58);
-            this.cancelButton.TabIndex = 5;
-            this.cancelButton.Text = "Back";
-            this.cancelButton.TextColor = System.Drawing.Color.White;
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // editInfoButton
-            // 
-            this.editInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editInfoButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.editInfoButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.editInfoButton.BorderRadius = 15;
-            this.editInfoButton.BorderSize = 0;
-            this.editInfoButton.FlatAppearance.BorderSize = 0;
-            this.editInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editInfoButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editInfoButton.ForeColor = System.Drawing.Color.White;
-            this.editInfoButton.Location = new System.Drawing.Point(50, 592);
-            this.editInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.editInfoButton.Name = "editInfoButton";
-            this.editInfoButton.Size = new System.Drawing.Size(422, 58);
-            this.editInfoButton.TabIndex = 0;
-            this.editInfoButton.Text = "Edit Info";
-            this.editInfoButton.TextColor = System.Drawing.Color.White;
-            this.editInfoButton.UseVisualStyleBackColor = false;
-            this.editInfoButton.Click += new System.EventHandler(this.editInfoButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -207,28 +165,6 @@
             this.ISBNLabel.Text = "ISBN";
             this.ISBNLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ISBNTextbox
-            // 
-            this.ISBNTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.ISBNTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.ISBNTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.ISBNTextbox.BorderThickness = 0;
-            this.ISBNTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.ISBNTextbox, 2);
-            this.ISBNTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ISBNTextbox.Enabled = false;
-            this.ISBNTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ISBNTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.ISBNTextbox.Location = new System.Drawing.Point(428, 70);
-            this.ISBNTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ISBNTextbox.Name = "ISBNTextbox";
-            this.ISBNTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.ISBNTextbox.Radius = 10;
-            this.ISBNTextbox.Size = new System.Drawing.Size(419, 30);
-            this.ISBNTextbox.TabIndex = 1;
-            this.ISBNTextbox.Text = "1436969143";
-            this.ISBNTextbox.UseSystemPasswordChar = false;
-            // 
             // authorLabel
             // 
             this.authorLabel.AutoSize = true;
@@ -242,28 +178,6 @@
             this.authorLabel.TabIndex = 2;
             this.authorLabel.Text = "Author";
             this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // authorTextbox
-            // 
-            this.authorTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.authorTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.authorTextbox.BorderThickness = 0;
-            this.authorTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.authorTextbox, 2);
-            this.authorTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.authorTextbox.Enabled = false;
-            this.authorTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authorTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.authorTextbox.Location = new System.Drawing.Point(428, 138);
-            this.authorTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.authorTextbox.Name = "authorTextbox";
-            this.authorTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.authorTextbox.Radius = 10;
-            this.authorTextbox.Size = new System.Drawing.Size(419, 30);
-            this.authorTextbox.TabIndex = 3;
-            this.authorTextbox.Text = "Reach Mound";
-            this.authorTextbox.UseSystemPasswordChar = false;
             // 
             // publisherLabel
             // 
@@ -279,28 +193,6 @@
             this.publisherLabel.Text = "Publisher";
             this.publisherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // publisherTextbox
-            // 
-            this.publisherTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.publisherTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.publisherTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.publisherTextbox.BorderThickness = 0;
-            this.publisherTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.publisherTextbox, 2);
-            this.publisherTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.publisherTextbox.Enabled = false;
-            this.publisherTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.publisherTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.publisherTextbox.Location = new System.Drawing.Point(428, 206);
-            this.publisherTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.publisherTextbox.Name = "publisherTextbox";
-            this.publisherTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.publisherTextbox.Radius = 10;
-            this.publisherTextbox.Size = new System.Drawing.Size(419, 30);
-            this.publisherTextbox.TabIndex = 8;
-            this.publisherTextbox.Text = "Gabrielle\'s Books of Revelation";
-            this.publisherTextbox.UseSystemPasswordChar = false;
-            // 
             // copyrightLabel
             // 
             this.copyrightLabel.AutoSize = true;
@@ -314,28 +206,6 @@
             this.copyrightLabel.TabIndex = 5;
             this.copyrightLabel.Text = "Copyright";
             this.copyrightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // copyrightTextbox
-            // 
-            this.copyrightTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.copyrightTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.copyrightTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.copyrightTextbox.BorderThickness = 0;
-            this.copyrightTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.copyrightTextbox, 2);
-            this.copyrightTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.copyrightTextbox.Enabled = false;
-            this.copyrightTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyrightTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.copyrightTextbox.Location = new System.Drawing.Point(428, 274);
-            this.copyrightTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.copyrightTextbox.Name = "copyrightTextbox";
-            this.copyrightTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.copyrightTextbox.Radius = 10;
-            this.copyrightTextbox.Size = new System.Drawing.Size(419, 30);
-            this.copyrightTextbox.TabIndex = 9;
-            this.copyrightTextbox.Text = "© 2017 by Taylor Jenkins Reid";
-            this.copyrightTextbox.UseSystemPasswordChar = false;
             // 
             // aisleLabel
             // 
@@ -351,28 +221,6 @@
             this.aisleLabel.Text = "Aisle";
             this.aisleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // aisleTextbox
-            // 
-            this.aisleTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.aisleTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.aisleTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.aisleTextbox.BorderThickness = 0;
-            this.aisleTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.aisleTextbox, 2);
-            this.aisleTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.aisleTextbox.Enabled = false;
-            this.aisleTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aisleTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.aisleTextbox.Location = new System.Drawing.Point(428, 342);
-            this.aisleTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.aisleTextbox.Name = "aisleTextbox";
-            this.aisleTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.aisleTextbox.Radius = 10;
-            this.aisleTextbox.Size = new System.Drawing.Size(419, 30);
-            this.aisleTextbox.TabIndex = 10;
-            this.aisleTextbox.Text = "<000>";
-            this.aisleTextbox.UseSystemPasswordChar = false;
-            // 
             // shelfLabel
             // 
             this.shelfLabel.AutoSize = true;
@@ -387,31 +235,9 @@
             this.shelfLabel.Text = "Shelf";
             this.shelfLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // shelfTextbox
-            // 
-            this.shelfTextbox.BackColor = System.Drawing.Color.Transparent;
-            this.shelfTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.shelfTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.shelfTextbox.BorderThickness = 0;
-            this.shelfTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.tableLayoutPanel1.SetColumnSpan(this.shelfTextbox, 2);
-            this.shelfTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.shelfTextbox.Enabled = false;
-            this.shelfTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shelfTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.shelfTextbox.Location = new System.Drawing.Point(428, 410);
-            this.shelfTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.shelfTextbox.Name = "shelfTextbox";
-            this.shelfTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.shelfTextbox.Radius = 10;
-            this.shelfTextbox.Size = new System.Drawing.Size(419, 38);
-            this.shelfTextbox.TabIndex = 11;
-            this.shelfTextbox.Text = "<000>";
-            this.shelfTextbox.UseSystemPasswordChar = false;
-            // 
             // bookPictureBox
             // 
-            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bookPictureBox.Location = new System.Drawing.Point(3, 37);
             this.bookPictureBox.Name = "bookPictureBox";
@@ -432,11 +258,191 @@
             this.booktitleLabel.Text = "LORD OF THE RINGS\r\nLORD OF THE RINGS\r\n";
             this.booktitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ISBNTextbox
+            // 
+            this.ISBNTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.ISBNTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.ISBNTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.ISBNTextbox.BorderThickness = 0;
+            this.ISBNTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.ISBNTextbox, 2);
+            this.ISBNTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ISBNTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ISBNTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.ISBNTextbox.Location = new System.Drawing.Point(428, 70);
+            this.ISBNTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ISBNTextbox.Name = "ISBNTextbox";
+            this.ISBNTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.ISBNTextbox.Radius = 10;
+            this.ISBNTextbox.ReadOnly = true;
+            this.ISBNTextbox.Size = new System.Drawing.Size(419, 30);
+            this.ISBNTextbox.TabIndex = 1;
+            this.ISBNTextbox.TabStop = false;
+            this.ISBNTextbox.Text = "1436969143";
+            this.ISBNTextbox.UseSystemPasswordChar = false;
+            // 
+            // authorTextbox
+            // 
+            this.authorTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.authorTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.authorTextbox.BorderThickness = 0;
+            this.authorTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.authorTextbox, 2);
+            this.authorTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.authorTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authorTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.authorTextbox.Location = new System.Drawing.Point(428, 138);
+            this.authorTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.authorTextbox.Name = "authorTextbox";
+            this.authorTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.authorTextbox.Radius = 10;
+            this.authorTextbox.ReadOnly = true;
+            this.authorTextbox.Size = new System.Drawing.Size(419, 30);
+            this.authorTextbox.TabIndex = 3;
+            this.authorTextbox.TabStop = false;
+            this.authorTextbox.Text = "Reach Mound";
+            this.authorTextbox.UseSystemPasswordChar = false;
+            // 
+            // publisherTextbox
+            // 
+            this.publisherTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.publisherTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.publisherTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.publisherTextbox.BorderThickness = 0;
+            this.publisherTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.publisherTextbox, 2);
+            this.publisherTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.publisherTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.publisherTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.publisherTextbox.Location = new System.Drawing.Point(428, 206);
+            this.publisherTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.publisherTextbox.Name = "publisherTextbox";
+            this.publisherTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.publisherTextbox.Radius = 10;
+            this.publisherTextbox.ReadOnly = true;
+            this.publisherTextbox.Size = new System.Drawing.Size(419, 30);
+            this.publisherTextbox.TabIndex = 8;
+            this.publisherTextbox.TabStop = false;
+            this.publisherTextbox.Text = "Gabrielle\'s Books of Revelation";
+            this.publisherTextbox.UseSystemPasswordChar = false;
+            // 
+            // copyrightTextbox
+            // 
+            this.copyrightTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.copyrightTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.copyrightTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.copyrightTextbox.BorderThickness = 0;
+            this.copyrightTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.copyrightTextbox, 2);
+            this.copyrightTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.copyrightTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copyrightTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.copyrightTextbox.Location = new System.Drawing.Point(428, 274);
+            this.copyrightTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.copyrightTextbox.Name = "copyrightTextbox";
+            this.copyrightTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.copyrightTextbox.Radius = 10;
+            this.copyrightTextbox.ReadOnly = true;
+            this.copyrightTextbox.Size = new System.Drawing.Size(419, 30);
+            this.copyrightTextbox.TabIndex = 9;
+            this.copyrightTextbox.TabStop = false;
+            this.copyrightTextbox.Text = "© 2017 by Taylor Jenkins Reid";
+            this.copyrightTextbox.UseSystemPasswordChar = false;
+            // 
+            // aisleTextbox
+            // 
+            this.aisleTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.aisleTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.aisleTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.aisleTextbox.BorderThickness = 0;
+            this.aisleTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.aisleTextbox, 2);
+            this.aisleTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aisleTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aisleTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.aisleTextbox.Location = new System.Drawing.Point(428, 342);
+            this.aisleTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.aisleTextbox.Name = "aisleTextbox";
+            this.aisleTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.aisleTextbox.Radius = 10;
+            this.aisleTextbox.ReadOnly = true;
+            this.aisleTextbox.Size = new System.Drawing.Size(419, 30);
+            this.aisleTextbox.TabIndex = 10;
+            this.aisleTextbox.TabStop = false;
+            this.aisleTextbox.Text = "<000>";
+            this.aisleTextbox.UseSystemPasswordChar = false;
+            // 
+            // shelfTextbox
+            // 
+            this.shelfTextbox.BackColor = System.Drawing.Color.Transparent;
+            this.shelfTextbox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.shelfTextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.shelfTextbox.BorderThickness = 0;
+            this.shelfTextbox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.tableLayoutPanel1.SetColumnSpan(this.shelfTextbox, 2);
+            this.shelfTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shelfTextbox.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shelfTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.shelfTextbox.Location = new System.Drawing.Point(428, 410);
+            this.shelfTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.shelfTextbox.Name = "shelfTextbox";
+            this.shelfTextbox.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.shelfTextbox.Radius = 10;
+            this.shelfTextbox.ReadOnly = true;
+            this.shelfTextbox.Size = new System.Drawing.Size(419, 38);
+            this.shelfTextbox.TabIndex = 11;
+            this.shelfTextbox.TabStop = false;
+            this.shelfTextbox.Text = "<000>";
+            this.shelfTextbox.UseSystemPasswordChar = false;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cancelButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.cancelButton.BorderRadius = 15;
+            this.cancelButton.BorderSize = 3;
+            this.cancelButton.FlatAppearance.BorderSize = 0;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(478, 592);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(420, 60);
+            this.cancelButton.TabIndex = 5;
+            this.cancelButton.Text = "Back";
+            this.cancelButton.TextColor = System.Drawing.Color.White;
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // editInfoButton
+            // 
+            this.editInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.editInfoButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.editInfoButton.BorderRadius = 15;
+            this.editInfoButton.BorderSize = 0;
+            this.editInfoButton.FlatAppearance.BorderSize = 0;
+            this.editInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editInfoButton.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInfoButton.ForeColor = System.Drawing.Color.White;
+            this.editInfoButton.Location = new System.Drawing.Point(50, 592);
+            this.editInfoButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.editInfoButton.Name = "editInfoButton";
+            this.editInfoButton.Size = new System.Drawing.Size(420, 60);
+            this.editInfoButton.TabIndex = 0;
+            this.editInfoButton.Text = "Edit Info";
+            this.editInfoButton.TextColor = System.Drawing.Color.White;
+            this.editInfoButton.UseVisualStyleBackColor = false;
+            this.editInfoButton.Click += new System.EventHandler(this.editInfoButton_Click);
+            // 
             // FORM_BOOKINFO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(960, 670);
             this.ControlBox = false;
             this.Controls.Add(this.PANEL_CONTENTS);
@@ -444,14 +450,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FORM_BOOKINFO";
-            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Archivary | Book Info";
             this.PANEL_CONTENTS.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
