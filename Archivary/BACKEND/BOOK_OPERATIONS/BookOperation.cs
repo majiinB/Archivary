@@ -1217,12 +1217,11 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 connection.Open();
 
                 string query = @"
-                                    INSERT INTO reserved_books (book_id, user_id, reserved_date, due_date, librarian_id)
+                                    INSERT INTO reserved_books (book_id, borrower_id, reserved_at, librarian_id)
                                     SELECT 
                                         @bookId as book_id,
                                         @borrowerId as borrower_id,
-                                        @dateToGet AS reserved_date,
-                                        @dueDate AS due_date,
+                                        @dateToGet AS reserved_at,
                                         @librarianId AS librarian_id
                                     FROM 
                                         borrowed_books
