@@ -227,7 +227,6 @@
             this.usernameTextbox.TabIndex = 1;
             this.usernameTextbox.Text = "Enter Email";
             this.usernameTextbox.UseSystemPasswordChar = false;
-            this.usernameTextbox.Click += new System.EventHandler(this.usernameTextbox_Click);
             this.usernameTextbox.Enter += new System.EventHandler(this.usernameTextbox_Enter);
             this.usernameTextbox.Leave += new System.EventHandler(this.usernameTextbox_Leave);
             // 
