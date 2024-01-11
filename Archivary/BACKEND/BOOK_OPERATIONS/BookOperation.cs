@@ -158,7 +158,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
             using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
             {
                 connection.Open();
-                string query = "SELECT books.* FROM reserved_books JOIN books ON reserved_books.book_id = books.id WHERE reserved_books.borrower_id = @Id and reserved_books.is_borrowed = false";
+                string query = "SELECT books.* FROM reserved_books JOIN books ON reserved_books.book_id = books.id WHERE reserved_books.borrower_id = @Id and reserved_books.is_borrowed = false and reserved_books.reserved_at < NOW()";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -1115,7 +1115,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                 SELECT COUNT(*) 
                                 FROM reserved_books 
                                 WHERE book_id = @bookId 
-                                AND reserved_at <= NOW()
+                                AND reserved_at > NOW()
                                 AND is_borrowed = 0;
                             ";
 
@@ -1134,7 +1134,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                 }
             }
 
-            return result < 1 ? 1 : result + 1;
+            return result < 1 ? 1 : result;
         }
 
         private static DateTime GetDueDateOfPreviousRecordedBook(int bookId)
@@ -1237,6 +1237,7 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                         borrowed_books
                                     JOIN 
                                         settings ON 1=1;
+                                    WHERE book_id = @bookId
                                 ";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))

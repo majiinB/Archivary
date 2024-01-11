@@ -500,21 +500,27 @@ namespace Archivary.SUB_FORMS
                     Setting settings = Archivary.BACKEND.COMMON_OPERATIONS.CommonOperation.GetSettingsFromDatabase();
                     foreach (Book book in borrowedBookList)
                     {
-                        if(borrowedBookISBN.Contains(book.BookISBN) && selectedISBNs.Contains(book.BookISBN))
+                        if(selectedISBNs.Contains(book.BookISBN))
                         {
-                            borrowedBookISBN.Remove(book.BookISBN);
+                            Console.WriteLine($"Query: {book.BookTitle}");
+                            selectedISBNs.Remove(book.BookISBN);
                             DateTime dateToGet = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDateToGetQueuedReservedBorrowedBook(book.BookId, settings);
                             DateTime dueDate = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.GetDueDateOfQueuedReservedBorrowedBook(book.BookId, settings);
                             Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ReserveBorrowedBook(borrowerId, book.BookId, user is Admin ? ((Admin)user).AdminUserId : ((Employee)user).EmployeeUserId, dateToGet, dueDate);
                         }
                     }
-                    FORM_ALERT alert = new FORM_ALERT(3, "RESERVE SUCCESS", "Successfully borrowed book!");
-                    alert.TopMost = true;
-                    alert.Show();
-                    dataGridView1.Rows.Clear();
-                    BooksDataGridView.Rows.Clear();
-                    LoadAvailableBooks();
-                    return;
+
+                    if(selectedISBNs.Count == 0)
+                    {
+                        FORM_ALERT alert = new FORM_ALERT(3, "RESERVE SUCCESS", "Successfully borrowed book!");
+                        alert.TopMost = true;
+                        alert.Show();
+                        dataGridView1.Rows.Clear();
+                        BooksDataGridView.Rows.Clear();
+                        borrowedBookList.Clear();
+                        LoadAvailableBooks();
+                        return;
+                    }
                 }
                 Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.BorrowReserveBook(type, reversedBookList, selectedISBNs, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 SuccessBorrowReserve(message);
