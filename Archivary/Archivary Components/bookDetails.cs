@@ -117,11 +117,11 @@ namespace Archivary.Archivary_Components
             {
                 // Handle the case when the file is not found
                 // Load a default image from resources and set it to the PictureBox
-                bookPicture.Image = Properties.Resources.ArchivaryLogoGreen;
+                bookPicture.Image = Properties.Resources.PLACEHOLDER_BOOK5;
 
                 // Optionally, adjust the PictureBox size to fit the default image
                 bookPicture.SizeMode = PictureBoxSizeMode.Zoom;
-                bookPicture.Size = Properties.Resources.ArchivaryLogoGreen.Size;
+                bookPicture.Size = Properties.Resources.PLACEHOLDER_BOOK5.Size;
             }
             catch (Exception ex)
             {

@@ -40,11 +40,11 @@
             this.barangayLabel = new System.Windows.Forms.Label();
             this.streetLabel = new System.Windows.Forms.Label();
             this.buttons_Container = new System.Windows.Forms.TableLayoutPanel();
+            this.removeImageButton = new System.Windows.Forms.Label();
             this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
             this.EmployeeRoleLabel = new System.Windows.Forms.Label();
             this.editInformationLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.removeImageButton = new System.Windows.Forms.Label();
             this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
             this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
             this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
@@ -269,10 +269,26 @@
             this.buttons_Container.Size = new System.Drawing.Size(911, 107);
             this.buttons_Container.TabIndex = 40;
             // 
+            // removeImageButton
+            // 
+            this.removeImageButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeImageButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.removeImageButton.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.removeImageButton.Location = new System.Drawing.Point(726, 0);
+            this.removeImageButton.Name = "removeImageButton";
+            this.removeImageButton.Size = new System.Drawing.Size(182, 30);
+            this.removeImageButton.TabIndex = 6;
+            this.removeImageButton.Text = "Remove Image";
+            this.removeImageButton.Click += new System.EventHandler(this.removeImageButton_Click);
+            this.removeImageButton.MouseEnter += new System.EventHandler(this.removeImageButton_MouseEnter);
+            this.removeImageButton.MouseLeave += new System.EventHandler(this.removeImageButton_MouseLeave);
+            // 
             // profilePictureImageBox
             // 
             this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profilePictureImageBox.Image = global::Archivary.Properties.Resources.PLACEHOLDER_PICTURE;
             this.profilePictureImageBox.Location = new System.Drawing.Point(682, 12);
             this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profilePictureImageBox.Name = "profilePictureImageBox";
@@ -309,21 +325,6 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
-            // 
-            // removeImageButton
-            // 
-            this.removeImageButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.removeImageButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.removeImageButton.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.removeImageButton.Location = new System.Drawing.Point(726, 0);
-            this.removeImageButton.Name = "removeImageButton";
-            this.removeImageButton.Size = new System.Drawing.Size(182, 30);
-            this.removeImageButton.TabIndex = 6;
-            this.removeImageButton.Text = "Remove Image";
-            this.removeImageButton.Click += new System.EventHandler(this.removeImageButton_Click);
-            this.removeImageButton.MouseEnter += new System.EventHandler(this.removeImageButton_MouseEnter);
-            this.removeImageButton.MouseLeave += new System.EventHandler(this.removeImageButton_MouseLeave);
             // 
             // lastNameTextBox
             // 

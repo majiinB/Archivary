@@ -435,9 +435,11 @@
             // 
             this.bookPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.bookPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bookPictureBox.Image = global::Archivary.Properties.Resources.PLACEHOLDER_BOOK5;
             this.bookPictureBox.Location = new System.Drawing.Point(3, 3);
             this.bookPictureBox.Name = "bookPictureBox";
             this.bookPictureBox.Size = new System.Drawing.Size(213, 259);
+            this.bookPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bookPictureBox.TabIndex = 0;
             this.bookPictureBox.TabStop = false;
             // 

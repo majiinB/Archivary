@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_SIGNUP));
             this.accoutRegLabel = new System.Windows.Forms.Label();
             this.PANEL_CONTENTS = new System.Windows.Forms.TableLayoutPanel();
             this.buttons_Container2 = new System.Windows.Forms.TableLayoutPanel();
@@ -40,7 +41,6 @@
             this.employeeButton = new roundedCorners.roundedButton();
             this.lastNameTextBox = new RoundedCorners.RoundedTextBox();
             this.firstNameTextBox = new RoundedCorners.RoundedTextBox();
-            this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.contactNumberLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new RoundedCorners.RoundedTextBox();
@@ -64,9 +64,10 @@
             this.sectionTextBox = new RoundedCorners.RoundedTextBox();
             this.profilePictureImageBox = new System.Windows.Forms.PictureBox();
             this.uploadImageButton = new roundedCorners.roundedButton();
+            this.middleInitialTextBox = new RoundedCorners.RoundedTextBox();
             this.uploadExcelFIleButton = new roundedCorners.roundedButton();
-            this.openFolderDialog = new System.Windows.Forms.OpenFileDialog();
             this.removeImageButton = new System.Windows.Forms.Label();
+            this.openFolderDialog = new System.Windows.Forms.OpenFileDialog();
             this.PANEL_CONTENTS.SuspendLayout();
             this.buttons_Container2.SuspendLayout();
             this.buttonContainers.SuspendLayout();
@@ -357,25 +358,6 @@
             this.firstNameTextBox.Size = new System.Drawing.Size(285, 40);
             this.firstNameTextBox.TabIndex = 5;
             this.firstNameTextBox.UseSystemPasswordChar = false;
-            // 
-            // middleInitialTextBox
-            // 
-            this.middleInitialTextBox.BackColor = System.Drawing.Color.Transparent;
-            this.middleInitialTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.middleInitialTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.middleInitialTextBox.BorderThickness = 0;
-            this.middleInitialTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.middleInitialTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleInitialTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.middleInitialTextBox.Location = new System.Drawing.Point(496, 142);
-            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.middleInitialTextBox.Name = "middleInitialTextBox";
-            this.middleInitialTextBox.Radius = 10;
-            this.middleInitialTextBox.ReadOnly = false;
-            this.middleInitialTextBox.Size = new System.Drawing.Size(169, 40);
-            this.middleInitialTextBox.TabIndex = 6;
-            this.middleInitialTextBox.UseSystemPasswordChar = false;
             // 
             // emailLabel
             // 
@@ -715,8 +697,9 @@
             // 
             // profilePictureImageBox
             // 
-            this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.profilePictureImageBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.profilePictureImageBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profilePictureImageBox.Image = ((System.Drawing.Image)(resources.GetObject("profilePictureImageBox.Image")));
             this.profilePictureImageBox.Location = new System.Drawing.Point(694, 105);
             this.profilePictureImageBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profilePictureImageBox.Name = "profilePictureImageBox";
@@ -752,6 +735,25 @@
             this.uploadImageButton.UseVisualStyleBackColor = false;
             this.uploadImageButton.Click += new System.EventHandler(this.uploadImageButton_Click);
             // 
+            // middleInitialTextBox
+            // 
+            this.middleInitialTextBox.BackColor = System.Drawing.Color.Transparent;
+            this.middleInitialTextBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.BorderThickness = 0;
+            this.middleInitialTextBox.Br = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.middleInitialTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.middleInitialTextBox.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleInitialTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.middleInitialTextBox.Location = new System.Drawing.Point(496, 142);
+            this.middleInitialTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.middleInitialTextBox.Name = "middleInitialTextBox";
+            this.middleInitialTextBox.Radius = 10;
+            this.middleInitialTextBox.ReadOnly = false;
+            this.middleInitialTextBox.Size = new System.Drawing.Size(169, 40);
+            this.middleInitialTextBox.TabIndex = 6;
+            this.middleInitialTextBox.UseSystemPasswordChar = false;
+            // 
             // uploadExcelFIleButton
             // 
             this.uploadExcelFIleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
@@ -776,10 +778,6 @@
             this.uploadExcelFIleButton.UseVisualStyleBackColor = false;
             this.uploadExcelFIleButton.Click += new System.EventHandler(this.uploadExcelFIleButton_Click);
             // 
-            // openFolderDialog
-            // 
-            this.openFolderDialog.FileName = "openFileDialog1";
-            // 
             // removeImageButton
             // 
             this.removeImageButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -795,6 +793,10 @@
             this.removeImageButton.Click += new System.EventHandler(this.removeImageButton_Click);
             this.removeImageButton.MouseEnter += new System.EventHandler(this.removeImageButton_MouseEnter);
             this.removeImageButton.MouseLeave += new System.EventHandler(this.removeImageButton_MouseLeave);
+            // 
+            // openFolderDialog
+            // 
+            this.openFolderDialog.FileName = "openFileDialog1";
             // 
             // FORM_SIGNUP
             // 

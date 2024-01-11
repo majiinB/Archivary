@@ -617,9 +617,6 @@
     <None Include="Resources\BACKGROUND_LOGIN.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PLACEHOLDER_PICTURE.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PLACEHOLDER_BOOK1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -654,6 +651,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ICON_EMAIL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_PICTURE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PLACEHOLDER_BOOK5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

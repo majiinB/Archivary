@@ -623,6 +623,16 @@ namespace Archivary.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PLACEHOLDER_BOOK5 {
+            get {
+                object obj = ResourceManager.GetObject("PLACEHOLDER_BOOK5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PLACEHOLDER_PICTURE {
             get {
                 object obj = ResourceManager.GetObject("PLACEHOLDER_PICTURE", resourceCulture);

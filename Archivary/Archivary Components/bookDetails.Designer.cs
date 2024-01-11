@@ -54,7 +54,7 @@
             // 
             this.bookPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.bookPicture.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bookPicture.Image = global::Archivary.Properties.Resources.PLACEHOLDER_BOOK3;
+            this.bookPicture.Image = global::Archivary.Properties.Resources.PLACEHOLDER_BOOK5;
             this.bookPicture.Location = new System.Drawing.Point(10, 10);
             this.bookPicture.Name = "bookPicture";
             this.bookPicture.Size = new System.Drawing.Size(150, 180);
