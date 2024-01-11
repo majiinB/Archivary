@@ -298,6 +298,13 @@ namespace Archivary.SUB_FORMS
                 return;
             }
             List<Book> selectedBooks = GetSelectedBooks();
+            if(selectedBooks.Count == 0)
+            {
+                FORM_ALERT alert = new FORM_ALERT(1, "NO BOOKS", "You must select a book to return first.");
+                alert.TopMost = true;
+                alert.Show();
+                return;
+            }
             List<DateTime> date = GetSpecificBookBorrowedDates(selectedBooks);
             bool bookOverdue = false;
             foreach(DateTime time in date)
