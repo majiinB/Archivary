@@ -248,7 +248,8 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void removeImageButton_Click(object sender, EventArgs e)
         {
-
+            imageFileLocation = "No_image";
+            bookPIctureBox.Image = null;
         }
 
         private void removeImageButton_MouseEnter(object sender, EventArgs e)
