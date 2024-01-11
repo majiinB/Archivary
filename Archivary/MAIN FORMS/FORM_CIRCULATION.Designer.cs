@@ -53,7 +53,7 @@
             this.selectTransactionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.selectTransactionLabel.AutoSize = true;
             this.selectTransactionLabel.Font = new System.Drawing.Font("Montserrat Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectTransactionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.selectTransactionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             this.selectTransactionLabel.Location = new System.Drawing.Point(145, 128);
             this.selectTransactionLabel.Name = "selectTransactionLabel";
             this.selectTransactionLabel.Size = new System.Drawing.Size(639, 83);
@@ -82,6 +82,7 @@
             this.borrowButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.borrowButton.BorderRadius = 40;
             this.borrowButton.BorderSize = 0;
+            this.borrowButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.borrowButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.borrowButton.FlatAppearance.BorderSize = 0;
             this.borrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,6 +104,7 @@
             this.returnButton.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.returnButton.BorderRadius = 40;
             this.returnButton.BorderSize = 0;
+            this.returnButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.returnButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.returnButton.FlatAppearance.BorderSize = 0;
             this.returnButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -41,10 +41,6 @@
             this.MAIN_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.left_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.BooksDataGridView = new System.Windows.Forms.DataGridView();
-            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.right_TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.IDLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -53,10 +49,6 @@
             this.nameInputLabel = new System.Windows.Forms.Label();
             this.collegeInputLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LAYOUT_searchBook = new RoundedCorners.RoundedPanel();
             this.searchBook = new RoundedCorners.RoundedTextBox();
             this.LAYOUT_searchID = new RoundedCorners.RoundedPanel();
@@ -64,6 +56,14 @@
             this.borrowButton = new roundedCorners.roundedButton();
             this.clearButton = new roundedCorners.roundedButton();
             this.reserveButton = new roundedCorners.roundedButton();
+            this.pictureHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TitleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ISBNColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAIN_TableLayout.SuspendLayout();
             this.left_TableLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).BeginInit();
@@ -131,10 +131,10 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.BooksDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.BooksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -180,35 +180,6 @@
             this.BooksDataGridView.Size = new System.Drawing.Size(447, 518);
             this.BooksDataGridView.TabIndex = 1;
             // 
-            // pictureHeader
-            // 
-            this.pictureHeader.HeaderText = "Picture";
-            this.pictureHeader.MinimumWidth = 6;
-            this.pictureHeader.Name = "pictureHeader";
-            this.pictureHeader.ReadOnly = true;
-            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // TitleColumn
-            // 
-            this.TitleColumn.HeaderText = "Title";
-            this.TitleColumn.MinimumWidth = 6;
-            this.TitleColumn.Name = "TitleColumn";
-            this.TitleColumn.ReadOnly = true;
-            // 
-            // ISBNColumn
-            // 
-            this.ISBNColumn.HeaderText = "ISBN";
-            this.ISBNColumn.MinimumWidth = 6;
-            this.ISBNColumn.Name = "ISBNColumn";
-            this.ISBNColumn.ReadOnly = true;
-            // 
-            // StatusColumn
-            // 
-            this.StatusColumn.HeaderText = "Status";
-            this.StatusColumn.MinimumWidth = 6;
-            this.StatusColumn.Name = "StatusColumn";
-            this.StatusColumn.ReadOnly = true;
-            // 
             // right_TableLayout
             // 
             this.right_TableLayout.ColumnCount = 3;
@@ -248,8 +219,8 @@
             // 
             this.IDLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.IDLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IDLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.IDLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.IDLabel.Location = new System.Drawing.Point(3, 77);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(107, 50);
@@ -260,8 +231,8 @@
             // nameLabel
             // 
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.nameLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.nameLabel.Location = new System.Drawing.Point(3, 127);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(107, 50);
@@ -273,8 +244,8 @@
             // 
             this.collegeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.collegeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.collegeLabel.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collegeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.collegeLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collegeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.collegeLabel.Location = new System.Drawing.Point(3, 177);
             this.collegeLabel.Name = "collegeLabel";
             this.collegeLabel.Size = new System.Drawing.Size(107, 50);
@@ -287,8 +258,8 @@
             this.IDInputLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.right_TableLayout.SetColumnSpan(this.IDInputLabel, 2);
             this.IDInputLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.IDInputLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDInputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.IDInputLabel.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDInputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.IDInputLabel.Location = new System.Drawing.Point(116, 77);
             this.IDInputLabel.Name = "IDInputLabel";
             this.IDInputLabel.Size = new System.Drawing.Size(335, 50);
@@ -299,8 +270,8 @@
             // 
             this.right_TableLayout.SetColumnSpan(this.nameInputLabel, 2);
             this.nameInputLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nameInputLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameInputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.nameInputLabel.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameInputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.nameInputLabel.Location = new System.Drawing.Point(116, 127);
             this.nameInputLabel.Name = "nameInputLabel";
             this.nameInputLabel.Size = new System.Drawing.Size(335, 50);
@@ -312,8 +283,8 @@
             this.collegeInputLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.right_TableLayout.SetColumnSpan(this.collegeInputLabel, 2);
             this.collegeInputLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.collegeInputLabel.Font = new System.Drawing.Font("Montserrat", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.collegeInputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
+            this.collegeInputLabel.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.collegeInputLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.collegeInputLabel.Location = new System.Drawing.Point(116, 177);
             this.collegeInputLabel.Name = "collegeInputLabel";
             this.collegeInputLabel.Size = new System.Drawing.Size(335, 50);
@@ -343,10 +314,10 @@
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(190)))), ((int)(((byte)(143)))));
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -392,34 +363,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(448, 208);
             this.dataGridView1.TabIndex = 10;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Picture";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "ISBN";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // StatusColumn1
-            // 
-            this.StatusColumn1.HeaderText = "Status";
-            this.StatusColumn1.MinimumWidth = 6;
-            this.StatusColumn1.Name = "StatusColumn1";
-            this.StatusColumn1.ReadOnly = true;
             // 
             // LAYOUT_searchBook
             // 
@@ -534,14 +477,14 @@
             this.clearButton.FlatAppearance.BorderSize = 0;
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.clearButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.clearButton.Location = new System.Drawing.Point(3, 531);
             this.clearButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(448, 66);
             this.clearButton.TabIndex = 3;
             this.clearButton.Text = "Clear";
-            this.clearButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.clearButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.clearButton.UseVisualStyleBackColor = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
@@ -566,6 +509,63 @@
             this.reserveButton.TextColor = System.Drawing.Color.White;
             this.reserveButton.UseVisualStyleBackColor = false;
             this.reserveButton.Click += new System.EventHandler(this.reserveButton_Click);
+            // 
+            // pictureHeader
+            // 
+            this.pictureHeader.HeaderText = "PICTURE";
+            this.pictureHeader.MinimumWidth = 6;
+            this.pictureHeader.Name = "pictureHeader";
+            this.pictureHeader.ReadOnly = true;
+            this.pictureHeader.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // TitleColumn
+            // 
+            this.TitleColumn.HeaderText = "TITLE";
+            this.TitleColumn.MinimumWidth = 6;
+            this.TitleColumn.Name = "TitleColumn";
+            this.TitleColumn.ReadOnly = true;
+            // 
+            // ISBNColumn
+            // 
+            this.ISBNColumn.HeaderText = "ISBN";
+            this.ISBNColumn.MinimumWidth = 6;
+            this.ISBNColumn.Name = "ISBNColumn";
+            this.ISBNColumn.ReadOnly = true;
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.HeaderText = "STATUS";
+            this.StatusColumn.MinimumWidth = 6;
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "PICTURE";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "TITLE";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "ISBN";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // StatusColumn1
+            // 
+            this.StatusColumn1.HeaderText = "STATUS";
+            this.StatusColumn1.MinimumWidth = 6;
+            this.StatusColumn1.Name = "StatusColumn1";
+            this.StatusColumn1.ReadOnly = true;
             // 
             // FORM_BORROW
             // 
