@@ -370,7 +370,8 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void removeImageButton_Click(object sender, EventArgs e)
         {
-
+            imageFileLocation = "NO_IMAGE";
+            SetPictureBoxImage("NO_IMAGE");
         }
 
         private void removeImageButton_MouseEnter(object sender, EventArgs e)

@@ -196,6 +196,21 @@ namespace Archivary._1200X800.FORM_USERS
             userTeacher.TeacherImagePath = selectedFilePath;
             userTeacher.TeacherDepartment = collegeTextBox.Text;
         }
+
+        private void removeImageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void removeImageButton_MouseEnter(object sender, EventArgs e)
+        {
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+        }
+
+        private void removeImageButton_MouseLeave(object sender, EventArgs e)
+        {
+            removeImageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+        }
     }
    
 
