@@ -658,5 +658,11 @@
   <ItemGroup>
     <None Include="Resources\PLACEHOLDER_BOOK5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_STOP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ICON_WARNING1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

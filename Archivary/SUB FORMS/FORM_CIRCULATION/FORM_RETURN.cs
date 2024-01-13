@@ -26,6 +26,8 @@ namespace Archivary.SUB_FORMS
         private int borrowerId = -1;
         private object user;
         private Setting settings;
+        private Student student;
+        private Teacher teacher;
 
         public FORM_RETURN(object user)
         {
@@ -61,6 +63,8 @@ namespace Archivary.SUB_FORMS
             if (query.Contains("S") && query.Length == 10)
             {
                 Student user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetStudentById(query);
+                student = user;
+                teacher = null;
                 if (user != null)
                 {
                     SetTexts(user);
@@ -75,6 +79,8 @@ namespace Archivary.SUB_FORMS
             else if (query.Contains("T") && query.Length == 10)
             {
                 Teacher user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetTeacherById(query);
+                teacher = user;
+                student = null;
                 if (user != null)
                 {
                     SetTexts(user);
@@ -88,6 +94,8 @@ namespace Archivary.SUB_FORMS
             }
             else
             {
+                student = null;
+                teacher = null;
                 IDInputLabel.Text = "";
                 collegeInputLabel.Text = "";
                 nameInputLabel.Text = "User not found.";
@@ -290,42 +298,16 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
-            if (borrowerId == -1)
-            {
-                FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot return books without an user.");
-                alert.TopMost = true;
-                alert.Show();
-                return;
-            }
             List<Book> selectedBooks = GetSelectedBooks();
-            if(selectedBooks.Count == 0)
+            if (teacher != null && student == null)
             {
-                FORM_ALERT alert = new FORM_ALERT(1, "NO BOOKS", "You must select a book to return first.");
-                alert.TopMost = true;
-                alert.Show();
-                return;
-            }
-            List<DateTime> date = GetSpecificBookBorrowedDates(selectedBooks);
-            bool bookOverdue = false;
-            foreach(DateTime time in date)
-            {
-                TimeSpan difference = DateTime.Now - time;
-                double totalDaysRounded = Math.Floor(difference.TotalDays);
-                if (totalDaysRounded > settings.borrowingDuration)
+                foreach (Book book in selectedBooks)
                 {
-                    Console.WriteLine($"{difference.TotalDays} and {settings.borrowingDuration}");
-                    bookOverdue = true;
-                    break;
+                    Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 }
-            }
-            if (bookOverdue)
-            {
-                using (FORM_POS FormsPos = new FORM_POS(borrowedReservedBooks, selectedBooks, GetDates(selectedBooks), borrowerId, user))
-                {
-                    FormsPos.ShowInTaskbar = false;
-                    FormsPos.BringToFront();
-                    DialogResult result = FormsPos.ShowDialog();
-                }
+                FORM_ALERT successTeacher = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
+                successTeacher.TopMost = true;
+                successTeacher.Show();
                 borrowedReservedBooks.Clear();
                 bookOverdueStatus.Clear();
                 borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
@@ -333,18 +315,63 @@ namespace Archivary.SUB_FORMS
                 LoadBorrowedReservedBooks();
                 return;
             }
-            foreach (Book book in selectedBooks)
+            else if(student != null && teacher == null)
             {
-                Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
+                if (borrowerId == -1)
+                {
+                    FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot return books without an user.");
+                    alert.TopMost = true;
+                    alert.Show();
+                    return;
+                }
+                if (selectedBooks.Count == 0)
+                {
+                    FORM_ALERT alert = new FORM_ALERT(1, "NO BOOKS", "You must select a book to return first.");
+                    alert.TopMost = true;
+                    alert.Show();
+                    return;
+                }
+                List<DateTime> date = GetSpecificBookBorrowedDates(selectedBooks);
+                bool bookOverdue = false;
+                foreach (DateTime time in date)
+                {
+                    TimeSpan difference = DateTime.Now - time;
+                    double totalDaysRounded = Math.Floor(difference.TotalDays);
+                    if (totalDaysRounded > settings.borrowingDuration)
+                    {
+                        Console.WriteLine($"{difference.TotalDays} and {settings.borrowingDuration}");
+                        bookOverdue = true;
+                        break;
+                    }
+                }
+                if (bookOverdue)
+                {
+                    using (FORM_POS FormsPos = new FORM_POS(borrowedReservedBooks, selectedBooks, GetDates(selectedBooks), borrowerId, user))
+                    {
+                        FormsPos.ShowInTaskbar = false;
+                        FormsPos.BringToFront();
+                        DialogResult result = FormsPos.ShowDialog();
+                    }
+                    borrowedReservedBooks.Clear();
+                    bookOverdueStatus.Clear();
+                    borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+                    bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
+                    LoadBorrowedReservedBooks();
+                    return;
+                }
+                foreach (Book book in selectedBooks)
+                {
+                    Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
+                }
+                FORM_ALERT success = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
+                success.TopMost = true;
+                success.Show();
+                borrowedReservedBooks.Clear();
+                bookOverdueStatus.Clear();
+                borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
+                bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
+                LoadBorrowedReservedBooks();
             }
-            FORM_ALERT success = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
-            success.TopMost = true;
-            success.Show();
-            borrowedReservedBooks.Clear();
-            bookOverdueStatus.Clear();
-            borrowedReservedBooks = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.ShowBorrowedBooks(borrowerId);
-            bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
-            LoadBorrowedReservedBooks();
         }
 
         private List<DateTime> GetSpecificBookBorrowedDates(List<Book> selectedBooks)

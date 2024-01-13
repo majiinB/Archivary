@@ -1236,8 +1236,8 @@ namespace Archivary.BACKEND.BOOK_OPERATIONS
                                     FROM 
                                         borrowed_books
                                     JOIN 
-                                        settings ON 1=1;
-                                    WHERE book_id = @bookId
+                                        settings ON 1=1
+                                    WHERE book_id = @bookId;
                                 ";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
