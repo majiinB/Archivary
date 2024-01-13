@@ -330,29 +330,32 @@ namespace Archivary.SUB_FORMS
         {
             if (query.Contains("S") && query.Length == 10)
             {
+                BooksDataGridView.Rows.Clear();
                 Student user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetStudentById(query);
                 if (user != null)
                 {
                     SetTexts(user);
                     borrowerId = user.StudentUserId;
+                    isStudent = true;
+                    isTeacher = false;
+                    LoadAvailableBooks();
+                    TimerOpersys.Stop();
                 }
-                isStudent = true;
-                isTeacher = false;
-                LoadAvailableBooks();
-                TimerOpersys.Stop();
+                
             }
             else if (query.Contains("T") && query.Length == 10)
             {
+                BooksDataGridView.Rows.Clear();
                 Teacher user = Archivary.BACKEND.USER_OPERATIONS.UserOperation.GetTeacherById(query);
                 if (user != null)
                 {
                     SetTexts(user);
                     borrowerId = user.TeacherUserId;
+                    isStudent = false;
+                    isTeacher = true;
+                    LoadAvailableBooks();
+                    TimerOpersys.Stop();
                 }
-                isStudent = false;
-                isTeacher = true;
-                LoadAvailableBooks();
-                TimerOpersys.Stop();
             }
             else
             {

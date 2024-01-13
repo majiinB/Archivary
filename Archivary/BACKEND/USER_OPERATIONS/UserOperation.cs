@@ -1060,6 +1060,52 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return student;
         }
+
+        public static Student GetActiveStudentById(string student_id)
+        {
+            Student student = null;
+
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, " +
+                               "student_id, department, year_level, section " +
+                               "FROM users JOIN students ON users.id = students.user_id " +
+                               "WHERE student_id = @StudentId and users.status = 'ACTIVE'";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@StudentId", student_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            student = new Student(
+                                reader["student_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["department"].ToString(),
+                                Convert.ToInt32(reader["year_level"]),
+                                reader["section"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                        }
+                    }
+                }
+            }
+
+            return student;
+        }
+
         public static Teacher GetTeacherById(string teacher_id)
         {
             Teacher teacher = null;
@@ -1102,6 +1148,50 @@ namespace Archivary.BACKEND.USER_OPERATIONS
 
             return teacher;
         }
+
+        public static Teacher GetActiveTeacherById(string teacher_id)
+        {
+            Teacher teacher = null;
+
+            using (MySqlConnection connection = new MySqlConnection(Archivary.BACKEND.DATABASE.DatabaseConnection.ConnectionDetails()))
+            {
+                connection.Open();
+
+                string query = "SELECT users.id, FirstName, LastName, MiddleName, Email, Address, " +
+                               "Contact_number, image_path, user_level, status, teacher_id, " +
+                               "department " +
+                               "FROM users JOIN teachers ON users.id = teachers.user_id " +
+                               "WHERE teacher_id = @TeacherId and users.status = 'ACTIVE' ";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TeacherId", teacher_id);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            teacher = new Teacher(
+                                reader["teacher_id"].ToString(),
+                                Convert.ToInt32(reader["id"]),
+                                reader["FirstName"].ToString(),
+                                reader["LastName"].ToString(),
+                                reader["MiddleName"].ToString(),
+                                reader["Email"].ToString(),
+                                reader["Address"].ToString(),
+                                reader["Contact_number"].ToString(),
+                                reader["department"].ToString(),
+                                reader["image_path"].ToString(),
+                                reader["status"].ToString()
+                            );
+                        }
+                    }
+                }
+            }
+
+            return teacher;
+        }
+
         public static string GetPassword(string userId)
         {
             bool isAdmin = userId.StartsWith("AA", StringComparison.OrdinalIgnoreCase);

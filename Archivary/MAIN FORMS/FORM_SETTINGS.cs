@@ -85,7 +85,7 @@ namespace Archivary.PARENT_FORMS
                 if (control is RoundedTextBox)
                 {
                     RoundedTextBox textBox = (RoundedTextBox)control;
-                    textBox.Enabled = true;
+                    textBox.ReadOnly = false;
                 }
 
                 if (control.HasChildren)
@@ -104,7 +104,7 @@ namespace Archivary.PARENT_FORMS
                 if (control is RoundedTextBox)
                 {
                     RoundedTextBox textBox = (RoundedTextBox)control;
-                    textBox.Enabled = false;
+                    textBox.ReadOnly = true;
                 }
 
                 if (control.HasChildren)

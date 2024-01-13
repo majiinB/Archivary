@@ -488,5 +488,14 @@ namespace Archivary
             }
         }
 
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            ToggleForm(FormsSettings, sender);
+        }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            ToggleForm(FormsSettings, sender);
+        }
     }
 }

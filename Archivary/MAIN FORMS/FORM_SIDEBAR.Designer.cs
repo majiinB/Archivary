@@ -43,7 +43,6 @@
             this.LAYOUT_LINE1 = new System.Windows.Forms.Panel();
             this.LAYOUT3 = new System.Windows.Forms.Panel();
             this.LAYOUT_ACCOUNT = new System.Windows.Forms.Panel();
-            this.viewButton = new roundedCorners.roundedButton();
             this.nameLabel = new System.Windows.Forms.Label();
             this.accountPictureBox = new custom.RoundedPictureBox();
             this.LAYOUT2 = new System.Windows.Forms.Panel();
@@ -62,6 +61,7 @@
             this.minimizeButton = new sidebarComponents.sidebarButton();
             this.PANEL_CONTAINER = new System.Windows.Forms.Panel();
             this.PANEL_CONTENTS = new RoundedCorners.RoundedPanel();
+            this.nameLabel1 = new System.Windows.Forms.Label();
             this.PANEL_SIDEBAR.SuspendLayout();
             this.LAYOUT_ACCOUNT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountPictureBox)).BeginInit();
@@ -98,7 +98,7 @@
             this.PANEL_SIDEBAR.Margin = new System.Windows.Forms.Padding(0);
             this.PANEL_SIDEBAR.Name = "PANEL_SIDEBAR";
             this.PANEL_SIDEBAR.Padding = new System.Windows.Forms.Padding(10);
-            this.PANEL_SIDEBAR.Size = new System.Drawing.Size(70, 650);
+            this.PANEL_SIDEBAR.Size = new System.Drawing.Size(400, 650);
             this.PANEL_SIDEBAR.TabIndex = 0;
             // 
             // panel3
@@ -108,7 +108,7 @@
             this.panel3.Location = new System.Drawing.Point(10, 568);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(50, 2);
+            this.panel3.Size = new System.Drawing.Size(380, 2);
             this.panel3.TabIndex = 16;
             // 
             // LAYOUT5
@@ -117,7 +117,7 @@
             this.LAYOUT5.Location = new System.Drawing.Point(10, 570);
             this.LAYOUT5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT5.Name = "LAYOUT5";
-            this.LAYOUT5.Size = new System.Drawing.Size(50, 10);
+            this.LAYOUT5.Size = new System.Drawing.Size(380, 10);
             this.LAYOUT5.TabIndex = 15;
             // 
             // logoutButton
@@ -137,7 +137,7 @@
             this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.logoutButton.Size = new System.Drawing.Size(50, 50);
+            this.logoutButton.Size = new System.Drawing.Size(380, 50);
             this.logoutButton.TabIndex = 14;
             this.logoutButton.Text = "Log Out";
             this.logoutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -153,7 +153,7 @@
             this.LAYOUT6.Location = new System.Drawing.Point(10, 630);
             this.LAYOUT6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT6.Name = "LAYOUT6";
-            this.LAYOUT6.Size = new System.Drawing.Size(50, 10);
+            this.LAYOUT6.Size = new System.Drawing.Size(380, 10);
             this.LAYOUT6.TabIndex = 13;
             // 
             // settingsButton
@@ -173,7 +173,7 @@
             this.settingsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.settingsButton.Size = new System.Drawing.Size(50, 50);
+            this.settingsButton.Size = new System.Drawing.Size(380, 50);
             this.settingsButton.TabIndex = 12;
             this.settingsButton.Text = "Settings";
             this.settingsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -200,7 +200,7 @@
             this.reportsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reportsButton.Name = "reportsButton";
             this.reportsButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.reportsButton.Size = new System.Drawing.Size(50, 50);
+            this.reportsButton.Size = new System.Drawing.Size(380, 50);
             this.reportsButton.TabIndex = 11;
             this.reportsButton.Text = "Reports";
             this.reportsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -227,7 +227,7 @@
             this.usersButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usersButton.Name = "usersButton";
             this.usersButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.usersButton.Size = new System.Drawing.Size(50, 50);
+            this.usersButton.Size = new System.Drawing.Size(380, 50);
             this.usersButton.TabIndex = 10;
             this.usersButton.Text = "Users";
             this.usersButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,7 +254,7 @@
             this.circulationsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.circulationsButton.Name = "circulationsButton";
             this.circulationsButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.circulationsButton.Size = new System.Drawing.Size(50, 50);
+            this.circulationsButton.Size = new System.Drawing.Size(380, 50);
             this.circulationsButton.TabIndex = 9;
             this.circulationsButton.Text = "Circulations";
             this.circulationsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -281,7 +281,7 @@
             this.libraryButton.Margin = new System.Windows.Forms.Padding(0);
             this.libraryButton.Name = "libraryButton";
             this.libraryButton.Padding = new System.Windows.Forms.Padding(51, 0, 0, 0);
-            this.libraryButton.Size = new System.Drawing.Size(50, 50);
+            this.libraryButton.Size = new System.Drawing.Size(380, 50);
             this.libraryButton.TabIndex = 8;
             this.libraryButton.Text = "Library";
             this.libraryButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -297,7 +297,7 @@
             this.LAYOUT4.Location = new System.Drawing.Point(10, 202);
             this.LAYOUT4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT4.Name = "LAYOUT4";
-            this.LAYOUT4.Size = new System.Drawing.Size(50, 10);
+            this.LAYOUT4.Size = new System.Drawing.Size(380, 10);
             this.LAYOUT4.TabIndex = 7;
             // 
             // LAYOUT_LINE1
@@ -307,7 +307,7 @@
             this.LAYOUT_LINE1.Location = new System.Drawing.Point(10, 200);
             this.LAYOUT_LINE1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_LINE1.Name = "LAYOUT_LINE1";
-            this.LAYOUT_LINE1.Size = new System.Drawing.Size(50, 2);
+            this.LAYOUT_LINE1.Size = new System.Drawing.Size(380, 2);
             this.LAYOUT_LINE1.TabIndex = 6;
             // 
             // LAYOUT3
@@ -316,50 +316,29 @@
             this.LAYOUT3.Location = new System.Drawing.Point(10, 190);
             this.LAYOUT3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT3.Name = "LAYOUT3";
-            this.LAYOUT3.Size = new System.Drawing.Size(50, 10);
+            this.LAYOUT3.Size = new System.Drawing.Size(380, 10);
             this.LAYOUT3.TabIndex = 5;
             // 
             // LAYOUT_ACCOUNT
             // 
-            this.LAYOUT_ACCOUNT.Controls.Add(this.viewButton);
+            this.LAYOUT_ACCOUNT.Controls.Add(this.nameLabel1);
             this.LAYOUT_ACCOUNT.Controls.Add(this.nameLabel);
             this.LAYOUT_ACCOUNT.Controls.Add(this.accountPictureBox);
             this.LAYOUT_ACCOUNT.Dock = System.Windows.Forms.DockStyle.Top;
             this.LAYOUT_ACCOUNT.Location = new System.Drawing.Point(10, 140);
             this.LAYOUT_ACCOUNT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_ACCOUNT.Name = "LAYOUT_ACCOUNT";
-            this.LAYOUT_ACCOUNT.Size = new System.Drawing.Size(50, 50);
+            this.LAYOUT_ACCOUNT.Size = new System.Drawing.Size(380, 50);
             this.LAYOUT_ACCOUNT.TabIndex = 4;
-            // 
-            // viewButton
-            // 
-            this.viewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.viewButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
-            this.viewButton.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.viewButton.BorderRadius = 20;
-            this.viewButton.BorderSize = 0;
-            this.viewButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewButton.FlatAppearance.BorderSize = 0;
-            this.viewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.viewButton.Font = new System.Drawing.Font("Montserrat Medium", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.viewButton.Location = new System.Drawing.Point(50, 25);
-            this.viewButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.viewButton.Name = "viewButton";
-            this.viewButton.Size = new System.Drawing.Size(0, 25);
-            this.viewButton.TabIndex = 2;
-            this.viewButton.Text = "View";
-            this.viewButton.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.viewButton.UseVisualStyleBackColor = false;
             // 
             // nameLabel
             // 
             this.nameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.nameLabel.Font = new System.Drawing.Font("Montserrat ExtraBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.nameLabel.Location = new System.Drawing.Point(50, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(0, 25);
+            this.nameLabel.Size = new System.Drawing.Size(330, 25);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "My Account";
             this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -386,7 +365,7 @@
             this.LAYOUT2.Location = new System.Drawing.Point(10, 130);
             this.LAYOUT2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT2.Name = "LAYOUT2";
-            this.LAYOUT2.Size = new System.Drawing.Size(50, 10);
+            this.LAYOUT2.Size = new System.Drawing.Size(380, 10);
             this.LAYOUT2.TabIndex = 3;
             // 
             // LAYOUT_LOGO
@@ -396,7 +375,7 @@
             this.LAYOUT_LOGO.Location = new System.Drawing.Point(10, 70);
             this.LAYOUT_LOGO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_LOGO.Name = "LAYOUT_LOGO";
-            this.LAYOUT_LOGO.Size = new System.Drawing.Size(50, 60);
+            this.LAYOUT_LOGO.Size = new System.Drawing.Size(380, 60);
             this.LAYOUT_LOGO.TabIndex = 2;
             // 
             // logoPictureBox
@@ -406,7 +385,7 @@
             this.logoPictureBox.Location = new System.Drawing.Point(0, 0);
             this.logoPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(50, 60);
+            this.logoPictureBox.Size = new System.Drawing.Size(380, 60);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
@@ -417,7 +396,7 @@
             this.LAYOUT1.Location = new System.Drawing.Point(10, 60);
             this.LAYOUT1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT1.Name = "LAYOUT1";
-            this.LAYOUT1.Size = new System.Drawing.Size(50, 10);
+            this.LAYOUT1.Size = new System.Drawing.Size(380, 10);
             this.LAYOUT1.TabIndex = 1;
             // 
             // LAYOUT_sidebarButton
@@ -429,7 +408,7 @@
             this.LAYOUT_sidebarButton.Location = new System.Drawing.Point(10, 10);
             this.LAYOUT_sidebarButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_sidebarButton.Name = "LAYOUT_sidebarButton";
-            this.LAYOUT_sidebarButton.Size = new System.Drawing.Size(50, 50);
+            this.LAYOUT_sidebarButton.Size = new System.Drawing.Size(380, 50);
             this.LAYOUT_sidebarButton.TabIndex = 0;
             // 
             // dashboardLabel
@@ -439,7 +418,7 @@
             this.dashboardLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
             this.dashboardLabel.Location = new System.Drawing.Point(50, 0);
             this.dashboardLabel.Name = "dashboardLabel";
-            this.dashboardLabel.Size = new System.Drawing.Size(0, 50);
+            this.dashboardLabel.Size = new System.Drawing.Size(330, 50);
             this.dashboardLabel.TabIndex = 1;
             this.dashboardLabel.Text = "Dashboard";
             this.dashboardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -469,7 +448,7 @@
             // 
             this.LAYOUT_SIDEBAR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
             this.LAYOUT_SIDEBAR.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LAYOUT_SIDEBAR.Location = new System.Drawing.Point(70, 0);
+            this.LAYOUT_SIDEBAR.Location = new System.Drawing.Point(400, 0);
             this.LAYOUT_SIDEBAR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LAYOUT_SIDEBAR.Name = "LAYOUT_SIDEBAR";
             this.LAYOUT_SIDEBAR.Size = new System.Drawing.Size(3, 650);
@@ -481,10 +460,10 @@
             this.PANEL_HEADER.Controls.Add(this.PANEL_headerContents);
             this.PANEL_HEADER.Controls.Add(this.PANEL_controlBox);
             this.PANEL_HEADER.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PANEL_HEADER.Location = new System.Drawing.Point(73, 0);
+            this.PANEL_HEADER.Location = new System.Drawing.Point(403, 0);
             this.PANEL_HEADER.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PANEL_HEADER.Name = "PANEL_HEADER";
-            this.PANEL_HEADER.Size = new System.Drawing.Size(887, 50);
+            this.PANEL_HEADER.Size = new System.Drawing.Size(557, 50);
             this.PANEL_HEADER.TabIndex = 2;
             this.PANEL_HEADER.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PANEL_HEADER_MouseDown);
             // 
@@ -493,7 +472,7 @@
             this.PANEL_headerContents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PANEL_headerContents.Location = new System.Drawing.Point(0, 0);
             this.PANEL_headerContents.Name = "PANEL_headerContents";
-            this.PANEL_headerContents.Size = new System.Drawing.Size(732, 50);
+            this.PANEL_headerContents.Size = new System.Drawing.Size(402, 50);
             this.PANEL_headerContents.TabIndex = 1;
             this.PANEL_headerContents.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PANEL_headerContents_MouseDown);
             // 
@@ -504,7 +483,7 @@
             this.PANEL_controlBox.Controls.Add(this.maximizeButton);
             this.PANEL_controlBox.Controls.Add(this.minimizeButton);
             this.PANEL_controlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PANEL_controlBox.Location = new System.Drawing.Point(732, 0);
+            this.PANEL_controlBox.Location = new System.Drawing.Point(402, 0);
             this.PANEL_controlBox.Name = "PANEL_controlBox";
             this.PANEL_controlBox.Size = new System.Drawing.Size(155, 50);
             this.PANEL_controlBox.TabIndex = 0;
@@ -580,10 +559,10 @@
             this.PANEL_CONTAINER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.PANEL_CONTAINER.Controls.Add(this.PANEL_CONTENTS);
             this.PANEL_CONTAINER.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PANEL_CONTAINER.Location = new System.Drawing.Point(73, 50);
+            this.PANEL_CONTAINER.Location = new System.Drawing.Point(403, 50);
             this.PANEL_CONTAINER.Name = "PANEL_CONTAINER";
             this.PANEL_CONTAINER.Padding = new System.Windows.Forms.Padding(20);
-            this.PANEL_CONTAINER.Size = new System.Drawing.Size(887, 600);
+            this.PANEL_CONTAINER.Size = new System.Drawing.Size(557, 600);
             this.PANEL_CONTAINER.TabIndex = 3;
             // 
             // PANEL_CONTENTS
@@ -595,8 +574,20 @@
             this.PANEL_CONTENTS.Location = new System.Drawing.Point(20, 20);
             this.PANEL_CONTENTS.Name = "PANEL_CONTENTS";
             this.PANEL_CONTENTS.Radius = 20;
-            this.PANEL_CONTENTS.Size = new System.Drawing.Size(847, 560);
+            this.PANEL_CONTENTS.Size = new System.Drawing.Size(517, 560);
             this.PANEL_CONTENTS.TabIndex = 0;
+            // 
+            // nameLabel1
+            // 
+            this.nameLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nameLabel1.Font = new System.Drawing.Font("Montserrat ExtraBold", 8.249999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(211)))), ((int)(((byte)(102)))));
+            this.nameLabel1.Location = new System.Drawing.Point(50, 25);
+            this.nameLabel1.Name = "nameLabel1";
+            this.nameLabel1.Size = new System.Drawing.Size(330, 25);
+            this.nameLabel1.TabIndex = 2;
+            this.nameLabel1.Text = "Reach Mound";
+            this.nameLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FORM_SIDEBAR
             // 
@@ -639,7 +630,6 @@
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Panel LAYOUT2;
         private System.Windows.Forms.Panel LAYOUT_ACCOUNT;
-        private roundedCorners.roundedButton viewButton;
         private System.Windows.Forms.Label nameLabel;
         private custom.RoundedPictureBox accountPictureBox;
         private System.Windows.Forms.Panel LAYOUT_LINE1;
@@ -662,5 +652,6 @@
         private sidebarComponents.sidebarButton maximizeButton;
         private System.Windows.Forms.Panel PANEL_CONTAINER;
         public RoundedCorners.RoundedPanel PANEL_CONTENTS;
+        private System.Windows.Forms.Label nameLabel1;
     }
 }
