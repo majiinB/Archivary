@@ -298,6 +298,7 @@ namespace Archivary.SUB_FORMS
 
         private void returnButton_Click(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             List<Book> selectedBooks = GetSelectedBooks();
             if (teacher != null && student == null)
             {
@@ -305,6 +306,7 @@ namespace Archivary.SUB_FORMS
                 {
                     Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 }
+                TimerOpersys.Stop();
                 FORM_ALERT successTeacher = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
                 successTeacher.TopMost = true;
                 successTeacher.Show();
@@ -319,6 +321,7 @@ namespace Archivary.SUB_FORMS
             {
                 if (borrowerId == -1)
                 {
+                    TimerOpersys.Stop();
                     FORM_ALERT alert = new FORM_ALERT(1, "NO USER", "You cannot return books without an user.");
                     alert.TopMost = true;
                     alert.Show();
@@ -326,6 +329,7 @@ namespace Archivary.SUB_FORMS
                 }
                 if (selectedBooks.Count == 0)
                 {
+                    TimerOpersys.Stop();
                     FORM_ALERT alert = new FORM_ALERT(1, "NO BOOKS", "You must select a book to return first.");
                     alert.TopMost = true;
                     alert.Show();
@@ -363,6 +367,7 @@ namespace Archivary.SUB_FORMS
                 {
                     Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.SetBorrowedBookToReturned(book, borrowerId, user is Admin admin ? admin.AdminUserId : ((Employee)user).EmployeeUserId);
                 }
+                TimerOpersys.Stop();
                 FORM_ALERT success = new FORM_ALERT(3, "BOOKS RETURNED", "Successfully returned books");
                 success.TopMost = true;
                 success.Show();
@@ -372,6 +377,8 @@ namespace Archivary.SUB_FORMS
                 bookOverdueStatus = Archivary.BACKEND.BOOK_OPERATIONS.BookOperation.IdentifyOverdueOrNotBooks(borrowerId);
                 LoadBorrowedReservedBooks();
             }
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
 
         private List<DateTime> GetSpecificBookBorrowedDates(List<Book> selectedBooks)
