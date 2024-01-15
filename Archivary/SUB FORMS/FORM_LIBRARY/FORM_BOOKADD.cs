@@ -1,8 +1,10 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
 using Archivary.BACKEND.TIMER;
+using Archivary.BACKEND.Validations;
 using Archivary.PARENT_FORMS;
 using CustomDropdown;
+using RoundedCorners;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,17 +51,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private void ISBNTextbox_TextChanged(object sender, EventArgs e)
         {
-            StringBuilder result = new StringBuilder();
-
-            foreach (char letter in ISBNTextbox.Text)
-            {
-                if (char.IsDigit(letter))
-                {
-                    result.Append(letter);
-                }
-            }
-
-            ISBNTextbox.Text = result.ToString();
+            TextboxValidation.NumberBox(ISBNTextbox);
         }
 
         private void uploadImageButton_Click(object sender, EventArgs e)
@@ -87,8 +79,9 @@ namespace Archivary._1500X1000.FORM_LIBRARY
 
         private async void saveInfoButton_Click(object sender, EventArgs e)
         {
+            RoundedTextBox[] boxes = { ISBNTextbox, publisherTextbox, authorLNTextbox, authorFNTextbox, authorMITextbox, copyrightTextbox, aisleTextbox, shelfTextbox };
             TimerOpersys.Start();
-            if (CheckIfTextBoxesAreEmpty())
+            if (TextboxValidation.CheckIfTextBoxesAreEmpty(boxes))
             {
                 TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(1, "EMPTY TEXT", "You cannot save info with empty textboxes.");
@@ -96,7 +89,7 @@ namespace Archivary._1500X1000.FORM_LIBRARY
                 alert.Show();
                 return;
             }
-            if (CheckIfCategoryIsUnchanged())
+            if (CategoryValidation.CheckIfCategoryIsUnchanged(categoryDropdown, genreDropdown))
             {
                 TimerOpersys.Stop();
                 FORM_ALERT alert = new FORM_ALERT(1, "NO CATEGORY/GENRE", "Select a category and then genre first.");
@@ -116,24 +109,6 @@ namespace Archivary._1500X1000.FORM_LIBRARY
             this.Dispose();
             
             
-        }
-
-        private bool CheckIfTextBoxesAreEmpty()
-        {
-            return string.IsNullOrEmpty(titleTextbox.Text) ||
-                   string.IsNullOrEmpty(ISBNTextbox.Text) ||
-                   string.IsNullOrEmpty(publisherTextbox.Text) ||
-                   string.IsNullOrEmpty(authorLNTextbox.Text) ||
-                   string.IsNullOrEmpty(authorFNTextbox.Text) ||
-                   string.IsNullOrEmpty(authorMITextbox.Text) ||
-                   string.IsNullOrEmpty(copyrightTextbox.Text) ||
-                   string.IsNullOrEmpty(aisleTextbox.Text) ||
-                   string.IsNullOrEmpty(shelfTextbox.Text);
-        }
-
-        private bool CheckIfCategoryIsUnchanged()
-        {
-            return categoryDropdown.Text.Equals("Category") || genreDropdown.Text.Equals("Genre");
         }
 
         private void OpenMenu(DropdownMenu dropdown, object sender)
