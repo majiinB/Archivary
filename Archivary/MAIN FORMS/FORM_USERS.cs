@@ -17,6 +17,7 @@ using System.Collections;
 using Archivary.BACKEND.BOOK_OPERATIONS;
 using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.TIMER;
 
 namespace Archivary.PARENT_FORMS
 {
@@ -296,8 +297,11 @@ namespace Archivary.PARENT_FORMS
         }
         private void Search(object sender, EventArgs e)
         {
+            TimerOpersys.Start();
             searchKey = searchBar.Text;
             SearchUsers(searchKey);
+            TimerOpersys.Stop();
+            if (TimerOpersys.IsEnabled) TimerOpersys.DisplayElapsedTime();
         }
         //Search method
         public ArrayList SearchUsers(string searchString)
