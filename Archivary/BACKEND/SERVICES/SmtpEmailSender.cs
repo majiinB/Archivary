@@ -36,7 +36,8 @@ namespace Archivary.BACKEND.SERVICES
 
             // Set the port and credentials
             smtpClient.Port = 587;
-            smtpClient.Credentials = new NetworkCredential(_senderEmail, _senderPassword);
+            smtpClient.Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("SENDER_EMAIL"),
+                Environment.GetEnvironmentVariable("SENDER_PASSWORD"));
             smtpClient.EnableSsl = true;
 
             // Send the email
