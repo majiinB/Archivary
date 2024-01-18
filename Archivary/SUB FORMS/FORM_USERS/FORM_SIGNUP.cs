@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.SERVICES;
 using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using custom;
@@ -415,9 +416,28 @@ namespace Archivary._1200X800.FORM_USERS
                             ))
                         {
                             TimerOpersys.Stop();
-                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                            try
+                            {
+                                DotNetEnv.Env.Load();
+                                MessageBox.Show($"Current Directory: {Environment.CurrentDirectory}");
+                                var senderEmail = Environment.GetEnvironmentVariable("SENDER_EMAIL");
+                                var senderPass = Environment.GetEnvironmentVariable("SENDER_PASSWORD");
+                                IEmailSender emailSender = new SmtpEmailSender(senderEmail, senderPass);
+
+                                emailSender.SendEmail(
+                                        emailTextBox.Text,
+                                        "Librarian Account Creation Successfull",
+                                        emailSender.EmployeeCreationMessage(firstNameTextBox.Text + " " + middleInitialTextBox.Text + ". "+ lastNameTextBox.Text, password)
+                                    );
+                                alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Librarian Credentials was sent to his/her email account");
+                                alert.ShowDialog();
+                            }
+                            catch(Exception ex)
+                            {
+                                alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nSENDING OF CREDENTIALS THROUGH EMAIL FAILED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
                                 "Employee password is : " + password);
-                            alert.ShowDialog();
+                                alert.ShowDialog();
+                            }
                             ClearAllTextBoxes(this);
                         }
                         else
