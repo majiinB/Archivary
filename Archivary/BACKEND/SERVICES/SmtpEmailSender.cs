@@ -48,19 +48,19 @@ namespace Archivary.BACKEND.SERVICES
         public string EmployeeCreationMessage(string employeeName, string employeePass)
         {
             string librarianEmailTemplate = @"
-                Dear [LibrarianName],
+            Dear [LibrarianName],
 
-                Welcome to our library system! Your account has been created successfully.
+            Welcome to our library system! Your account has been created successfully.
 
-                Account Details:
-                - Librarian Name: [LibrarianName]
-                - Account Password: [Password]
+            Account Details:
+            - Librarian Name: [LibrarianName]
+            - Account Password: [Password]
 
-                Please keep your login information confidential. If you have any questions or concerns, feel free to contact our support team.
+            Please keep your login information confidential. If you have any questions or concerns, feel free to contact our support team.
 
-                Best regards,
-                Archivary Libarary Management System
-                ";
+            Best regards,
+            Archivary Library Management System
+            ";
 
             string emailBody = librarianEmailTemplate
                 .Replace("[LibrarianName]", employeeName)
