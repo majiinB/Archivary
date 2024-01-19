@@ -419,7 +419,6 @@ namespace Archivary._1200X800.FORM_USERS
                             try
                             {
                                 DotNetEnv.Env.Load();
-                                MessageBox.Show($"Current Directory: {Environment.CurrentDirectory}");
                                 var senderEmail = Environment.GetEnvironmentVariable("SENDER_EMAIL");
                                 var senderPass = Environment.GetEnvironmentVariable("SENDER_PASSWORD");
                                 IEmailSender emailSender = new SmtpEmailSender(senderEmail, senderPass);

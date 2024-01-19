@@ -11,7 +11,7 @@ namespace Archivary.BACKEND.SERVICES
 {
     public interface IEmailSender
     {
-        void SendEmail(string recipientEmail, string subject, string body);
+        Task SendEmail(string recipientEmail, string subject, string body);
         string EmployeeCreationMessage(string employeeName, string employeePass);
     }
 
@@ -26,27 +26,23 @@ namespace Archivary.BACKEND.SERVICES
             _senderPassword = senderPassword;
         }
 
-        public void SendEmail(string recipientEmail, string subject, string body)
+        public async Task SendEmail(string recipientEmail, string subject, string body)
         {
-            // Create a new MailMessage
-            MailMessage mail = new MailMessage(_senderEmail, recipientEmail);
-            mail.Subject = subject;
-            mail.Body = body;
+            using (MailMessage mail = new MailMessage(_senderEmail, recipientEmail))
+            {
+                mail.Subject = subject;
+                mail.Body = body;
 
-            // Create a new SmtpClient
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"))
+                {
+                    smtpClient.Port = 587;
+                    smtpClient.Credentials = new NetworkCredential(_senderEmail, _senderPassword);
+                    smtpClient.EnableSsl = true;
 
-            // Set the port and credentials
-            smtpClient.Port = 587;
-            smtpClient.Credentials = new NetworkCredential(_senderEmail, _senderPassword);
-            smtpClient.EnableSsl = true;
-
-            // Send the email
-            smtpClient.Send(mail);
-
-            // Dispose of the SmtpClient and MailMessage objects
-            smtpClient.Dispose();
-            mail.Dispose();
+                    // Send the email asynchronously
+                    await smtpClient.SendMailAsync(mail);
+                }
+            }
         }
 
         public string EmployeeCreationMessage(string employeeName, string employeePass)
