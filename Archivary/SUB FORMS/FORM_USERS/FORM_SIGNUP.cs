@@ -1,5 +1,6 @@
 ﻿using Archivary._900X500;
 using Archivary.BACKEND.OBJECTS;
+using Archivary.BACKEND.SERVICES;
 using Archivary.BACKEND.TIMER;
 using Archivary.BACKEND.USER_OPERATIONS;
 using custom;
@@ -407,7 +408,7 @@ namespace Archivary._1200X800.FORM_USERS
                                 emailTextBox.Text,
                                 lastNameTextBox.Text,
                                 firstNameTextBox.Text,                 
-                                middleInitialTextBox.Text.ToUpper().Trim(','),             
+                                middleInitialTextBox.Text.ToUpper().Trim('.'),             
                                 address,
                                 contactNumberTextBox.Text,
                                 (int)UserOperation.UserLevel.Employee,
@@ -415,9 +416,34 @@ namespace Archivary._1200X800.FORM_USERS
                             ))
                         {
                             TimerOpersys.Stop();
-                            alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "Employee: " + lastNameTextBox.Text + " Successfully added!\n" +
+                            try
+                            {
+                                //Load environment variables
+                                DotNetEnv.Env.Load(); 
+                                var senderEmail = Environment.GetEnvironmentVariable("SENDER_EMAIL");
+                                var senderPass = Environment.GetEnvironmentVariable("SENDER_PASSWORD");
+
+                                //Create email sender instance
+                                IEmailSender emailSender = new SmtpEmailSender(senderEmail, senderPass);
+
+                                //call emailSender SendEmail method to send the email with the corresponding credentials
+                                emailSender.SendEmail(
+                                        emailTextBox.Text,
+                                        "Librarian Account Creation Successfull",
+                                        emailSender.EmployeeCreationMessage(firstNameTextBox.Text + " " + middleInitialTextBox.Text + ". "+ lastNameTextBox.Text, password)
+                                    );
+
+                                //alert the user for succesful transaction
+                                alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED", "Librarian Credentials was sent to his/her email account");
+                                alert.ShowDialog();
+                            }
+                            catch(Exception ex)
+                            {
+                                //Email sending failed so credentials will be shown in the alert box
+                                alert = new FORM_ALERT(3, "USER SUCCESSFULLY ADDED\nREAD CAREFULLY", "SENDING OF CREDENTIALS THROUGH EMAIL FAILED\n\nEmployee: " + lastNameTextBox.Text + " Successfully added!\n" +
                                 "Employee password is : " + password);
-                            alert.ShowDialog();
+                                alert.ShowDialog();
+                            }
                             ClearAllTextBoxes(this);
                         }
                         else

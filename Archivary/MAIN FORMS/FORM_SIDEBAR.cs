@@ -63,11 +63,15 @@ namespace Archivary
             {
                 Admin admin = (Admin)user;
                 SetPictureBoxImage(admin.AdminImagePath);
+                nameLabel.Text = "Hello Admin!";
+                nameLabel1.Text = admin.AdminFirstName + " " + admin.AdminMiddleName + ". " + admin.AdminLastName;
             }
             else
             {
                 Employee employee = (Employee)user;
                 SetPictureBoxImage(employee.EmployeeImagePath);
+                nameLabel.Text = "Hello Librarian!";
+                nameLabel1.Text = employee.EmployeeFirstName + " " + employee.EmployeeMiddleName + ". " + employee.EmployeeLastName;
             }
         }
         private void SetPictureBoxImage(string imagePath)
@@ -478,13 +482,17 @@ namespace Archivary
         //Subscribe to form setting event
         private void FormSetting_SaveButtonClicked(object sender, EventArgs e)
         {
-            if(user is Admin admin)
+            if (user is Admin admin)
             {
                 SetPictureBoxImage(admin.AdminImagePath);
+                nameLabel.Text = "Hello Admin!";
+                nameLabel1.Text = admin.AdminFirstName + " " + admin.AdminMiddleName + ". " + admin.AdminLastName;
             }
-            else if(user is Employee employee)
+            else if (user is Employee employee)
             {
                 SetPictureBoxImage(employee.EmployeeImagePath);
+                nameLabel.Text = "Hello Librarian!";
+                nameLabel1.Text = employee.EmployeeFirstName + " " + employee.EmployeeMiddleName + ". " + employee.EmployeeLastName;
             }
         }
 
