@@ -16,7 +16,7 @@ Archivary is an advanced library management system designed to provide a seamles
 - **Manage Inventory**: Update book statuses and ensure the catalog is up-to-date.
 - **Handle Returns**: Process returned books and update the system accordingly.
 
-### For Patrons
+### For Patrons (Teachers and Students)
 - **Search Books**: Find books available in the library by title, author, genre, and other criteria.
 - **Make Reservations**: Reserve books for future borrowing.
 - **Borrow Books**: Keep track of the books you have borrowed and their due dates.
